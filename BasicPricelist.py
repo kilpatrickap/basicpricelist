@@ -5,7 +5,7 @@ import openpyxl
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
-                             QMessageBox, QFileDialog)
+                             QMessageBox, QFileDialog, QComboBox)
 
 class BasicPricelist(QMainWindow):
     def __init__(self):
@@ -20,6 +20,21 @@ class BasicPricelist(QMainWindow):
         self.setGeometry(100, 100, 800, 600)
 
         main_layout = QVBoxLayout()
+
+        # Search Bar
+        search_layout = QHBoxLayout()
+        self.search_input = QLineEdit()
+        self.search_input.setPlaceholderText("Search materials...")
+        self.search_input.textChanged.connect(self.search_materials)
+        search_layout.addWidget(self.search_input)
+
+        # Sort Options
+        self.sort_combo = QComboBox()
+        self.sort_combo.addItems(['Sort by Mat ID', 'Sort by Trade', 'Sort by Material', 'Sort by Price'])
+        self.sort_combo.currentIndexChanged.connect(self.sort_materials)
+        search_layout.addWidget(self.sort_combo)
+
+        main_layout.addLayout(search_layout)
 
         # Material List Table
         self.table = QTableWidget()
@@ -86,6 +101,38 @@ class BasicPricelist(QMainWindow):
         for row_num, row_data in enumerate(rows):
             for col_num, data in enumerate(row_data[1:]):  # Skip the id column
                 self.table.setItem(row_num, col_num, QTableWidgetItem(str(data)))
+
+    def populate_table(self, rows):
+        """Populates the table with data."""
+        self.table.setRowCount(len(rows))
+        for row_num, row_data in enumerate(rows):
+            for col_num, data in enumerate(row_data[1:]):  # Skip the id column
+                self.table.setItem(row_num, col_num, QTableWidgetItem(str(data)))
+
+    def search_materials(self):
+        """Searches for materials based on user input."""
+        search_text = self.search_input.text().lower()
+        self.c.execute('SELECT * FROM materials')
+        rows = self.c.fetchall()
+        filtered_rows = [row for row in rows if search_text in row[1].lower() or  # Trade
+                         search_text in row[2].lower() or  # Material name
+                         search_text in row[3].lower()]  # Currency
+        self.populate_table(filtered_rows)
+
+    def sort_materials(self):
+        """Sorts the materials based on the selected criteria."""
+        sort_index = self.sort_combo.currentIndex()
+        sort_column = 'mat_id'
+        if sort_index == 1:
+            sort_column = 'trade'
+        elif sort_index == 2:
+            sort_column = 'material_name'
+        elif sort_index == 3:
+            sort_column = 'price'
+
+        self.c.execute(f'SELECT * FROM materials ORDER BY {sort_column}')
+        rows = self.c.fetchall()
+        self.populate_table(rows)
 
     def export_to_excel(self):
         """Exports the data to an Excel file."""
