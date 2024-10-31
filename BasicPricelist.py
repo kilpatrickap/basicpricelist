@@ -52,9 +52,9 @@ class BasicPricelist(QMainWindow):
         """Initializes the SQLite database."""
         self.conn = sqlite3.connect('materials.db')
         self.c = self.conn.cursor()
-        # Drop the table if it exists (use with caution!)
-        self.c.execute('DROP TABLE IF EXISTS materials')
-        self.c.execute('''CREATE TABLE materials (
+
+        # Create the table only if it does not exist
+        self.c.execute('''CREATE TABLE IF NOT EXISTS materials (
             id INTEGER PRIMARY KEY,
             mat_id TEXT UNIQUE,
             trade TEXT,
@@ -67,7 +67,7 @@ class BasicPricelist(QMainWindow):
             vendor_email TEXT
         )''')
         self.conn.commit()
-        self.load_data()
+        self.load_data()  # Load data after the table has been initialized
 
     def load_data(self):
         """Loads data from the database into the table."""
@@ -190,15 +190,23 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Selection Error", "Please select a material to delete.")
             return
 
-        mat_id = self.table.item(selected_row, 0).text()  # Get the Mat ID
-        reply = QMessageBox.question(self, "Confirm Delete", "Are you sure you want to delete this material?",
-                                     QMessageBox.Yes | QMessageBox.No)
+        mat_id_item = self.table.item(selected_row, 0)
+        if mat_id_item is None:
+            QMessageBox.warning(self, "Selection Error", "Could not find the selected material.")
+            return
 
-        if reply == QMessageBox.Yes:
-            self.c.execute('DELETE FROM materials WHERE mat_id=?', (mat_id,))
-            self.conn.commit()
-            QMessageBox.information(self, "Success", "Material deleted successfully.")
-            self.load_data()
+        mat_id = mat_id_item.text()  # Get the Mat ID
+        reply = QMessageBox.question(self, "Confirm Delete", "Are you sure you want to delete this material?",
+                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+
+        if reply == QMessageBox.StandardButton.Yes:
+            try:
+                self.c.execute('DELETE FROM materials WHERE mat_id=?', (mat_id,))
+                self.conn.commit()
+                QMessageBox.information(self, "Success", "Material deleted successfully.")
+                self.load_data()  # Refresh the table data after deletion
+            except sqlite3.Error as e:
+                QMessageBox.critical(self, "Database Error", f"An error occurred while deleting the material: {e}")
 
     def get_next_id(self):
         """Gets the next material ID based on the highest current ID."""
