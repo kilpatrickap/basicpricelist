@@ -229,13 +229,31 @@ class BasicPricelist(QMainWindow):
         vendor_phone = self.vendor_phone_input.text().strip()
         vendor_email = self.vendor_email_input.text().strip()
 
-        self.c.execute('''INSERT OR REPLACE INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email)
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
-                       (material_name, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email))
+        try:
+            # Generate mat_id automatically
+            self.c.execute('SELECT MAX(mat_id) FROM materials')
+            max_id = self.c.fetchone()[0]
+            if max_id is None:
+                new_mat_id = 'MAT-1'  # Start from 'MAT-1' if no materials exist
+            else:
+                # Extract the numeric part, increment it, and reformat it
+                numeric_part = int(max_id.split('-')[1])  # Split by '-' and get the numeric part
+                new_mat_id = f'MAT-{numeric_part + 1}'  # Increment and format
 
-        self.conn.commit()
-        self.load_data()  # Refresh data in the table
-        self.material_dialog.close()
+            # Insert the new material into the database
+            self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email)
+                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                           (
+                           new_mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email))
+
+            self.conn.commit()
+            self.load_data()  # Refresh data in the table
+            self.material_dialog.close()
+
+        except sqlite3.Error as e:
+            QMessageBox.critical(self, "Database Error", f"An error occurred while adding the material: {e}")
+        except Exception as e:
+            QMessageBox.critical(self, "Unexpected Error", f"An unexpected error occurred: {e}")
 
     def update_material(self, mat_id):
         """Updates an existing material in the database."""
