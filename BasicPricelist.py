@@ -165,6 +165,7 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Selection Error", "Please select a material to request a quotation.")
             return
         vendor_email = self.table.item(selected_row, 8).text()  # Adjusted for the new column
+        vendor_material = self.table.item(selected_row, 2).text()  # Adjusted for the new column
         rfq_dialog = QDialog(self)
         rfq_dialog.setWindowTitle("Request For Quotation")
         rfq_dialog.setGeometry(200, 200, 400, 300)
@@ -174,7 +175,8 @@ class BasicPricelist(QMainWindow):
         layout.addWidget(email_label)
         email_body = QTextEdit()
         email_body.setPlainText(
-            "Dear Vendor,\n\nI would like to request a quotation for the following materials...\n\nBest regards,\n[Your Name]")
+            f"Dear Vendor,\n\nI would like to request a quotation for the following materials...\n"
+            f"1. {vendor_material}\n\nBest regards,\n[Your Name]")
         layout.addWidget(email_body)
         rfq_dialog.setLayout(layout)
 
