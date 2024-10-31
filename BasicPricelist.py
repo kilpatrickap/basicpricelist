@@ -17,7 +17,7 @@ class BasicPricelist(QMainWindow):
     def initUI(self):
         """Sets up the user interface."""
         self.setWindowTitle('Basic Pricelist')
-        self.setGeometry(100, 100, 800, 600)
+        self.setGeometry(100, 100, 1000, 600)
 
         main_layout = QVBoxLayout()
 
@@ -54,17 +54,17 @@ class BasicPricelist(QMainWindow):
         edit_material_button.clicked.connect(self.open_edit_material_window)
         button_layout.addWidget(edit_material_button)
 
-        export_button = QPushButton('Export to Excel')
-        export_button.clicked.connect(self.export_to_excel)
-        button_layout.addWidget(export_button)
+        delete_button = QPushButton('Delete Material')
+        delete_button.clicked.connect(self.delete_material)
+        button_layout.addWidget(delete_button)
 
         rfq_button = QPushButton('RFQ')
         rfq_button.clicked.connect(self.open_rfq_window)
         button_layout.addWidget(rfq_button)
 
-        delete_button = QPushButton('Delete Material')
-        delete_button.clicked.connect(self.delete_material)
-        button_layout.addWidget(delete_button)
+        export_button = QPushButton('Export to Excel')
+        export_button.clicked.connect(self.export_to_excel)
+        button_layout.addWidget(export_button)
 
         main_layout.addLayout(button_layout)
 
