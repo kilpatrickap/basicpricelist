@@ -16,33 +16,10 @@ class BasicPricelist(QMainWindow):
 
     def initUI(self):
         """Sets up the user interface."""
-        self.setWindowTitle('Basic Pricelist')
+        self.setWindowTitle('Basic Prices Manager')
         self.setGeometry(100, 100, 1000, 600)
 
         main_layout = QVBoxLayout()
-
-        # Search Bar
-        search_layout = QHBoxLayout()
-        self.search_input = QLineEdit()
-        self.search_input.setPlaceholderText("Search materials...")
-        self.search_input.textChanged.connect(self.search_materials)
-        search_layout.addWidget(self.search_input)
-
-        # Sort Options
-        self.sort_combo = QComboBox()
-        self.sort_combo.addItems(['Sort by Mat ID', 'Sort by Trade', 'Sort by Vendor', 'Sort by Material', 'Sort by Price'])
-        self.sort_combo.currentIndexChanged.connect(self.sort_materials)
-        search_layout.addWidget(self.sort_combo)
-
-        main_layout.addLayout(search_layout)
-
-        # Material List Table
-        self.table = QTableWidget()
-        self.table.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        self.table.setColumnCount(9)
-        self.table.setHorizontalHeaderLabels(
-            ['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone', 'Email'])
-        main_layout.addWidget(self.table)
 
         # Buttons
         button_layout = QHBoxLayout()
@@ -67,6 +44,30 @@ class BasicPricelist(QMainWindow):
         button_layout.addWidget(export_button)
 
         main_layout.addLayout(button_layout)
+
+        # Search Bar
+        search_layout = QHBoxLayout()
+        self.search_input = QLineEdit()
+        self.search_input.setPlaceholderText("Search materials...")
+        self.search_input.textChanged.connect(self.search_materials)
+        search_layout.addWidget(self.search_input)
+
+        # Sort Options
+        self.sort_combo = QComboBox()
+        self.sort_combo.addItems(
+            ['Sort by Mat ID', 'Sort by Trade', 'Sort by Vendor', 'Sort by Material', 'Sort by Price'])
+        self.sort_combo.currentIndexChanged.connect(self.sort_materials)
+        search_layout.addWidget(self.sort_combo)
+
+        main_layout.addLayout(search_layout)
+
+        # Material List Table
+        self.table = QTableWidget()
+        self.table.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        self.table.setColumnCount(9)
+        self.table.setHorizontalHeaderLabels(
+            ['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone', 'Email'])
+        main_layout.addWidget(self.table)
 
         container = QWidget()
         container.setLayout(main_layout)
