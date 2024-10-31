@@ -1,6 +1,7 @@
 import sys
 import sqlite3
 import pandas as pd
+import openpyxl
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
@@ -81,17 +82,26 @@ class BasicPricelist(QMainWindow):
     def export_to_excel(self):
         """Exports the data to an Excel file."""
         file_path, _ = QFileDialog.getSaveFileName(self, "Save File", "", "Excel Files (*.xlsx);;All Files (*)")
-        if file_path:
+        if not file_path:  # Check if a file path was provided
+            return
+
+        try:
             data = []
             for row in range(self.table.rowCount()):
                 row_data = []
                 for col in range(self.table.columnCount()):
-                    row_data.append(self.table.item(row, col).text() if self.table.item(row, col) else "")
+                    item = self.table.item(row, col)
+                    row_data.append(item.text() if item is not None else "")  # Handle None items safely
                 data.append(row_data)
+
             df = pd.DataFrame(data,
                               columns=['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone',
                                        'Email'])
             df.to_excel(file_path, index=False)
+            QMessageBox.information(self, "Export Successful", f"Data exported successfully to {file_path}")
+
+        except Exception as e:
+            QMessageBox.critical(self, "Export Error", f"An error occurred during export: {e}")
 
     def open_rfq_window(self):
         """Opens the RFQ window with the vendor's email and a template message."""
