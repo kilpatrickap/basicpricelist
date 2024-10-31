@@ -34,15 +34,23 @@ class BasicPricelist(QMainWindow):
         new_material_button = QPushButton('New Material')
         new_material_button.clicked.connect(self.open_new_material_window)
         button_layout.addWidget(new_material_button)
+
+        edit_material_button = QPushButton('Edit Material')
+        edit_material_button.clicked.connect(self.open_edit_material_window)
+        button_layout.addWidget(edit_material_button)
+
         export_button = QPushButton('Export to Excel')
         export_button.clicked.connect(self.export_to_excel)
         button_layout.addWidget(export_button)
+
         rfq_button = QPushButton('RFQ')
         rfq_button.clicked.connect(self.open_rfq_window)
         button_layout.addWidget(rfq_button)
+
         delete_button = QPushButton('Delete Material')
         delete_button.clicked.connect(self.delete_material)
         button_layout.addWidget(delete_button)
+
         main_layout.addLayout(button_layout)
 
         container = QWidget()
@@ -157,6 +165,54 @@ class BasicPricelist(QMainWindow):
         self.material_dialog.setLayout(layout)
         self.material_dialog.exec()
 
+    def open_edit_material_window(self):
+        """Opens a window to edit the selected material."""
+        selected_row = self.table.currentRow()
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a material to edit.")
+            return
+
+        # Retrieve the data from the selected row
+        mat_id = self.table.item(selected_row, 0).text()
+        trade = self.table.item(selected_row, 1).text()
+        material_name = self.table.item(selected_row, 2).text()
+        currency = self.table.item(selected_row, 3).text()
+        price = self.table.item(selected_row, 4).text()
+        unit = self.table.item(selected_row, 5).text()
+        vendor = self.table.item(selected_row, 6).text()
+        vendor_phone = self.table.item(selected_row, 7).text()
+        vendor_email = self.table.item(selected_row, 8).text()
+
+        self.material_dialog = QDialog(self)
+        self.material_dialog.setWindowTitle("Edit Material")
+        self.material_dialog.setGeometry(200, 200, 300, 400)
+
+        layout = QFormLayout()
+        self.trade_input = QLineEdit(trade)
+        self.material_name_input = QLineEdit(material_name)
+        self.currency_input = QLineEdit(currency)
+        self.price_input = QLineEdit(price)
+        self.unit_input = QLineEdit(unit)
+        self.vendor_input = QLineEdit(vendor)
+        self.vendor_phone_input = QLineEdit(vendor_phone)
+        self.vendor_email_input = QLineEdit(vendor_email)
+
+        layout.addRow('Trade:', self.trade_input)
+        layout.addRow('Material:', self.material_name_input)
+        layout.addRow('Currency:', self.currency_input)
+        layout.addRow('Price:', self.price_input)
+        layout.addRow('Unit:', self.unit_input)
+        layout.addRow('Vendor:', self.vendor_input)
+        layout.addRow('Vendor Phone:', self.vendor_phone_input)
+        layout.addRow('Vendor Email:', self.vendor_email_input)
+
+        update_button = QPushButton('Update')
+        update_button.clicked.connect(lambda: self.update_material(mat_id))
+        layout.addWidget(update_button)
+
+        self.material_dialog.setLayout(layout)
+        self.material_dialog.exec()
+
     def add_or_update_material(self):
         """Adds or updates a material in the database."""
         try:
@@ -173,59 +229,73 @@ class BasicPricelist(QMainWindow):
         vendor_phone = self.vendor_phone_input.text().strip()
         vendor_email = self.vendor_email_input.text().strip()
 
-        if not all([trade, material_name, currency, unit, vendor, vendor_phone, vendor_email]):
-            QMessageBox.warning(self, "Input Error", "Please fill in all fields.")
-            return
-
-        mat_id = f'MAT-{self.get_next_id()}'
-
-        try:
-            self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email)
-                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
-                           (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email))
-            QMessageBox.information(self, "Success", "Material added successfully.")
-            self.material_dialog.close()  # Close the dialog
-        except sqlite3.IntegrityError:
-            QMessageBox.warning(self, "Database Error", "A material with this ID already exists.")
-        except sqlite3.Error as e:
-            QMessageBox.critical(self, "Database Error", f"An error occurred: {e}")
+        self.c.execute('''INSERT OR REPLACE INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                       (material_name, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email))
 
         self.conn.commit()
-        self.load_data()
+        self.load_data()  # Refresh data in the table
+        self.material_dialog.close()
 
-    def delete_material(self):
-        """Deletes the selected material from the database."""
-        selected_row = self.table.currentRow()
-        if selected_row == -1:
-            QMessageBox.warning(self, "Selection Error", "Please select a material to delete.")
+    def update_material(self, mat_id):
+        """Updates an existing material in the database."""
+        try:
+            price = float(self.price_input.text())
+        except ValueError:
+            QMessageBox.warning(self, "Input Error", "Please enter a valid number for the price.")
             return
 
-        mat_id_item = self.table.item(selected_row, 0)
+        trade = self.trade_input.text().strip()
+        material_name = self.material_name_input.text().strip()
+        currency = self.currency_input.text().strip()
+        unit = self.unit_input.text().strip()
+        vendor = self.vendor_input.text().strip()
+        vendor_phone = self.vendor_phone_input.text().strip()
+        vendor_email = self.vendor_email_input.text().strip()
+
+        self.c.execute('''UPDATE materials
+                        SET trade = ?, material_name = ?, currency = ?, price = ?, unit = ?, vendor = ?, vendor_phone = ?, vendor_email = ?
+                        WHERE mat_id = ?''',
+                       (trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, mat_id))
+
+        self.conn.commit()
+        self.load_data()  # Refresh data in the table
+        self.material_dialog.close()
+
+    def delete_material(self):
+        """Deletes the selected material from the database after user confirmation."""
+        selected_row = self.table.currentRow()
+
+        # Check if a material is selected
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a material before deleting.")
+            return
+
+        # Get the material ID of the selected row (assuming Mat ID is in the first column)
+        mat_id_item = self.table.item(selected_row, 0)  # Adjust index if necessary
         if mat_id_item is None:
-            QMessageBox.warning(self, "Selection Error", "Could not find the selected material.")
+            QMessageBox.warning(self, "Selection Error", "Could not retrieve Mat ID for the selected material.")
             return
 
         mat_id = mat_id_item.text()  # Get the Mat ID
-        reply = QMessageBox.question(self, "Confirm Delete", "Are you sure you want to delete this material?",
-                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+
+        # Confirmation dialog
+        reply = QMessageBox.question(self, "Confirm Deletion",
+                                     f"Are you sure you want to delete the material '{mat_id}'?",
+                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                                     QMessageBox.StandardButton.No)
 
         if reply == QMessageBox.StandardButton.Yes:
             try:
-                self.c.execute('DELETE FROM materials WHERE mat_id=?', (mat_id,))
+                self.c.execute('DELETE FROM materials WHERE mat_id = ?', (mat_id,))
                 self.conn.commit()
-                QMessageBox.information(self, "Success", "Material deleted successfully.")
-                self.load_data()  # Refresh the table data after deletion
+                self.load_data()  # Refresh data in the table
+                QMessageBox.information(self, "Success", f"Material '{mat_id}' deleted successfully.")
             except sqlite3.Error as e:
                 QMessageBox.critical(self, "Database Error", f"An error occurred while deleting the material: {e}")
 
-    def get_next_id(self):
-        """Gets the next material ID based on the highest current ID."""
-        self.c.execute('SELECT MAX(id) FROM materials')
-        max_id = self.c.fetchone()[0]
-        return (max_id + 1) if max_id is not None else 1
-
     def closeEvent(self, event):
-        """Closes the database connection when the application is closed."""
+        """Handles the closing of the main window."""
         self.conn.close()
         event.accept()
 
