@@ -30,7 +30,7 @@ class BasicPricelist(QMainWindow):
 
         # Sort Options
         self.sort_combo = QComboBox()
-        self.sort_combo.addItems(['Sort by Mat ID', 'Sort by Trade', 'Sort by Material', 'Sort by Price'])
+        self.sort_combo.addItems(['Sort by Mat ID', 'Sort by Trade', 'Sort by Vendor', 'Sort by Material', 'Sort by Price'])
         self.sort_combo.currentIndexChanged.connect(self.sort_materials)
         search_layout.addWidget(self.sort_combo)
 
