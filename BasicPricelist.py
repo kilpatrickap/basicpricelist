@@ -299,7 +299,7 @@ class BasicPricelist(QMainWindow):
         self.vendor_phone_input = QLineEdit(vendor_phone)
         self.vendor_email_input = QLineEdit(vendor_email)
         self.price_date_input = QDateEdit()  # New date input field
-        self.price_date_input.setDate(pd.to_datetime(price_date))  # Set the date input from current value
+        self.price_date_input.setDate(pd.to_datetime(price_date, dayfirst=True))  # Set the date input from current value
         self.price_date_input.setCalendarPopup(True)  # Show calendar popup for date selection
 
         layout.addRow('Trade:', self.trade_input)
