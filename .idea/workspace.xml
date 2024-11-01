@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="date format set to dayfirst=True.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="done for the day" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -305,7 +302,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730475291814</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="update_material: remove commas to convert to float.">
+      <option name="closed" value="true" />
+      <created>1730476213555</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1730476213555</updated>
+    </task>
+    <task id="LOCAL-00025" summary="done for the day">
+      <option name="closed" value="true" />
+      <created>1730477185733</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1730477185734</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -340,6 +353,8 @@
     <MESSAGE value="reset" />
     <MESSAGE value="e-mail field validated." />
     <MESSAGE value="date format set to dayfirst=True." />
-    <option name="LAST_COMMIT_MESSAGE" value="date format set to dayfirst=True." />
+    <MESSAGE value="update_material: remove commas to convert to float." />
+    <MESSAGE value="done for the day" />
+    <option name="LAST_COMMIT_MESSAGE" value="done for the day" />
   </component>
 </project>
