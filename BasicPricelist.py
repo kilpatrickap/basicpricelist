@@ -2,6 +2,7 @@ import sys
 import sqlite3
 import pandas as pd
 import openpyxl
+from PyQt6.QtCore import QDate
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
@@ -200,6 +201,7 @@ class BasicPricelist(QMainWindow):
         self.vendor_phone_input = QLineEdit()
         self.vendor_email_input = QLineEdit()
         self.price_date_input = QDateEdit()  # New date input field
+        self.price_date_input.setDate(QDate.currentDate())  # Set default date to today
         self.price_date_input.setCalendarPopup(True)  # Show calendar popup for date selection
 
         layout.addRow('Trade:', self.trade_input)
