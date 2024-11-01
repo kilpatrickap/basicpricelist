@@ -323,8 +323,8 @@ class BasicPricelist(QMainWindow):
         """Updates the selected material in the database."""
 
         try:
-            # Format price to two decimal places with commas, e.g., 1,000.00
-            price = float(self.price_input.text())
+            # Remove commas to safely convert to float
+            price = float(self.price_input.text().replace(',', ''))
             formatted_price = f"{price:,.2f}"
         except ValueError:
             QMessageBox.warning(self, "Input Error", "Please enter a valid number for the price.")
