@@ -2,6 +2,7 @@ import sys
 import sqlite3
 import pandas as pd
 import openpyxl
+import re
 from PyQt6.QtCore import QDate
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
@@ -221,6 +222,11 @@ class BasicPricelist(QMainWindow):
         self.material_dialog.setLayout(layout)
         self.material_dialog.exec()
 
+    def is_valid_email(self, email):
+        """Checks if the given email follows a valid format."""
+        email_pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+        return re.match(email_pattern, email) is not None
+
     def add_material(self):
         """Adds a new material to the database."""
 
@@ -240,6 +246,11 @@ class BasicPricelist(QMainWindow):
         vendor_phone = self.vendor_phone_input.text()
         vendor_email = self.vendor_email_input.text()
         price_date = self.price_date_input.text()  # Get date as string
+
+        # Validate email
+        if not self.is_valid_email(vendor_email):
+            QMessageBox.warning(self, "Input Error", "Please enter a valid email address.")
+            return
 
         # Generate new mat_id
         self.c.execute('SELECT MAX(mat_id) FROM materials')
@@ -327,6 +338,11 @@ class BasicPricelist(QMainWindow):
         vendor_phone = self.vendor_phone_input.text()
         vendor_email = self.vendor_email_input.text()
         price_date = self.price_date_input.text()  # Get updated date
+
+        # Validate email
+        if not self.is_valid_email(vendor_email):
+            QMessageBox.warning(self, "Input Error", "Please enter a valid email address.")
+            return
 
         # Update in the database
         self.c.execute('''UPDATE materials SET trade=?, material_name=?, currency=?, price=?, unit=?, vendor=?, vendor_phone=?, vendor_email=?, price_date=? 
