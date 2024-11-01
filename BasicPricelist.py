@@ -223,10 +223,18 @@ class BasicPricelist(QMainWindow):
 
     def add_material(self):
         """Adds a new material to the database."""
+
+        try:
+            # Format price to two decimal places with commas, e.g., 1,000.00
+            price = float(self.price_input.text())
+            formatted_price = f"{price:,.2f}"
+        except ValueError:
+            QMessageBox.warning(self, "Input Error", "Please enter a valid number for the price.")
+            return
+
         trade = self.trade_input.text()
         material_name = self.material_name_input.text()
         currency = self.currency_input.text()
-        price = self.price_input.text()
         unit = self.unit_input.text()
         vendor = self.vendor_input.text()
         vendor_phone = self.vendor_phone_input.text()
@@ -242,7 +250,7 @@ class BasicPricelist(QMainWindow):
         # Insert into the database
         self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, price_date) 
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
-                       (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, price_date))
+                       (mat_id, trade, material_name, currency, formatted_price, unit, vendor, vendor_phone, vendor_email, price_date))
         self.conn.commit()
         self.load_data()  # Reload data to display updated list
         self.material_dialog.close()
@@ -302,10 +310,18 @@ class BasicPricelist(QMainWindow):
 
     def update_material(self, mat_id):
         """Updates the selected material in the database."""
+
+        try:
+            # Format price to two decimal places with commas, e.g., 1,000.00
+            price = float(self.price_input.text())
+            formatted_price = f"{price:,.2f}"
+        except ValueError:
+            QMessageBox.warning(self, "Input Error", "Please enter a valid number for the price.")
+            return
+
         trade = self.trade_input.text()
         material_name = self.material_name_input.text()
         currency = self.currency_input.text()
-        price = self.price_input.text()
         unit = self.unit_input.text()
         vendor = self.vendor_input.text()
         vendor_phone = self.vendor_phone_input.text()
@@ -315,7 +331,7 @@ class BasicPricelist(QMainWindow):
         # Update in the database
         self.c.execute('''UPDATE materials SET trade=?, material_name=?, currency=?, price=?, unit=?, vendor=?, vendor_phone=?, vendor_email=?, price_date=? 
                           WHERE mat_id=?''',
-                       (trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, price_date, mat_id))
+                       (trade, material_name, currency, formatted_price, unit, vendor, vendor_phone, vendor_email, price_date, mat_id))
         self.conn.commit()
         self.load_data()  # Reload data to display updated list
         self.material_dialog.close()
