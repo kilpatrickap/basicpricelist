@@ -5,7 +5,7 @@ import openpyxl
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
-                             QMessageBox, QFileDialog, QComboBox)
+                             QMessageBox, QFileDialog, QComboBox, QDateEdit)
 
 class BasicPricelist(QMainWindow):
     def __init__(self):
@@ -64,9 +64,9 @@ class BasicPricelist(QMainWindow):
         # Material List Table
         self.table = QTableWidget()
         self.table.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        self.table.setColumnCount(9)
+        self.table.setColumnCount(10)  # Updated to 10 for new date column
         self.table.setHorizontalHeaderLabels(
-            ['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone', 'Email'])
+            ['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone', 'Email', 'Price Date'])  # Added Price Date
         main_layout.addWidget(self.table)
 
         container = QWidget()
@@ -89,7 +89,8 @@ class BasicPricelist(QMainWindow):
             unit TEXT,
             vendor TEXT,
             vendor_phone TEXT,
-            vendor_email TEXT
+            vendor_email TEXT,
+            price_date TEXT  -- New column for price date
         )''')
         self.conn.commit()
         self.load_data()  # Load data after the table has been initialized
@@ -152,7 +153,7 @@ class BasicPricelist(QMainWindow):
 
             df = pd.DataFrame(data,
                               columns=['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone',
-                                       'Email'])
+                                       'Email', 'Price Date'])  # Updated column names
             df.to_excel(file_path, index=False)
             QMessageBox.information(self, "Export Successful", f"Data exported successfully to {file_path}")
 
@@ -187,7 +188,7 @@ class BasicPricelist(QMainWindow):
         """Opens a window to input a new material."""
         self.material_dialog = QDialog(self)
         self.material_dialog.setWindowTitle("New Material")
-        self.material_dialog.setGeometry(200, 200, 300, 400)
+        self.material_dialog.setGeometry(200, 200, 300, 450)  # Updated height for new field
 
         layout = QFormLayout()
         self.trade_input = QLineEdit()
@@ -198,6 +199,8 @@ class BasicPricelist(QMainWindow):
         self.vendor_input = QLineEdit()
         self.vendor_phone_input = QLineEdit()
         self.vendor_email_input = QLineEdit()
+        self.price_date_input = QDateEdit()  # New date input field
+        self.price_date_input.setCalendarPopup(True)  # Show calendar popup for date selection
 
         layout.addRow('Trade:', self.trade_input)
         layout.addRow('Material:', self.material_name_input)
@@ -207,13 +210,40 @@ class BasicPricelist(QMainWindow):
         layout.addRow('Vendor:', self.vendor_input)
         layout.addRow('Vendor Phone:', self.vendor_phone_input)
         layout.addRow('Vendor Email:', self.vendor_email_input)
+        layout.addRow('Price Date:', self.price_date_input)  # Add the date input field
 
-        add_button = QPushButton('Add')
-        add_button.clicked.connect(self.add_or_update_material)
+        add_button = QPushButton("Add Material")
+        add_button.clicked.connect(self.add_material)
         layout.addWidget(add_button)
 
         self.material_dialog.setLayout(layout)
         self.material_dialog.exec()
+
+    def add_material(self):
+        """Adds a new material to the database."""
+        trade = self.trade_input.text()
+        material_name = self.material_name_input.text()
+        currency = self.currency_input.text()
+        price = self.price_input.text()
+        unit = self.unit_input.text()
+        vendor = self.vendor_input.text()
+        vendor_phone = self.vendor_phone_input.text()
+        vendor_email = self.vendor_email_input.text()
+        price_date = self.price_date_input.text()  # Get date as string
+
+        # Generate new mat_id
+        self.c.execute('SELECT MAX(mat_id) FROM materials')
+        max_id = self.c.fetchone()[0]
+        new_id = 1 if max_id is None else int(max_id.split('-')[1]) + 1
+        mat_id = f'MAT-{new_id}'
+
+        # Insert into the database
+        self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, price_date) 
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                       (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, price_date))
+        self.conn.commit()
+        self.load_data()  # Reload data to display updated list
+        self.material_dialog.close()
 
     def open_edit_material_window(self):
         """Opens a window to edit the selected material."""
@@ -222,7 +252,7 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Selection Error", "Please select a material to edit.")
             return
 
-        # Retrieve the data from the selected row
+        # Get current values
         mat_id = self.table.item(selected_row, 0).text()
         trade = self.table.item(selected_row, 1).text()
         material_name = self.table.item(selected_row, 2).text()
@@ -232,10 +262,11 @@ class BasicPricelist(QMainWindow):
         vendor = self.table.item(selected_row, 6).text()
         vendor_phone = self.table.item(selected_row, 7).text()
         vendor_email = self.table.item(selected_row, 8).text()
+        price_date = self.table.item(selected_row, 9).text()  # Get price date
 
         self.material_dialog = QDialog(self)
         self.material_dialog.setWindowTitle("Edit Material")
-        self.material_dialog.setGeometry(200, 200, 300, 400)
+        self.material_dialog.setGeometry(200, 200, 300, 450)  # Updated height for new field
 
         layout = QFormLayout()
         self.trade_input = QLineEdit(trade)
@@ -246,6 +277,9 @@ class BasicPricelist(QMainWindow):
         self.vendor_input = QLineEdit(vendor)
         self.vendor_phone_input = QLineEdit(vendor_phone)
         self.vendor_email_input = QLineEdit(vendor_email)
+        self.price_date_input = QDateEdit()  # New date input field
+        self.price_date_input.setDate(pd.to_datetime(price_date))  # Set the date input from current value
+        self.price_date_input.setCalendarPopup(True)  # Show calendar popup for date selection
 
         layout.addRow('Trade:', self.trade_input)
         layout.addRow('Material:', self.material_name_input)
@@ -255,126 +289,58 @@ class BasicPricelist(QMainWindow):
         layout.addRow('Vendor:', self.vendor_input)
         layout.addRow('Vendor Phone:', self.vendor_phone_input)
         layout.addRow('Vendor Email:', self.vendor_email_input)
+        layout.addRow('Price Date:', self.price_date_input)  # Add the date input field
 
-        update_button = QPushButton('Update')
-        update_button.clicked.connect(lambda: self.update_material(mat_id))
-        layout.addWidget(update_button)
+        save_button = QPushButton("Save Changes")
+        save_button.clicked.connect(lambda: self.update_material(mat_id))
+        layout.addWidget(save_button)
 
         self.material_dialog.setLayout(layout)
         self.material_dialog.exec()
 
-    def add_or_update_material(self):
-        """Adds or updates a material in the database."""
-        try:
-            # Format price to two decimal places with commas, e.g., 1,000.00
-            price = float(self.price_input.text())
-            formatted_price = f"{price:,.2f}"
-        except ValueError:
-            QMessageBox.warning(self, "Input Error", "Please enter a valid number for the price.")
-            return
-
-        trade = self.trade_input.text().strip()
-        material_name = self.material_name_input.text().strip()
-        currency = self.currency_input.text().strip()
-        unit = self.unit_input.text().strip()
-        vendor = self.vendor_input.text().strip()
-        vendor_phone = self.vendor_phone_input.text().strip()
-        vendor_email = self.vendor_email_input.text().strip()
-
-        try:
-            # Generate mat_id automatically
-            self.c.execute('SELECT MAX(mat_id) FROM materials')
-            max_id = self.c.fetchone()[0]
-            if max_id is None:
-                new_mat_id = 'MAT-1'  # Start from 'MAT-1' if no materials exist
-            else:
-                # Extract the numeric part, increment it, and reformat it
-                numeric_part = int(max_id.split('-')[1])  # Split by '-' and get the numeric part
-                new_mat_id = f'MAT-{numeric_part + 1}'  # Increment and format
-
-            # Insert the new material into the database with the formatted price
-            self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email)
-                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
-                           (new_mat_id, trade, material_name, currency, formatted_price, unit, vendor, vendor_phone,
-                            vendor_email))
-
-            self.conn.commit()
-            self.load_data()  # Refresh data in the table
-            self.material_dialog.close()
-
-        except sqlite3.Error as e:
-            QMessageBox.critical(self, "Database Error", f"An error occurred while adding the material: {e}")
-        except Exception as e:
-            QMessageBox.critical(self, "Unexpected Error", f"An unexpected error occurred: {e}")
-
     def update_material(self, mat_id):
-        """Updates an existing material in the database."""
-        try:
-            # Format price to two decimal places with commas, e.g., 1,000.00
-            price = float(self.price_input.text())
-            formatted_price = f"{price:,.2f}"
-        except ValueError:
-            QMessageBox.warning(self, "Input Error", "Please enter a valid number for the price.")
-            return
+        """Updates the selected material in the database."""
+        trade = self.trade_input.text()
+        material_name = self.material_name_input.text()
+        currency = self.currency_input.text()
+        price = self.price_input.text()
+        unit = self.unit_input.text()
+        vendor = self.vendor_input.text()
+        vendor_phone = self.vendor_phone_input.text()
+        vendor_email = self.vendor_email_input.text()
+        price_date = self.price_date_input.text()  # Get updated date
 
-        trade = self.trade_input.text().strip()
-        material_name = self.material_name_input.text().strip()
-        currency = self.currency_input.text().strip()
-        unit = self.unit_input.text().strip()
-        vendor = self.vendor_input.text().strip()
-        vendor_phone = self.vendor_phone_input.text().strip()
-        vendor_email = self.vendor_email_input.text().strip()
-
-        self.c.execute('''UPDATE materials
-                        SET trade = ?, material_name = ?, currency = ?, price = ?, unit = ?, vendor = ?, vendor_phone = ?, vendor_email = ?
-                        WHERE mat_id = ?''',
-                       (trade, material_name, currency, formatted_price, unit, vendor, vendor_phone, vendor_email,
-                        mat_id))
-
+        # Update in the database
+        self.c.execute('''UPDATE materials SET trade=?, material_name=?, currency=?, price=?, unit=?, vendor=?, vendor_phone=?, vendor_email=?, price_date=? 
+                          WHERE mat_id=?''',
+                       (trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, price_date, mat_id))
         self.conn.commit()
-        self.load_data()  # Refresh data in the table
+        self.load_data()  # Reload data to display updated list
         self.material_dialog.close()
 
     def delete_material(self):
-        """Deletes the selected material from the database after user confirmation."""
+        """Deletes the selected material from the database."""
         selected_row = self.table.currentRow()
-
-        # Check if a material is selected
         if selected_row == -1:
-            QMessageBox.warning(self, "Selection Error", "Please select a material before deleting.")
+            QMessageBox.warning(self, "Selection Error", "Please select a material to delete.")
             return
 
-        # Get the material ID of the selected row (assuming Mat ID is in the first column)
-        mat_id_item = self.table.item(selected_row, 0)  # Adjust index if necessary
-        if mat_id_item is None:
-            QMessageBox.warning(self, "Selection Error", "Could not retrieve Mat ID for the selected material.")
-            return
-
-        mat_id = mat_id_item.text()  # Get the Mat ID
-
-        # Confirmation dialog
-        reply = QMessageBox.question(self, "Confirm Deletion",
-                                     f"Are you sure you want to delete the material '{mat_id}'?",
-                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
-                                     QMessageBox.StandardButton.No)
-
+        mat_id = self.table.item(selected_row, 0).text()
+        reply = QMessageBox.question(self, 'Delete Material', 'Are you sure you want to delete this material?',
+                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
         if reply == QMessageBox.StandardButton.Yes:
-            try:
-                self.c.execute('DELETE FROM materials WHERE mat_id = ?', (mat_id,))
-                self.conn.commit()
-                self.load_data()  # Refresh data in the table
-                QMessageBox.information(self, "Success", f"Material '{mat_id}' deleted successfully.")
-            except sqlite3.Error as e:
-                QMessageBox.critical(self, "Database Error", f"An error occurred while deleting the material: {e}")
+            self.c.execute('DELETE FROM materials WHERE mat_id=?', (mat_id,))
+            self.conn.commit()
+            self.load_data()  # Reload data to reflect deletion
 
     def closeEvent(self, event):
-        """Handles the closing of the main window."""
-        self.conn.close()
+        """Handles the window close event."""
+        self.conn.close()  # Close the database connection
         event.accept()
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    main_win = BasicPricelist()
-    main_win.show()
+    window = BasicPricelist()
+    window.show()
     sys.exit(app.exec())
