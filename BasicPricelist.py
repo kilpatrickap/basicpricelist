@@ -18,7 +18,7 @@ class BasicPricelist(QMainWindow):
     def initUI(self):
         """Sets up the user interface."""
         self.setWindowTitle('Basic Prices Manager v.1.0')
-        self.setGeometry(100, 100, 1000, 600)
+        self.setGeometry(100, 100, 1100, 700)
 
         main_layout = QVBoxLayout()
 
