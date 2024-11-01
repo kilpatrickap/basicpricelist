@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="del and rfq buttons re-ordered.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="buttons above search and filter UI.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
@@ -165,7 +165,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730378449991</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="reset">
+      <option name="closed" value="true" />
+      <created>1730380330362</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1730380330362</updated>
+    </task>
+    <task id="LOCAL-00014" summary="buttons above search and filter UI.">
+      <option name="closed" value="true" />
+      <created>1730380667599</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1730380667599</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +207,8 @@
     <MESSAGE value="Sort by vendor works." />
     <MESSAGE value="vendor_material stated in RFQ." />
     <MESSAGE value="del and rfq buttons re-ordered." />
-    <option name="LAST_COMMIT_MESSAGE" value="del and rfq buttons re-ordered." />
+    <MESSAGE value="reset" />
+    <MESSAGE value="buttons above search and filter UI." />
+    <option name="LAST_COMMIT_MESSAGE" value="buttons above search and filter UI." />
   </component>
 </project>
