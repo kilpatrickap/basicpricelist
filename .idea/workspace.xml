@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="buttons above search and filter UI.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="price format of 1000.0 changed to 1,000.00">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
@@ -181,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730380667599</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="price format of 1000.0 changed to 1,000.00">
+      <option name="closed" value="true" />
+      <created>1730454837179</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1730454837179</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,6 +217,7 @@
     <MESSAGE value="del and rfq buttons re-ordered." />
     <MESSAGE value="reset" />
     <MESSAGE value="buttons above search and filter UI." />
-    <option name="LAST_COMMIT_MESSAGE" value="buttons above search and filter UI." />
+    <MESSAGE value="price format of 1000.0 changed to 1,000.00" />
+    <option name="LAST_COMMIT_MESSAGE" value="price format of 1000.0 changed to 1,000.00" />
   </component>
 </project>
