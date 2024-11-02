@@ -3,6 +3,7 @@ import sqlite3
 import pandas as pd
 import openpyxl
 import re
+import pycountry
 from PyQt6.QtCore import QDate
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
@@ -113,6 +114,15 @@ class BasicPricelist(QMainWindow):
                 else:
                     self.table.setItem(row_num, col_num, QTableWidgetItem(str(data)))
 
+    def populate_currency_combo(self, combo_box):
+        """Populates the currency dropdown with available currencies."""
+        currencies = self.get_currency_list()
+        combo_box.addItems([f"{code} - {name}" for code, name in currencies])
+
+    def get_currency_list(self):
+        """Fetches the list of currencies using pycountry."""
+        return [(currency.alpha_3, currency.name) for currency in pycountry.currencies]
+
     def populate_table(self, rows):
         """Populates the table with data."""
         self.table.setRowCount(len(rows))
@@ -222,6 +232,10 @@ class BasicPricelist(QMainWindow):
         layout.addRow('Vendor Email:', self.vendor_email_input)
         layout.addRow('Price Date:', self.price_date_input)  # Add the date input field
 
+        self.currency_input = QComboBox()
+        self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
+        layout.addRow('Currency:', self.currency_input)  # Add currency selection
+
         add_button = QPushButton("Add Material")
         add_button.clicked.connect(self.add_material)
         layout.addWidget(add_button)
@@ -267,7 +281,7 @@ class BasicPricelist(QMainWindow):
         # Get other field values
         trade = self.trade_input.text()
         material_name = self.material_name_input.text()
-        currency = self.currency_input.text()
+        currency = self.currency_input.currentText().split(' - ')[0]  # Get the currency code
         unit = self.unit_input.text()
         vendor = self.vendor_input.text()
         vendor_phone = self.vendor_phone_input.text()
@@ -334,6 +348,11 @@ class BasicPricelist(QMainWindow):
         layout.addRow('Vendor Email:', self.vendor_email_input)
         layout.addRow('Price Date:', self.price_date_input)  # Add the date input field
 
+        self.currency_input = QComboBox()
+        self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
+        self.currency_input.setCurrentText(currency)  # Set current currency in the combo box
+        layout.addRow('Currency:', self.currency_input)  # Add currency selection
+
         save_button = QPushButton("Save Changes")
         save_button.clicked.connect(lambda: self.update_material(mat_id))
         layout.addWidget(save_button)
@@ -374,7 +393,7 @@ class BasicPricelist(QMainWindow):
         # Get other field values
         trade = self.trade_input.text()
         material_name = self.material_name_input.text()
-        currency = self.currency_input.text()
+        currency = self.currency_input.currentText().split(' - ')[0]  # Get the currency code
         unit = self.unit_input.text()
         vendor = self.vendor_input.text()
         vendor_phone = self.vendor_phone_input.text()
