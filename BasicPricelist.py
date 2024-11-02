@@ -255,7 +255,7 @@ class BasicPricelist(QMainWindow):
 
         # Ensure all required fields are filled
         if not all([self.trade_input.text(), self.material_name_input.text(),
-                    self.currency_input.text(), self.price_input.text(),
+                    self.currency_input.currentText(), self.price_input.text(),
                     self.unit_input.text(), self.vendor_input.text(),
                     self.vendor_phone_input.text(), self.vendor_email_input.text()]):
             QMessageBox.warning(self, "Input Error", "Please fill in all required fields.")
@@ -370,7 +370,7 @@ class BasicPricelist(QMainWindow):
 
         # Ensure all required fields are filled
         if not all([self.trade_input.text(), self.material_name_input.text(),
-                    self.currency_input.text(), self.price_input.text(),
+                    self.currency_input.currentText(), self.price_input.text(),
                     self.unit_input.text(), self.vendor_input.text(),
                     self.vendor_phone_input.text(), self.vendor_email_input.text()]):
             QMessageBox.warning(self, "Input Error", "Please fill in all required fields.")
