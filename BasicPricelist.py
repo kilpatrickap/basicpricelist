@@ -331,14 +331,23 @@ class BasicPricelist(QMainWindow):
         self.trade_input = QLineEdit(trade)
         self.material_name_input = QLineEdit(material_name)
 
+        # Populate currency dropdown
         self.currency_input = QComboBox()
-        self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
-
-        #self.currency_input.setCurrentText("GHS - Ghana Cedi")  # default GHS currency
+        self.populate_currency_combo(self.currency_input)
 
         self.currency_input.setFixedWidth(150)  # Set fixed width for the combo box
-        self.currency_input.setCurrentText(currency)  # Set current currency in the combo box
-        layout.addRow('Currency:', self.currency_input)  # Add currency selection
+
+        # Construct the expected currency format (e.g., "GHS - Ghana Cedi")
+        currency_text = f"{currency} - {pycountry.currencies.get(alpha_3=currency).name}"
+
+        # Find the exact text match in the ComboBox and set it
+        currency_index = self.currency_input.findText(currency_text)
+        if currency_index != -1:
+            self.currency_input.setCurrentIndex(currency_index)
+        else:
+            print(f"Currency '{currency_text}' not found in ComboBox items. Please check formatting.")
+
+        layout.addRow('Currency:', self.currency_input)
 
         self.price_input = QLineEdit(price)
         self.unit_input = QLineEdit(unit)
