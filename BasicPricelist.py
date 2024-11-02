@@ -212,7 +212,10 @@ class BasicPricelist(QMainWindow):
         layout = QFormLayout()
         self.trade_input = QLineEdit()
         self.material_name_input = QLineEdit()
-        self.currency_input = QLineEdit()
+
+        self.currency_input = QComboBox()
+        self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
+
         self.price_input = QLineEdit()
         self.unit_input = QLineEdit()
         self.vendor_input = QLineEdit()
@@ -232,9 +235,6 @@ class BasicPricelist(QMainWindow):
         layout.addRow('Vendor Email:', self.vendor_email_input)
         layout.addRow('Price Date:', self.price_date_input)  # Add the date input field
 
-        self.currency_input = QComboBox()
-        self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
-        layout.addRow('Currency:', self.currency_input)  # Add currency selection
 
         add_button = QPushButton("Add Material")
         add_button.clicked.connect(self.add_material)
@@ -328,7 +328,13 @@ class BasicPricelist(QMainWindow):
         layout = QFormLayout()
         self.trade_input = QLineEdit(trade)
         self.material_name_input = QLineEdit(material_name)
-        self.currency_input = QLineEdit(currency)
+        #self.currency_input = QLineEdit(currency)
+
+        self.currency_input = QComboBox()
+        self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
+        self.currency_input.setCurrentText(currency)  # Set current currency in the combo box
+        layout.addRow('Currency:', self.currency_input)  # Add currency selection
+
         self.price_input = QLineEdit(price)
         self.unit_input = QLineEdit(unit)
         self.vendor_input = QLineEdit(vendor)
@@ -347,11 +353,6 @@ class BasicPricelist(QMainWindow):
         layout.addRow('Vendor Phone:', self.vendor_phone_input)
         layout.addRow('Vendor Email:', self.vendor_email_input)
         layout.addRow('Price Date:', self.price_date_input)  # Add the date input field
-
-        self.currency_input = QComboBox()
-        self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
-        self.currency_input.setCurrentText(currency)  # Set current currency in the combo box
-        layout.addRow('Currency:', self.currency_input)  # Add currency selection
 
         save_button = QPushButton("Save Changes")
         save_button.clicked.connect(lambda: self.update_material(mat_id))
