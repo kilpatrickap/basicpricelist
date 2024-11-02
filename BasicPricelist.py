@@ -228,29 +228,43 @@ class BasicPricelist(QMainWindow):
         return re.match(email_pattern, email) is not None
 
     def add_material(self):
-        """Adds a new material to the database."""
+        """Adds a new material to the database with validation checks."""
+
+        # Ensure all required fields are filled
+        if not all([self.trade_input.text(), self.material_name_input.text(),
+                    self.currency_input.text(), self.price_input.text(),
+                    self.unit_input.text(), self.vendor_input.text(),
+                    self.vendor_phone_input.text(), self.vendor_email_input.text()]):
+            QMessageBox.warning(self, "Input Error", "Please fill in all required fields.")
+            return
 
         try:
-            # Format price to two decimal places with commas, e.g., 1,000.00
+            # Ensure price is a valid number
             price = float(self.price_input.text())
             formatted_price = f"{price:,.2f}"
         except ValueError:
             QMessageBox.warning(self, "Input Error", "Please enter a valid number for the price.")
             return
 
+        # Validate that the phone number contains only numbers
+        if not self.vendor_phone_input.text().isdigit():
+            QMessageBox.warning(self, "Input Error", "Please enter a valid numeric phone number.")
+            return
+
+        # Validate email format
+        vendor_email = self.vendor_email_input.text()
+        if not self.is_valid_email(vendor_email):
+            QMessageBox.warning(self, "Input Error", "Please enter a valid email address.")
+            return
+
+        # Get other field values
         trade = self.trade_input.text()
         material_name = self.material_name_input.text()
         currency = self.currency_input.text()
         unit = self.unit_input.text()
         vendor = self.vendor_input.text()
         vendor_phone = self.vendor_phone_input.text()
-        vendor_email = self.vendor_email_input.text()
         price_date = self.price_date_input.text()  # Get date as string
-
-        # Validate email
-        if not self.is_valid_email(vendor_email):
-            QMessageBox.warning(self, "Input Error", "Please enter a valid email address.")
-            return
 
         # Generate new mat_id
         self.c.execute('SELECT MAX(mat_id) FROM materials')
@@ -260,8 +274,9 @@ class BasicPricelist(QMainWindow):
 
         # Insert into the database
         self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, price_date) 
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
-                       (mat_id, trade, material_name, currency, formatted_price, unit, vendor, vendor_phone, vendor_email, price_date))
+                          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                       (mat_id, trade, material_name, currency, formatted_price, unit, vendor, vendor_phone,
+                        vendor_email, price_date))
         self.conn.commit()
         self.load_data()  # Reload data to display updated list
         self.material_dialog.close()
@@ -320,34 +335,49 @@ class BasicPricelist(QMainWindow):
         self.material_dialog.exec()
 
     def update_material(self, mat_id):
-        """Updates the selected material in the database."""
+        """Updates the selected material in the database with validation checks."""
+
+        # Ensure all required fields are filled
+        if not all([self.trade_input.text(), self.material_name_input.text(),
+                    self.currency_input.text(), self.price_input.text(),
+                    self.unit_input.text(), self.vendor_input.text(),
+                    self.vendor_phone_input.text(), self.vendor_email_input.text()]):
+            QMessageBox.warning(self, "Input Error", "Please fill in all required fields.")
+            return
 
         try:
-            # Remove commas to safely convert to float
+            # Remove commas to safely convert to float and ensure price is valid
             price = float(self.price_input.text().replace(',', ''))
             formatted_price = f"{price:,.2f}"
         except ValueError:
             QMessageBox.warning(self, "Input Error", "Please enter a valid number for the price.")
             return
 
+        # Validate that the phone number contains only numbers
+        if not self.vendor_phone_input.text().isdigit():
+            QMessageBox.warning(self, "Input Error", "Please enter a valid numeric phone number.")
+            return
+
+        # Validate email format
+        vendor_email = self.vendor_email_input.text()
+        if not self.is_valid_email(vendor_email):
+            QMessageBox.warning(self, "Input Error", "Please enter a valid email address.")
+            return
+
+        # Get other field values
         trade = self.trade_input.text()
         material_name = self.material_name_input.text()
         currency = self.currency_input.text()
         unit = self.unit_input.text()
         vendor = self.vendor_input.text()
         vendor_phone = self.vendor_phone_input.text()
-        vendor_email = self.vendor_email_input.text()
         price_date = self.price_date_input.text()  # Get updated date
-
-        # Validate email
-        if not self.is_valid_email(vendor_email):
-            QMessageBox.warning(self, "Input Error", "Please enter a valid email address.")
-            return
 
         # Update in the database
         self.c.execute('''UPDATE materials SET trade=?, material_name=?, currency=?, price=?, unit=?, vendor=?, vendor_phone=?, vendor_email=?, price_date=? 
                           WHERE mat_id=?''',
-                       (trade, material_name, currency, formatted_price, unit, vendor, vendor_phone, vendor_email, price_date, mat_id))
+                       (trade, material_name, currency, formatted_price, unit, vendor, vendor_phone, vendor_email,
+                        price_date, mat_id))
         self.conn.commit()
         self.load_data()  # Reload data to display updated list
         self.material_dialog.close()
