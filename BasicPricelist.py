@@ -215,6 +215,7 @@ class BasicPricelist(QMainWindow):
 
         self.currency_input = QComboBox()
         self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
+        self.currency_input.setCurrentText("GHS - Ghana Cedi")  # default GHS currency
 
         self.price_input = QLineEdit()
         self.unit_input = QLineEdit()
@@ -332,6 +333,8 @@ class BasicPricelist(QMainWindow):
 
         self.currency_input = QComboBox()
         self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
+        self.currency_input.setCurrentText("GHS - Ghana Cedi")  # default GHS currency
+
         self.currency_input.setCurrentText(currency)  # Set current currency in the combo box
         layout.addRow('Currency:', self.currency_input)  # Add currency selection
 
