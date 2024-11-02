@@ -104,7 +104,14 @@ class BasicPricelist(QMainWindow):
         self.table.setRowCount(len(rows))
         for row_num, row_data in enumerate(rows):
             for col_num, data in enumerate(row_data[1:]):  # Skip the id column
-                self.table.setItem(row_num, col_num, QTableWidgetItem(str(data)))
+                if col_num == 4:  # Assuming 'price' is the 5th column
+                    # Check if data is a string, and remove commas if necessary
+                    if isinstance(data, str):
+                        data = float(data.replace(',', ''))
+                    formatted_price = f"{data:,.2f}"
+                    self.table.setItem(row_num, col_num, QTableWidgetItem(formatted_price))
+                else:
+                    self.table.setItem(row_num, col_num, QTableWidgetItem(str(data)))
 
     def populate_table(self, rows):
         """Populates the table with data."""
