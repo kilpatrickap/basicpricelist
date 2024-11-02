@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="QComboBox width setFixedWidth to 150.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Fixed App crash of QComboBox .text() changed to currentText().">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
@@ -393,7 +393,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730578055096</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Fixed App crash of QComboBox .text() changed to currentText().">
+      <option name="closed" value="true" />
+      <created>1730579494341</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1730579494341</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -408,7 +416,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="delete mats works." />
     <MESSAGE value="Phase 1 - Materials works ok." />
     <MESSAGE value="Search and Sort works." />
     <MESSAGE value="Sort by vendor works." />
@@ -433,6 +440,7 @@
     <MESSAGE value="currency included. to work on db." />
     <MESSAGE value="default currency is GHS." />
     <MESSAGE value="QComboBox width setFixedWidth to 150." />
-    <option name="LAST_COMMIT_MESSAGE" value="QComboBox width setFixedWidth to 150." />
+    <MESSAGE value="Fixed App crash of QComboBox .text() changed to currentText()." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed App crash of QComboBox .text() changed to currentText()." />
   </component>
 </project>
