@@ -4,7 +4,7 @@ import pandas as pd
 import openpyxl
 import re
 import pycountry
-from PyQt6.QtCore import QDate
+from PyQt6.QtCore import QDate, Qt
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
@@ -218,6 +218,7 @@ class BasicPricelist(QMainWindow):
         layout = QFormLayout()
         self.trade_input = QLineEdit()
         self.material_name_input = QLineEdit()
+        self.material_name_input.setAlignment(Qt.AlignmentFlag.AlignLeft)   # Text aligns left
 
         self.currency_input = QComboBox()
         self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
@@ -295,10 +296,12 @@ class BasicPricelist(QMainWindow):
         vendor_phone = self.vendor_phone_input.text()
         price_date = self.price_date_input.text()  # Get date as string
 
-        # Generate new mat_id
-        self.c.execute('SELECT MAX(mat_id) FROM materials')
-        max_id = self.c.fetchone()[0]
-        new_id = 1 if max_id is None else int(max_id.split('-')[1]) + 1
+        # Generate new mat_id by finding the next available number in the MAT- format
+        self.c.execute("SELECT mat_id FROM materials WHERE mat_id LIKE 'MAT-%'")
+        existing_ids = {int(id.split('-')[1]) for id, in self.c.fetchall() if id.split('-')[1].isdigit()}
+        new_id = 1
+        while new_id in existing_ids:
+            new_id += 1
         mat_id = f'MAT-{new_id}'
 
         # Insert into the database
@@ -336,6 +339,8 @@ class BasicPricelist(QMainWindow):
         layout = QFormLayout()
         self.trade_input = QLineEdit(trade)
         self.material_name_input = QLineEdit(material_name)
+        self.material_name_input.setAlignment(Qt.AlignmentFlag.AlignLeft)   # Text aligns left
+
 
         # Populate currency dropdown
         self.currency_input = QComboBox()

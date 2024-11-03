@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="reset to duplicate. 3x">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Unlimited duplicates works.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -480,7 +482,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730635963127</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Unlimited duplicates works.">
+      <option name="closed" value="true" />
+      <created>1730636570556</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1730636570556</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -495,7 +505,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reset." />
     <MESSAGE value="price date included in db." />
     <MESSAGE value="price_date set to currentDate." />
     <MESSAGE value="todo: work on price input validation and formatting to 1,000.00" />
@@ -520,6 +529,7 @@
     <MESSAGE value="Duplicate button and function added." />
     <MESSAGE value="Stray currency on edit material removed." />
     <MESSAGE value="reset to duplicate. 3x" />
-    <option name="LAST_COMMIT_MESSAGE" value="reset to duplicate. 3x" />
+    <MESSAGE value="Unlimited duplicates works." />
+    <option name="LAST_COMMIT_MESSAGE" value="Unlimited duplicates works." />
   </component>
 </project>
