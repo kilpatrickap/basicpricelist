@@ -58,7 +58,7 @@ class BasicPricelist(QMainWindow):
         # Sort Options
         self.sort_combo = QComboBox()
         self.sort_combo.addItems(
-            ['Sort by Mat ID', 'Sort by Trade', 'Sort by Vendor', 'Sort by Material', 'Sort by Price'])
+            ['Sort by Mat ID', 'Sort by Trade', 'Sort by Material', 'Sort by Price', 'Sort by Vendor'])
         self.sort_combo.currentIndexChanged.connect(self.sort_materials)
         search_layout.addWidget(self.sort_combo)
 
@@ -150,6 +150,8 @@ class BasicPricelist(QMainWindow):
             sort_column = 'material_name'
         elif sort_index == 3:
             sort_column = 'price'
+        elif sort_index == 4:
+            sort_column = 'vendor'
 
         self.c.execute(f'SELECT * FROM materials ORDER BY {sort_column}')
         rows = self.c.fetchall()
