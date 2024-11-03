@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Sort by Vendor.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Duplicate button and function added.">
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -432,7 +431,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730630316336</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Duplicate button and function added.">
+      <option name="closed" value="true" />
+      <created>1730633268683</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1730633268683</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -447,7 +454,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="del and rfq buttons re-ordered." />
     <MESSAGE value="buttons above search and filter UI." />
     <MESSAGE value="price format of 1000.0 changed to 1,000.00" />
     <MESSAGE value="Reset." />
@@ -472,6 +478,7 @@
     <MESSAGE value="currency from db shows when editing. FIXED!" />
     <MESSAGE value="To work on duplicating materials." />
     <MESSAGE value="Sort by Vendor." />
-    <option name="LAST_COMMIT_MESSAGE" value="Sort by Vendor." />
+    <MESSAGE value="Duplicate button and function added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Duplicate button and function added." />
   </component>
 </project>

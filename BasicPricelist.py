@@ -353,8 +353,6 @@ class BasicPricelist(QMainWindow):
         else:
             print(f"Currency '{currency_text}' not found in ComboBox items. Please check formatting.")
 
-        layout.addRow('Currency:', self.currency_input)
-
         self.price_input = QLineEdit(price)
         self.unit_input = QLineEdit(unit)
         self.vendor_input = QLineEdit(vendor)
