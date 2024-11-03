@@ -34,6 +34,10 @@ class BasicPricelist(QMainWindow):
         edit_material_button.clicked.connect(self.open_edit_material_window)
         button_layout.addWidget(edit_material_button)
 
+        duplicate_button = QPushButton('Duplicate Material')
+        duplicate_button.clicked.connect(self.duplicate_material)
+        button_layout.insertWidget(2, duplicate_button)  # Inserts Duplicate Material between Edit and Delete
+
         delete_button = QPushButton('Delete Material')
         delete_button.clicked.connect(self.delete_material)
         button_layout.addWidget(delete_button)
@@ -424,6 +428,47 @@ class BasicPricelist(QMainWindow):
         self.conn.commit()
         self.load_data()  # Reload data to display updated list
         self.material_dialog.close()
+
+    def duplicate_material(self):
+        """Duplicates the selected material in the database with a new Mat ID."""
+        selected_row = self.table.currentRow()
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a material to duplicate.")
+            return
+
+        try:
+            # Retrieve current material details
+            trade = self.table.item(selected_row, 1).text()
+            material_name = self.table.item(selected_row, 2).text()
+            currency = self.table.item(selected_row, 3).text()
+            price = self.table.item(selected_row, 4).text().replace(',', '')  # Remove commas for conversion
+            unit = self.table.item(selected_row, 5).text()
+            vendor = self.table.item(selected_row, 6).text()
+            vendor_phone = self.table.item(selected_row, 7).text()
+            vendor_email = self.table.item(selected_row, 8).text()
+            price_date = self.table.item(selected_row, 9).text()
+
+            # Generate a new unique Mat ID
+            self.c.execute('SELECT MAX(mat_id) FROM materials')
+            max_id = self.c.fetchone()[0]
+            new_id = 1 if max_id is None else int(max_id.split('-')[1]) + 1
+            new_mat_id = f'MAT-{new_id}'
+
+            # Insert duplicated material into the database
+            self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, 
+                              vendor_phone, vendor_email, price_date) 
+                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                           (new_mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone,
+                            vendor_email, price_date))
+            self.conn.commit()
+
+            # Reload data to display updated list with duplicated entry
+            self.load_data()
+            QMessageBox.information(self, "Duplication Successful",
+                                    f"Material duplicated successfully with Mat ID {new_mat_id}")
+
+        except Exception as e:
+            QMessageBox.critical(self, "Duplication Error", f"An error occurred while duplicating the material: {e}")
 
     def delete_material(self):
         """Deletes the selected material from the database."""

@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="currency from db shows when editing. FIXED!">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Sort by Vendor.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,7 +416,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730583826108</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="To work on duplicating materials.">
+      <option name="closed" value="true" />
+      <created>1730630034280</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1730630034280</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Sort by Vendor.">
+      <option name="closed" value="true" />
+      <created>1730630316336</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1730630316336</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -431,8 +447,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sort by vendor works." />
-    <MESSAGE value="vendor_material stated in RFQ." />
     <MESSAGE value="del and rfq buttons re-ordered." />
     <MESSAGE value="buttons above search and filter UI." />
     <MESSAGE value="price format of 1000.0 changed to 1,000.00" />
@@ -456,6 +470,8 @@
     <MESSAGE value="Fixed App crash of QComboBox .text() changed to currentText()." />
     <MESSAGE value="when editing material, keep currency from db. working on it." />
     <MESSAGE value="currency from db shows when editing. FIXED!" />
-    <option name="LAST_COMMIT_MESSAGE" value="currency from db shows when editing. FIXED!" />
+    <MESSAGE value="To work on duplicating materials." />
+    <MESSAGE value="Sort by Vendor." />
+    <option name="LAST_COMMIT_MESSAGE" value="Sort by Vendor." />
   </component>
 </project>
