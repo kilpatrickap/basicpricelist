@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="when editing material, keep currency from db. working on it.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="currency from db shows when editing. FIXED!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,12 +30,12 @@
     &quot;assignee&quot;: &quot;kilpatrickap&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/kilpatrickap/basicpricelist&quot;,
-    &quot;accountId&quot;: &quot;b2b34f02-6aa0-4641-8b55-d64aff92f9a3&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/kilpatrickap/basicpricelist.git",
+    "accountId": "b56d5b1d-bd3e-4a5a-9bf1-7ad5dbda81eb"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -409,7 +408,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730581837018</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="currency from db shows when editing. FIXED!">
+      <option name="closed" value="true" />
+      <created>1730583826108</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1730583826108</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -424,7 +431,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Search and Sort works." />
     <MESSAGE value="Sort by vendor works." />
     <MESSAGE value="vendor_material stated in RFQ." />
     <MESSAGE value="del and rfq buttons re-ordered." />
@@ -449,6 +455,7 @@
     <MESSAGE value="QComboBox width setFixedWidth to 150." />
     <MESSAGE value="Fixed App crash of QComboBox .text() changed to currentText()." />
     <MESSAGE value="when editing material, keep currency from db. working on it." />
-    <option name="LAST_COMMIT_MESSAGE" value="when editing material, keep currency from db. working on it." />
+    <MESSAGE value="currency from db shows when editing. FIXED!" />
+    <option name="LAST_COMMIT_MESSAGE" value="currency from db shows when editing. FIXED!" />
   </component>
 </project>
