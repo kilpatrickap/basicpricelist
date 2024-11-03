@@ -428,7 +428,7 @@ class BasicPricelist(QMainWindow):
         self.material_dialog.close()
 
     def duplicate_material(self):
-        """Duplicates the selected material in the database with a new Mat ID."""
+        """Duplicates the selected material in the database with a new unique Mat ID."""
         selected_row = self.table.currentRow()
         if selected_row == -1:
             QMessageBox.warning(self, "Selection Error", "Please select a material to duplicate.")
@@ -461,10 +461,10 @@ class BasicPricelist(QMainWindow):
             vendor_email = self.table.item(selected_row, 8).text()
             price_date = self.table.item(selected_row, 9).text()
 
-            # Generate a new unique Mat ID
-            self.c.execute('SELECT MAX(mat_id) FROM materials')
-            max_id = self.c.fetchone()[0]
-            new_id = 1 if max_id is None else int(max_id.split('-')[1]) + 1
+            # Generate a new unique Mat ID by finding the maximum existing suffix
+            self.c.execute("SELECT mat_id FROM materials WHERE mat_id LIKE 'MAT-%'")
+            existing_ids = [int(id.split('-')[1]) for id, in self.c.fetchall() if id.split('-')[1].isdigit()]
+            new_id = max(existing_ids) + 1 if existing_ids else 1
             new_mat_id = f'MAT-{new_id}'
 
             # Insert duplicated material into the database
