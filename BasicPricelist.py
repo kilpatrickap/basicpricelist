@@ -434,6 +434,21 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Selection Error", "Please select a material to duplicate.")
             return
 
+        # Retrieve the Mat ID and Material Name for the confirmation message
+        mat_id = self.table.item(selected_row, 0).text()  # Mat ID
+        material_name = self.table.item(selected_row, 2).text()  # Material Name
+
+        # Ask for confirmation
+        reply = QMessageBox.question(
+            self,
+            "Confirm Duplication",
+            f"Are you sure you want to duplicate [{mat_id}] {material_name}?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+        )
+
+        if reply == QMessageBox.StandardButton.No:
+            return  # Cancel duplication if user selects 'No'
+
         try:
             # Retrieve current material details
             trade = self.table.item(selected_row, 1).text()
@@ -475,8 +490,11 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Selection Error", "Please select a material to delete.")
             return
 
-        mat_id = self.table.item(selected_row, 0).text()
-        reply = QMessageBox.question(self, 'Delete Material', 'Are you sure you want to delete this material?',
+        mat_id = self.table.item(selected_row, 0).text()    # Mat ID
+        material_name = self.table.item(selected_row, 2).text()  # Material Name
+
+        reply = QMessageBox.question(self, 'Delete Material',
+                                     f'Are you sure you want to delete [{mat_id}] {material_name}?',
                                      QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
         if reply == QMessageBox.StandardButton.Yes:
             self.c.execute('DELETE FROM materials WHERE mat_id=?', (mat_id,))

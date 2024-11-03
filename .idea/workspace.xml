@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Duplicate button and function added.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Stray currency on edit material removed.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -439,7 +441,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730633268683</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Stray currency on edit material removed.">
+      <option name="closed" value="true" />
+      <created>1730633598193</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1730633598193</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Stray currency on edit material removed.">
+      <option name="closed" value="true" />
+      <created>1730633875054</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1730633875054</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -454,7 +472,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="buttons above search and filter UI." />
     <MESSAGE value="price format of 1000.0 changed to 1,000.00" />
     <MESSAGE value="Reset." />
     <MESSAGE value="price date included in db." />
@@ -479,6 +496,7 @@
     <MESSAGE value="To work on duplicating materials." />
     <MESSAGE value="Sort by Vendor." />
     <MESSAGE value="Duplicate button and function added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Duplicate button and function added." />
+    <MESSAGE value="Stray currency on edit material removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Stray currency on edit material removed." />
   </component>
 </project>
