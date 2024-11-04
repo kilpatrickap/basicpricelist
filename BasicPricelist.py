@@ -55,7 +55,7 @@ class BasicPricelist(QMainWindow):
         # Search Bar
         search_layout = QHBoxLayout()
         self.search_input = QLineEdit()
-        self.search_input.setPlaceholderText("Search materials...")
+        self.search_input.setPlaceholderText("Search for MAT-IDs, Materials and Vendors...")
         self.search_input.textChanged.connect(self.search_materials)
         search_layout.addWidget(self.search_input)
 
