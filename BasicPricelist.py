@@ -141,7 +141,7 @@ class BasicPricelist(QMainWindow):
         rows = self.c.fetchall()
         filtered_rows = [row for row in rows if search_text in row[1].lower() or  # Trade
                          search_text in row[2].lower() or  # Material name
-                         search_text in row[3].lower()]  # Currency
+                         search_text in row[7].lower()]  # Vendor
         self.populate_table(filtered_rows)
 
     def sort_materials(self):
