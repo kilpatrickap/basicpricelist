@@ -137,7 +137,6 @@ class BasicPricelist(QMainWindow):
                 elif col_num == 8:  # Email column
                     max_width_email = max(max_width_email, font_metrics.horizontalAdvance(item_text))
 
-
                 if col_num == 4:  # Assuming 'price' is the 5th column
                     # Check if data is a string, and remove commas if necessary
                     if isinstance(data, str):
@@ -158,6 +157,7 @@ class BasicPricelist(QMainWindow):
         self.table.setColumnWidth(0, max_width_mat_id + 10)  # Mat ID column with padding
         self.table.setColumnWidth(1, max_width_trade + 10)  # Trade column with padding
         self.table.setColumnWidth(2, max_width_material + 10)  # Material column with padding
+        self.table.setColumnWidth(3, 60)  # Set fixed width for Currency column
         self.table.setColumnWidth(5, max_width_unit + 10)  # Unit column with padding
         self.table.setColumnWidth(6, max_width_vendor + 10)  # Vendor column with padding
         self.table.setColumnWidth(8, max_width_email + 10)  # Email column with padding
