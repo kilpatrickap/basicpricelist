@@ -117,16 +117,20 @@ class BasicPricelist(QMainWindow):
         font_metrics = QFontMetrics(self.table.font())  # Use table's font to calculate width
 
         for row_num, row_data in enumerate(rows):
-            for col_num, data in enumerate(row_data[1:]):  # Skip the ID column, so we start from row_data[1:]
-                item_text = str(data)
+            for col_num, data in enumerate(row_data[1:]):  # Skip the ID column
+                item_text = str(data) if data is not None else ""  # Handle None values
                 max_widths[col_num] = max(max_widths[col_num], font_metrics.horizontalAdvance(item_text))
 
                 # Format the price column if necessary
                 if col_num == 4:  # Assuming 'price' is the 5th column
-                    if isinstance(data, str):
-                        data = float(data.replace(',', ''))
-                    formatted_price = f"{data:,.2f}"
-                    self.table.setItem(row_num, col_num, QTableWidgetItem(formatted_price))
+                    try:
+                        # Ensure we handle data conversion gracefully
+                        if isinstance(data, str):
+                            data = float(data.replace(',', ''))
+                        formatted_price = f"{data:,.2f}"
+                        self.table.setItem(row_num, col_num, QTableWidgetItem(formatted_price))
+                    except ValueError:
+                        self.table.setItem(row_num, col_num, QTableWidgetItem("Invalid price"))
                 else:
                     self.table.setItem(row_num, col_num, QTableWidgetItem(item_text))
 
