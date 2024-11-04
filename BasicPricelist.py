@@ -223,7 +223,7 @@ class BasicPricelist(QMainWindow):
         self.currency_input = QComboBox()
         self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
         self.currency_input.setCurrentText("GHS - Ghana Cedi")  # default GHS currency
-        self.currency_input.setFixedWidth(150)  # Set fixed width for the combo box
+        self.currency_input.setMinimumWidth(150)  # Set minimum width for the combo box
 
         self.price_input = QLineEdit()
         self.unit_input = QLineEdit()
@@ -346,7 +346,7 @@ class BasicPricelist(QMainWindow):
         self.currency_input = QComboBox()
         self.populate_currency_combo(self.currency_input)
 
-        self.currency_input.setFixedWidth(150)  # Set fixed width for the combo box
+        self.currency_input.setMinimumWidth(150)  # Set minimum width for the combo box
 
         # Construct the expected currency format (e.g., "GHS - Ghana Cedi")
         currency_text = f"{currency} - {pycountry.currencies.get(alpha_3=currency).name}"
