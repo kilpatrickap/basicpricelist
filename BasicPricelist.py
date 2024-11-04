@@ -111,32 +111,30 @@ class BasicPricelist(QMainWindow):
         rows = self.c.fetchall()
         self.table.setRowCount(len(rows))
 
-        # Initialize max widths list for each column based on the number of columns
-        column_count = self.table.columnCount()
-        max_widths = [0] * column_count  # List to track the max width of each column
+        # Initialize max widths for Mat ID and Material columns
+        max_width_mat_id = 0
+        max_width_material = 0
         font_metrics = QFontMetrics(self.table.font())  # Use table's font to calculate width
 
         for row_num, row_data in enumerate(rows):
-            for col_num, data in enumerate(row_data[1:]):  # Skip the ID column
-                item_text = str(data) if data is not None else ""  # Handle None values
-                max_widths[col_num] = max(max_widths[col_num], font_metrics.horizontalAdvance(item_text))
-
-                # Format the price column if necessary
+            for col_num, data in enumerate(row_data[1:]):  # Skip the id column
+                item_text = str(data)
+                if col_num == 0:  # Mat ID column
+                    max_width_mat_id = max(max_width_mat_id, font_metrics.horizontalAdvance(item_text))
+                elif col_num == 2:  # Material column
+                    max_width_material = max(max_width_material, font_metrics.horizontalAdvance(item_text))
                 if col_num == 4:  # Assuming 'price' is the 5th column
-                    try:
-                        # Ensure we handle data conversion gracefully
-                        if isinstance(data, str):
-                            data = float(data.replace(',', ''))
-                        formatted_price = f"{data:,.2f}"
-                        self.table.setItem(row_num, col_num, QTableWidgetItem(formatted_price))
-                    except ValueError:
-                        self.table.setItem(row_num, col_num, QTableWidgetItem("Invalid price"))
+                    # Check if data is a string, and remove commas if necessary
+                    if isinstance(data, str):
+                        data = float(data.replace(',', ''))
+                    formatted_price = f"{data:,.2f}"
+                    self.table.setItem(row_num, col_num, QTableWidgetItem(formatted_price))
                 else:
                     self.table.setItem(row_num, col_num, QTableWidgetItem(item_text))
 
-        # Set each column width based on the maximum calculated width for that column
-        for col_num, max_width in enumerate(max_widths):
-            self.table.setColumnWidth(col_num, max_width + 10)  # Add padding for readability
+        # Set the column widths based on the widest entry for each column
+        self.table.setColumnWidth(0, max_width_mat_id + 10)  # Mat ID column with padding
+        self.table.setColumnWidth(2, max_width_material + 10)  # Material column with padding
 
     def populate_currency_combo(self, combo_box):
         """Populates the currency dropdown with available currencies."""
