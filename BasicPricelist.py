@@ -144,6 +144,13 @@ class BasicPricelist(QMainWindow):
                         data = float(data.replace(',', ''))
                     formatted_price = f"{data:,.2f}"
                     self.table.setItem(row_num, col_num, QTableWidgetItem(formatted_price))
+
+                if col_num == 3:  # Assuming 'currency' is the 4th column
+                    currency_item = QTableWidgetItem(item_text)
+                    currency_item.setTextAlignment(
+                        Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)  # Right-align the currency
+                    self.table.setItem(row_num, col_num, currency_item)
+
                 else:
                     self.table.setItem(row_num, col_num, QTableWidgetItem(item_text))
 
