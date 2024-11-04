@@ -113,7 +113,12 @@ class BasicPricelist(QMainWindow):
 
         # Initialize max widths for Mat ID and Material columns
         max_width_mat_id = 0
+        max_width_trade = 0
         max_width_material = 0
+        max_width_unit = 0
+        max_width_vendor = 0
+        max_width_email = 0
+
         font_metrics = QFontMetrics(self.table.font())  # Use table's font to calculate width
 
         for row_num, row_data in enumerate(rows):
@@ -121,8 +126,18 @@ class BasicPricelist(QMainWindow):
                 item_text = str(data)
                 if col_num == 0:  # Mat ID column
                     max_width_mat_id = max(max_width_mat_id, font_metrics.horizontalAdvance(item_text))
+                elif col_num == 1:  # Trade column
+                    max_width_trade = max(max_width_trade, font_metrics.horizontalAdvance(item_text))
                 elif col_num == 2:  # Material column
                     max_width_material = max(max_width_material, font_metrics.horizontalAdvance(item_text))
+                elif col_num == 5:  # Unit column
+                    max_width_unit = max(max_width_unit, font_metrics.horizontalAdvance(item_text))
+                elif col_num == 6:  # Vendor column
+                    max_width_vendor = max(max_width_vendor, font_metrics.horizontalAdvance(item_text))
+                elif col_num == 8:  # Email column
+                    max_width_email = max(max_width_email, font_metrics.horizontalAdvance(item_text))
+
+
                 if col_num == 4:  # Assuming 'price' is the 5th column
                     # Check if data is a string, and remove commas if necessary
                     if isinstance(data, str):
@@ -134,7 +149,11 @@ class BasicPricelist(QMainWindow):
 
         # Set the column widths based on the widest entry for each column
         self.table.setColumnWidth(0, max_width_mat_id + 10)  # Mat ID column with padding
+        self.table.setColumnWidth(1, max_width_trade + 10)  # Trade column with padding
         self.table.setColumnWidth(2, max_width_material + 10)  # Material column with padding
+        self.table.setColumnWidth(5, max_width_unit + 10)  # Unit column with padding
+        self.table.setColumnWidth(6, max_width_vendor + 10)  # Vendor column with padding
+        self.table.setColumnWidth(8, max_width_email + 10)  # Email column with padding
 
     def populate_currency_combo(self, combo_box):
         """Populates the currency dropdown with available currencies."""
