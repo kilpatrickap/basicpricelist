@@ -114,49 +114,48 @@ class BasicPricelist(QMainWindow):
         """Opens a window to collect user information."""
         user_info_dialog = QDialog(self)
         user_info_dialog.setWindowTitle("User Information")
-        user_info_dialog.setGeometry(200, 200, 400, 300)
+        user_info_dialog.setGeometry(200, 200, 300, 450)
 
-        # Layout for the user information form
-        layout = QVBoxLayout()
+        # Use a QFormLayout for the form structure
+        form_layout = QFormLayout()
 
         # Name input
         name_label = QLabel("Name:")
         name_input = QLineEdit()
-        layout.addWidget(name_label)
-        layout.addWidget(name_input)
+        form_layout.addRow(name_label, name_input)
 
         # Company input
         company_label = QLabel("Company:")
         company_input = QLineEdit()
-        layout.addWidget(company_label)
-        layout.addWidget(company_input)
+        form_layout.addRow(company_label, company_input)
 
         # Position input
         position_label = QLabel("Position:")
         position_input = QLineEdit()
-        layout.addWidget(position_label)
-        layout.addWidget(position_input)
+        form_layout.addRow(position_label, position_input)
+
+        # Phone number input
+        phone_label = QLabel("Phone :")
+        phone_input = QLineEdit()
+        form_layout.addRow(phone_label, phone_input)
 
         # Email input
         email_label = QLabel("Email:")
         email_input = QLineEdit()
-        layout.addWidget(email_label)
-        layout.addWidget(email_input)
-
-        # Phone number input
-        phone_label = QLabel("Phone Number:")
-        phone_input = QLineEdit()
-        layout.addWidget(phone_label)
-        layout.addWidget(phone_input)
+        form_layout.addRow(email_label, email_input)
 
         # Submit button
         submit_button = QPushButton("Submit")
         submit_button.clicked.connect(lambda: QMessageBox.information(
             self, "Information Saved", "User information has been saved successfully."
         ))
-        layout.addWidget(submit_button)
 
-        user_info_dialog.setLayout(layout)
+        # Add the form layout and submit button to the main layout
+        main_layout = QVBoxLayout()
+        main_layout.addLayout(form_layout)
+        main_layout.addWidget(submit_button)
+
+        user_info_dialog.setLayout(main_layout)
         user_info_dialog.exec()
 
     def load_data(self):

@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="RFP lists multiple materials by vendor.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="User button added.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,14 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00002" summary="ChatGPT version">
-      <option name="closed" value="true" />
-      <created>1730367314909</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1730367314909</updated>
     </task>
     <task id="LOCAL-00003" summary="New mat created successfully.">
       <option name="closed" value="true" />
@@ -522,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730832431444</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="User button added.">
+      <option name="closed" value="true" />
+      <created>1730844141601</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1730844141602</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -537,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="e-mail field validated." />
     <MESSAGE value="date format set to dayfirst=True." />
     <MESSAGE value="update_material: remove commas to convert to float." />
     <MESSAGE value="done for the day" />
@@ -562,6 +560,7 @@
     <MESSAGE value="RFQ amended to RFP." />
     <MESSAGE value="RFP Send Request Button added." />
     <MESSAGE value="RFP lists multiple materials by vendor." />
-    <option name="LAST_COMMIT_MESSAGE" value="RFP lists multiple materials by vendor." />
+    <MESSAGE value="User button added." />
+    <option name="LAST_COMMIT_MESSAGE" value="User button added." />
   </component>
 </project>
