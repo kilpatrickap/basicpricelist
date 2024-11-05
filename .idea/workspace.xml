@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="RFP Send Request Button added.">
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="RFP lists multiple materials by vendor." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -512,7 +510,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730831061931</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="RFP lists multiple materials by vendor.">
+      <option name="closed" value="true" />
+      <created>1730832186805</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1730832186805</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -527,7 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="reset" />
     <MESSAGE value="e-mail field validated." />
     <MESSAGE value="date format set to dayfirst=True." />
     <MESSAGE value="update_material: remove commas to convert to float." />
@@ -552,6 +557,7 @@
     <MESSAGE value="new mat_id conflict error resolved." />
     <MESSAGE value="RFQ amended to RFP." />
     <MESSAGE value="RFP Send Request Button added." />
-    <option name="LAST_COMMIT_MESSAGE" value="RFP Send Request Button added." />
+    <MESSAGE value="RFP lists multiple materials by vendor." />
+    <option name="LAST_COMMIT_MESSAGE" value="RFP lists multiple materials by vendor." />
   </component>
 </project>

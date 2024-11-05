@@ -240,7 +240,7 @@ class BasicPricelist(QMainWindow):
                 materials.append(material_name)
 
         # Create the email body with the list of materials
-        material_list = "\n".join(f"{i + 1}. {material}" for i, material in enumerate(materials))
+        material_list = "\n".join(f"{i + 1}.  {material}" for i, material in enumerate(materials))
         email_body_text = (
             f"Dear Vendor,\n\nI would like to Request For the Prices of the following materials:\n"
             f"{material_list}\n\nBest regards,\n[Your Name]\n[Company Name]"
