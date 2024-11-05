@@ -43,8 +43,8 @@ class BasicPricelist(QMainWindow):
         delete_button.clicked.connect(self.delete_material)
         button_layout.addWidget(delete_button)
 
-        rfq_button = QPushButton('RFQ')
-        rfq_button.clicked.connect(self.open_rfq_window)
+        rfq_button = QPushButton('RFP')
+        rfq_button.clicked.connect(self.open_rfp_window)
         button_layout.addWidget(rfq_button)
 
         export_button = QPushButton('Export to Excel')
@@ -147,13 +147,13 @@ class BasicPricelist(QMainWindow):
                     self.table.setItem(row_num, col_num, QTableWidgetItem(item_text))
 
         # Set the column widths based on the widest entry for each column
-        self.table.setColumnWidth(0, max_width_mat_id + 10)  # Mat ID column with padding
-        self.table.setColumnWidth(1, max_width_trade + 10)  # Trade column with padding
-        self.table.setColumnWidth(2, max_width_material + 10)  # Material column with padding
+        self.table.setColumnWidth(0, max_width_mat_id + 20)  # Mat ID column with padding
+        self.table.setColumnWidth(1, max_width_trade + 20)  # Trade column with padding
+        self.table.setColumnWidth(2, max_width_material + 20)  # Material column with padding
         self.table.setColumnWidth(3, 60)  # Set fixed width for Currency column
-        self.table.setColumnWidth(5, max_width_unit + 10)  # Unit column with padding
-        self.table.setColumnWidth(6, max_width_vendor + 10)  # Vendor column with padding
-        self.table.setColumnWidth(8, max_width_email + 10)  # Email column with padding
+        self.table.setColumnWidth(5, max_width_unit + 20)  # Unit column with padding
+        self.table.setColumnWidth(6, max_width_vendor + 20)  # Vendor column with padding
+        self.table.setColumnWidth(8, max_width_email + 20)  # Email column with padding
 
     def populate_currency_combo(self, combo_box):
         """Populates the currency dropdown with available currencies."""
@@ -222,16 +222,16 @@ class BasicPricelist(QMainWindow):
         except Exception as e:
             QMessageBox.critical(self, "Export Error", f"An error occurred during export: {e}")
 
-    def open_rfq_window(self):
-        """Opens the RFQ window with the vendor's email and a template message."""
+    def open_rfp_window(self):
+        """Opens the RFP window with the vendor's email and a template message."""
         selected_row = self.table.currentRow()
         if selected_row == -1:
-            QMessageBox.warning(self, "Selection Error", "Please select a material to request a quotation.")
+            QMessageBox.warning(self, "Selection Error", "Please select a material to Request For it's Price.")
             return
         vendor_email = self.table.item(selected_row, 8).text()  # Adjusted for the new column
         vendor_material = self.table.item(selected_row, 2).text()  # Adjusted for the new column
         rfq_dialog = QDialog(self)
-        rfq_dialog.setWindowTitle("Request For Quotation")
+        rfq_dialog.setWindowTitle("Request For Prices")
         rfq_dialog.setGeometry(200, 200, 400, 300)
 
         layout = QVBoxLayout()
@@ -239,8 +239,8 @@ class BasicPricelist(QMainWindow):
         layout.addWidget(email_label)
         email_body = QTextEdit()
         email_body.setPlainText(
-            f"Dear Vendor,\n\nI would like to request a quotation for the following materials...\n"
-            f"1. {vendor_material}.\n\nBest regards,\n[Your Name]")
+            f"Dear Vendor,\n\nI would like to Request For the Prices of the following materials :\n"
+            f"1. {vendor_material}.\n\nBest regards,\n[Your Name]\n[Company Name]")
         layout.addWidget(email_body)
         rfq_dialog.setLayout(layout)
 
