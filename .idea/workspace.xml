@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="new mat_id conflict error resolved.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="RFQ amended to RFP.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -496,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730673132710</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="RFQ amended to RFP.">
+      <option name="closed" value="true" />
+      <created>1730829678556</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1730829678556</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -511,7 +520,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="price_date set to currentDate." />
     <MESSAGE value="todo: work on price input validation and formatting to 1,000.00" />
     <MESSAGE value="reset" />
     <MESSAGE value="e-mail field validated." />
@@ -536,6 +544,7 @@
     <MESSAGE value="reset to duplicate. 3x" />
     <MESSAGE value="Unlimited duplicates works." />
     <MESSAGE value="new mat_id conflict error resolved." />
-    <option name="LAST_COMMIT_MESSAGE" value="new mat_id conflict error resolved." />
+    <MESSAGE value="RFQ amended to RFP." />
+    <option name="LAST_COMMIT_MESSAGE" value="RFQ amended to RFP." />
   </component>
 </project>

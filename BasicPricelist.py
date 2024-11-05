@@ -230,6 +230,7 @@ class BasicPricelist(QMainWindow):
             return
         vendor_email = self.table.item(selected_row, 8).text()  # Adjusted for the new column
         vendor_material = self.table.item(selected_row, 2).text()  # Adjusted for the new column
+
         rfq_dialog = QDialog(self)
         rfq_dialog.setWindowTitle("Request For Prices")
         rfq_dialog.setGeometry(200, 200, 400, 300)
@@ -237,13 +238,25 @@ class BasicPricelist(QMainWindow):
         layout = QVBoxLayout()
         email_label = QLabel(f"To: {vendor_email}")
         layout.addWidget(email_label)
+
         email_body = QTextEdit()
         email_body.setPlainText(
-            f"Dear Vendor,\n\nI would like to Request For the Prices of the following materials :\n"
-            f"1. {vendor_material}.\n\nBest regards,\n[Your Name]\n[Company Name]")
+            f"Dear Vendor,\n\nI would like to Request For the Prices of the following materials:\n"
+            f"1. {vendor_material}.\n\nBest regards,\n[Your Name]\n[Company Name]"
+        )
         layout.addWidget(email_body)
-        rfq_dialog.setLayout(layout)
 
+        # Add "Send Request" button with responsive layout
+        button_layout = QHBoxLayout()
+        send_button = QPushButton("Send Request")
+        send_button.clicked.connect(lambda: QMessageBox.information(self, "Request Sent",
+                                                                    "Your request has been successfully sent."))  # Shows a message as confirmation
+        button_layout.addStretch()  # Add space before the button
+        button_layout.addWidget(send_button)
+        button_layout.addStretch()  # Add space after the button
+        layout.addLayout(button_layout)  # Add button layout to main layout
+
+        rfq_dialog.setLayout(layout)
         rfq_dialog.exec()
 
     def open_new_material_window(self):
