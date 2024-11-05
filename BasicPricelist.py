@@ -27,6 +27,12 @@ class BasicPricelist(QMainWindow):
 
         # Buttons
         button_layout = QHBoxLayout()
+
+        # Add a "User" button next to the "New Material" button
+        user_button = QPushButton("User")
+        user_button.clicked.connect(self.open_user_info_window)
+        button_layout.addWidget(user_button)
+
         new_material_button = QPushButton('New Material')
         new_material_button.clicked.connect(self.open_new_material_window)
         button_layout.addWidget(new_material_button)
@@ -103,7 +109,55 @@ class BasicPricelist(QMainWindow):
         self.conn.commit()
         self.load_data()  # Load data after the table has been initialized
 
-    from PyQt6.QtGui import QFontMetrics
+    # Define the function to open the user information window
+    def open_user_info_window(self):
+        """Opens a window to collect user information."""
+        user_info_dialog = QDialog(self)
+        user_info_dialog.setWindowTitle("User Information")
+        user_info_dialog.setGeometry(200, 200, 400, 300)
+
+        # Layout for the user information form
+        layout = QVBoxLayout()
+
+        # Name input
+        name_label = QLabel("Name:")
+        name_input = QLineEdit()
+        layout.addWidget(name_label)
+        layout.addWidget(name_input)
+
+        # Company input
+        company_label = QLabel("Company:")
+        company_input = QLineEdit()
+        layout.addWidget(company_label)
+        layout.addWidget(company_input)
+
+        # Position input
+        position_label = QLabel("Position:")
+        position_input = QLineEdit()
+        layout.addWidget(position_label)
+        layout.addWidget(position_input)
+
+        # Email input
+        email_label = QLabel("Email:")
+        email_input = QLineEdit()
+        layout.addWidget(email_label)
+        layout.addWidget(email_input)
+
+        # Phone number input
+        phone_label = QLabel("Phone Number:")
+        phone_input = QLineEdit()
+        layout.addWidget(phone_label)
+        layout.addWidget(phone_input)
+
+        # Submit button
+        submit_button = QPushButton("Submit")
+        submit_button.clicked.connect(lambda: QMessageBox.information(
+            self, "Information Saved", "User information has been saved successfully."
+        ))
+        layout.addWidget(submit_button)
+
+        user_info_dialog.setLayout(layout)
+        user_info_dialog.exec()
 
     def load_data(self):
         """Loads data from the database into the table."""
