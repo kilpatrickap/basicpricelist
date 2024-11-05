@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="RFQ amended to RFP.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="RFP Send Request Button added.">
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -505,7 +504,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730829678556</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="RFP Send Request Button added.">
+      <option name="closed" value="true" />
+      <created>1730831061931</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1730831061931</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -520,7 +527,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="todo: work on price input validation and formatting to 1,000.00" />
     <MESSAGE value="reset" />
     <MESSAGE value="e-mail field validated." />
     <MESSAGE value="date format set to dayfirst=True." />
@@ -545,6 +551,7 @@
     <MESSAGE value="Unlimited duplicates works." />
     <MESSAGE value="new mat_id conflict error resolved." />
     <MESSAGE value="RFQ amended to RFP." />
-    <option name="LAST_COMMIT_MESSAGE" value="RFQ amended to RFP." />
+    <MESSAGE value="RFP Send Request Button added." />
+    <option name="LAST_COMMIT_MESSAGE" value="RFP Send Request Button added." />
   </component>
 </project>

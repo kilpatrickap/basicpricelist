@@ -223,34 +223,47 @@ class BasicPricelist(QMainWindow):
             QMessageBox.critical(self, "Export Error", f"An error occurred during export: {e}")
 
     def open_rfp_window(self):
-        """Opens the RFP window with the vendor's email and a template message."""
+        """Opens the RFP window with the vendor's email and lists all materials from that vendor."""
         selected_row = self.table.currentRow()
         if selected_row == -1:
             QMessageBox.warning(self, "Selection Error", "Please select a material to Request For it's Price.")
             return
-        vendor_email = self.table.item(selected_row, 8).text()  # Adjusted for the new column
-        vendor_material = self.table.item(selected_row, 2).text()  # Adjusted for the new column
 
+        # Get the vendor's email from the selected row
+        vendor_email = self.table.item(selected_row, 8).text()  # Adjusted for the new column
+
+        # Collect all materials by the same vendor
+        materials = []
+        for row in range(self.table.rowCount()):
+            if self.table.item(row, 8).text() == vendor_email:
+                material_name = self.table.item(row, 2).text()  # Adjusted for the new column
+                materials.append(material_name)
+
+        # Create the email body with the list of materials
+        material_list = "\n".join(f"{i + 1}. {material}" for i, material in enumerate(materials))
+        email_body_text = (
+            f"Dear Vendor,\n\nI would like to Request For the Prices of the following materials:\n"
+            f"{material_list}\n\nBest regards,\n[Your Name]\n[Company Name]"
+        )
+
+        # Set up the RFP dialog
         rfq_dialog = QDialog(self)
         rfq_dialog.setWindowTitle("Request For Prices")
-        rfq_dialog.setGeometry(200, 200, 400, 300)
+        rfq_dialog.setGeometry(200, 200, 400, 400)
 
         layout = QVBoxLayout()
         email_label = QLabel(f"To: {vendor_email}")
         layout.addWidget(email_label)
 
         email_body = QTextEdit()
-        email_body.setPlainText(
-            f"Dear Vendor,\n\nI would like to Request For the Prices of the following materials:\n"
-            f"1. {vendor_material}.\n\nBest regards,\n[Your Name]\n[Company Name]"
-        )
+        email_body.setPlainText(email_body_text)
         layout.addWidget(email_body)
 
         # Add "Send Request" button with responsive layout
         button_layout = QHBoxLayout()
         send_button = QPushButton("Send Request")
         send_button.clicked.connect(lambda: QMessageBox.information(self, "Request Sent",
-                                                                    "Your request has been successfully sent."))  # Shows a message as confirmation
+                                                                    "Your request has been sent."))  # Shows a message as confirmation
         button_layout.addStretch()  # Add space before the button
         button_layout.addWidget(send_button)
         button_layout.addStretch()  # Add space after the button
