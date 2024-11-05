@@ -146,7 +146,7 @@ class BasicPricelist(QMainWindow):
 
         # Submit button with responsive layout
         button_layout = QHBoxLayout()
-        submit_button = QPushButton("Submit")
+        submit_button = QPushButton("Submit User Information")
         submit_button.clicked.connect(lambda: QMessageBox.information(
             self, "Information Saved", "User information has been saved successfully."
         ))
