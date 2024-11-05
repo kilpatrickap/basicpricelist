@@ -114,23 +114,23 @@ class BasicPricelist(QMainWindow):
         """Opens a window to collect user information."""
         user_info_dialog = QDialog(self)
         user_info_dialog.setWindowTitle("User Information")
-        user_info_dialog.setGeometry(200, 200, 300, 450)
+        user_info_dialog.setGeometry(200, 200, 300, 200)
 
         # Use a QFormLayout for the form structure
         form_layout = QFormLayout()
 
         # Name input
-        name_label = QLabel("Name:")
+        name_label = QLabel("Name :")
         name_input = QLineEdit()
         form_layout.addRow(name_label, name_input)
 
         # Company input
-        company_label = QLabel("Company:")
+        company_label = QLabel("Company :")
         company_input = QLineEdit()
         form_layout.addRow(company_label, company_input)
 
         # Position input
-        position_label = QLabel("Position:")
+        position_label = QLabel("Position :")
         position_input = QLineEdit()
         form_layout.addRow(position_label, position_input)
 
@@ -140,20 +140,24 @@ class BasicPricelist(QMainWindow):
         form_layout.addRow(phone_label, phone_input)
 
         # Email input
-        email_label = QLabel("Email:")
+        email_label = QLabel("Email :")
         email_input = QLineEdit()
         form_layout.addRow(email_label, email_input)
 
-        # Submit button
+        # Submit button with responsive layout
+        button_layout = QHBoxLayout()
         submit_button = QPushButton("Submit")
         submit_button.clicked.connect(lambda: QMessageBox.information(
             self, "Information Saved", "User information has been saved successfully."
         ))
+        button_layout.addStretch()  # Add space before the button
+        button_layout.addWidget(submit_button)
+        button_layout.addStretch()  # Add space after the button
 
-        # Add the form layout and submit button to the main layout
+        # Add the form layout and button layout to the main layout
         main_layout = QVBoxLayout()
         main_layout.addLayout(form_layout)
-        main_layout.addWidget(submit_button)
+        main_layout.addLayout(button_layout)
 
         user_info_dialog.setLayout(main_layout)
         user_info_dialog.exec()
