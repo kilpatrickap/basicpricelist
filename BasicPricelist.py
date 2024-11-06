@@ -172,7 +172,7 @@ class BasicPricelist(QMainWindow):
         # Create a new dialog window to display users
         user_list_dialog = QDialog(self)
         user_list_dialog.setWindowTitle("Existing Users")
-        user_list_dialog.setGeometry(200, 200, 600, 400)
+        user_list_dialog.setGeometry(200, 200, 350, 350)
 
         # Create a QTableWidget to display user information
         table_widget = QTableWidget()
@@ -180,7 +180,7 @@ class BasicPricelist(QMainWindow):
         table_widget.setColumnCount(3)  # Columns: User ID, Name, Make Default Button
 
         # Set column headers
-        table_widget.setHorizontalHeaderLabels(["User ID", "Name", "Make Default"])
+        table_widget.setHorizontalHeaderLabels(["User ID", "Name", "Default"])
 
         # Fetch data from the users.db database
         self.users_c.execute("SELECT user_id, name FROM users")
@@ -197,8 +197,8 @@ class BasicPricelist(QMainWindow):
             table_widget.setItem(row_idx, 0, user_id_item)
             table_widget.setItem(row_idx, 1, name_item)
 
-            # Create the "Make Default" button
-            make_default_button = QPushButton("Make Default")
+            # Create the "Default" button
+            make_default_button = QPushButton("Default")
             make_default_button.clicked.connect(lambda checked, user_id=user[0]: self.make_default_user(user_id))
 
             table_widget.setCellWidget(row_idx, 2, make_default_button)
@@ -215,10 +215,10 @@ class BasicPricelist(QMainWindow):
         user_list_dialog.setLayout(layout)
         user_list_dialog.exec()
 
-    def make_default_user(self, user_id):
+    def make_default_user(self, user_name):
         """Sets the selected user as the default user."""
         # Here, we can handle the logic for setting the default user (e.g., saving it in a settings file or database)
-        QMessageBox.information(self, "Default User", f"User ID {user_id} has been set as the default user.")
+        QMessageBox.information(self, "Default User", f" {user_name} has been set as the default user.")
 
     def show_user_information_dialog(self):
         """Opens the User Information Window with validation for phone and email fields."""
