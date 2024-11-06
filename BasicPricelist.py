@@ -383,7 +383,7 @@ class BasicPricelist(QMainWindow):
         """Opens a window to input a new material."""
         self.material_dialog = QDialog(self)
         self.material_dialog.setWindowTitle("New Material")
-        self.material_dialog.setGeometry(200, 200, 300, 450)  # Updated height for new field
+        self.material_dialog.setGeometry(200, 200, 300, 300)  # Updated height for new field
 
         layout = QFormLayout()
         self.trade_input = QLineEdit()
@@ -504,7 +504,7 @@ class BasicPricelist(QMainWindow):
 
         self.material_dialog = QDialog(self)
         self.material_dialog.setWindowTitle("Edit Material")
-        self.material_dialog.setGeometry(200, 200, 300, 450)  # Updated height for new field
+        self.material_dialog.setGeometry(200, 200, 300, 300)  # Updated height for new field
 
         layout = QFormLayout()
         self.trade_input = QLineEdit(trade)
