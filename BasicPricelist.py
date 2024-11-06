@@ -177,7 +177,7 @@ class BasicPricelist(QMainWindow):
         """Shows the list of all existing users with 'Make Default' and 'Edit' buttons."""
         user_list_dialog = QDialog(self)
         user_list_dialog.setWindowTitle("Existing Users")
-        user_list_dialog.setGeometry(200, 200, 400, 200)
+        user_list_dialog.setGeometry(200, 200, 450, 200)
 
         table_widget = QTableWidget()
         table_widget.setRowCount(0)
