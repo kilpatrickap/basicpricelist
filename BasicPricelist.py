@@ -147,7 +147,7 @@ class BasicPricelist(QMainWindow):
     def show_user_information_dialog(self):
         """Opens the User Information Window with validation for phone and email fields."""
         user_info_dialog = QDialog(self)
-        user_info_dialog.setWindowTitle("User Information")
+        user_info_dialog.setWindowTitle("New User Information")
         user_info_dialog.setGeometry(200, 200, 300, 200)
 
         # User information input fields
@@ -165,7 +165,7 @@ class BasicPricelist(QMainWindow):
 
         # Submit button
         button_layout = QHBoxLayout()
-        submit_button = QPushButton(" Submit User Information ")
+        submit_button = QPushButton(" Submit ")
 
         # Lambda function to validate phone and email fields
         submit_button.clicked.connect(lambda: self.validate_and_submit_user_info(
