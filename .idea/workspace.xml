@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="existing users window shows when next is clicked.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="UI changes to existing users window." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,14 +125,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Reset.">
-      <option name="closed" value="true" />
-      <created>1730457357150</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1730457357150</updated>
     </task>
     <task id="LOCAL-00017" summary="price date included in db.">
       <option name="closed" value="true" />
@@ -521,7 +510,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730900707809</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="UI changes to existing users window.">
+      <option name="closed" value="true" />
+      <created>1730901378669</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1730901378669</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -536,7 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="working on pycountry currency." />
     <MESSAGE value="currency included. to work on db." />
     <MESSAGE value="default currency is GHS." />
     <MESSAGE value="QComboBox width setFixedWidth to 150." />
@@ -561,6 +557,7 @@
     <MESSAGE value="Responsive Next button in select user type window." />
     <MESSAGE value="users.db created and user information saved in user.db" />
     <MESSAGE value="existing users window shows when next is clicked." />
-    <option name="LAST_COMMIT_MESSAGE" value="existing users window shows when next is clicked." />
+    <MESSAGE value="UI changes to existing users window." />
+    <option name="LAST_COMMIT_MESSAGE" value="UI changes to existing users window." />
   </component>
 </project>

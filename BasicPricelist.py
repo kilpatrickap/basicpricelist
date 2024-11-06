@@ -180,7 +180,7 @@ class BasicPricelist(QMainWindow):
         table_widget.setColumnCount(3)  # Columns: User ID, Name, Make Default Button
 
         # Set column headers
-        table_widget.setHorizontalHeaderLabels(["User ID", "Name", "Default"])
+        table_widget.setHorizontalHeaderLabels(["User ID", "Name", "Make Default"])
 
         # Fetch data from the users.db database
         self.users_c.execute("SELECT user_id, name FROM users")
@@ -190,14 +190,14 @@ class BasicPricelist(QMainWindow):
         for row_idx, user in enumerate(users):
             table_widget.insertRow(row_idx)
 
-            # User ID and Name columns
-            user_id_item = QTableWidgetItem(str(user[0]))
+            # User ID and Name columns, formatted to display as "UserID-<id>"
+            user_id_item = QTableWidgetItem(f"UserID-{user[0]}")
             name_item = QTableWidgetItem(user[1])
 
             table_widget.setItem(row_idx, 0, user_id_item)
             table_widget.setItem(row_idx, 1, name_item)
 
-            # Create the "Default" button
+            # Create the "Make Default" button
             make_default_button = QPushButton("Default")
             make_default_button.clicked.connect(lambda checked, user_id=user[0]: self.make_default_user(user_id))
 
