@@ -230,7 +230,7 @@ class BasicPricelist(QMainWindow):
         # Open edit dialog with current user information
         edit_dialog = QDialog(self)
         edit_dialog.setWindowTitle("Edit User")
-        edit_dialog.setGeometry(300, 300, 300, 250)
+        edit_dialog.setGeometry(300, 300, 300, 200)
 
         layout = QFormLayout()
 
@@ -245,22 +245,24 @@ class BasicPricelist(QMainWindow):
         email_input = QLineEdit()
         email_input.setText(current_email)
 
-        layout.addRow("Name:", name_input)
-        layout.addRow("Company:", company_input)
-        layout.addRow("Position:", position_input)
-        layout.addRow("Phone:", phone_input)
-        layout.addRow("Email:", email_input)
+        layout.addRow("Name :", name_input)
+        layout.addRow("Company :", company_input)
+        layout.addRow("Position :", position_input)
+        layout.addRow("Phone :", phone_input)
+        layout.addRow("Email :", email_input)
 
-        save_button = QPushButton("Save")
-        save_button.clicked.connect(lambda: self.save_user_edits(user_id, name_input.text(), company_input.text(),
-                                                                 position_input.text(), phone_input.text(),
-                                                                 email_input.text(), edit_dialog))
+        save_button = QPushButton(" Save ")
+        save_button.clicked.connect(lambda: self.save_user_edits(
+            user_id, name_input.text(), company_input.text(),
+            position_input.text(), phone_input.text(),
+            email_input.text(), edit_dialog, table_widget, selected_row
+        ))
         layout.addWidget(save_button)
         edit_dialog.setLayout(layout)
         edit_dialog.exec()
 
-    def save_user_edits(self, user_id, name, company, position, phone, email, dialog):
-        """Saves the edited user information to the database."""
+    def save_user_edits(self, user_id, name, company, position, phone, email, dialog, table_widget, row):
+        """Saves the edited user information to the database and updates the table."""
         # Update the users table with the new values
         self.users_c.execute(
             "UPDATE users SET name = ?, company = ?, position = ?, phone = ?, email = ? WHERE user_id = ?",
@@ -268,6 +270,11 @@ class BasicPricelist(QMainWindow):
         )
         self.users_conn.commit()
         QMessageBox.information(self, "Update", f"User {user_id} updated successfully!")
+
+        # Update the table widget with the new values
+        table_widget.setItem(row, 1, QTableWidgetItem(name))  # Update name column in the table
+        # Add additional columns as needed if you display more fields
+
         dialog.close()
 
     def make_default_user(self, user_id):

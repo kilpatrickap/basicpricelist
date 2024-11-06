@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Edit button saves.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Edit multiple input fields.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
@@ -129,22 +129,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00024" summary="update_material: remove commas to convert to float.">
-      <option name="closed" value="true" />
-      <created>1730476213555</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1730476213555</updated>
-    </task>
-    <task id="LOCAL-00025" summary="done for the day">
-      <option name="closed" value="true" />
-      <created>1730477185733</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1730477185734</updated>
     </task>
     <task id="LOCAL-00026" summary="saturday.">
       <option name="closed" value="true" />
@@ -522,7 +506,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730924100196</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Edit multiple input fields.">
+      <option name="closed" value="true" />
+      <created>1730925276564</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1730925276564</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Edit multiple input fields.">
+      <option name="closed" value="true" />
+      <created>1730925356263</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1730925356263</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -537,7 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sort by Vendor." />
     <MESSAGE value="Duplicate button and function added." />
     <MESSAGE value="Stray currency on edit material removed." />
     <MESSAGE value="reset to duplicate. 3x" />
@@ -562,6 +561,7 @@
     <MESSAGE value="UI window size changes." />
     <MESSAGE value="Responsive Edit button on show_existing_user_window()." />
     <MESSAGE value="Edit button saves." />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit button saves." />
+    <MESSAGE value="Edit multiple input fields." />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit multiple input fields." />
   </component>
 </project>
