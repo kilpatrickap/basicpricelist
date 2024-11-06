@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="User Submit button responsive.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pricelist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pricelist.iml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Radio Buttons for New User and Existing User.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,14 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Export to excel works.">
-      <option name="closed" value="true" />
-      <created>1730370062580</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1730370062580</updated>
     </task>
     <task id="LOCAL-00007" summary="delete mats works.">
       <option name="closed" value="true" />
@@ -523,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730846063320</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Radio Buttons for New User and Existing User.">
+      <option name="closed" value="true" />
+      <created>1730885521169</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1730885521169</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -538,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="done for the day" />
     <MESSAGE value="saturday." />
     <MESSAGE value="saturday mac" />
     <MESSAGE value="input validation completed." />
@@ -563,6 +560,7 @@
     <MESSAGE value="User button added." />
     <MESSAGE value="User input information in-line." />
     <MESSAGE value="User Submit button responsive." />
-    <option name="LAST_COMMIT_MESSAGE" value="User Submit button responsive." />
+    <MESSAGE value="Radio Buttons for New User and Existing User." />
+    <option name="LAST_COMMIT_MESSAGE" value="Radio Buttons for New User and Existing User." />
   </component>
 </project>
