@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Validation checks for User Phone and Email completed." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Validation checks for User Phone and Email completed.">
+      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,14 +127,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Search and Sort works.">
-      <option name="closed" value="true" />
-      <created>1730373115537</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1730373115537</updated>
     </task>
     <task id="LOCAL-00010" summary="Sort by vendor works.">
       <option name="closed" value="true" />
@@ -518,7 +512,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730888075355</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Validation checks for User Phone and Email completed.">
+      <option name="closed" value="true" />
+      <created>1730888238026</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1730888238026</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
