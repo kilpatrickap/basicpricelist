@@ -174,7 +174,7 @@ class BasicPricelist(QMainWindow):
             self.show_existing_user_window()  # Open the existing user window
 
     def show_existing_user_window(self):
-        """Shows the list of all existing users with 'Make Default' and 'Edit' buttons."""
+        """Shows the list of all existing users with 'Make Default', 'Edit', and 'Delete' buttons."""
         user_list_dialog = QDialog(self)
         user_list_dialog.setWindowTitle("Existing Users")
         user_list_dialog.setGeometry(200, 200, 450, 200)
@@ -200,12 +200,17 @@ class BasicPricelist(QMainWindow):
         main_layout = QHBoxLayout()
         main_layout.addWidget(table_widget)
 
-        # Edit button layout
+        # Edit and Delete button layout
         button_layout = QVBoxLayout()
         edit_button = QPushButton("Edit")
         edit_button.clicked.connect(lambda: self.open_edit_user_window(table_widget))
         button_layout.addWidget(edit_button)
-        button_layout.addStretch()
+
+        delete_button = QPushButton("Delete")
+        #delete_button.clicked.connect(lambda: self.delete_selected_user(table_widget))  # Assuming delete function
+        button_layout.addWidget(delete_button)
+
+        button_layout.addStretch()  # Spacer at the bottom
         main_layout.addLayout(button_layout)
 
         user_list_dialog.setLayout(main_layout)

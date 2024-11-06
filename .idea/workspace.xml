@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Edit multiple input fields.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="update table_widget with the new values..UI Changes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
@@ -129,22 +129,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00026" summary="saturday.">
-      <option name="closed" value="true" />
-      <created>1730544044281</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1730544044281</updated>
-    </task>
-    <task id="LOCAL-00027" summary="saturday mac">
-      <option name="closed" value="true" />
-      <created>1730544519478</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1730544519478</updated>
     </task>
     <task id="LOCAL-00028" summary="input validation completed.">
       <option name="closed" value="true" />
@@ -522,7 +506,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730925356263</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="update table_widget with the new values..UI Changes.">
+      <option name="closed" value="true" />
+      <created>1730926814198</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1730926814198</updated>
+    </task>
+    <task id="LOCAL-00076" summary="update table_widget with the new values..UI Changes.">
+      <option name="closed" value="true" />
+      <created>1730926906200</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1730926906200</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -537,7 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Duplicate button and function added." />
     <MESSAGE value="Stray currency on edit material removed." />
     <MESSAGE value="reset to duplicate. 3x" />
     <MESSAGE value="Unlimited duplicates works." />
@@ -562,6 +561,7 @@
     <MESSAGE value="Responsive Edit button on show_existing_user_window()." />
     <MESSAGE value="Edit button saves." />
     <MESSAGE value="Edit multiple input fields." />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit multiple input fields." />
+    <MESSAGE value="update table_widget with the new values..UI Changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="update table_widget with the new values..UI Changes." />
   </component>
 </project>
