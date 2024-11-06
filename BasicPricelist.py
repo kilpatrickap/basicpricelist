@@ -175,90 +175,80 @@ class BasicPricelist(QMainWindow):
 
     def show_existing_user_window(self):
         """Shows the list of all existing users with 'Make Default' and 'Edit' buttons."""
-        # Create a new dialog window to display users
         user_list_dialog = QDialog(self)
         user_list_dialog.setWindowTitle("Existing Users")
-        user_list_dialog.setGeometry(200, 200, 450, 200)
+        user_list_dialog.setGeometry(200, 200, 400, 200)
 
-        # Create a QTableWidget to display user information
         table_widget = QTableWidget()
-        table_widget.setRowCount(0)  # Initially no rows
-        table_widget.setColumnCount(3)  # Columns: User ID, Name, Make Default Button
-
-        # Set column headers
+        table_widget.setRowCount(0)
+        table_widget.setColumnCount(3)
         table_widget.setHorizontalHeaderLabels(["User ID", "Name", "Make Default"])
 
-        # Fetch data from the users.db database
+        # Fetch and populate data
         self.users_c.execute("SELECT user_id, name FROM users")
         users = self.users_c.fetchall()
-
-        # Populate the QTableWidget with user data
         for row_idx, user in enumerate(users):
             table_widget.insertRow(row_idx)
+            table_widget.setItem(row_idx, 0, QTableWidgetItem(f"UserID-{user[0]}"))
+            table_widget.setItem(row_idx, 1, QTableWidgetItem(user[1]))
 
-            # User ID and Name columns, formatted to display as "UserID-<id>"
-            user_id_item = QTableWidgetItem(f"UserID-{user[0]}")
-            name_item = QTableWidgetItem(user[1])
-
-            table_widget.setItem(row_idx, 0, user_id_item)
-            table_widget.setItem(row_idx, 1, name_item)
-
-            # Create the "Make Default" button
             make_default_button = QPushButton("Default")
             make_default_button.clicked.connect(lambda checked, user_id=user[0]: self.make_default_user(user_id))
-
             table_widget.setCellWidget(row_idx, 2, make_default_button)
 
-        # Create main layout for the dialog
+        # Set up layouts
         main_layout = QHBoxLayout()
-
-        # Add table to the main layout
         main_layout.addWidget(table_widget)
 
-        # Create a vertical layout for the 'Edit' button and add it to the right of the table
+        # Edit button layout
         button_layout = QVBoxLayout()
         edit_button = QPushButton("Edit")
-        edit_button.clicked.connect(self.open_edit_user_window)  # Replace with the actual edit function
+        edit_button.clicked.connect(lambda: self.open_edit_user_window(table_widget))
         button_layout.addWidget(edit_button)
-        button_layout.addStretch()  # Add a stretch to align the button to the top
-
+        button_layout.addStretch()
         main_layout.addLayout(button_layout)
 
-        # Set layout for the dialog
         user_list_dialog.setLayout(main_layout)
         user_list_dialog.exec()
 
-    def open_edit_user_window(self):
-        """Opens a dialog to edit the selected user's information."""
+    def open_edit_user_window(self, table_widget):
+        """Opens a dialog to edit the selected user's information or prompts if no selection."""
+        selected_row = table_widget.currentRow()
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a user to edit.")
+            return
+
+        # Retrieve selected user ID and name
+        user_id_item = table_widget.item(selected_row, 0)
+        name_item = table_widget.item(selected_row, 1)
+        user_id = user_id_item.text().split('-')[1]  # Extracts numeric ID
+        current_name = name_item.text()
+
+        # Open edit dialog with current user information
         edit_dialog = QDialog(self)
         edit_dialog.setWindowTitle("Edit User")
         edit_dialog.setGeometry(300, 300, 300, 150)
 
-        # Layout and widgets for editing (e.g., User ID, Name fields)
         layout = QFormLayout()
-
-        user_id_input = QLineEdit()
-        user_id_input.setPlaceholderText("Enter User ID")
+        user_id_label = QLabel(user_id)
         name_input = QLineEdit()
-        name_input.setPlaceholderText("Enter New Name")
+        name_input.setText(current_name)
 
-        layout.addRow("User ID:", user_id_input)
+        layout.addRow("User ID:", user_id_label)
         layout.addRow("Name:", name_input)
 
-        # Save button
         save_button = QPushButton("Save")
-        save_button.clicked.connect(lambda: self.save_user_edits(user_id_input.text(), name_input.text()))
-
+        save_button.clicked.connect(lambda: self.save_user_edits(user_id, name_input.text(), edit_dialog))
         layout.addWidget(save_button)
         edit_dialog.setLayout(layout)
         edit_dialog.exec()
 
-    def save_user_edits(self, user_id, name):
+    def save_user_edits(self, user_id, new_name, dialog):
         """Saves the edited user information to the database."""
-        # Implement your database update logic here
-        self.users_c.execute("UPDATE users SET name = ? WHERE user_id = ?", (name, user_id))
+        self.users_c.execute("UPDATE users SET name = ? WHERE user_id = ?", (new_name, user_id))
         self.users_conn.commit()
         QMessageBox.information(self, "Update", f"User {user_id} updated successfully!")
+        dialog.close()
 
     def make_default_user(self, user_id):
         """Sets the selected user as the default user after confirming with the user."""

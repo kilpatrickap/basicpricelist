@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="UI window size changes.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pricelist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pricelist.iml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Responsive Edit button on show_existing_user_window().">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,14 +127,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00022" summary="date format set to dayfirst=True.">
-      <option name="closed" value="true" />
-      <created>1730475119993</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1730475119993</updated>
     </task>
     <task id="LOCAL-00023" summary="date format set to dayfirst=True.">
       <option name="closed" value="true" />
@@ -524,7 +512,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730904170637</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Responsive Edit button on show_existing_user_window().">
+      <option name="closed" value="true" />
+      <created>1730919478848</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1730919478848</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -539,7 +535,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="currency from db shows when editing. FIXED!" />
     <MESSAGE value="To work on duplicating materials." />
     <MESSAGE value="Sort by Vendor." />
     <MESSAGE value="Duplicate button and function added." />
@@ -564,6 +559,7 @@
     <MESSAGE value="current default user confirmation." />
     <MESSAGE value="responsive close button." />
     <MESSAGE value="UI window size changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="UI window size changes." />
+    <MESSAGE value="Responsive Edit button on show_existing_user_window()." />
+    <option name="LAST_COMMIT_MESSAGE" value="Responsive Edit button on show_existing_user_window()." />
   </component>
 </project>
