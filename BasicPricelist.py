@@ -178,7 +178,7 @@ class BasicPricelist(QMainWindow):
         # Create a new dialog window to display users
         user_list_dialog = QDialog(self)
         user_list_dialog.setWindowTitle("Existing Users")
-        user_list_dialog.setGeometry(200, 200, 350, 350)
+        user_list_dialog.setGeometry(200, 200, 350, 200)
 
         # Create a QTableWidget to display user information
         table_widget = QTableWidget()
@@ -245,7 +245,7 @@ class BasicPricelist(QMainWindow):
                 reply = QMessageBox.question(
                     self,
                     "Confirm Default User",
-                    f"Are you sure you want to make {user_name} the current user?",
+                    f"Are you sure you want to make {user_name} the current default user?",
                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
                 )
 
