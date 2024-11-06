@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="current default user confirmation.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="UI window size changes." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,22 +125,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00020" summary="reset">
-      <option name="closed" value="true" />
-      <created>1730472087495</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1730472087495</updated>
-    </task>
-    <task id="LOCAL-00021" summary="e-mail field validated.">
-      <option name="closed" value="true" />
-      <created>1730472907535</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1730472907535</updated>
     </task>
     <task id="LOCAL-00022" summary="date format set to dayfirst=True.">
       <option name="closed" value="true" />
@@ -521,7 +502,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730902871642</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="responsive close button.">
+      <option name="closed" value="true" />
+      <created>1730903949826</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1730903949826</updated>
+    </task>
+    <task id="LOCAL-00070" summary="UI window size changes.">
+      <option name="closed" value="true" />
+      <created>1730904170637</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1730904170637</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -536,8 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed App crash of QComboBox .text() changed to currentText()." />
-    <MESSAGE value="when editing material, keep currency from db. working on it." />
     <MESSAGE value="currency from db shows when editing. FIXED!" />
     <MESSAGE value="To work on duplicating materials." />
     <MESSAGE value="Sort by Vendor." />
@@ -561,6 +556,8 @@
     <MESSAGE value="default user button." />
     <MESSAGE value="is_default is 1 for default and 0 otherwise (Boolean value)." />
     <MESSAGE value="current default user confirmation." />
-    <option name="LAST_COMMIT_MESSAGE" value="current default user confirmation." />
+    <MESSAGE value="responsive close button." />
+    <MESSAGE value="UI window size changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="UI window size changes." />
   </component>
 </project>
