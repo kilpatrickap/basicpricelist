@@ -213,10 +213,20 @@ class BasicPricelist(QMainWindow):
         layout = QVBoxLayout()
         layout.addWidget(table_widget)
 
-        # Add a close button
+        # Create a horizontal layout for the close button
+        close_button_layout = QHBoxLayout()
+
+        # Add the close button to the horizontal layout
         close_button = QPushButton("Close")
+        close_button.setSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)  # Make button responsive
         close_button.clicked.connect(user_list_dialog.close)
-        layout.addWidget(close_button)
+
+        close_button_layout.addStretch()  # Add stretch to center the button
+        close_button_layout.addWidget(close_button)
+        close_button_layout.addStretch()  # Add stretch to center the button
+
+        # Add the horizontal layout with the close button to the main layout
+        layout.addLayout(close_button_layout)
 
         user_list_dialog.setLayout(layout)
         user_list_dialog.exec()
