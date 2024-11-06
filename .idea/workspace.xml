@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="delete button added.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="delete function added.">
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,14 +127,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00029" summary="prices below 1000 in 2 decimal places.">
-      <option name="closed" value="true" />
-      <created>1730547297668</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1730547297668</updated>
     </task>
     <task id="LOCAL-00030" summary="working on pycountry currency.">
       <option name="closed" value="true" />
@@ -521,7 +512,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730929056146</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="delete function added.">
+      <option name="closed" value="true" />
+      <created>1730929507818</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1730929507818</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -536,7 +535,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="reset to duplicate. 3x" />
     <MESSAGE value="Unlimited duplicates works." />
     <MESSAGE value="new mat_id conflict error resolved." />
     <MESSAGE value="RFQ amended to RFP." />
@@ -561,6 +559,7 @@
     <MESSAGE value="Edit multiple input fields." />
     <MESSAGE value="update table_widget with the new values..UI Changes." />
     <MESSAGE value="delete button added." />
-    <option name="LAST_COMMIT_MESSAGE" value="delete button added." />
+    <MESSAGE value="delete function added." />
+    <option name="LAST_COMMIT_MESSAGE" value="delete function added." />
   </component>
 </project>

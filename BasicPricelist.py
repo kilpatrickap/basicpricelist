@@ -233,7 +233,7 @@ class BasicPricelist(QMainWindow):
         user_name = user_name_item.text()  # Gets the user's name
 
         # Confirm deletion with the user's name
-        reply = QMessageBox.question(self, "Delete User", f"Are you sure you want to delete {user_name} from the existing users?",
+        reply = QMessageBox.question(self, "Delete User", f"Delete {user_name} from the existing users?",
                                      QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
 
         if reply == QMessageBox.StandardButton.Yes:
