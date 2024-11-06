@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="default user button.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="is_default is 1 for default and 0 otherwise (Boolean value)." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,14 +125,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00018" summary="price_date set to currentDate.">
-      <option name="closed" value="true" />
-      <created>1730458325492</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1730458325492</updated>
     </task>
     <task id="LOCAL-00019" summary="todo: work on price input validation and formatting to 1,000.00">
       <option name="closed" value="true" />
@@ -521,7 +510,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730901783270</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="is_default is 1 for default and 0 otherwise (Boolean value).">
+      <option name="closed" value="true" />
+      <created>1730902411704</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1730902411704</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -536,7 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="default currency is GHS." />
     <MESSAGE value="QComboBox width setFixedWidth to 150." />
     <MESSAGE value="Fixed App crash of QComboBox .text() changed to currentText()." />
     <MESSAGE value="when editing material, keep currency from db. working on it." />
@@ -561,6 +557,7 @@
     <MESSAGE value="existing users window shows when next is clicked." />
     <MESSAGE value="UI changes to existing users window." />
     <MESSAGE value="default user button." />
-    <option name="LAST_COMMIT_MESSAGE" value="default user button." />
+    <MESSAGE value="is_default is 1 for default and 0 otherwise (Boolean value)." />
+    <option name="LAST_COMMIT_MESSAGE" value="is_default is 1 for default and 0 otherwise (Boolean value)." />
   </component>
 </project>

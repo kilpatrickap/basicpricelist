@@ -222,16 +222,35 @@ class BasicPricelist(QMainWindow):
         user_list_dialog.exec()
 
     def make_default_user(self, user_id):
-        """Sets the selected user as the default user and saves this state in the database."""
+        """Sets the selected user as the default user after confirming with the user."""
         try:
-            # Clear any existing default user
-            self.users_c.execute("UPDATE users SET is_default = 0 WHERE is_default = 1")
+            # Retrieve the user's name based on user_id
+            self.users_c.execute("SELECT name FROM users WHERE user_id = ?", (user_id,))
+            user_name = self.users_c.fetchone()
 
-            # Set the new default user
-            self.users_c.execute("UPDATE users SET is_default = 1 WHERE user_id = ?", (user_id,))
-            self.users_conn.commit()
+            if user_name:  # Ensure the user was found
+                user_name = user_name[0]  # Extract the name from the tuple
 
-            QMessageBox.information(self, "Default User", f"User with ID {user_id} has been set as the default user.")
+                # Show confirmation dialog
+                reply = QMessageBox.question(
+                    self,
+                    "Confirm Default User",
+                    f"Are you sure you want to make {user_name} the current user?",
+                    QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+                )
+
+                # Proceed only if the user confirmed
+                if reply == QMessageBox.StandardButton.Yes:
+                    # Clear any existing default user
+                    self.users_c.execute("UPDATE users SET is_default = 0 WHERE is_default = 1")
+
+                    # Set the new default user
+                    self.users_c.execute("UPDATE users SET is_default = 1 WHERE user_id = ?", (user_id,))
+                    self.users_conn.commit()
+
+                    QMessageBox.information(self, "Default User", f"{user_name} has been set as the default user.")
+            else:
+                QMessageBox.warning(self, "User Not Found", "The selected user does not exist.")
         except sqlite3.Error as e:
             QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
 
