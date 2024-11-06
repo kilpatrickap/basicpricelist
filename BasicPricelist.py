@@ -106,14 +106,29 @@ class BasicPricelist(QMainWindow):
             vendor_email TEXT,
             price_date TEXT  -- New column for price date
         )''')
+
         self.conn.commit()
         self.load_data()  # Load data after the table has been initialized
+
+        # Initialize the users database
+        self.users_conn = sqlite3.connect('users.db')
+        self.users_c = self.users_conn.cursor()
+        self.users_c.execute('''CREATE TABLE IF NOT EXISTS users (
+                    user_id INTEGER PRIMARY KEY,
+                    user_code TEXT UNIQUE,
+                    name TEXT,
+                    company TEXT,
+                    position TEXT,
+                    phone TEXT,
+                    email TEXT
+                )''')
+        self.users_conn.commit()
 
     def open_user_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
         user_type_dialog = QDialog(self)
         user_type_dialog.setWindowTitle("Select User Type")
-        user_type_dialog.setGeometry(200, 200, 300, 100)
+        user_type_dialog.setGeometry(200, 200, 200, 100)
 
         layout = QVBoxLayout()
 
@@ -208,9 +223,27 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Input Error", "Please enter a valid email address.")
             return
 
-        # If validations pass, show a success message and close the dialog
+        # If validations pass, save the user information
+        self.save_user_info(name_input, company_input, position_input, phone_input, email_input)
+
         QMessageBox.information(self, "Information Saved", "User information has been saved successfully.")
         dialog.close()
+
+    def save_user_info(self, name_input, company_input, position_input, phone_input, email_input):
+        """Saves the user information into the Users.db database."""
+        # Get existing user codes
+        self.users_c.execute("SELECT user_code FROM users")
+        existing_codes = {row[0] for row in self.users_c.fetchall()}
+
+        # Generate a new user code (User-1, User-2, etc.)
+        new_user_code = f"User-{len(existing_codes) + 1}"
+
+        # Insert new user into the users table
+        self.users_c.execute('''INSERT INTO users (user_code, name, company, position, phone, email)
+                                 VALUES (?, ?, ?, ?, ?, ?)''',
+                             (new_user_code, name_input.text(), company_input.text(), position_input.text(),
+                              phone_input.text(), email_input.text()))
+        self.users_conn.commit()
 
     def load_data(self):
         """Loads data from the database into the table."""
