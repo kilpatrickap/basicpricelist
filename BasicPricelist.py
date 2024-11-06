@@ -109,9 +109,8 @@ class BasicPricelist(QMainWindow):
         self.conn.commit()
         self.load_data()  # Load data after the table has been initialized
 
-    # Define the function to open the user information window
     def open_user_info_window(self):
-        """Displays options for New User and Existing User. If New User is selected, opens User Information Window."""
+        """Displays options for New User and Existing User, with a responsive Submit button."""
         user_type_dialog = QDialog(self)
         user_type_dialog.setWindowTitle("Select User Type")
         user_type_dialog.setGeometry(200, 200, 300, 150)
@@ -130,11 +129,15 @@ class BasicPricelist(QMainWindow):
         layout.addWidget(new_user_radio)
         layout.addWidget(existing_user_radio)
 
-        # Submit button
+        # Responsive layout for the Submit button
+        button_layout = QHBoxLayout()
+        button_layout.addStretch()  # Spacer on the left
         submit_button = QPushButton("Next")
-        layout.addWidget(submit_button)
         submit_button.clicked.connect(lambda: self.check_user_type_selection(new_user_radio, user_type_dialog))
+        button_layout.addWidget(submit_button)  # Center button
+        button_layout.addStretch()  # Spacer on the right
 
+        layout.addLayout(button_layout)  # Add button layout to the main layout
         user_type_dialog.setLayout(layout)
         user_type_dialog.exec()
 
