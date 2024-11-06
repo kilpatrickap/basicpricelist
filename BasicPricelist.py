@@ -148,7 +148,9 @@ class BasicPricelist(QMainWindow):
         button_layout = QHBoxLayout()
         button_layout.addStretch()  # Spacer on the left
         submit_button = QPushButton("Next")
-        submit_button.clicked.connect(lambda: self.check_user_type_selection(new_user_radio, user_type_dialog))
+        submit_button.clicked.connect(lambda: self.check_user_type_selection(new_user_radio,existing_user_radio, user_type_dialog))
+        # Else if the existing_user_radio is selected, open the show_existing_user_window
+
         button_layout.addWidget(submit_button)  # Center button
         button_layout.addStretch()  # Spacer on the right
 
@@ -156,11 +158,67 @@ class BasicPricelist(QMainWindow):
         user_type_dialog.setLayout(layout)
         user_type_dialog.exec()
 
-    def check_user_type_selection(self, new_user_radio, user_type_dialog):
-        """Checks if 'New User' is selected and opens User Information window if so."""
+    def check_user_type_selection(self, new_user_radio, existing_user_radio, user_type_dialog):
+        """Checks which radio button is selected and opens the appropriate window."""
         if new_user_radio.isChecked():
             user_type_dialog.close()  # Close the selection dialog
             self.show_user_information_dialog()  # Open the user information window
+        elif existing_user_radio.isChecked():  # Check if the existing user radio is selected
+            user_type_dialog.close()  # Close the selection dialog
+            self.show_existing_user_window()  # Open the existing user window
+
+    def show_existing_user_window(self):
+        """Shows the list of all existing users with 'Make Default' button."""
+        # Create a new dialog window to display users
+        user_list_dialog = QDialog(self)
+        user_list_dialog.setWindowTitle("Existing Users")
+        user_list_dialog.setGeometry(200, 200, 600, 400)
+
+        # Create a QTableWidget to display user information
+        table_widget = QTableWidget()
+        table_widget.setRowCount(0)  # Initially no rows
+        table_widget.setColumnCount(3)  # Columns: User ID, Name, Make Default Button
+
+        # Set column headers
+        table_widget.setHorizontalHeaderLabels(["User ID", "Name", "Make Default"])
+
+        # Fetch data from the users.db database
+        self.users_c.execute("SELECT user_id, name FROM users")
+        users = self.users_c.fetchall()
+
+        # Populate the QTableWidget with user data
+        for row_idx, user in enumerate(users):
+            table_widget.insertRow(row_idx)
+
+            # User ID and Name columns
+            user_id_item = QTableWidgetItem(str(user[0]))
+            name_item = QTableWidgetItem(user[1])
+
+            table_widget.setItem(row_idx, 0, user_id_item)
+            table_widget.setItem(row_idx, 1, name_item)
+
+            # Create the "Make Default" button
+            make_default_button = QPushButton("Make Default")
+            make_default_button.clicked.connect(lambda checked, user_id=user[0]: self.make_default_user(user_id))
+
+            table_widget.setCellWidget(row_idx, 2, make_default_button)
+
+        # Set layout for the dialog
+        layout = QVBoxLayout()
+        layout.addWidget(table_widget)
+
+        # Add a close button
+        close_button = QPushButton("Close")
+        close_button.clicked.connect(user_list_dialog.close)
+        layout.addWidget(close_button)
+
+        user_list_dialog.setLayout(layout)
+        user_list_dialog.exec()
+
+    def make_default_user(self, user_id):
+        """Sets the selected user as the default user."""
+        # Here, we can handle the logic for setting the default user (e.g., saving it in a settings file or database)
+        QMessageBox.information(self, "Default User", f"User ID {user_id} has been set as the default user.")
 
     def show_user_information_dialog(self):
         """Opens the User Information Window with validation for phone and email fields."""
@@ -205,7 +263,6 @@ class BasicPricelist(QMainWindow):
     def validate_and_submit_user_info(self, name_input, company_input, position_input, phone_input, email_input,
                                       dialog):
         """Validates phone and email inputs, and displays an error message if validation fails."""
-
         # Check if all required fields are filled
         if not all([name_input.text(), company_input.text(), position_input.text(),
                     phone_input.text(), email_input.text()]):

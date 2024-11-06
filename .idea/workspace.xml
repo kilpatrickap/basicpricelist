@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Responsive Next button in select user type window.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="users.db created and user information saved in user.db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
@@ -128,14 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00014" summary="buttons above search and filter UI.">
-      <option name="closed" value="true" />
-      <created>1730380667599</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1730380667599</updated>
     </task>
     <task id="LOCAL-00015" summary="price format of 1000.0 changed to 1,000.00">
       <option name="closed" value="true" />
@@ -521,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730895731086</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="users.db created and user information saved in user.db">
+      <option name="closed" value="true" />
+      <created>1730897394699</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1730897394699</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -536,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="input validation completed." />
     <MESSAGE value="prices below 1000 in 2 decimal places." />
     <MESSAGE value="working on pycountry currency." />
     <MESSAGE value="currency included. to work on db." />
@@ -561,6 +560,7 @@
     <MESSAGE value="Radio Buttons for New User and Existing User." />
     <MESSAGE value="Validation checks for User Phone and Email completed." />
     <MESSAGE value="Responsive Next button in select user type window." />
-    <option name="LAST_COMMIT_MESSAGE" value="Responsive Next button in select user type window." />
+    <MESSAGE value="users.db created and user information saved in user.db" />
+    <option name="LAST_COMMIT_MESSAGE" value="users.db created and user information saved in user.db" />
   </component>
 </project>
