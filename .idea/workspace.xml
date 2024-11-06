@@ -126,30 +126,6 @@
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
     </task>
-    <task id="LOCAL-00035" summary="when editing material, keep currency from db. working on it.">
-      <option name="closed" value="true" />
-      <created>1730581837018</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1730581837018</updated>
-    </task>
-    <task id="LOCAL-00036" summary="currency from db shows when editing. FIXED!">
-      <option name="closed" value="true" />
-      <created>1730583826108</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1730583826108</updated>
-    </task>
-    <task id="LOCAL-00037" summary="To work on duplicating materials.">
-      <option name="closed" value="true" />
-      <created>1730630034280</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1730630034280</updated>
-    </task>
     <task id="LOCAL-00038" summary="Sort by Vendor.">
       <option name="closed" value="true" />
       <created>1730630316336</created>
@@ -518,7 +494,31 @@
       <option name="project" value="LOCAL" />
       <updated>1730931485013</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="vendor data in RFP.">
+      <option name="closed" value="true" />
+      <created>1730931847960</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1730931847960</updated>
+    </task>
+    <task id="LOCAL-00085" summary="vendor data in RFP.">
+      <option name="closed" value="true" />
+      <created>1730931962218</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1730931962218</updated>
+    </task>
+    <task id="LOCAL-00086" summary="vendor data in RFP.">
+      <option name="closed" value="true" />
+      <created>1730932014611</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1730932014611</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
