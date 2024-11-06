@@ -145,12 +145,12 @@ class BasicPricelist(QMainWindow):
             self.show_user_information_dialog()  # Open the user information window
 
     def show_user_information_dialog(self):
-        """Opens the User Information Window."""
+        """Opens the User Information Window with validation for phone and email fields."""
         user_info_dialog = QDialog(self)
         user_info_dialog.setWindowTitle("User Information")
         user_info_dialog.setGeometry(200, 200, 300, 200)
 
-        # Original user information layout setup
+        # User information input fields
         form_layout = QFormLayout()
         name_input = QLineEdit()
         form_layout.addRow(QLabel("Name :"), name_input)
@@ -159,16 +159,18 @@ class BasicPricelist(QMainWindow):
         position_input = QLineEdit()
         form_layout.addRow(QLabel("Position :"), position_input)
         phone_input = QLineEdit()
-        form_layout.addRow(QLabel("Phone :"), phone_input)
+        form_layout.addRow(QLabel("User Phone :"), phone_input)
         email_input = QLineEdit()
         form_layout.addRow(QLabel("Email :"), email_input)
 
         # Submit button
         button_layout = QHBoxLayout()
-        submit_button = QPushButton("Submit User Information")
-        submit_button.clicked.connect(lambda: QMessageBox.information(
-            self, "Information Saved", "User information has been saved successfully."
-        ))
+        submit_button = QPushButton(" Submit User Information ")
+
+        # Lambda function to validate phone and email fields
+        submit_button.clicked.connect(lambda: self.validate_and_submit_user_info(
+            name_input, company_input, position_input, phone_input, email_input, user_info_dialog))
+
         button_layout.addStretch()
         button_layout.addWidget(submit_button)
         button_layout.addStretch()
@@ -180,6 +182,32 @@ class BasicPricelist(QMainWindow):
 
         user_info_dialog.setLayout(main_layout)
         user_info_dialog.exec()
+
+    # Add this helper method for validation
+    def validate_and_submit_user_info(self, name_input, company_input, position_input, phone_input, email_input,
+                                      dialog):
+        """Validates phone and email inputs, and displays an error message if validation fails."""
+
+        # Check if all required fields are filled
+        if not all([name_input.text(), company_input.text(), position_input.text(),
+                    phone_input.text(), email_input.text()]):
+            QMessageBox.warning(self, "Input Error", "Please fill in all required fields.")
+            return
+
+        # Validate phone number: Check that it contains only digits
+        if not phone_input.text().isdigit():
+            QMessageBox.warning(self, "Input Error", "Please enter a valid numeric phone number.")
+            return
+
+        # Validate email format
+        email_pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+        if not re.match(email_pattern, email_input.text()):
+            QMessageBox.warning(self, "Input Error", "Please enter a valid email address.")
+            return
+
+        # If validations pass, show a success message and close the dialog
+        QMessageBox.information(self, "Information Saved", "User information has been saved successfully.")
+        dialog.close()
 
     def load_data(self):
         """Loads data from the database into the table."""
