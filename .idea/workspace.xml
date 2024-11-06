@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="delete function added.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="user data in RFP." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,22 +125,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00031" summary="currency included. to work on db.">
-      <option name="closed" value="true" />
-      <created>1730573285313</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1730573285313</updated>
-    </task>
-    <task id="LOCAL-00032" summary="default currency is GHS.">
-      <option name="closed" value="true" />
-      <created>1730574866568</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1730574866568</updated>
     </task>
     <task id="LOCAL-00033" summary="QComboBox width setFixedWidth to 150.">
       <option name="closed" value="true" />
@@ -522,7 +502,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730929673124</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="user data in RFP.">
+      <option name="closed" value="true" />
+      <created>1730931013766</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1730931013766</updated>
+    </task>
+    <task id="LOCAL-00081" summary="user data in RFP.">
+      <option name="closed" value="true" />
+      <created>1730931167528</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1730931167528</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -537,7 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Unlimited duplicates works." />
     <MESSAGE value="new mat_id conflict error resolved." />
     <MESSAGE value="RFQ amended to RFP." />
     <MESSAGE value="RFP Send Request Button added." />
@@ -562,6 +557,7 @@
     <MESSAGE value="update table_widget with the new values..UI Changes." />
     <MESSAGE value="delete button added." />
     <MESSAGE value="delete function added." />
-    <option name="LAST_COMMIT_MESSAGE" value="delete function added." />
+    <MESSAGE value="user data in RFP." />
+    <option name="LAST_COMMIT_MESSAGE" value="user data in RFP." />
   </component>
 </project>

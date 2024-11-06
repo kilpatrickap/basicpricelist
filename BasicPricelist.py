@@ -554,6 +554,17 @@ class BasicPricelist(QMainWindow):
         # Get the vendor's email from the selected row
         vendor_email = self.table.item(selected_row, 8).text()  # Adjusted for the new column
 
+        # Fetch the vendor's name from the materials.db database using the vendor_email
+        self.c.execute("SELECT vendor FROM materials WHERE vendor_email = ?", (vendor_email,))
+        vendor_info = self.c.fetchone()
+
+        # Check if vendor info is found
+        if not vendor_info:
+            QMessageBox.warning(self, "Vendor Info Missing", "Vendor information could not be found.")
+            return
+
+        vendor_name = vendor_info[0]  # Assuming the vendor's name is in the first column of the materials table
+
         # Collect all materials by the same vendor
         materials = []
         for row in range(self.table.rowCount()):
@@ -577,8 +588,8 @@ class BasicPricelist(QMainWindow):
         # Create the email body with the list of materials
         material_list = "\n".join(f"{i + 1}.  {material}" for i, material in enumerate(materials))
         email_body_text = (
-            f"Dear Vendor,\n\nI would like to Request For the Prices of the following materials:\n"
-            f"{material_list}\n\nBest regards,\n{user_name}.\n\n{company_name}\n{user_position}\n{user_phone}"
+            f"Dear {vendor_name},\n\nI would like to Request For the Prices of the following materials:\n"
+            f"{material_list}\n\nBest regards,\n{user_name}\n{company_name}\n{user_position}\n{user_phone}"
         )
 
         # Set up the RFP dialog
@@ -587,8 +598,8 @@ class BasicPricelist(QMainWindow):
         rfq_dialog.setGeometry(200, 200, 400, 400)
 
         layout = QVBoxLayout()
-        sender_label = QLabel(f"From : {user_email}")
-        email_label = QLabel(f"To : {vendor_email}")
+        sender_label = QLabel(f"From: {user_email}")
+        email_label = QLabel(f"To: {vendor_email}")
         layout.addWidget(sender_label)
         layout.addWidget(email_label)
 
