@@ -548,7 +548,7 @@ class BasicPricelist(QMainWindow):
         """Opens the RFP window with the vendor's email and lists all materials from that vendor."""
         selected_row = self.table.currentRow()
         if selected_row == -1:
-            QMessageBox.warning(self, "Selection Error", "Please select a material to Request For it's Price.")
+            QMessageBox.warning(self, "Selection Error", "Please select a material to Request For its Price.")
             return
 
         # Get the vendor's email from the selected row
@@ -561,11 +561,24 @@ class BasicPricelist(QMainWindow):
                 material_name = self.table.item(row, 2).text()  # Adjusted for the new column
                 materials.append(material_name)
 
+        # Query the database for the user details
+        self.users_c.execute("SELECT name, company, position, phone, email FROM users WHERE is_default = 1 LIMIT 1")
+        user_info = self.users_c.fetchone()
+
+        # Check if user info is found
+        if not user_info:
+            QMessageBox.warning(self, "User Info Missing",
+                                "No default user information found. Please set a default user.")
+            return
+
+        # Unpack user information
+        user_name, company_name, user_position, user_phone, user_email = user_info
+
         # Create the email body with the list of materials
         material_list = "\n".join(f"{i + 1}.  {material}" for i, material in enumerate(materials))
         email_body_text = (
             f"Dear Vendor,\n\nI would like to Request For the Prices of the following materials:\n"
-            f"{material_list}\n\nBest regards,\n[Your Name]\n[Company Name]"
+            f"{material_list}\n\nBest regards,\n{user_name}\n{company_name}\n{user_position}\n{user_phone}"
         )
 
         # Set up the RFP dialog
@@ -574,7 +587,9 @@ class BasicPricelist(QMainWindow):
         rfq_dialog.setGeometry(200, 200, 400, 400)
 
         layout = QVBoxLayout()
+        sender_label = QLabel(f"From: {user_email}")
         email_label = QLabel(f"To: {vendor_email}")
+        layout.addWidget(sender_label)
         layout.addWidget(email_label)
 
         email_body = QTextEdit()
