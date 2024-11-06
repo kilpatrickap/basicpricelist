@@ -88,11 +88,10 @@ class BasicPricelist(QMainWindow):
         self.setCentralWidget(container)
 
     def initDB(self):
-        """Initializes the SQLite database."""
+        """Initializes the SQLite database for materials and users."""
+        # Initialize materials database
         self.conn = sqlite3.connect('materials.db')
         self.c = self.conn.cursor()
-
-        # Create the table only if it does not exist
         self.c.execute('''CREATE TABLE IF NOT EXISTS materials (
             id INTEGER PRIMARY KEY,
             mat_id TEXT UNIQUE,
@@ -104,24 +103,31 @@ class BasicPricelist(QMainWindow):
             vendor TEXT,
             vendor_phone TEXT,
             vendor_email TEXT,
-            price_date TEXT  -- New column for price date
+            price_date TEXT
         )''')
-
         self.conn.commit()
-        self.load_data()  # Load data after the table has been initialized
+        self.load_data()
 
-        # Initialize the users database
+        # Initialize users database
         self.users_conn = sqlite3.connect('users.db')
         self.users_c = self.users_conn.cursor()
         self.users_c.execute('''CREATE TABLE IF NOT EXISTS users (
-                    user_id INTEGER PRIMARY KEY,
-                    user_code TEXT UNIQUE,
-                    name TEXT,
-                    company TEXT,
-                    position TEXT,
-                    phone TEXT,
-                    email TEXT
-                )''')
+            user_id INTEGER PRIMARY KEY,
+            user_code TEXT UNIQUE,
+            name TEXT,
+            company TEXT,
+            position TEXT,
+            phone TEXT,
+            email TEXT
+        )''')
+
+        # Check if 'is_default' column exists; if not, add it
+        try:
+            self.users_c.execute("ALTER TABLE users ADD COLUMN is_default INTEGER DEFAULT 0")
+        except sqlite3.OperationalError:
+            # Column already exists, no need to add it
+            pass
+
         self.users_conn.commit()
 
     def open_user_info_window(self):
@@ -215,10 +221,19 @@ class BasicPricelist(QMainWindow):
         user_list_dialog.setLayout(layout)
         user_list_dialog.exec()
 
-    def make_default_user(self, user_name):
-        """Sets the selected user as the default user."""
-        # Here, we can handle the logic for setting the default user (e.g., saving it in a settings file or database)
-        QMessageBox.information(self, "Default User", f" {user_name} has been set as the default user.")
+    def make_default_user(self, user_id):
+        """Sets the selected user as the default user and saves this state in the database."""
+        try:
+            # Clear any existing default user
+            self.users_c.execute("UPDATE users SET is_default = 0 WHERE is_default = 1")
+
+            # Set the new default user
+            self.users_c.execute("UPDATE users SET is_default = 1 WHERE user_id = ?", (user_id,))
+            self.users_conn.commit()
+
+            QMessageBox.information(self, "Default User", f"User with ID {user_id} has been set as the default user.")
+        except sqlite3.Error as e:
+            QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
 
     def show_user_information_dialog(self):
         """Opens the User Information Window with validation for phone and email fields."""

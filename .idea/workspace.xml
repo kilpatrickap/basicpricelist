@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="UI changes to existing users window." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="default user button.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,14 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00017" summary="price date included in db.">
-      <option name="closed" value="true" />
-      <created>1730457980610</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1730457980610</updated>
     </task>
     <task id="LOCAL-00018" summary="price_date set to currentDate.">
       <option name="closed" value="true" />
@@ -518,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730901378669</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="default user button.">
+      <option name="closed" value="true" />
+      <created>1730901783270</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1730901783270</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -533,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="currency included. to work on db." />
     <MESSAGE value="default currency is GHS." />
     <MESSAGE value="QComboBox width setFixedWidth to 150." />
     <MESSAGE value="Fixed App crash of QComboBox .text() changed to currentText()." />
@@ -558,6 +560,7 @@
     <MESSAGE value="users.db created and user information saved in user.db" />
     <MESSAGE value="existing users window shows when next is clicked." />
     <MESSAGE value="UI changes to existing users window." />
-    <option name="LAST_COMMIT_MESSAGE" value="UI changes to existing users window." />
+    <MESSAGE value="default user button." />
+    <option name="LAST_COMMIT_MESSAGE" value="default user button." />
   </component>
 </project>
