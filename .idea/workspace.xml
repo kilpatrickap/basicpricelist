@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="user data in RFP." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="vendor data in RFP." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,22 +125,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00033" summary="QComboBox width setFixedWidth to 150.">
-      <option name="closed" value="true" />
-      <created>1730578055096</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1730578055096</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Fixed App crash of QComboBox .text() changed to currentText().">
-      <option name="closed" value="true" />
-      <created>1730579494341</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1730579494341</updated>
     </task>
     <task id="LOCAL-00035" summary="when editing material, keep currency from db. working on it.">
       <option name="closed" value="true" />
@@ -518,7 +502,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730931167528</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="vendor data in RFP.">
+      <option name="closed" value="true" />
+      <created>1730931419007</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1730931419007</updated>
+    </task>
+    <task id="LOCAL-00083" summary="vendor data in RFP.">
+      <option name="closed" value="true" />
+      <created>1730931485013</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1730931485013</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -533,7 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new mat_id conflict error resolved." />
     <MESSAGE value="RFQ amended to RFP." />
     <MESSAGE value="RFP Send Request Button added." />
     <MESSAGE value="RFP lists multiple materials by vendor." />
@@ -558,6 +557,7 @@
     <MESSAGE value="delete button added." />
     <MESSAGE value="delete function added." />
     <MESSAGE value="user data in RFP." />
-    <option name="LAST_COMMIT_MESSAGE" value="user data in RFP." />
+    <MESSAGE value="vendor data in RFP." />
+    <option name="LAST_COMMIT_MESSAGE" value="vendor data in RFP." />
   </component>
 </project>

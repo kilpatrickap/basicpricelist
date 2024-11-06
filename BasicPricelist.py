@@ -589,7 +589,7 @@ class BasicPricelist(QMainWindow):
         material_list = "\n".join(f"{i + 1}.  {material}" for i, material in enumerate(materials))
         email_body_text = (
             f"Dear {vendor_name},\n\nI would like to Request For the Prices of the following materials:\n"
-            f"{material_list}\n\nBest regards,\n{user_name}\n{company_name}\n{user_position}\n{user_phone}"
+            f"{material_list}\n\nBest regards,\n{user_name}\n\n{company_name}\n{user_position}\n{user_phone}"
         )
 
         # Set up the RFP dialog
@@ -598,8 +598,8 @@ class BasicPricelist(QMainWindow):
         rfq_dialog.setGeometry(200, 200, 400, 400)
 
         layout = QVBoxLayout()
-        sender_label = QLabel(f"From: {user_email}")
-        email_label = QLabel(f"To: {vendor_email}")
+        sender_label = QLabel(f"From : {user_email}")
+        email_label = QLabel(f"To : {vendor_email}")
         layout.addWidget(sender_label)
         layout.addWidget(email_label)
 
