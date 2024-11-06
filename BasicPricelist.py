@@ -207,7 +207,7 @@ class BasicPricelist(QMainWindow):
         button_layout.addWidget(edit_button)
 
         delete_button = QPushButton("Delete")
-        #delete_button.clicked.connect(lambda: self.delete_selected_user(table_widget))  # Assuming delete function
+        delete_button.clicked.connect(lambda: self.delete_selected_user(table_widget))  # Assuming delete function
         button_layout.addWidget(delete_button)
 
         button_layout.addStretch()  # Spacer at the bottom
@@ -215,6 +215,36 @@ class BasicPricelist(QMainWindow):
 
         user_list_dialog.setLayout(main_layout)
         user_list_dialog.exec()
+
+    def delete_selected_user(self, table_widget):
+        """Deletes the selected user from the database and removes the row from the table."""
+        # Get the selected row
+        selected_row = table_widget.currentRow()
+
+        # Check if a row is selected
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a user to delete.")
+            return
+
+        # Retrieve the user ID and name from the selected row
+        user_id_item = table_widget.item(selected_row, 0)
+        user_name_item = table_widget.item(selected_row, 1)
+        user_id = user_id_item.text().split('-')[1]  # Extracts the numeric ID
+        user_name = user_name_item.text()  # Gets the user's name
+
+        # Confirm deletion with the user's name
+        reply = QMessageBox.question(self, "Delete User", f"Are you sure you want to delete {user_name} from the existing users?",
+                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+
+        if reply == QMessageBox.StandardButton.Yes:
+            # Delete user from the database
+            self.users_c.execute("DELETE FROM users WHERE user_id = ?", (user_id,))
+            self.users_conn.commit()
+
+            # Remove the row from the table
+            table_widget.removeRow(selected_row)
+
+            QMessageBox.information(self, "User Deleted", f"{user_name} has been deleted successfully.")
 
     def open_edit_user_window(self, table_widget):
         """Opens a dialog to edit the selected user's information or prompts if no selection."""
