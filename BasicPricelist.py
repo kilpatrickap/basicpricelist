@@ -174,11 +174,11 @@ class BasicPricelist(QMainWindow):
             self.show_existing_user_window()  # Open the existing user window
 
     def show_existing_user_window(self):
-        """Shows the list of all existing users with 'Make Default' button."""
+        """Shows the list of all existing users with 'Make Default' and 'Edit' buttons."""
         # Create a new dialog window to display users
         user_list_dialog = QDialog(self)
         user_list_dialog.setWindowTitle("Existing Users")
-        user_list_dialog.setGeometry(200, 200, 350, 200)
+        user_list_dialog.setGeometry(200, 200, 450, 200)
 
         # Create a QTableWidget to display user information
         table_widget = QTableWidget()
@@ -209,27 +209,56 @@ class BasicPricelist(QMainWindow):
 
             table_widget.setCellWidget(row_idx, 2, make_default_button)
 
+        # Create main layout for the dialog
+        main_layout = QHBoxLayout()
+
+        # Add table to the main layout
+        main_layout.addWidget(table_widget)
+
+        # Create a vertical layout for the 'Edit' button and add it to the right of the table
+        button_layout = QVBoxLayout()
+        edit_button = QPushButton("Edit")
+        edit_button.clicked.connect(self.open_edit_user_window)  # Replace with the actual edit function
+        button_layout.addWidget(edit_button)
+        button_layout.addStretch()  # Add a stretch to align the button to the top
+
+        main_layout.addLayout(button_layout)
+
         # Set layout for the dialog
-        layout = QVBoxLayout()
-        layout.addWidget(table_widget)
-
-        # Create a horizontal layout for the close button
-        close_button_layout = QHBoxLayout()
-
-        # Add the close button to the horizontal layout
-        close_button = QPushButton("Close")
-        close_button.setSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)  # Make button responsive
-        close_button.clicked.connect(user_list_dialog.close)
-
-        close_button_layout.addStretch()  # Add stretch to center the button
-        close_button_layout.addWidget(close_button)
-        close_button_layout.addStretch()  # Add stretch to center the button
-
-        # Add the horizontal layout with the close button to the main layout
-        layout.addLayout(close_button_layout)
-
-        user_list_dialog.setLayout(layout)
+        user_list_dialog.setLayout(main_layout)
         user_list_dialog.exec()
+
+    def open_edit_user_window(self):
+        """Opens a dialog to edit the selected user's information."""
+        edit_dialog = QDialog(self)
+        edit_dialog.setWindowTitle("Edit User")
+        edit_dialog.setGeometry(300, 300, 300, 150)
+
+        # Layout and widgets for editing (e.g., User ID, Name fields)
+        layout = QFormLayout()
+
+        user_id_input = QLineEdit()
+        user_id_input.setPlaceholderText("Enter User ID")
+        name_input = QLineEdit()
+        name_input.setPlaceholderText("Enter New Name")
+
+        layout.addRow("User ID:", user_id_input)
+        layout.addRow("Name:", name_input)
+
+        # Save button
+        save_button = QPushButton("Save")
+        save_button.clicked.connect(lambda: self.save_user_edits(user_id_input.text(), name_input.text()))
+
+        layout.addWidget(save_button)
+        edit_dialog.setLayout(layout)
+        edit_dialog.exec()
+
+    def save_user_edits(self, user_id, name):
+        """Saves the edited user information to the database."""
+        # Implement your database update logic here
+        self.users_c.execute("UPDATE users SET name = ? WHERE user_id = ?", (name, user_id))
+        self.users_conn.commit()
+        QMessageBox.information(self, "Update", f"User {user_id} updated successfully!")
 
     def make_default_user(self, user_id):
         """Sets the selected user as the default user after confirming with the user."""
