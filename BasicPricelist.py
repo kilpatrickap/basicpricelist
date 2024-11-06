@@ -113,7 +113,7 @@ class BasicPricelist(QMainWindow):
         """Displays options for New User and Existing User, with a responsive Submit button."""
         user_type_dialog = QDialog(self)
         user_type_dialog.setWindowTitle("Select User Type")
-        user_type_dialog.setGeometry(200, 200, 300, 150)
+        user_type_dialog.setGeometry(200, 200, 300, 100)
 
         layout = QVBoxLayout()
 
