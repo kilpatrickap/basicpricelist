@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Responsive Edit button on show_existing_user_window().">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Edit button saves.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,14 +129,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00023" summary="date format set to dayfirst=True.">
-      <option name="closed" value="true" />
-      <created>1730475291814</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1730475291814</updated>
     </task>
     <task id="LOCAL-00024" summary="update_material: remove commas to convert to float.">
       <option name="closed" value="true" />
@@ -520,7 +514,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730919478848</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Edit button saves.">
+      <option name="closed" value="true" />
+      <created>1730924100196</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1730924100196</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -535,7 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="To work on duplicating materials." />
     <MESSAGE value="Sort by Vendor." />
     <MESSAGE value="Duplicate button and function added." />
     <MESSAGE value="Stray currency on edit material removed." />
@@ -560,6 +561,7 @@
     <MESSAGE value="responsive close button." />
     <MESSAGE value="UI window size changes." />
     <MESSAGE value="Responsive Edit button on show_existing_user_window()." />
-    <option name="LAST_COMMIT_MESSAGE" value="Responsive Edit button on show_existing_user_window()." />
+    <MESSAGE value="Edit button saves." />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit button saves." />
   </component>
 </project>

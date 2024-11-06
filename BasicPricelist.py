@@ -218,34 +218,54 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Selection Error", "Please select a user to edit.")
             return
 
-        # Retrieve selected user ID and name
+        # Retrieve selected user ID
         user_id_item = table_widget.item(selected_row, 0)
-        name_item = table_widget.item(selected_row, 1)
         user_id = user_id_item.text().split('-')[1]  # Extracts numeric ID
-        current_name = name_item.text()
+
+        # Fetch current user information from the database
+        self.users_c.execute("SELECT name, company, position, phone, email FROM users WHERE user_id = ?", (user_id,))
+        user_data = self.users_c.fetchone()
+        current_name, current_company, current_position, current_phone, current_email = user_data
 
         # Open edit dialog with current user information
         edit_dialog = QDialog(self)
         edit_dialog.setWindowTitle("Edit User")
-        edit_dialog.setGeometry(300, 300, 300, 150)
+        edit_dialog.setGeometry(300, 300, 300, 250)
 
         layout = QFormLayout()
-        user_id_label = QLabel(user_id)
+
         name_input = QLineEdit()
         name_input.setText(current_name)
+        company_input = QLineEdit()
+        company_input.setText(current_company)
+        position_input = QLineEdit()
+        position_input.setText(current_position)
+        phone_input = QLineEdit()
+        phone_input.setText(current_phone)
+        email_input = QLineEdit()
+        email_input.setText(current_email)
 
-        layout.addRow("User ID:", user_id_label)
         layout.addRow("Name:", name_input)
+        layout.addRow("Company:", company_input)
+        layout.addRow("Position:", position_input)
+        layout.addRow("Phone:", phone_input)
+        layout.addRow("Email:", email_input)
 
         save_button = QPushButton("Save")
-        save_button.clicked.connect(lambda: self.save_user_edits(user_id, name_input.text(), edit_dialog))
+        save_button.clicked.connect(lambda: self.save_user_edits(user_id, name_input.text(), company_input.text(),
+                                                                 position_input.text(), phone_input.text(),
+                                                                 email_input.text(), edit_dialog))
         layout.addWidget(save_button)
         edit_dialog.setLayout(layout)
         edit_dialog.exec()
 
-    def save_user_edits(self, user_id, new_name, dialog):
+    def save_user_edits(self, user_id, name, company, position, phone, email, dialog):
         """Saves the edited user information to the database."""
-        self.users_c.execute("UPDATE users SET name = ? WHERE user_id = ?", (new_name, user_id))
+        # Update the users table with the new values
+        self.users_c.execute(
+            "UPDATE users SET name = ?, company = ?, position = ?, phone = ?, email = ? WHERE user_id = ?",
+            (name, company, position, phone, email, user_id)
+        )
         self.users_conn.commit()
         QMessageBox.information(self, "Update", f"User {user_id} updated successfully!")
         dialog.close()
