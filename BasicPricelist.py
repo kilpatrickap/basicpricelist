@@ -9,7 +9,7 @@ from PyQt6.QtGui import QFontMetrics
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
-                             QMessageBox, QFileDialog, QComboBox, QDateEdit)
+                             QMessageBox, QFileDialog, QComboBox, QDateEdit, QRadioButton, QButtonGroup)
 
 class BasicPricelist(QMainWindow):
     def __init__(self):
@@ -111,50 +111,69 @@ class BasicPricelist(QMainWindow):
 
     # Define the function to open the user information window
     def open_user_info_window(self):
-        """Opens a window to collect user information."""
+        """Displays options for New User and Existing User. If New User is selected, opens User Information Window."""
+        user_type_dialog = QDialog(self)
+        user_type_dialog.setWindowTitle("Select User Type")
+        user_type_dialog.setGeometry(200, 200, 300, 150)
+
+        layout = QVBoxLayout()
+
+        # Radio buttons for selecting user type
+        new_user_radio = QRadioButton("New User")
+        existing_user_radio = QRadioButton("Existing User")
+
+        # Add the radio buttons to a button group for exclusive selection
+        button_group = QButtonGroup(user_type_dialog)
+        button_group.addButton(new_user_radio)
+        button_group.addButton(existing_user_radio)
+
+        layout.addWidget(new_user_radio)
+        layout.addWidget(existing_user_radio)
+
+        # Submit button
+        submit_button = QPushButton("Next")
+        layout.addWidget(submit_button)
+        submit_button.clicked.connect(lambda: self.check_user_type_selection(new_user_radio, user_type_dialog))
+
+        user_type_dialog.setLayout(layout)
+        user_type_dialog.exec()
+
+    def check_user_type_selection(self, new_user_radio, user_type_dialog):
+        """Checks if 'New User' is selected and opens User Information window if so."""
+        if new_user_radio.isChecked():
+            user_type_dialog.close()  # Close the selection dialog
+            self.show_user_information_dialog()  # Open the user information window
+
+    def show_user_information_dialog(self):
+        """Opens the User Information Window."""
         user_info_dialog = QDialog(self)
         user_info_dialog.setWindowTitle("User Information")
         user_info_dialog.setGeometry(200, 200, 300, 200)
 
-        # Use a QFormLayout for the form structure
+        # Original user information layout setup
         form_layout = QFormLayout()
-
-        # Name input
-        name_label = QLabel("Name :")
         name_input = QLineEdit()
-        form_layout.addRow(name_label, name_input)
-
-        # Company input
-        company_label = QLabel("Company :")
+        form_layout.addRow(QLabel("Name :"), name_input)
         company_input = QLineEdit()
-        form_layout.addRow(company_label, company_input)
-
-        # Position input
-        position_label = QLabel("Position :")
+        form_layout.addRow(QLabel("Company :"), company_input)
         position_input = QLineEdit()
-        form_layout.addRow(position_label, position_input)
-
-        # Phone number input
-        phone_label = QLabel("Phone :")
+        form_layout.addRow(QLabel("Position :"), position_input)
         phone_input = QLineEdit()
-        form_layout.addRow(phone_label, phone_input)
-
-        # Email input
-        email_label = QLabel("Email :")
+        form_layout.addRow(QLabel("Phone :"), phone_input)
         email_input = QLineEdit()
-        form_layout.addRow(email_label, email_input)
+        form_layout.addRow(QLabel("Email :"), email_input)
 
-        # Submit button with responsive layout
+        # Submit button
         button_layout = QHBoxLayout()
         submit_button = QPushButton("Submit User Information")
         submit_button.clicked.connect(lambda: QMessageBox.information(
             self, "Information Saved", "User information has been saved successfully."
         ))
-        button_layout.addStretch()  # Add space before the button
+        button_layout.addStretch()
         button_layout.addWidget(submit_button)
-        button_layout.addStretch()  # Add space after the button
+        button_layout.addStretch()
 
-        # Add the form layout and button layout to the main layout
+        # Set up the main layout
         main_layout = QVBoxLayout()
         main_layout.addLayout(form_layout)
         main_layout.addLayout(button_layout)
