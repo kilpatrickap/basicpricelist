@@ -626,19 +626,40 @@ class BasicPricelist(QMainWindow):
 
     def send_email(self, from_email, to_email, body):
         """Sends an email using the provided details."""
+
+        # Query the database for the user details
+        self.users_c.execute("SELECT name, company, position, phone, email FROM users WHERE is_default = 1 LIMIT 1")
+        user_info = self.users_c.fetchone()
+
+        if not user_info:
+            QMessageBox.warning(self, "User Info Missing",
+                                "No default user information found. Please set a default user.")
+            return
+
+        # Unpack user information
+        user_name, company_name, user_position, user_phone, user_email = user_info
+
+        selected_row = self.table.currentRow()
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a material to Request For its Price.")
+            return
+
+        # Get the vendor's email from the selected row
+        vendor_email = self.table.item(selected_row, 8).text()  # Adjusted for the new column
+
         msg = MIMEMultipart()
-        msg['From'] = from_email
-        msg['To'] = to_email
+        msg['From'] = user_email
+        msg['To'] = vendor_email
         msg['Subject'] = "Request For Prices"
 
         msg.attach(MIMEText(body, 'plain'))
 
         try:
             # Replace the below SMTP details with your own
-            smtp_server = 'smtp.example.com'
+            smtp_server = 'smtp.google.com'  # Replace with your SMTP server
             smtp_port = 587
-            smtp_user = 'your_email@example.com'
-            smtp_password = 'your_password'
+            smtp_user = user_email
+            smtp_password = '191986kil'  # Replace with your email password
 
             server = smtplib.SMTP(smtp_server, smtp_port)
             server.starttls()
