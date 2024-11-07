@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="reset.">
-      <change afterPath="$PROJECT_DIR$/hMailServer-5.6.8-B2574.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="done for the day. &#10;To set up smtpServer next.">
+      <change beforePath="$PROJECT_DIR$/smtp_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/smtp_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.BasicPricelist">
+  <component name="RunManager" selected="Python.smtp_server">
     <configuration name="BasicPricelist" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -107,8 +106,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="smtp_server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pricelist" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/smtp_server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.smtp_server" />
         <item itemvalue="Python.BasicPricelist" />
         <item itemvalue="Python.BidPriceManager_v1.0" />
       </list>
@@ -129,14 +151,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00052" summary="User input information in-line.">
-      <option name="closed" value="true" />
-      <created>1730844912731</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1730844912731</updated>
     </task>
     <task id="LOCAL-00053" summary="User Submit button responsive.">
       <option name="closed" value="true" />
@@ -522,7 +536,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730992395611</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="done for the day. &#10;To set up smtpServer next.">
+      <option name="closed" value="true" />
+      <created>1730996313771</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1730996313771</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -537,7 +559,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Responsive Next button in select user type window." />
     <MESSAGE value="users.db created and user information saved in user.db" />
     <MESSAGE value="existing users window shows when next is clicked." />
     <MESSAGE value="UI changes to existing users window." />
@@ -562,6 +583,7 @@
     <MESSAGE value="smtp-relay.brevo.com" />
     <MESSAGE value="smtp.mailtrap.live" />
     <MESSAGE value="reset." />
-    <option name="LAST_COMMIT_MESSAGE" value="reset." />
+    <MESSAGE value="done for the day. &#10;To set up smtpServer next." />
+    <option name="LAST_COMMIT_MESSAGE" value="done for the day. &#10;To set up smtpServer next." />
   </component>
 </project>
