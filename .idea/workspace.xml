@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="email smtp setup.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="smtp.smtpserver.com">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,22 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00042" summary="reset to duplicate. 3x">
-      <option name="closed" value="true" />
-      <created>1730635808385</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1730635808385</updated>
-    </task>
-    <task id="LOCAL-00043" summary="reset to duplicate. 3x">
-      <option name="closed" value="true" />
-      <created>1730635843753</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1730635843753</updated>
     </task>
     <task id="LOCAL-00044" summary="reset to duplicate. 3x">
       <option name="closed" value="true" />
@@ -522,7 +505,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730974200470</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="smtp.smtpserver.com">
+      <option name="closed" value="true" />
+      <created>1730975352408</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1730975352408</updated>
+    </task>
+    <task id="LOCAL-00092" summary="smtp.smtpserver.com">
+      <option name="closed" value="true" />
+      <created>1730975369403</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1730975369404</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -537,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="User button added." />
     <MESSAGE value="User input information in-line." />
     <MESSAGE value="User Submit button responsive." />
     <MESSAGE value="Radio Buttons for New User and Existing User." />
@@ -562,6 +560,7 @@
     <MESSAGE value="RFP wording." />
     <MESSAGE value="email." />
     <MESSAGE value="email smtp setup." />
-    <option name="LAST_COMMIT_MESSAGE" value="email smtp setup." />
+    <MESSAGE value="smtp.smtpserver.com" />
+    <option name="LAST_COMMIT_MESSAGE" value="smtp.smtpserver.com" />
   </component>
 </project>
