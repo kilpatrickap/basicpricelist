@@ -588,8 +588,8 @@ class BasicPricelist(QMainWindow):
         # Create the email body with the list of materials
         material_list = "\n".join(f"{i + 1}.  {material}" for i, material in enumerate(materials))
         email_body_text = (
-            f"Dear {vendor_name},\n\nI would like to Request for your Current Prices of the following materials:\n"
-            f"{material_list}\n\nBest regards,\n{user_name}\n\n{company_name}\n{user_position}\n{user_phone}"
+            f"Dear {vendor_name},\n\nI would like to Request for your Current Prices of the following materials:\n\n"
+            f"{material_list}\n\nAcknowledgment of receipt would be highly appreciated. \n\nBest regards,\n{user_name}.\n\n{company_name}\n{user_position}\n{user_phone}"
         )
 
         # Set up the RFP dialog
