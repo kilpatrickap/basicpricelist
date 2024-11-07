@@ -625,7 +625,13 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
 
     def send_email(self, from_email, to_email, email_body_text):
-        """Sends an email using the provided details."""
+        """Sends an email using the smtplib library with Mailtrap SMTP configuration."""
+
+        # Mailtrap SMTP configuration
+        smtp_server = "smtp.mailtrap.live"  # Mailtrap SMTP server
+        port = 587
+        login = "4cf01760c7fa731c57742f9671ba3732"  # Replace with your Mailtrap login
+        password = "191986kil"  # Replace with your Mailtrap password
 
         # Query the database for the user details
         self.users_c.execute("SELECT name, company, position, phone, email FROM users WHERE is_default = 1 LIMIT 1")
@@ -644,31 +650,21 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Selection Error", "Please select a material to Request For its Price.")
             return
 
-        # Get the vendor's email from the selected row
-        vendor_email = self.table.item(selected_row, 8).text()
-
-        msg = MIMEMultipart()
-        msg['From'] = user_email
-        msg['To'] = vendor_email
-        msg['Subject'] = "Request For Prices"
-
-        msg.attach(MIMEText(email_body_text, 'plain'))
+        # Set up email message with MIMEText
+        message = MIMEText(email_body_text, "plain")
+        message["Subject"] = "Request For Prices"
+        message["From"] = from_email
+        message["To"] = to_email
 
         try:
-            # Use the smtp server details
-            smtp_server = 'smtp-relay.brevo.com'        # Replace with your SMTP server
-            smtp_port = 587
-            login = '7f7b5f001@smtp-brevo.com'      # Replace with your SMTP server username
-            master_password = 'd8UyHfmJDqWPZI30'  # Replace with your SMTP server password
-
-            server = smtplib.SMTP(smtp_server, smtp_port)
-            server.starttls()
-            server.login(login, master_password)
-            text = msg.as_string()
-            server.sendmail(from_email, to_email, text)
-            server.quit()
+            # Send the email via Mailtrap's SMTP server
+            with smtplib.SMTP(smtp_server, port) as server:
+                server.starttls()  # Secure the connection
+                server.login(login, password)
+                server.sendmail(from_email, to_email, message.as_string())
 
             QMessageBox.information(self, "Request Sent", "Your request has been sent successfully.")
+
         except Exception as e:
             QMessageBox.warning(self, "Email Error", f"Failed to send email: {e}")
 
