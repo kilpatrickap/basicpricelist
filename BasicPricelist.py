@@ -656,14 +656,14 @@ class BasicPricelist(QMainWindow):
 
         try:
             # Use the smtp server details
-            smtp_server = 'mail.smtp2go.com'  # Replace with your SMTP server
-            smtp_port = 2525
-            smtp_user = 'kilpatrickap18'  # Replace with your SMTP server username
-            smtp_password = '191986kil'  # Replace with your SMTP server password
+            smtp_server = 'smtp-relay.brevo.com'        # Replace with your SMTP server
+            smtp_port = 587
+            login = '7f7b5f001@smtp-brevo.com'      # Replace with your SMTP server username
+            master_password = 'd8UyHfmJDqWPZI30'  # Replace with your SMTP server password
 
             server = smtplib.SMTP(smtp_server, smtp_port)
             server.starttls()
-            server.login(smtp_user, smtp_password)
+            server.login(login, master_password)
             text = msg.as_string()
             server.sendmail(from_email, to_email, text)
             server.quit()
