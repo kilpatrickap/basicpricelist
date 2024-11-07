@@ -645,7 +645,7 @@ class BasicPricelist(QMainWindow):
             return
 
         # Get the vendor's email from the selected row
-        vendor_email = self.table.item(selected_row, 8).text()  # Adjusted for the new column
+        vendor_email = self.table.item(selected_row, 8).text()
 
         msg = MIMEMultipart()
         msg['From'] = user_email
@@ -655,11 +655,11 @@ class BasicPricelist(QMainWindow):
         msg.attach(MIMEText(body, 'plain'))
 
         try:
-            # Replace the below SMTP details with your own
-            smtp_server = 'smtp.google.com'  # Replace with your SMTP server
+            # Use the smtpserver.com details
+            smtp_server = 'smtp.smtpserver.com'  # Replace with your SMTP server
             smtp_port = 587
-            smtp_user = user_email
-            smtp_password = '191986kil'  # Replace with your email password
+            smtp_user = 'kilpatrickap18'  # Replace with your SMTP server username
+            smtp_password = '191986kil'  # Replace with your SMTP server password
 
             server = smtplib.SMTP(smtp_server, smtp_port)
             server.starttls()
