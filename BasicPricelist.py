@@ -2,7 +2,6 @@ import sys
 import sqlite3
 import pandas as pd
 import openpyxl
-import mailtrap as mt
 import re
 import pycountry
 from PyQt6.QtCore import QDate, Qt
@@ -11,7 +10,9 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
                              QMessageBox, QFileDialog, QComboBox, QDateEdit, QRadioButton, QButtonGroup)
-
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 class BasicPricelist(QMainWindow):
     def __init__(self):
@@ -623,27 +624,49 @@ class BasicPricelist(QMainWindow):
         except sqlite3.Error as e:
             QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
 
-
     def send_email(self, from_email, to_email, email_body_text):
-        """Sends an email using the Mailtrap official Python client."""
+        """Sends an email using the smtplib library with Mailtrap SMTP configuration."""
 
-        # Replace with your Mailtrap API key
-        api_token = "your-api-key"
+        # Mailtrap SMTP configuration
+        smtp_server = "www.smtp.mailtrap.live"  # Mailtrap SMTP server
+        port = 587
+        login = "kilpatrickap18@gmail.com"  # Replace with your Mailtrap login
+        password = "191986kil"  # Replace with your Mailtrap password
 
-        mail = mt.Mail(
-            sender=mt.Address(email=from_email, name="Your Name"),
-            to=[mt.Address(email=to_email)],
-            subject="Request For Prices",
-            text=email_body_text
-        )
+        # Query the database for the user details
+        self.users_c.execute("SELECT name, company, position, phone, email FROM users WHERE is_default = 1 LIMIT 1")
+        user_info = self.users_c.fetchone()
+
+        if not user_info:
+            QMessageBox.warning(self, "User Info Missing",
+                                "No default user information found. Please set a default user.")
+            return
+
+        # Unpack user information
+        user_name, company_name, user_position, user_phone, user_email = user_info
+
+        selected_row = self.table.currentRow()
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a material to Request For its Price.")
+            return
+
+        # Set up email message with MIMEText
+        message = MIMEText(email_body_text, "plain")
+        message["Subject"] = "Request For Prices"
+        message["From"] = from_email
+        message["To"] = to_email
 
         try:
-            client = mt.MailtrapClient(token=api_token)
-            client.send(mail)
+            # Send the email via Mailtrap's SMTP server
+            with smtplib.SMTP(smtp_server, port) as server:
+                server.starttls()  # Secure the connection
+                server.login(login, password)
+                server.sendmail(from_email, to_email, message.as_string())
+
             QMessageBox.information(self, "Request Sent", "Your request has been sent successfully.")
+
         except Exception as e:
             QMessageBox.warning(self, "Email Error", f"Failed to send email: {e}")
-            print(f"Error details: {e}")  # Log error details for troubleshooting
 
     def open_new_material_window(self):
         """Opens a window to input a new material."""

@@ -128,14 +128,6 @@
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
     </task>
-    <task id="LOCAL-00050" summary="RFP lists multiple materials by vendor.">
-      <option name="closed" value="true" />
-      <created>1730832431443</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1730832431444</updated>
-    </task>
     <task id="LOCAL-00051" summary="User button added.">
       <option name="closed" value="true" />
       <created>1730844141601</created>
@@ -520,7 +512,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730984967619</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="smtp.mailtrap.live">
+      <option name="closed" value="true" />
+      <created>1730985214466</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1730985214466</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
