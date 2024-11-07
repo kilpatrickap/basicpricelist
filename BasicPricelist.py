@@ -2,6 +2,8 @@ import sys
 import sqlite3
 import pandas as pd
 import openpyxl
+import smtplib
+from email.mime.text import MIMEText
 import re
 import pycountry
 from PyQt6.QtCore import QDate, Qt
@@ -624,50 +626,29 @@ class BasicPricelist(QMainWindow):
         except sqlite3.Error as e:
             QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
 
+
     def send_email(self, from_email, to_email, email_body_text):
-        """Sends an email using the smtplib library with Mailtrap SMTP configuration."""
+        """Sends an email using Gmail's SMTP server."""
 
-        # Mailtrap SMTP configuration
-        smtp_server = "smtp.mailtrap.live"  # Mailtrap SMTP server
-        port = 587
-        login = "kilpatrickap18@gmail.com"  # Replace with your Mailtrap login
-        password = "191986kil"  # Replace with your Mailtrap password
-
-        # Query the database for the user details
-        self.users_c.execute("SELECT name, company, position, phone, email FROM users WHERE is_default = 1 LIMIT 1")
-        user_info = self.users_c.fetchone()
-
-        if not user_info:
-            QMessageBox.warning(self, "User Info Missing",
-                                "No default user information found. Please set a default user.")
-            return
-
-        # Unpack user information
-        user_name, company_name, user_position, user_phone, user_email = user_info
-
-        selected_row = self.table.currentRow()
-        if selected_row == -1:
-            QMessageBox.warning(self, "Selection Error", "Please select a material to Request For its Price.")
-            return
-
-        # Set up email message with MIMEText
-        message = MIMEText(email_body_text, "plain")
-        message["Subject"] = "Request For Prices"
-        message["From"] = from_email
-        message["To"] = to_email
+        msg = MIMEText(email_body_text)
+        msg['Subject'] = "Request For Prices"
+        msg['From'] = from_email
+        msg['To'] = to_email
 
         try:
-            # Send the email via Mailtrap's SMTP server
-            with smtplib.SMTP(smtp_server, port) as server:
-                server.starttls()  # Secure the connection
-                server.login(login, password)
-                server.sendmail(from_email, to_email, message.as_string())
-
-            QMessageBox.information(self, "Request Sent", "Your request has been sent successfully.")
-
+            smtp_server = 'smtp.gmail.com'
+            smtp_port = 587
+            server = smtplib.SMTP(smtp_server, smtp_port)
+            server.starttls()
+            server.login(from_email, '191986kil')  # Use your Gmail password or App Password
+            server.sendmail(from_email, to_email, msg.as_string())
+            server.quit()
+            print("Email sent successfully!")
         except Exception as e:
-            QMessageBox.warning(self, "Email Error", f"Failed to send email: {e}")
+            print(f"Failed to send email: {e}")
 
+    # Example usage
+    #send_email('your_email@gmail.com', 'recipient@example.com', 'This is a test email sent using Gmail SMTP.')
 
     def open_new_material_window(self):
         """Opens a window to input a new material."""
