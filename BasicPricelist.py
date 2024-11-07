@@ -627,36 +627,23 @@ class BasicPricelist(QMainWindow):
     def send_email(self, from_email, to_email, email_body_text):
         """Sends an email using the Mailtrap official Python client."""
 
-        # Mailtrap API token - replace with your actual API token
-        api_token = "3eda1912c0069fb3384e97c3118acad9"
+        # Replace with your Mailtrap API key
+        api_token = "your-api-key"
 
-        # Query the database for the user details
-        self.users_c.execute("SELECT name, company, position, phone, email FROM users WHERE is_default = 1 LIMIT 1")
-        user_info = self.users_c.fetchone()
-
-        if not user_info:
-            QMessageBox.warning(self, "User Info Missing",
-                                "No default user information found. Please set a default user.")
-            return
-
-        # Unpack user information
-        user_name, company_name, user_position, user_phone, user_email = user_info
-
-        # Set up Mailtrap email details
         mail = mt.Mail(
-            sender=mt.Address(email=from_email, name=user_name),
+            sender=mt.Address(email=from_email, name="Your Name"),
             to=[mt.Address(email=to_email)],
             subject="Request For Prices",
             text=email_body_text
         )
 
         try:
-            # Create Mailtrap client and send the email
             client = mt.MailtrapClient(token=api_token)
             client.send(mail)
             QMessageBox.information(self, "Request Sent", "Your request has been sent successfully.")
         except Exception as e:
             QMessageBox.warning(self, "Email Error", f"Failed to send email: {e}")
+            print(f"Error details: {e}")  # Log error details for troubleshooting
 
     def open_new_material_window(self):
         """Opens a window to input a new material."""
