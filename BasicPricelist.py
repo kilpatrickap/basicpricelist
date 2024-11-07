@@ -10,6 +10,9 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
                              QMessageBox, QFileDialog, QComboBox, QDateEdit, QRadioButton, QButtonGroup)
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 class BasicPricelist(QMainWindow):
     def __init__(self):
@@ -554,71 +557,99 @@ class BasicPricelist(QMainWindow):
         # Get the vendor's email from the selected row
         vendor_email = self.table.item(selected_row, 8).text()  # Adjusted for the new column
 
-        # Fetch the vendor's name from the materials.db database using the vendor_email
-        self.c.execute("SELECT vendor FROM materials WHERE vendor_email = ?", (vendor_email,))
-        vendor_info = self.c.fetchone()
+        try:
+            # Fetch the vendor's name from the materials.db database using the vendor_email
+            self.c.execute("SELECT vendor FROM materials WHERE vendor_email = ?", (vendor_email,))
+            vendor_info = self.c.fetchone()
 
-        # Check if vendor info is found
-        if not vendor_info:
-            QMessageBox.warning(self, "Vendor Info Missing", "Vendor information could not be found.")
-            return
+            if not vendor_info:
+                QMessageBox.warning(self, "Vendor Info Missing", "Vendor information could not be found.")
+                return
 
-        vendor_name = vendor_info[0]  # Assuming the vendor's name is in the first column of the materials table
+            vendor_name = vendor_info[0]  # Assuming the vendor's name is in the first column of the materials table
 
-        # Collect all materials by the same vendor
-        materials = []
-        for row in range(self.table.rowCount()):
-            if self.table.item(row, 8).text() == vendor_email:
-                material_name = self.table.item(row, 2).text()  # Adjusted for the new column
-                materials.append(material_name)
+            # Collect all materials by the same vendor
+            materials = [self.table.item(row, 2).text() for row in range(self.table.rowCount())
+                         if self.table.item(row, 8).text() == vendor_email]
 
-        # Query the database for the user details
-        self.users_c.execute("SELECT name, company, position, phone, email FROM users WHERE is_default = 1 LIMIT 1")
-        user_info = self.users_c.fetchone()
+            # Query the database for the user details
+            self.users_c.execute("SELECT name, company, position, phone, email FROM users WHERE is_default = 1 LIMIT 1")
+            user_info = self.users_c.fetchone()
 
-        # Check if user info is found
-        if not user_info:
-            QMessageBox.warning(self, "User Info Missing",
-                                "No default user information found. Please set a default user.")
-            return
+            if not user_info:
+                QMessageBox.warning(self, "User Info Missing",
+                                    "No default user information found. Please set a default user.")
+                return
 
-        # Unpack user information
-        user_name, company_name, user_position, user_phone, user_email = user_info
+            # Unpack user information
+            user_name, company_name, user_position, user_phone, user_email = user_info
 
-        # Create the email body with the list of materials
-        material_list = "\n".join(f"{i + 1}.  {material}" for i, material in enumerate(materials))
-        email_body_text = (
-            f"Dear {vendor_name},\n\nI would like to Request for your Current Prices for the following materials:\n\n"
-            f"{material_list}\n\nAcknowledgment of receipt would be highly appreciated. \n\nBest regards,\n{user_name}.\n\n{company_name}\n{user_position}\n{user_phone}"
-        )
+            # Create the email body with the list of materials
+            material_list = "\n".join(f"{i + 1}.  {material}" for i, material in enumerate(materials))
+            email_body_text = (
+                f"Dear {vendor_name},\n\n"
+                f"I would like to request your current prices for the following materials:\n\n"
+                f"{material_list}\n\n"
+                f"Acknowledgment of receipt would be highly appreciated.\n\n"
+                f"Best regards,\n{user_name}.\n\n{company_name}\n{user_position}\n{user_phone}"
+            )
 
-        # Set up the RFP dialog
-        rfq_dialog = QDialog(self)
-        rfq_dialog.setWindowTitle("Request For Prices")
-        rfq_dialog.setGeometry(200, 200, 400, 400)
+            # Set up the RFP dialog
+            rfq_dialog = QDialog(self)
+            rfq_dialog.setWindowTitle("Request For Prices")
+            rfq_dialog.setGeometry(200, 200, 400, 400)
 
-        layout = QVBoxLayout()
-        sender_label = QLabel(f"From : {user_email}")
-        email_label = QLabel(f"To : {vendor_email}")
-        layout.addWidget(sender_label)
-        layout.addWidget(email_label)
+            layout = QVBoxLayout()
+            sender_label = QLabel(f"From: {user_email}")
+            email_label = QLabel(f"To: {vendor_email}")
+            layout.addWidget(sender_label)
+            layout.addWidget(email_label)
 
-        email_body = QTextEdit()
-        email_body.setPlainText(email_body_text)
-        layout.addWidget(email_body)
+            email_body = QTextEdit()
+            email_body.setPlainText(email_body_text)
+            layout.addWidget(email_body)
 
-        # Add "Send Request" button with responsive layout
-        button_layout = QHBoxLayout()
-        send_button = QPushButton("Send Request")
-        send_button.clicked.connect(lambda: QMessageBox.information(self, "Request Sent",
-                                                                    "Your request has been sent."))  # Shows a message as confirmation
-        button_layout.addStretch()  # Add space before the button
-        button_layout.addWidget(send_button)
-        button_layout.addStretch()  # Add space after the button
-        layout.addLayout(button_layout)  # Add button layout to main layout
+            # Add "Send Request" button with responsive layout
+            button_layout = QHBoxLayout()
+            send_button = QPushButton("Send Request")
+            send_button.clicked.connect(lambda: self.send_email(user_email, vendor_email, email_body_text))
+            button_layout.addStretch()  # Add space before the button
+            button_layout.addWidget(send_button)
+            button_layout.addStretch()  # Add space after the button
+            layout.addLayout(button_layout)  # Add button layout to main layout
 
-        rfq_dialog.setLayout(layout)
-        rfq_dialog.exec()
+            rfq_dialog.setLayout(layout)
+            rfq_dialog.exec()
+
+        except sqlite3.Error as e:
+            QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
+
+    def send_email(self, from_email, to_email, body):
+        """Sends an email using the provided details."""
+        msg = MIMEMultipart()
+        msg['From'] = from_email
+        msg['To'] = to_email
+        msg['Subject'] = "Request For Prices"
+
+        msg.attach(MIMEText(body, 'plain'))
+
+        try:
+            # Replace the below SMTP details with your own
+            smtp_server = 'smtp.example.com'
+            smtp_port = 587
+            smtp_user = 'your_email@example.com'
+            smtp_password = 'your_password'
+
+            server = smtplib.SMTP(smtp_server, smtp_port)
+            server.starttls()
+            server.login(smtp_user, smtp_password)
+            text = msg.as_string()
+            server.sendmail(from_email, to_email, text)
+            server.quit()
+
+            QMessageBox.information(self, "Request Sent", "Your request has been sent successfully.")
+        except Exception as e:
+            QMessageBox.warning(self, "Email Error", f"Failed to send email: {e}")
 
     def open_new_material_window(self):
         """Opens a window to input a new material."""

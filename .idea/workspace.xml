@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="vendor data in RFP.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pricelist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pricelist.iml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="RFP wording.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
@@ -131,22 +129,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Sort by Vendor.">
-      <option name="closed" value="true" />
-      <created>1730630316336</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1730630316336</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Duplicate button and function added.">
-      <option name="closed" value="true" />
-      <created>1730633268683</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1730633268683</updated>
     </task>
     <task id="LOCAL-00040" summary="Stray currency on edit material removed.">
       <option name="closed" value="true" />
@@ -524,7 +506,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730932014611</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="RFP wording.">
+      <option name="closed" value="true" />
+      <created>1730971802423</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1730971802423</updated>
+    </task>
+    <task id="LOCAL-00088" summary="RFP wording.">
+      <option name="closed" value="true" />
+      <created>1730971850636</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1730971850636</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -539,7 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="RFQ amended to RFP." />
     <MESSAGE value="RFP Send Request Button added." />
     <MESSAGE value="RFP lists multiple materials by vendor." />
     <MESSAGE value="User button added." />
@@ -564,6 +561,7 @@
     <MESSAGE value="delete function added." />
     <MESSAGE value="user data in RFP." />
     <MESSAGE value="vendor data in RFP." />
-    <option name="LAST_COMMIT_MESSAGE" value="vendor data in RFP." />
+    <MESSAGE value="RFP wording." />
+    <option name="LAST_COMMIT_MESSAGE" value="RFP wording." />
   </component>
 </project>
