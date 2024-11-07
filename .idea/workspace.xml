@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="smtp.mailtrap.live">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="reset.">
+      <change afterPath="$PROJECT_DIR$/hMailServer-5.6.8-B2574.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,18 +46,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.BasicPricelist.executor&quot;: &quot;Run&quot;,
-    &quot;Python.BidPriceManager_v1.0.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kilpatrick/Documents/pythonProject/basicpricelist&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.BasicPricelist.executor": "Run",
+    "Python.BidPriceManager_v1.0.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Consar-Kilpatrick/PycharmProjects/pricelist",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -128,14 +129,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00051" summary="User button added.">
-      <option name="closed" value="true" />
-      <created>1730844141601</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1730844141602</updated>
     </task>
     <task id="LOCAL-00052" summary="User input information in-line.">
       <option name="closed" value="true" />
@@ -521,7 +514,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730985214466</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="reset.">
+      <option name="closed" value="true" />
+      <created>1730992395611</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1730992395611</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -536,7 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Validation checks for User Phone and Email completed." />
     <MESSAGE value="Responsive Next button in select user type window." />
     <MESSAGE value="users.db created and user information saved in user.db" />
     <MESSAGE value="existing users window shows when next is clicked." />
@@ -561,6 +561,7 @@
     <MESSAGE value="mail.smtp2go.com" />
     <MESSAGE value="smtp-relay.brevo.com" />
     <MESSAGE value="smtp.mailtrap.live" />
-    <option name="LAST_COMMIT_MESSAGE" value="smtp.mailtrap.live" />
+    <MESSAGE value="reset." />
+    <option name="LAST_COMMIT_MESSAGE" value="reset." />
   </component>
 </project>
