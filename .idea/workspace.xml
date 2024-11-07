@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="mail.smtp2go.com">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="smtp-relay.brevo.com" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,14 +125,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00047" summary="RFQ amended to RFP.">
-      <option name="closed" value="true" />
-      <created>1730829678556</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1730829678556</updated>
     </task>
     <task id="LOCAL-00048" summary="RFP Send Request Button added.">
       <option name="closed" value="true" />
@@ -521,7 +510,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730980410504</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="smtp-relay.brevo.com">
+      <option name="closed" value="true" />
+      <created>1730980968319</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1730980968319</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -536,7 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="User Submit button responsive." />
     <MESSAGE value="Radio Buttons for New User and Existing User." />
     <MESSAGE value="Validation checks for User Phone and Email completed." />
     <MESSAGE value="Responsive Next button in select user type window." />
@@ -561,6 +557,7 @@
     <MESSAGE value="email smtp setup." />
     <MESSAGE value="smtp.smtpserver.com" />
     <MESSAGE value="mail.smtp2go.com" />
-    <option name="LAST_COMMIT_MESSAGE" value="mail.smtp2go.com" />
+    <MESSAGE value="smtp-relay.brevo.com" />
+    <option name="LAST_COMMIT_MESSAGE" value="smtp-relay.brevo.com" />
   </component>
 </project>
