@@ -668,6 +668,7 @@ class BasicPricelist(QMainWindow):
         except Exception as e:
             QMessageBox.warning(self, "Email Error", f"Failed to send email: {e}")
 
+
     def open_new_material_window(self):
         """Opens a window to input a new material."""
         self.material_dialog = QDialog(self)
