@@ -3,6 +3,7 @@ import sqlite3
 import pandas as pd
 import openpyxl
 import re
+import requests
 import pycountry
 from PyQt6.QtCore import QDate, Qt
 from PyQt6.QtGui import QFontMetrics
@@ -625,7 +626,7 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
 
     def send_email(self, from_email, to_email, email_body_text):
-        """Sends an email using the provided details."""
+        """Sends an email using the Mailgun API."""
 
         # Query the database for the user details
         self.users_c.execute("SELECT name, company, position, phone, email FROM users WHERE is_default = 1 LIMIT 1")
@@ -647,29 +648,30 @@ class BasicPricelist(QMainWindow):
         # Get the vendor's email from the selected row
         vendor_email = self.table.item(selected_row, 8).text()
 
-        msg = MIMEMultipart()
-        msg['From'] = user_email
-        msg['To'] = vendor_email
-        msg['Subject'] = "Request For Prices"
-
-        msg.attach(MIMEText(email_body_text, 'plain'))
+        # Set up the email content for Mailgun
+        subject = "Request For Prices"
+        data = {
+            "from": f"{user_name} <{user_email}>",
+            "to": vendor_email,
+            "subject": subject,
+            "text": email_body_text
+        }
 
         try:
-            # Use the smtp server details
-            smtp_server = 'mail.smtp2go.com'  # Replace with your SMTP server
-            smtp_port = 2525
-            smtp_user = 'kilpatrickap18'  # Replace with your SMTP server username
-            smtp_password = '191986kil'  # Replace with your SMTP server password
+            # Make the Mailgun API call
+            response = requests.post(
+                "https://api.mailgun.net/v3/YOUR_DOMAIN/messages",  # Replace with your Mailgun domain
+                auth=("api", "YOUR_API_KEY"),  # Replace with your Mailgun API key
+                data=data
+            )
 
-            server = smtplib.SMTP(smtp_server, smtp_port)
-            server.starttls()
-            server.login(smtp_user, smtp_password)
-            text = msg.as_string()
-            server.sendmail(from_email, to_email, text)
-            server.quit()
+            # Check if the email was sent successfully
+            if response.status_code == 200:
+                QMessageBox.information(self, "Request Sent", "Your request has been sent successfully.")
+            else:
+                QMessageBox.warning(self, "Email Error", f"Failed to send email: {response.text}")
 
-            QMessageBox.information(self, "Request Sent", "Your request has been sent successfully.")
-        except Exception as e:
+        except requests.RequestException as e:
             QMessageBox.warning(self, "Email Error", f"Failed to send email: {e}")
 
     def open_new_material_window(self):
