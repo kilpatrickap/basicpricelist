@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="smtp-relay.brevo.com">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="smtp.mailtrap.live">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
@@ -128,14 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00048" summary="RFP Send Request Button added.">
-      <option name="closed" value="true" />
-      <created>1730831061931</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1730831061931</updated>
     </task>
     <task id="LOCAL-00049" summary="RFP lists multiple materials by vendor.">
       <option name="closed" value="true" />
@@ -521,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730980968319</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="smtp.mailtrap.live">
+      <option name="closed" value="true" />
+      <created>1730984452516</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1730984452516</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -536,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Radio Buttons for New User and Existing User." />
     <MESSAGE value="Validation checks for User Phone and Email completed." />
     <MESSAGE value="Responsive Next button in select user type window." />
     <MESSAGE value="users.db created and user information saved in user.db" />
@@ -561,6 +560,7 @@
     <MESSAGE value="smtp.smtpserver.com" />
     <MESSAGE value="mail.smtp2go.com" />
     <MESSAGE value="smtp-relay.brevo.com" />
-    <option name="LAST_COMMIT_MESSAGE" value="smtp-relay.brevo.com" />
+    <MESSAGE value="smtp.mailtrap.live" />
+    <option name="LAST_COMMIT_MESSAGE" value="smtp.mailtrap.live" />
   </component>
 </project>
