@@ -628,7 +628,7 @@ class BasicPricelist(QMainWindow):
         """Sends an email using the smtplib library with Mailtrap SMTP configuration."""
 
         # Mailtrap SMTP configuration
-        smtp_server = "www.smtp.mailtrap.live"  # Mailtrap SMTP server
+        smtp_server = "smtp.mailtrap.live"  # Mailtrap SMTP server
         port = 587
         login = "kilpatrickap18@gmail.com"  # Replace with your Mailtrap login
         password = "191986kil"  # Replace with your Mailtrap password
