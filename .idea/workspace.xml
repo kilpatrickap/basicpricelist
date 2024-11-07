@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="done for the day. &#10;To set up smtpServer next.">
-      <change beforePath="$PROJECT_DIR$/smtp_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/smtp_server.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="smtp_server and client." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +47,8 @@
   "keyToString": {
     "Python.BasicPricelist.executor": "Run",
     "Python.BidPriceManager_v1.0.executor": "Run",
+    "Python.smtp_client.executor": "Run",
+    "Python.smtp_server.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/Consar-Kilpatrick/PycharmProjects/pricelist",
@@ -61,7 +61,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.smtp_server">
+  <component name="RunManager" selected="Python.smtp_client">
     <configuration name="BasicPricelist" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -106,6 +106,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="smtp_client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pricelist" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/smtp_client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="smtp_server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -130,6 +152,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.smtp_client" />
         <item itemvalue="Python.smtp_server" />
         <item itemvalue="Python.BasicPricelist" />
         <item itemvalue="Python.BidPriceManager_v1.0" />
@@ -151,14 +174,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00053" summary="User Submit button responsive.">
-      <option name="closed" value="true" />
-      <created>1730845610204</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1730845610204</updated>
     </task>
     <task id="LOCAL-00054" summary="User Submit button responsive.">
       <option name="closed" value="true" />
@@ -544,7 +559,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730996313771</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="smtp_server and client.">
+      <option name="closed" value="true" />
+      <created>1730996692872</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1730996692872</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -559,7 +582,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="users.db created and user information saved in user.db" />
     <MESSAGE value="existing users window shows when next is clicked." />
     <MESSAGE value="UI changes to existing users window." />
     <MESSAGE value="default user button." />
@@ -584,6 +606,7 @@
     <MESSAGE value="smtp.mailtrap.live" />
     <MESSAGE value="reset." />
     <MESSAGE value="done for the day. &#10;To set up smtpServer next." />
-    <option name="LAST_COMMIT_MESSAGE" value="done for the day. &#10;To set up smtpServer next." />
+    <MESSAGE value="smtp_server and client." />
+    <option name="LAST_COMMIT_MESSAGE" value="smtp_server and client." />
   </component>
 </project>
