@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="smtp.smtpserver.com">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="mail.smtp2go.com">
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,14 +129,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00044" summary="reset to duplicate. 3x">
-      <option name="closed" value="true" />
-      <created>1730635963127</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1730635963127</updated>
     </task>
     <task id="LOCAL-00045" summary="Unlimited duplicates works.">
       <option name="closed" value="true" />
@@ -521,7 +514,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730975369404</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="mail.smtp2go.com">
+      <option name="closed" value="true" />
+      <created>1730976946080</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1730976946080</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -536,7 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="User input information in-line." />
     <MESSAGE value="User Submit button responsive." />
     <MESSAGE value="Radio Buttons for New User and Existing User." />
     <MESSAGE value="Validation checks for User Phone and Email completed." />
@@ -561,6 +561,7 @@
     <MESSAGE value="email." />
     <MESSAGE value="email smtp setup." />
     <MESSAGE value="smtp.smtpserver.com" />
-    <option name="LAST_COMMIT_MESSAGE" value="smtp.smtpserver.com" />
+    <MESSAGE value="mail.smtp2go.com" />
+    <option name="LAST_COMMIT_MESSAGE" value="mail.smtp2go.com" />
   </component>
 </project>

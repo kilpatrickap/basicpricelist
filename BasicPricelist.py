@@ -624,7 +624,7 @@ class BasicPricelist(QMainWindow):
         except sqlite3.Error as e:
             QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
 
-    def send_email(self, from_email, to_email, body):
+    def send_email(self, from_email, to_email, email_body_text):
         """Sends an email using the provided details."""
 
         # Query the database for the user details
@@ -652,10 +652,10 @@ class BasicPricelist(QMainWindow):
         msg['To'] = vendor_email
         msg['Subject'] = "Request For Prices"
 
-        msg.attach(MIMEText(body, 'plain'))
+        msg.attach(MIMEText(email_body_text, 'plain'))
 
         try:
-            # Use the smtpserver.com details
+            # Use the smtp server details
             smtp_server = 'mail.smtp2go.com'  # Replace with your SMTP server
             smtp_port = 2525
             smtp_user = 'kilpatrickap18'  # Replace with your SMTP server username
