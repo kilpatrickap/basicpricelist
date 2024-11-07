@@ -658,7 +658,7 @@ class BasicPricelist(QMainWindow):
             # Use the smtpserver.com details
             smtp_server = 'smtp.smtpserver.com'  # Replace with your SMTP server
             smtp_port = 587
-            smtp_user = 'kilpatrickap18'  # Replace with your SMTP server username
+            smtp_user = 'kilpatrickap18@gmail.com'  # Replace with your SMTP server username
             smtp_password = '191986kil'  # Replace with your SMTP server password
 
             server = smtplib.SMTP(smtp_server, smtp_port)
