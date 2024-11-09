@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="smtp_server and client." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="vendor data in RFP reset." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -174,22 +174,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00054" summary="User Submit button responsive.">
-      <option name="closed" value="true" />
-      <created>1730846063320</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1730846063320</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Radio Buttons for New User and Existing User.">
-      <option name="closed" value="true" />
-      <created>1730885521169</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1730885521169</updated>
     </task>
     <task id="LOCAL-00056" summary="Radio Buttons for New User and Existing User.">
       <option name="closed" value="true" />
@@ -567,7 +551,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730996692872</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="vendor data in RFP reset.">
+      <option name="closed" value="true" />
+      <created>1731194377673</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1731194377673</updated>
+    </task>
+    <task id="LOCAL-00104" summary="vendor data in RFP reset.">
+      <option name="closed" value="true" />
+      <created>1731194449329</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1731194449329</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -582,7 +582,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="existing users window shows when next is clicked." />
     <MESSAGE value="UI changes to existing users window." />
     <MESSAGE value="default user button." />
     <MESSAGE value="is_default is 1 for default and 0 otherwise (Boolean value)." />
@@ -607,6 +606,7 @@
     <MESSAGE value="reset." />
     <MESSAGE value="done for the day. &#10;To set up smtpServer next." />
     <MESSAGE value="smtp_server and client." />
-    <option name="LAST_COMMIT_MESSAGE" value="smtp_server and client." />
+    <MESSAGE value="vendor data in RFP reset." />
+    <option name="LAST_COMMIT_MESSAGE" value="vendor data in RFP reset." />
   </component>
 </project>
