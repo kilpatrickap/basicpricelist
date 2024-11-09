@@ -43,25 +43,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.BasicPricelist.executor": "Run",
-    "Python.BidPriceManager_v1.0.executor": "Run",
-    "Python.smtp_client.executor": "Run",
-    "Python.smtp_server.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Consar-Kilpatrick/PycharmProjects/pricelist",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.BasicPricelist.executor&quot;: &quot;Run&quot;,
+    &quot;Python.BidPriceManager_v1.0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.smtp_client.executor&quot;: &quot;Run&quot;,
+    &quot;Python.smtp_server.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Consar-Kilpatrick/PycharmProjects/pricelist&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.smtp_client">
+  <component name="RunManager" selected="Python.BasicPricelist">
     <configuration name="BasicPricelist" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -152,9 +152,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.BasicPricelist" />
         <item itemvalue="Python.smtp_client" />
         <item itemvalue="Python.smtp_server" />
-        <item itemvalue="Python.BasicPricelist" />
         <item itemvalue="Python.BidPriceManager_v1.0" />
       </list>
     </recent_temporary>
