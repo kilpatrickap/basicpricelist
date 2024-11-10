@@ -589,6 +589,9 @@ class BasicPricelist(QMainWindow):
             # Create the email body with the list of materials
             material_list = "\n".join(f"{i + 1}.  {material}" for i, material in enumerate(materials))
             email_body_text = (
+                f"From : {user_email}\n"
+                f"To : {vendor_email}\n\n"
+                
                 f"Dear {vendor_name},\n\n"
                 f"I would like to request your current prices for the following materials:\n\n"
                 f"{material_list}\n\n"
@@ -602,11 +605,6 @@ class BasicPricelist(QMainWindow):
             rfq_dialog.setGeometry(200, 200, 400, 400)
 
             layout = QVBoxLayout()
-            sender_label = QLabel(f"From: {user_email}")
-            email_label = QLabel(f"To: {vendor_email}")
-            layout.addWidget(sender_label)
-            layout.addWidget(email_label)
-
             email_body = QTextEdit()
             email_body.setPlainText(email_body_text)
             layout.addWidget(email_body)
