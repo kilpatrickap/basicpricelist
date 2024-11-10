@@ -611,44 +611,11 @@ class BasicPricelist(QMainWindow):
             email_body.setPlainText(email_body_text)
             layout.addWidget(email_body)
 
-            # Add "Send Request" button with responsive layout
-            button_layout = QHBoxLayout()
-            send_button = QPushButton("Send Request")
-            send_button.clicked.connect(lambda: self.send_email(user_email, vendor_email, email_body_text))
-            button_layout.addStretch()  # Add space before the button
-            button_layout.addWidget(send_button)
-            button_layout.addStretch()  # Add space after the button
-            layout.addLayout(button_layout)  # Add button layout to main layout
-
             rfq_dialog.setLayout(layout)
             rfq_dialog.exec()
 
         except sqlite3.Error as e:
             QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
-
-
-    def send_email(self, from_email, to_email, email_body_text):
-        """Sends an email using Gmail's SMTP server."""
-
-        msg = MIMEText(email_body_text)
-        msg['Subject'] = "Request For Prices"
-        msg['From'] = from_email
-        msg['To'] = to_email
-
-        try:
-            smtp_server = 'smtp.gmail.com'
-            smtp_port = 587
-            server = smtplib.SMTP(smtp_server, smtp_port)
-            server.starttls()
-            server.login(from_email, '191986kil')  # Use your Gmail password or App Password
-            server.sendmail(from_email, to_email, msg.as_string())
-            server.quit()
-            print("Email sent successfully!")
-        except Exception as e:
-            print(f"Failed to send email: {e}")
-
-    # Example usage
-    #send_email('your_email@gmail.com', 'recipient@example.com', 'This is a test email sent using Gmail SMTP.')
 
     def open_new_material_window(self):
         """Opens a window to input a new material."""

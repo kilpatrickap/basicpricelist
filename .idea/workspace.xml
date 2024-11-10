@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="vendor data in RFP reset." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="vendor data in RFP reset.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,12 +31,12 @@
     &quot;assignee&quot;: &quot;kilpatrickap&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/kilpatrickap/basicpricelist&quot;,
-    &quot;accountId&quot;: &quot;b2b34f02-6aa0-4641-8b55-d64aff92f9a3&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/kilpatrickap/basicpricelist.git",
+    "accountId": "b56d5b1d-bd3e-4a5a-9bf1-7ad5dbda81eb"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -174,22 +177,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Radio Buttons for New User and Existing User.">
-      <option name="closed" value="true" />
-      <created>1730886187629</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1730886187629</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Validation checks for User Phone and Email completed.">
-      <option name="closed" value="true" />
-      <created>1730888075355</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1730888075355</updated>
     </task>
     <task id="LOCAL-00058" summary="Validation checks for User Phone and Email completed.">
       <option name="closed" value="true" />
@@ -567,7 +554,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731194449329</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="vendor data in RFP reset.">
+      <option name="closed" value="true" />
+      <created>1731194585465</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1731194585465</updated>
+    </task>
+    <task id="LOCAL-00106" summary="vendor data in RFP reset.">
+      <option name="closed" value="true" />
+      <created>1731194685860</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1731194685860</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
