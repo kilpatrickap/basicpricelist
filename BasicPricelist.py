@@ -602,7 +602,7 @@ class BasicPricelist(QMainWindow):
             # Set up the RFP dialog
             rfq_dialog = QDialog(self)
             rfq_dialog.setWindowTitle("Request For Prices")
-            rfq_dialog.setGeometry(200, 200, 400, 400)
+            rfq_dialog.setGeometry(200, 200, 500, 500)
 
             layout = QVBoxLayout()
             email_body = QTextEdit()
