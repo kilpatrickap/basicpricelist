@@ -2,8 +2,6 @@ import sys
 import sqlite3
 import pandas as pd
 import openpyxl
-import smtplib
-from email.mime.text import MIMEText
 import re
 import pycountry
 from PyQt6.QtCore import QDate, Qt
@@ -12,9 +10,6 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
                              QMessageBox, QFileDialog, QComboBox, QDateEdit, QRadioButton, QButtonGroup)
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
 
 class BasicPricelist(QMainWindow):
     def __init__(self):
@@ -57,6 +52,10 @@ class BasicPricelist(QMainWindow):
         rfq_button = QPushButton('RFP')
         rfq_button.clicked.connect(self.open_rfp_window)
         button_layout.addWidget(rfq_button)
+
+        compare_button = QPushButton('Compare')
+        compare_button.clicked.connect(self.open_compare_window)
+        button_layout.addWidget(compare_button)
 
         export_button = QPushButton('Export to Excel')
         export_button.clicked.connect(self.export_to_excel)
@@ -524,6 +523,44 @@ class BasicPricelist(QMainWindow):
         self.c.execute(f'SELECT * FROM materials ORDER BY {sort_column}')
         rows = self.c.fetchall()
         self.populate_table(rows)
+
+    def open_compare_window(self, material_description):
+        """Opens a window to compare vendor prices for a selected material."""
+
+        # Create a dialog window for comparison
+        compare_dialog = QDialog(self)
+        compare_dialog.setWindowTitle("Compare Vendor Prices")
+        compare_dialog.setGeometry(300, 200, 600, 400)
+
+        # Layout for the comparison table
+        layout = QVBoxLayout(compare_dialog)
+
+        # Table to display comparison data
+        compare_table = QTableWidget()
+        compare_table.setColumnCount(4)
+        compare_table.setHorizontalHeaderLabels(["Material", "Vendor", "Price", "Currency"])
+
+        # Query database to fetch all materials, vendors, and prices
+        material_description = self.material_name_input.text()  # Assuming this is set somewhere in your UI
+        self.c.execute('''SELECT material_name, vendor, price, currency 
+                          FROM materials 
+                          WHERE material_name = ?''', (material_description,))
+        results = self.c.fetchall()
+
+        # Populate the table with fetched data
+        compare_table.setRowCount(len(results))
+        for row, (material_name, vendor, price, currency) in enumerate(results):
+            compare_table.setItem(row, 0, QTableWidgetItem(material_name))
+            compare_table.setItem(row, 1, QTableWidgetItem(vendor))
+            compare_table.setItem(row, 2, QTableWidgetItem(price))
+            compare_table.setItem(row, 3, QTableWidgetItem(currency))
+
+        # Add the table to the layout
+        layout.addWidget(compare_table)
+        compare_dialog.setLayout(layout)
+
+        # Show the comparison dialog
+        compare_dialog.exec()
 
     def export_to_excel(self):
         """Exports the data to an Excel file."""
