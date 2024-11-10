@@ -534,11 +534,12 @@ class BasicPricelist(QMainWindow):
             return
 
         # Get the material name and other information from the selected row
+        material_id = self.table.item(selected_row, 0).text()  # Assuming column 0 is mat_id
         material_name = self.table.item(selected_row, 2).text()  # Assuming column 2 is material_name
 
         # Create a dialog window for comparison
         compare_dialog = QDialog(self)
-        compare_dialog.setWindowTitle(f"{material_name}")
+        compare_dialog.setWindowTitle(f"[{material_id}] : {material_name}")
         compare_dialog.setGeometry(300, 200, 600, 400)
 
         # Layout for the comparison table
@@ -547,10 +548,10 @@ class BasicPricelist(QMainWindow):
         # Table to display comparison data
         compare_table = QTableWidget()
         compare_table.setColumnCount(4)
-        compare_table.setHorizontalHeaderLabels(["Vendor", "Price", "Currency", "Date"])
+        compare_table.setHorizontalHeaderLabels(["Vendor", "Currency", "Price", "Date"])
 
         # Query database to fetch all vendors and prices for the selected material
-        self.c.execute('''SELECT vendor, price, currency, price_date 
+        self.c.execute('''SELECT vendor, currency, price, price_date 
                           FROM materials 
                           WHERE material_name = ?''', (material_name,))
         results = self.c.fetchall()
@@ -559,8 +560,8 @@ class BasicPricelist(QMainWindow):
         compare_table.setRowCount(len(results))
         for row, (vendor, price, currency, price_date) in enumerate(results):
             compare_table.setItem(row, 0, QTableWidgetItem(vendor))
-            compare_table.setItem(row, 1, QTableWidgetItem(price))
             compare_table.setItem(row, 2, QTableWidgetItem(currency))
+            compare_table.setItem(row, 1, QTableWidgetItem(price))
             compare_table.setItem(row, 3, QTableWidgetItem(price_date))
 
         # Add the table to the layout
