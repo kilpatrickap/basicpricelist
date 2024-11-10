@@ -538,7 +538,7 @@ class BasicPricelist(QMainWindow):
 
         # Create a dialog window for comparison
         compare_dialog = QDialog(self)
-        compare_dialog.setWindowTitle(f"Compare Vendor Prices for {material_name}")
+        compare_dialog.setWindowTitle(f"{material_name}")
         compare_dialog.setGeometry(300, 200, 600, 400)
 
         # Layout for the comparison table

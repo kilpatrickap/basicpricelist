@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Open_compare_window() work on it.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Open_compare_window().">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,14 +178,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00064" summary="existing users window shows when next is clicked.">
-      <option name="closed" value="true" />
-      <created>1730900707809</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1730900707809</updated>
     </task>
     <task id="LOCAL-00065" summary="UI changes to existing users window.">
       <option name="closed" value="true" />
@@ -569,7 +563,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731280540605</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Open_compare_window().">
+      <option name="closed" value="true" />
+      <created>1731280891796</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1731280891796</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -584,7 +586,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="responsive close button." />
     <MESSAGE value="UI window size changes." />
     <MESSAGE value="Responsive Edit button on show_existing_user_window()." />
     <MESSAGE value="Edit button saves." />
@@ -609,6 +610,7 @@
     <MESSAGE value="From &amp; To labels in RFP removed." />
     <MESSAGE value="UI size change in RFP window." />
     <MESSAGE value="Open_compare_window() work on it." />
-    <option name="LAST_COMMIT_MESSAGE" value="Open_compare_window() work on it." />
+    <MESSAGE value="Open_compare_window()." />
+    <option name="LAST_COMMIT_MESSAGE" value="Open_compare_window()." />
   </component>
 </project>
