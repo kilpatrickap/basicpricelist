@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Send Request button in RFP removed.">
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="From &amp; To labels in RFP removed.">
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,14 +176,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Validation checks for User Phone and Email completed.">
-      <option name="closed" value="true" />
-      <created>1730889114606</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1730889114606</updated>
     </task>
     <task id="LOCAL-00060" summary="Responsive Next button in select user type window.">
       <option name="closed" value="true" />
@@ -569,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731273174778</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="From &amp; To labels in RFP removed.">
+      <option name="closed" value="true" />
+      <created>1731273587444</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1731273587444</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -584,7 +584,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="default user button." />
     <MESSAGE value="is_default is 1 for default and 0 otherwise (Boolean value)." />
     <MESSAGE value="current default user confirmation." />
     <MESSAGE value="responsive close button." />
@@ -609,6 +608,7 @@
     <MESSAGE value="smtp_server and client." />
     <MESSAGE value="vendor data in RFP reset." />
     <MESSAGE value="Send Request button in RFP removed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Send Request button in RFP removed." />
+    <MESSAGE value="From &amp; To labels in RFP removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="From &amp; To labels in RFP removed." />
   </component>
 </project>
