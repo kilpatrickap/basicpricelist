@@ -583,8 +583,10 @@ class BasicPricelist(QMainWindow):
                 compare_table.setItem(row, 5, QTableWidgetItem(price_date))
 
         # Convert prices to float and sort results by default (Low - High)
-        results = [(mat_id, vendor, currency, price, unit, price_date) for
-                   mat_id, vendor, currency, price, unit, price_date in results]
+        # Convert prices to float for accurate sorting
+        results = [(mat_id, vendor, currency, float(price.replace(',', '')), unit, price_date)
+                   for mat_id, vendor, currency, price, unit, price_date in results]
+
         sorted_results = sorted(results, key=lambda x: x[3])
         populate_table(sorted_results)
 
