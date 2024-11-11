@@ -572,17 +572,21 @@ class BasicPricelist(QMainWindow):
         compare_table.setHorizontalHeaderLabels(["Mat ID", "Vendor", "Currency", "Price", "Unit", "Date"])
 
         # Function to populate the table
+        # Function to populate the table with formatted prices
         def populate_table(data):
             compare_table.setRowCount(len(data))
             for row, (mat_id, vendor, currency, price, unit, price_date) in enumerate(data):
                 compare_table.setItem(row, 0, QTableWidgetItem(mat_id))
                 compare_table.setItem(row, 1, QTableWidgetItem(vendor))
                 compare_table.setItem(row, 2, QTableWidgetItem(currency))
-                compare_table.setItem(row, 3, QTableWidgetItem(str(price)))
+
+                # Format price to two decimal places with commas
+                formatted_price = "{:,.2f}".format(price)
+                compare_table.setItem(row, 3, QTableWidgetItem(formatted_price))
+
                 compare_table.setItem(row, 4, QTableWidgetItem(unit))
                 compare_table.setItem(row, 5, QTableWidgetItem(price_date))
 
-        # Convert prices to float and sort results by default (Low - High)
         # Convert prices to float for accurate sorting
         results = [(mat_id, vendor, currency, float(price.replace(',', '')), unit, price_date)
                    for mat_id, vendor, currency, price, unit, price_date in results]
