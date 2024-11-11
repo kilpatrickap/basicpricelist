@@ -545,8 +545,8 @@ class BasicPricelist(QMainWindow):
 
         # Check if there is only one item in the database for this material
         if len(results) <= 1:
-            QMessageBox.information(self, "Comparison Not Possible",
-                                    "The selected material is the only item in the database and has nothing to compare with.")
+            QMessageBox.information(self, "Comparison not possible",
+                                    "The selected material is the only item and has nothing to compare with.")
             return
 
         # Create a dialog window for comparison
