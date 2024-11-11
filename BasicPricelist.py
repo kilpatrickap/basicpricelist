@@ -568,7 +568,7 @@ class BasicPricelist(QMainWindow):
 
         # Table to display comparison data
         compare_table = QTableWidget()
-        compare_table.setColumnCount(5)
+        compare_table.setColumnCount(6)
         compare_table.setHorizontalHeaderLabels(["Mat ID","Vendor", "Currency", "Price", "Unit", "Date"])
 
         # Function to populate the table
