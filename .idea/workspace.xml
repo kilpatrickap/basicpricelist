@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Unit column added to compare.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="filter by low -high and reverse.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,14 +178,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00070" summary="UI window size changes.">
-      <option name="closed" value="true" />
-      <created>1730904170637</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1730904170637</updated>
     </task>
     <task id="LOCAL-00071" summary="Responsive Edit button on show_existing_user_window().">
       <option name="closed" value="true" />
@@ -570,7 +563,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731317403154</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="filter by low -high and reverse.">
+      <option name="closed" value="true" />
+      <created>1731330420014</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1731330420014</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -585,7 +586,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Edit button saves." />
     <MESSAGE value="Edit multiple input fields." />
     <MESSAGE value="update table_widget with the new values..UI Changes." />
     <MESSAGE value="delete button added." />
@@ -610,6 +610,7 @@
     <MESSAGE value="Open_compare_window()." />
     <MESSAGE value="Notify user if item is only one." />
     <MESSAGE value="Unit column added to compare." />
-    <option name="LAST_COMMIT_MESSAGE" value="Unit column added to compare." />
+    <MESSAGE value="filter by low -high and reverse." />
+    <option name="LAST_COMMIT_MESSAGE" value="filter by low -high and reverse." />
   </component>
 </project>
