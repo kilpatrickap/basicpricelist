@@ -538,7 +538,7 @@ class BasicPricelist(QMainWindow):
         material_name = self.table.item(selected_row, 2).text()  # Assuming column 2 is material_name
 
         # Query database to fetch all vendors and prices for the selected material
-        self.c.execute('''SELECT vendor, currency, price, unit, price_date 
+        self.c.execute('''SELECT mat_id, vendor, currency, price, unit, price_date 
                           FROM materials 
                           WHERE material_name = ?''', (material_name,))
         results = self.c.fetchall()
@@ -569,20 +569,21 @@ class BasicPricelist(QMainWindow):
         # Table to display comparison data
         compare_table = QTableWidget()
         compare_table.setColumnCount(5)
-        compare_table.setHorizontalHeaderLabels(["Vendor", "Currency", "Price", "Unit", "Date"])
+        compare_table.setHorizontalHeaderLabels(["Mat ID","Vendor", "Currency", "Price", "Unit", "Date"])
 
         # Function to populate the table
         def populate_table(data):
             compare_table.setRowCount(len(data))
-            for row, (vendor, currency, price, unit, price_date) in enumerate(data):
-                compare_table.setItem(row, 0, QTableWidgetItem(vendor))
-                compare_table.setItem(row, 1, QTableWidgetItem(currency))
-                compare_table.setItem(row, 2, QTableWidgetItem(str(price)))
-                compare_table.setItem(row, 3, QTableWidgetItem(unit))
-                compare_table.setItem(row, 4, QTableWidgetItem(price_date))
+            for row, (mat_id, vendor, currency, price, unit, price_date) in enumerate(data):
+                compare_table.setItem(row, 0, QTableWidgetItem(mat_id))
+                compare_table.setItem(row, 1, QTableWidgetItem(vendor))
+                compare_table.setItem(row, 2, QTableWidgetItem(currency))
+                compare_table.setItem(row, 3, QTableWidgetItem(str(price)))
+                compare_table.setItem(row, 4, QTableWidgetItem(unit))
+                compare_table.setItem(row, 5, QTableWidgetItem(price_date))
 
         # Sort results by default (Low - High)
-        sorted_results = sorted(results, key=lambda x: x[2])
+        sorted_results = sorted(results, key=lambda x: x[3])
         populate_table(sorted_results)
 
         # Set default filter selection to "Low - High"
@@ -590,7 +591,7 @@ class BasicPricelist(QMainWindow):
 
         # Handle filter changes
         def on_filter_change():
-            sorted_results = sorted(results, key=lambda x: x[2], reverse=(filter_combo.currentText() == "High - Low"))
+            sorted_results = sorted(results, key=lambda x: x[3], reverse=(filter_combo.currentText() == "High - Low"))
             populate_table(sorted_results)
 
         filter_combo.currentIndexChanged.connect(on_filter_change)
