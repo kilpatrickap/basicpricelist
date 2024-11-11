@@ -571,7 +571,6 @@ class BasicPricelist(QMainWindow):
         compare_table.setColumnCount(6)
         compare_table.setHorizontalHeaderLabels(["Mat ID", "Vendor", "Currency", "Price", "Unit", "Date"])
 
-        # Function to populate the table
         # Function to populate the table with formatted prices
         def populate_table(data):
             compare_table.setRowCount(len(data))
