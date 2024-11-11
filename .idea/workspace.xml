@@ -177,22 +177,6 @@
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
     </task>
-    <task id="LOCAL-00073" summary="Edit multiple input fields.">
-      <option name="closed" value="true" />
-      <created>1730925276564</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1730925276564</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Edit multiple input fields.">
-      <option name="closed" value="true" />
-      <created>1730925356263</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1730925356263</updated>
-    </task>
     <task id="LOCAL-00075" summary="update table_widget with the new values..UI Changes.">
       <option name="closed" value="true" />
       <created>1730926814198</created>
@@ -569,7 +553,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731335243408</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="filter by low -high and reverse.">
+      <option name="closed" value="true" />
+      <created>1731335455955</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1731335455955</updated>
+    </task>
+    <task id="LOCAL-00123" summary="filter by low -high and reverse.">
+      <option name="closed" value="true" />
+      <created>1731335509208</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1731335509208</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

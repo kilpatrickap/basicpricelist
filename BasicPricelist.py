@@ -552,14 +552,14 @@ class BasicPricelist(QMainWindow):
         # Create a dialog window for comparison
         compare_dialog = QDialog(self)
         compare_dialog.setWindowTitle(f"[{material_id}] : {material_name}")
-        compare_dialog.setGeometry(300, 200, 600, 400)
+        compare_dialog.setGeometry(300, 200, 700, 600)
 
         # Layout for the comparison table
         layout = QVBoxLayout(compare_dialog)
 
         # Add filter drop-down
         filter_layout = QHBoxLayout()
-        filter_label = QLabel("\t\t\t\t\t\t\t\t\t Sort by Price:")
+        filter_label = QLabel("\t\t\t\t\t\t\t\t\t\t\t Sort by Price:")
         filter_combo = QComboBox()
         filter_combo.addItems(["Low - High", "High - Low"])
         filter_layout.addWidget(filter_label)
@@ -569,7 +569,7 @@ class BasicPricelist(QMainWindow):
         # Table to display comparison data
         compare_table = QTableWidget()
         compare_table.setColumnCount(6)
-        compare_table.setHorizontalHeaderLabels(["Mat ID","Vendor", "Currency", "Price", "Unit", "Date"])
+        compare_table.setHorizontalHeaderLabels(["Mat ID", "Vendor", "Currency", "Price", "Unit", "Date"])
 
         # Function to populate the table
         def populate_table(data):
@@ -582,7 +582,9 @@ class BasicPricelist(QMainWindow):
                 compare_table.setItem(row, 4, QTableWidgetItem(unit))
                 compare_table.setItem(row, 5, QTableWidgetItem(price_date))
 
-        # Sort results by default (Low - High)
+        # Convert prices to float and sort results by default (Low - High)
+        results = [(mat_id, vendor, currency, price, unit, price_date) for
+                   mat_id, vendor, currency, price, unit, price_date in results]
         sorted_results = sorted(results, key=lambda x: x[3])
         populate_table(sorted_results)
 
