@@ -559,7 +559,7 @@ class BasicPricelist(QMainWindow):
 
         # Add filter drop-down
         filter_layout = QHBoxLayout()
-        filter_label = QLabel("\t\t\t\t\t\t\t\t\t\t Sort by Price:")
+        filter_label = QLabel("\t\t\t\t\t\t\t\t\t Sort by Price:")
         filter_combo = QComboBox()
         filter_combo.addItems(["Low - High", "High - Low"])
         filter_layout.addWidget(filter_label)
