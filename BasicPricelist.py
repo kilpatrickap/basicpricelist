@@ -605,6 +605,17 @@ class BasicPricelist(QMainWindow):
 
         # Add the table to the layout
         layout.addWidget(compare_table)
+
+        # Add a close button at the bottom, center-aligned
+        close_button_layout = QHBoxLayout()
+        close_button_layout.addStretch(1)  # Add stretch to center-align
+        close_button = QPushButton("Close")
+        close_button.clicked.connect(compare_dialog.close)
+        close_button_layout.addWidget(close_button)
+        close_button_layout.addStretch(1)  # Add stretch to center-align
+
+        # Add the close button layout to the main layout
+        layout.addLayout(close_button_layout)
         compare_dialog.setLayout(layout)
 
         # Show the comparison dialog
