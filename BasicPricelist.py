@@ -557,19 +557,39 @@ class BasicPricelist(QMainWindow):
         # Layout for the comparison table
         layout = QVBoxLayout(compare_dialog)
 
+        # Add filter drop-down
+        filter_layout = QHBoxLayout()
+        filter_label = QLabel("                                                                                                                                            Sort by Price:")
+        filter_combo = QComboBox()
+        filter_combo.addItems(["Low - High", "High - Low"])
+        filter_layout.addWidget(filter_label)
+        filter_layout.addWidget(filter_combo)
+        layout.addLayout(filter_layout)
+
         # Table to display comparison data
         compare_table = QTableWidget()
         compare_table.setColumnCount(5)
         compare_table.setHorizontalHeaderLabels(["Vendor", "Currency", "Price", "Unit", "Date"])
 
-        # Populate the table with fetched data
-        compare_table.setRowCount(len(results))
-        for row, (vendor, currency, price, unit, price_date) in enumerate(results):
-            compare_table.setItem(row, 0, QTableWidgetItem(vendor))
-            compare_table.setItem(row, 1, QTableWidgetItem(currency))
-            compare_table.setItem(row, 2, QTableWidgetItem(price))
-            compare_table.setItem(row, 3, QTableWidgetItem(unit))
-            compare_table.setItem(row, 4, QTableWidgetItem(price_date))
+        # Function to populate the table
+        def populate_table(data):
+            compare_table.setRowCount(len(data))
+            for row, (vendor, currency, price, unit, price_date) in enumerate(data):
+                compare_table.setItem(row, 0, QTableWidgetItem(vendor))
+                compare_table.setItem(row, 1, QTableWidgetItem(currency))
+                compare_table.setItem(row, 2, QTableWidgetItem(str(price)))
+                compare_table.setItem(row, 3, QTableWidgetItem(unit))
+                compare_table.setItem(row, 4, QTableWidgetItem(price_date))
+
+        # Initial population of the table
+        populate_table(results)
+
+        # Handle filter changes
+        def on_filter_change():
+            sorted_results = sorted(results, key=lambda x: x[2], reverse=(filter_combo.currentText() == "High - Low"))
+            populate_table(sorted_results)
+
+        filter_combo.currentIndexChanged.connect(on_filter_change)
 
         # Add the table to the layout
         layout.addWidget(compare_table)
