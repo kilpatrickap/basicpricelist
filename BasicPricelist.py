@@ -606,6 +606,22 @@ class BasicPricelist(QMainWindow):
         # Add the table to the layout
         layout.addWidget(compare_table)
 
+        # Calculate average price if all currencies are the same
+        unique_currencies = {currency for _, _, currency, _, _, _ in results}
+        if len(unique_currencies) == 1:
+            # Calculate average price
+            average_price = sum(price for _, _, _, price, _, _ in results) / len(results)
+            currency = unique_currencies.pop()
+            average_price_label_text = f"Average Price : {currency} {average_price:,.2f}"
+        else:
+            # Display message if currencies vary
+            average_price_label_text = "Average prices cannot be calculated due to currency variance."
+
+        # Create and add the average price label
+        average_price_label = QLabel(average_price_label_text)
+        average_price_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        layout.addWidget(average_price_label)
+
         # Add a close button at the bottom, center-aligned
         close_button_layout = QHBoxLayout()
         close_button_layout.addStretch(1)  # Add stretch to center-align

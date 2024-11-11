@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="mat_id &amp; mat_name in label.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="close button added.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,14 +178,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00078" summary="delete function added.">
-      <option name="closed" value="true" />
-      <created>1730929507818</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1730929507818</updated>
     </task>
     <task id="LOCAL-00079" summary="delete function added.">
       <option name="closed" value="true" />
@@ -569,7 +563,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731363160948</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="close button added.">
+      <option name="closed" value="true" />
+      <created>1731363549845</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1731363549845</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -584,7 +586,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update table_widget with the new values..UI Changes." />
     <MESSAGE value="delete button added." />
     <MESSAGE value="delete function added." />
     <MESSAGE value="user data in RFP." />
@@ -609,6 +610,7 @@
     <MESSAGE value="Unit column added to compare." />
     <MESSAGE value="filter by low -high and reverse." />
     <MESSAGE value="mat_id &amp; mat_name in label." />
-    <option name="LAST_COMMIT_MESSAGE" value="mat_id &amp; mat_name in label." />
+    <MESSAGE value="close button added." />
+    <option name="LAST_COMMIT_MESSAGE" value="close button added." />
   </component>
 </project>
