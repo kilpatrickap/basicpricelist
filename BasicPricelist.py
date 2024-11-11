@@ -552,7 +552,7 @@ class BasicPricelist(QMainWindow):
         # Create a dialog window for comparison
         compare_dialog = QDialog(self)
         compare_dialog.setWindowTitle(f"[{material_id}] : {material_name}")
-        compare_dialog.setGeometry(300, 200, 700, 600)
+        compare_dialog.setGeometry(300, 200, 700, 500)
 
         # Layout for the comparison table
         layout = QVBoxLayout(compare_dialog)
