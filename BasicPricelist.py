@@ -11,6 +11,7 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
                              QMessageBox, QFileDialog, QComboBox, QDateEdit, QRadioButton, QButtonGroup)
 
+
 class BasicPricelist(QMainWindow):
     def __init__(self):
         """Initializes the GUI and database."""
@@ -82,9 +83,10 @@ class BasicPricelist(QMainWindow):
         # Material List Table
         self.table = QTableWidget()
         self.table.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        self.table.setColumnCount(11)  # Updated to 10 for new date column
+        self.table.setColumnCount(10)  # Updated to 10 for new date column
         self.table.setHorizontalHeaderLabels(
-            ['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone', 'Email', 'Location', 'Price Date'])  # Added Price Date
+            ['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone', 'Email',
+             'Price Date'])  # Added Price Date
         main_layout.addWidget(self.table)
 
         container = QWidget()
@@ -107,7 +109,6 @@ class BasicPricelist(QMainWindow):
             vendor TEXT,
             vendor_phone TEXT,
             vendor_email TEXT,
-            vendor_location TEXT,
             price_date TEXT
         )''')
         self.conn.commit()
@@ -159,7 +160,8 @@ class BasicPricelist(QMainWindow):
         button_layout = QHBoxLayout()
         button_layout.addStretch()  # Spacer on the left
         submit_button = QPushButton("Next")
-        submit_button.clicked.connect(lambda: self.check_user_type_selection(new_user_radio,existing_user_radio, user_type_dialog))
+        submit_button.clicked.connect(
+            lambda: self.check_user_type_selection(new_user_radio, existing_user_radio, user_type_dialog))
         # Else if the existing_user_radio is selected, open the show_existing_user_window
 
         button_layout.addWidget(submit_button)  # Center button
@@ -445,7 +447,6 @@ class BasicPricelist(QMainWindow):
         max_width_unit = 0
         max_width_vendor = 0
         max_width_email = 0
-        max_width_location = 0
 
         font_metrics = QFontMetrics(self.table.font())  # Use table's font to calculate width
 
@@ -464,8 +465,6 @@ class BasicPricelist(QMainWindow):
                     max_width_vendor = max(max_width_vendor, font_metrics.horizontalAdvance(item_text))
                 elif col_num == 8:  # Email column
                     max_width_email = max(max_width_email, font_metrics.horizontalAdvance(item_text))
-                elif col_num == 9:  # Email column
-                    max_width_location = max(max_width_location, font_metrics.horizontalAdvance(item_text))
 
                 if col_num == 4:  # Assuming 'price' is the 5th column
                     # Check if data is a string, and remove commas if necessary
@@ -484,7 +483,6 @@ class BasicPricelist(QMainWindow):
         self.table.setColumnWidth(5, max_width_unit + 20)  # Unit column with padding
         self.table.setColumnWidth(6, max_width_vendor + 20)  # Vendor column with padding
         self.table.setColumnWidth(8, max_width_email + 20)  # Email column with padding
-        self.table.setColumnWidth(9, max_width_location + 20)  # Email column with padding
 
     def populate_currency_combo(self, combo_box):
         """Populates the currency dropdown with available currencies."""
@@ -564,7 +562,7 @@ class BasicPricelist(QMainWindow):
 
         # Add filter drop-down
         filter_layout = QHBoxLayout()
-        filter_label = QLabel(f"[{material_id}] : {material_name}\t\t\t\t\t\t Sort by Price :")
+        filter_label = QLabel(f"[{material_id}] : {material_name}\t\t\t Sort by Price :")
         filter_combo = QComboBox()
         filter_combo.addItems(["Low - High", "High - Low"])
         filter_layout.addWidget(filter_label)
@@ -659,7 +657,7 @@ class BasicPricelist(QMainWindow):
 
             df = pd.DataFrame(data,
                               columns=['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone',
-                                       'Email', 'Location', 'Price Date'])  # Updated column names
+                                       'Email', 'Price Date'])  # Updated column names
             df.to_excel(file_path, index=False)
             QMessageBox.information(self, "Export Successful", f"Data exported successfully to {file_path}")
 
@@ -708,7 +706,7 @@ class BasicPricelist(QMainWindow):
             email_body_text = (
                 f"From : {user_email}\n"
                 f"To : {vendor_email}\n\n"
-                
+
                 f"Dear {vendor_name},\n\n"
                 f"I would like to request your current prices for the following materials:\n\n"
                 f"{material_list}\n\n"
@@ -741,7 +739,7 @@ class BasicPricelist(QMainWindow):
         layout = QFormLayout()
         self.trade_input = QLineEdit()
         self.material_name_input = QLineEdit()
-        self.material_name_input.setAlignment(Qt.AlignmentFlag.AlignLeft)   # Text aligns left
+        self.material_name_input.setAlignment(Qt.AlignmentFlag.AlignLeft)  # Text aligns left
 
         self.currency_input = QComboBox()
         self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
@@ -753,7 +751,6 @@ class BasicPricelist(QMainWindow):
         self.vendor_input = QLineEdit()
         self.vendor_phone_input = QLineEdit()
         self.vendor_email_input = QLineEdit()
-        self.vendor_location_input = QLineEdit()
         self.price_date_input = QDateEdit()  # New date input field
         self.price_date_input.setDate(QDate.currentDate())  # Set default date to today
         self.price_date_input.setCalendarPopup(True)  # Show calendar popup for date selection
@@ -766,9 +763,7 @@ class BasicPricelist(QMainWindow):
         layout.addRow('Vendor:', self.vendor_input)
         layout.addRow('Vendor Phone:', self.vendor_phone_input)
         layout.addRow('Vendor Email:', self.vendor_email_input)
-        layout.addRow('Vendor Location:', self.vendor_location_input)
         layout.addRow('Price Date:', self.price_date_input)  # Add the date input field
-
 
         add_button = QPushButton("Add Material")
         add_button.clicked.connect(self.add_material)
@@ -819,7 +814,6 @@ class BasicPricelist(QMainWindow):
         unit = self.unit_input.text()
         vendor = self.vendor_input.text()
         vendor_phone = self.vendor_phone_input.text()
-        vendor_location = self.vendor_location_input.text()
         price_date = self.price_date_input.text()  # Get date as string
 
         # Generate new mat_id by finding the next available number in the MAT- format
@@ -831,10 +825,10 @@ class BasicPricelist(QMainWindow):
         mat_id = f'MAT-{new_id}'
 
         # Insert into the database
-        self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, vendor_location, price_date) 
-                          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+        self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, price_date) 
+                          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
                        (mat_id, trade, material_name, currency, formatted_price, unit, vendor, vendor_phone,
-                        vendor_email, vendor_location, price_date))
+                        vendor_email, price_date))
         self.conn.commit()
         self.load_data()  # Reload data to display updated list
         self.material_dialog.close()
@@ -856,8 +850,7 @@ class BasicPricelist(QMainWindow):
         vendor = self.table.item(selected_row, 6).text()
         vendor_phone = self.table.item(selected_row, 7).text()
         vendor_email = self.table.item(selected_row, 8).text()
-        vendor_location = self.table.item(selected_row, 9).text()
-        price_date = self.table.item(selected_row, 10).text()  # Get price date
+        price_date = self.table.item(selected_row, 9).text()  # Get price date
 
         self.material_dialog = QDialog(self)
         self.material_dialog.setWindowTitle("Edit Material")
@@ -866,8 +859,7 @@ class BasicPricelist(QMainWindow):
         layout = QFormLayout()
         self.trade_input = QLineEdit(trade)
         self.material_name_input = QLineEdit(material_name)
-        self.material_name_input.setAlignment(Qt.AlignmentFlag.AlignLeft)   # Text aligns left
-
+        self.material_name_input.setAlignment(Qt.AlignmentFlag.AlignLeft)  # Text aligns left
 
         # Populate currency dropdown
         self.currency_input = QComboBox()
@@ -890,9 +882,9 @@ class BasicPricelist(QMainWindow):
         self.vendor_input = QLineEdit(vendor)
         self.vendor_phone_input = QLineEdit(vendor_phone)
         self.vendor_email_input = QLineEdit(vendor_email)
-        self.vendor_location_input = QLineEdit(vendor_location)
         self.price_date_input = QDateEdit()  # New date input field
-        self.price_date_input.setDate(pd.to_datetime(price_date, dayfirst=True))  # Set the date input from current value
+        self.price_date_input.setDate(
+            pd.to_datetime(price_date, dayfirst=True))  # Set the date input from current value
         self.price_date_input.setCalendarPopup(True)  # Show calendar popup for date selection
 
         layout.addRow('Trade:', self.trade_input)
@@ -903,7 +895,6 @@ class BasicPricelist(QMainWindow):
         layout.addRow('Vendor:', self.vendor_input)
         layout.addRow('Vendor Phone:', self.vendor_phone_input)
         layout.addRow('Vendor Email:', self.vendor_email_input)
-        layout.addRow('Vendor Location:', self.vendor_location_input)
         layout.addRow('Price Date:', self.price_date_input)  # Add the date input field
 
         save_button = QPushButton("Save Changes")
@@ -920,7 +911,7 @@ class BasicPricelist(QMainWindow):
         if not all([self.trade_input.text(), self.material_name_input.text(),
                     self.currency_input.currentText(), self.price_input.text(),
                     self.unit_input.text(), self.vendor_input.text(),
-                    self.vendor_phone_input.text(), self.vendor_email_input.text(), self.vendor_location_input.text()]):
+                    self.vendor_phone_input.text(), self.vendor_email_input.text()]):
             QMessageBox.warning(self, "Input Error", "Please fill in all required fields.")
             return
 
@@ -950,11 +941,10 @@ class BasicPricelist(QMainWindow):
         unit = self.unit_input.text()
         vendor = self.vendor_input.text()
         vendor_phone = self.vendor_phone_input.text()
-        vendor_location = self.vendor_location_input.text()
         price_date = self.price_date_input.text()  # Get updated date
 
         # Update in the database
-        self.c.execute('''UPDATE materials SET trade=?, material_name=?, currency=?, price=?, unit=?, vendor=?, vendor_phone=?, vendor_email=?, vendor_location=?, price_date=? 
+        self.c.execute('''UPDATE materials SET trade=?, material_name=?, currency=?, price=?, unit=?, vendor=?, vendor_phone=?, vendor_email=?, price_date=? 
                           WHERE mat_id=?''',
                        (trade, material_name, currency, formatted_price, unit, vendor, vendor_phone, vendor_email,
                         price_date, mat_id))
@@ -994,8 +984,7 @@ class BasicPricelist(QMainWindow):
             vendor = self.table.item(selected_row, 6).text()
             vendor_phone = self.table.item(selected_row, 7).text()
             vendor_email = self.table.item(selected_row, 8).text()
-            vendor_location = self.table.item(selected_row, 9).text()
-            price_date = self.table.item(selected_row, 10).text()
+            price_date = self.table.item(selected_row, 9).text()
 
             # Generate a new unique Mat ID by finding the maximum existing suffix
             self.c.execute("SELECT mat_id FROM materials WHERE mat_id LIKE 'MAT-%'")
@@ -1005,10 +994,10 @@ class BasicPricelist(QMainWindow):
 
             # Insert duplicated material into the database
             self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, 
-                              vendor_phone, vendor_email, vendor_location, price_date) 
-                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                              vendor_phone, vendor_email, price_date) 
+                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
                            (new_mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone,
-                            vendor_email, vendor_location, price_date))
+                            vendor_email, price_date))
             self.conn.commit()
 
             # Reload data to display updated list with duplicated entry
@@ -1026,7 +1015,7 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Selection Error", "Please select a material to delete.")
             return
 
-        mat_id = self.table.item(selected_row, 0).text()    # Mat ID
+        mat_id = self.table.item(selected_row, 0).text()  # Mat ID
         material_name = self.table.item(selected_row, 2).text()  # Material Name
 
         reply = QMessageBox.question(self, 'Delete Material',
