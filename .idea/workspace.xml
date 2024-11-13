@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="close button added." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Reverted back to without Location.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -174,22 +177,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00080" summary="user data in RFP.">
-      <option name="closed" value="true" />
-      <created>1730931013766</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1730931013766</updated>
-    </task>
-    <task id="LOCAL-00081" summary="user data in RFP.">
-      <option name="closed" value="true" />
-      <created>1730931167528</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1730931167528</updated>
     </task>
     <task id="LOCAL-00082" summary="vendor data in RFP.">
       <option name="closed" value="true" />
@@ -567,7 +554,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731486622179</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="Reverted back to without Location.">
+      <option name="closed" value="true" />
+      <created>1731492013757</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1731492013757</updated>
+    </task>
+    <task id="LOCAL-00130" summary="Reverted back to without Location.">
+      <option name="closed" value="true" />
+      <created>1731492105689</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1731492105689</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -582,7 +585,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user data in RFP." />
     <MESSAGE value="vendor data in RFP." />
     <MESSAGE value="RFP wording." />
     <MESSAGE value="email." />
@@ -607,6 +609,7 @@
     <MESSAGE value="close button added." />
     <MESSAGE value="Reset 2." />
     <MESSAGE value="Reset 3." />
-    <option name="LAST_COMMIT_MESSAGE" value="Reset 3." />
+    <MESSAGE value="Reverted back to without Location." />
+    <option name="LAST_COMMIT_MESSAGE" value="Reverted back to without Location." />
   </component>
 </project>
