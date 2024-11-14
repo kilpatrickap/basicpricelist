@@ -739,7 +739,7 @@ class BasicPricelist(QMainWindow):
                 f"To : {vendor_email}\n\n"
 
                 f"Dear {vendor_name},\n\n"
-                f"I would like to request your current prices for the following materials:\n\n"
+                f"I would like to request for your current prices for the following materials:\n\n"
                 f"{material_list}\n\n"
                 f"Acknowledgment of receipt would be highly appreciated.\n\n"
                 f"Best regards,\n{user_name}.\n\n{company_name}\n{user_position}\n{user_phone}"
