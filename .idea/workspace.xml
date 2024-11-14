@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="debugging location on compare." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Works now." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -174,30 +174,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00084" summary="vendor data in RFP.">
-      <option name="closed" value="true" />
-      <created>1730931847960</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1730931847960</updated>
-    </task>
-    <task id="LOCAL-00085" summary="vendor data in RFP.">
-      <option name="closed" value="true" />
-      <created>1730931962218</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1730931962218</updated>
-    </task>
-    <task id="LOCAL-00086" summary="vendor data in RFP.">
-      <option name="closed" value="true" />
-      <created>1730932014611</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1730932014611</updated>
     </task>
     <task id="LOCAL-00087" summary="RFP wording.">
       <option name="closed" value="true" />
@@ -567,7 +543,31 @@
       <option name="project" value="LOCAL" />
       <updated>1731585771159</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Works now.">
+      <option name="closed" value="true" />
+      <created>1731585998204</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1731585998204</updated>
+    </task>
+    <task id="LOCAL-00134" summary="Works now.">
+      <option name="closed" value="true" />
+      <created>1731586039001</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1731586039001</updated>
+    </task>
+    <task id="LOCAL-00135" summary="Works now.">
+      <option name="closed" value="true" />
+      <created>1731586103041</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1731586103041</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -582,7 +582,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="email." />
     <MESSAGE value="email smtp setup." />
     <MESSAGE value="smtp.smtpserver.com" />
     <MESSAGE value="mail.smtp2go.com" />
@@ -607,6 +606,7 @@
     <MESSAGE value="Reverted back to without Location." />
     <MESSAGE value="Reverted back to without Location. Back on track." />
     <MESSAGE value="debugging location on compare." />
-    <option name="LAST_COMMIT_MESSAGE" value="debugging location on compare." />
+    <MESSAGE value="Works now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Works now." />
   </component>
 </project>
