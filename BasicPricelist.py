@@ -572,7 +572,7 @@ class BasicPricelist(QMainWindow):
         # Create a dialog window for comparison
         compare_dialog = QDialog(self)
         compare_dialog.setWindowTitle(f"Price Comparison")
-        compare_dialog.setGeometry(300, 200, 700, 500)
+        compare_dialog.setGeometry(300, 200, 700, 600)
 
         # Layout for the comparison table
         layout = QVBoxLayout(compare_dialog)
@@ -612,8 +612,10 @@ class BasicPricelist(QMainWindow):
 
         # Convert prices to float for accurate sorting
         try:
-            results = [(mat_id, vendor, currency, float(price.replace(',', '')), unit, vendor_location, price_date)
+            results = [(mat_id, vendor, currency, float(price.replace(',', '')) if isinstance(price, str) else price,
+                        unit, vendor_location, price_date)
                        for mat_id, vendor, currency, price, unit, vendor_location, price_date in results]
+
         except Exception as e:
             # Show an error message if there’s an issue with data conversion
             QMessageBox.critical(self, "Data Error", f"Error processing data: {e}")

@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Reverted back to without Location. Back on track.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="debugging location on compare." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,14 +174,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00083" summary="vendor data in RFP.">
-      <option name="closed" value="true" />
-      <created>1730931485013</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1730931485013</updated>
     </task>
     <task id="LOCAL-00084" summary="vendor data in RFP.">
       <option name="closed" value="true" />
@@ -571,7 +559,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731578432118</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="debugging location on compare.">
+      <option name="closed" value="true" />
+      <created>1731585771159</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1731585771159</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -586,7 +582,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="RFP wording." />
     <MESSAGE value="email." />
     <MESSAGE value="email smtp setup." />
     <MESSAGE value="smtp.smtpserver.com" />
@@ -611,6 +606,7 @@
     <MESSAGE value="Reset 3." />
     <MESSAGE value="Reverted back to without Location." />
     <MESSAGE value="Reverted back to without Location. Back on track." />
-    <option name="LAST_COMMIT_MESSAGE" value="Reverted back to without Location. Back on track." />
+    <MESSAGE value="debugging location on compare." />
+    <option name="LAST_COMMIT_MESSAGE" value="debugging location on compare." />
   </component>
 </project>
