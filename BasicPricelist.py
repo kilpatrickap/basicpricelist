@@ -546,7 +546,7 @@ class BasicPricelist(QMainWindow):
         material_name = self.table.item(selected_row, 2).text()  # Assuming column 2 is material_name
 
         # Debugging step: Print out selected material details
-        print(f"Selected Material ID: {material_id}, Name: {material_name}")
+        # print(f"Selected Material ID: {material_id}, Name: {material_name}")
 
         # Query database to fetch all vendors and prices for the selected material
         try:
@@ -556,7 +556,7 @@ class BasicPricelist(QMainWindow):
             results = self.c.fetchall()
 
             # Debugging step: Print out fetched results from the database
-            print(f"Fetched Results from Database: {results}")
+            # print(f"Fetched Results from Database: {results}")
 
         except sqlite3.Error as e:
             # Show an error message if there’s a database issue
@@ -608,7 +608,7 @@ class BasicPricelist(QMainWindow):
                 compare_table.setItem(row, 6, QTableWidgetItem(price_date))
 
             # Debugging step: Check if the table is being populated correctly
-            print("Comparison table populated successfully.")
+            # print("Comparison table populated successfully.")
 
         # Convert prices to float for accurate sorting
         try:
@@ -622,7 +622,7 @@ class BasicPricelist(QMainWindow):
             return
 
         # Debugging step: Print out results after conversion
-        print(f"Processed Results: {results}")
+        # print(f"Processed Results: {results}")
 
         sorted_results = sorted(results, key=lambda x: x[3])
         populate_table(sorted_results)
