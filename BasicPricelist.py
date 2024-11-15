@@ -58,6 +58,10 @@ class BasicPricelist(QMainWindow):
         compare_button.clicked.connect(self.open_compare_window)
         button_layout.addWidget(compare_button)
 
+        compare_button = QPushButton('Vendors')
+        compare_button.clicked.connect(self.show_vendor_list_window)
+        button_layout.addWidget(compare_button)
+
         export_button = QPushButton('Export to Excel')
         export_button.clicked.connect(self.export_to_excel)
         button_layout.addWidget(export_button)
@@ -1092,6 +1096,77 @@ class BasicPricelist(QMainWindow):
             self.c.execute('DELETE FROM materials WHERE mat_id=?', (mat_id,))
             self.conn.commit()
             self.load_data()  # Reload data to reflect deletion
+
+    def show_vendor_list_window(self):
+        """Shows the list of all existing vendors with their details including location."""
+        vendor_list_dialog = QDialog(self)
+        vendor_list_dialog.setWindowTitle("Vendor List")
+        vendor_list_dialog.setGeometry(200, 200, 700, 400)
+
+        # Create a table widget for vendors
+        vendor_table_widget = QTableWidget()
+        vendor_table_widget.setRowCount(0)
+        vendor_table_widget.setColumnCount(5)
+        vendor_table_widget.setHorizontalHeaderLabels(["Vendor ID", "Name", "Phone", "Email", "Location"])
+
+        # Fetch and populate vendor data from the database
+        self.c.execute("SELECT id, vendor, vendor_phone, vendor_email, vendor_location FROM materials")
+        vendors = self.c.fetchall()
+        unique_vendors = {}
+
+        # To avoid duplicate entries in case of multiple materials from the same vendor
+        for vendor in vendors:
+            if vendor[1] not in unique_vendors:
+                unique_vendors[vendor[1]] = vendor
+
+        for row_idx, vendor in enumerate(unique_vendors.values()):
+            vendor_table_widget.insertRow(row_idx)
+            vendor_table_widget.setItem(row_idx, 0, QTableWidgetItem(f"VendorID-{vendor[0]}"))
+            vendor_table_widget.setItem(row_idx, 1, QTableWidgetItem(vendor[1]))
+            vendor_table_widget.setItem(row_idx, 2, QTableWidgetItem(vendor[2]))
+            vendor_table_widget.setItem(row_idx, 3, QTableWidgetItem(vendor[3]))
+            vendor_table_widget.setItem(row_idx, 4, QTableWidgetItem(vendor[4]))  # Location column
+
+        # Horizontal layout for table and buttons
+        main_horizontal_layout = QHBoxLayout()
+        main_horizontal_layout.addWidget(vendor_table_widget)
+
+        # Vertical layout for edit and delete buttons
+        button_layout = QVBoxLayout()
+
+        # Create an edit button
+        edit_button = QPushButton("Edit")
+        edit_button.clicked.connect(lambda: self.open_edit_vendor_window(vendor_table_widget))
+        button_layout.addWidget(edit_button)
+
+        # Create a delete button
+        delete_button = QPushButton("Delete")
+        delete_button.clicked.connect(
+            lambda: self.delete_selected_vendor(vendor_table_widget))  # Assuming delete function exists
+        button_layout.addWidget(delete_button)
+
+        button_layout.addStretch()  # Spacer at the bottom
+
+        # Add the vertical button layout to the horizontal layout
+        main_horizontal_layout.addLayout(button_layout)
+
+        # Main vertical layout for the dialog
+        main_layout = QVBoxLayout()
+        main_layout.addLayout(main_horizontal_layout)
+
+        # Layout for the close button
+        close_button_layout = QHBoxLayout()
+        close_button_layout.addStretch()  # Add stretch to center-align the button
+        close_button = QPushButton("Close")
+        close_button.clicked.connect(vendor_list_dialog.close)
+        close_button_layout.addWidget(close_button)
+        close_button_layout.addStretch()  # Add stretch to center-align the button
+
+        # Add the close button layout to the main vertical layout
+        main_layout.addLayout(close_button_layout)
+
+        vendor_list_dialog.setLayout(main_layout)
+        vendor_list_dialog.exec()
 
     def closeEvent(self, event):
         """Handles the window close event."""
