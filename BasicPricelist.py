@@ -1168,6 +1168,81 @@ class BasicPricelist(QMainWindow):
         vendor_list_dialog.setLayout(main_layout)
         vendor_list_dialog.exec()
 
+    def open_edit_vendor_window(self, vendor_table_widget):
+        """Opens a window to edit and update vendor details."""
+
+        # Get the selected row in the vendor table
+        selected_row = vendor_table_widget.currentRow()
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a vendor to edit.")
+            return
+
+        # Fetch vendor data from the selected row
+        vendor_id = vendor_table_widget.item(selected_row, 0).text().replace("VendorID-", "")
+        vendor_name = vendor_table_widget.item(selected_row, 1).text()
+        vendor_phone = vendor_table_widget.item(selected_row, 2).text()
+        vendor_email = vendor_table_widget.item(selected_row, 3).text()
+        vendor_location = vendor_table_widget.item(selected_row, 4).text()
+
+        # Create the dialog window for editing vendor details
+        edit_vendor_dialog = QDialog(self)
+        edit_vendor_dialog.setWindowTitle(f"Edit Vendor - {vendor_name}")
+        edit_vendor_dialog.setGeometry(300, 200, 400, 300)
+
+        # Create form layout for vendor details
+        form_layout = QFormLayout()
+
+        # Vendor fields with current data
+        vendor_name_edit = QLineEdit(vendor_name)
+        vendor_phone_edit = QLineEdit(vendor_phone)
+        vendor_email_edit = QLineEdit(vendor_email)
+        vendor_location_edit = QLineEdit(vendor_location)
+
+        # Add fields to form layout
+        form_layout.addRow("Vendor Name:", vendor_name_edit)
+        form_layout.addRow("Phone:", vendor_phone_edit)
+        form_layout.addRow("Email:", vendor_email_edit)
+        form_layout.addRow("Location:", vendor_location_edit)
+
+        # Save button to update the database
+        save_button = QPushButton("Save")
+        save_button.clicked.connect(lambda: self.save_vendor_changes(
+            vendor_id,
+            vendor_name_edit.text(),
+            vendor_phone_edit.text(),
+            vendor_email_edit.text(),
+            vendor_location_edit.text(),
+            edit_vendor_dialog  # Pass the dialog to close it after saving
+        ))
+
+        # Add the save button to the layout
+        form_layout.addWidget(save_button)
+
+        edit_vendor_dialog.setLayout(form_layout)
+        edit_vendor_dialog.exec()
+
+    def save_vendor_changes(self, vendor_id, name, phone, email, location, dialog):
+        """Saves the updated vendor information to the database."""
+
+        try:
+            # Update the vendor's details in the database
+            self.c.execute('''UPDATE materials 
+                              SET vendor = ?, vendor_phone = ?, vendor_email = ?, vendor_location = ? 
+                              WHERE id = ?''', (name, phone, email, location, vendor_id))
+            self.conn.commit()
+
+            # Show success message
+            QMessageBox.information(self, "Update Successful", "Vendor details have been updated successfully.")
+
+            # Close the dialog after saving
+            dialog.close()
+
+            # Optionally, you can refresh the vendor table if necessary
+            self.show_vendor_list_window()
+
+        except sqlite3.Error as e:
+            QMessageBox.critical(self, "Database Error", f"An error occurred while updating the vendor: {e}")
+
     def closeEvent(self, event):
         """Handles the window close event."""
         self.conn.close()  # Close the database connection
