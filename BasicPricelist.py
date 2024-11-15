@@ -1136,7 +1136,7 @@ class BasicPricelist(QMainWindow):
 
         # Create an edit button
         edit_button = QPushButton("Edit")
-        edit_button.clicked.connect(lambda: self.open_edit_vendor_window(vendor_table_widget))
+        edit_button.clicked.connect(lambda: self.open_edit_vendor_window(vendor_table_widget, vendor_list_dialog))
         button_layout.addWidget(edit_button)
 
         # Create a delete button
@@ -1158,7 +1158,8 @@ class BasicPricelist(QMainWindow):
         close_button_layout = QHBoxLayout()
         close_button_layout.addStretch()  # Add stretch to center-align the button
         close_button = QPushButton("Close")
-        close_button.clicked.connect(vendor_list_dialog.close)
+        close_button.clicked.connect(
+            lambda: self.close_vendor_list(vendor_list_dialog))  # Call a new method to close and refresh
         close_button_layout.addWidget(close_button)
         close_button_layout.addStretch()  # Add stretch to center-align the button
 
@@ -1168,7 +1169,12 @@ class BasicPricelist(QMainWindow):
         vendor_list_dialog.setLayout(main_layout)
         vendor_list_dialog.exec()
 
-    def open_edit_vendor_window(self, vendor_table_widget):
+    def close_vendor_list(self, dialog):
+        """Closes the vendor list dialog and refreshes the table."""
+        dialog.close()
+        self.load_data()
+
+    def open_edit_vendor_window(self, vendor_table_widget, vendor_list_dialog):
         """Opens a window to edit and update vendor details."""
 
         # Get the selected row in the vendor table
@@ -1176,6 +1182,9 @@ class BasicPricelist(QMainWindow):
         if selected_row == -1:
             QMessageBox.warning(self, "Selection Error", "Please select a vendor to edit.")
             return
+
+        # Close the Vendor List Dialog
+        vendor_list_dialog.close()
 
         # Fetch vendor data from the selected row
         vendor_id = vendor_table_widget.item(selected_row, 0).text().replace("VendorID-", "")
