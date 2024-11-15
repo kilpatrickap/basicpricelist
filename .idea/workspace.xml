@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="New prices populated.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="close button on RFP dialog.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,14 +178,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00093" summary="mail.smtp2go.com">
-      <option name="closed" value="true" />
-      <created>1730976946080</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1730976946080</updated>
     </task>
     <task id="LOCAL-00094" summary="mail.smtp2go.com">
       <option name="closed" value="true" />
@@ -569,7 +563,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731626806649</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="close button on RFP dialog.">
+      <option name="closed" value="true" />
+      <created>1731627470401</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1731627470401</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -584,7 +586,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="smtp.smtpserver.com" />
     <MESSAGE value="mail.smtp2go.com" />
     <MESSAGE value="smtp-relay.brevo.com" />
     <MESSAGE value="smtp.mailtrap.live" />
@@ -609,6 +610,7 @@
     <MESSAGE value="debugging location on compare." />
     <MESSAGE value="Works now." />
     <MESSAGE value="New prices populated." />
-    <option name="LAST_COMMIT_MESSAGE" value="New prices populated." />
+    <MESSAGE value="close button on RFP dialog." />
+    <option name="LAST_COMMIT_MESSAGE" value="close button on RFP dialog." />
   </component>
 </project>
