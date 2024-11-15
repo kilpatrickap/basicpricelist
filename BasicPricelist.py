@@ -204,11 +204,11 @@ class BasicPricelist(QMainWindow):
             make_default_button.clicked.connect(lambda checked, user_id=user[0]: self.make_default_user(user_id))
             table_widget.setCellWidget(row_idx, 2, make_default_button)
 
-        # Set up layouts
-        main_layout = QHBoxLayout()
-        main_layout.addWidget(table_widget)
+        # Horizontal layout for table and buttons
+        main_horizontal_layout = QHBoxLayout()
+        main_horizontal_layout.addWidget(table_widget)
 
-        # Edit and Delete button layout
+        # Vertical layout for edit and delete buttons
         button_layout = QVBoxLayout()
         edit_button = QPushButton("Edit")
         edit_button.clicked.connect(lambda: self.open_edit_user_window(table_widget))
@@ -219,7 +219,24 @@ class BasicPricelist(QMainWindow):
         button_layout.addWidget(delete_button)
 
         button_layout.addStretch()  # Spacer at the bottom
-        main_layout.addLayout(button_layout)
+
+        # Add the vertical button layout to the horizontal layout
+        main_horizontal_layout.addLayout(button_layout)
+
+        # Main vertical layout for the dialog
+        main_layout = QVBoxLayout()
+        main_layout.addLayout(main_horizontal_layout)
+
+        # Layout for the close button
+        close_button_layout = QHBoxLayout()
+        close_button_layout.addStretch()  # Add stretch to center-align the button
+        close_button = QPushButton("Close")
+        close_button.clicked.connect(user_list_dialog.close)
+        close_button_layout.addWidget(close_button)
+        close_button_layout.addStretch()  # Add stretch to center-align the button
+
+        # Add the close button layout to the main vertical layout
+        main_layout.addLayout(close_button_layout)
 
         user_list_dialog.setLayout(main_layout)
         user_list_dialog.exec()
