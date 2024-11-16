@@ -1142,7 +1142,7 @@ class BasicPricelist(QMainWindow):
         # Create a delete button
         delete_button = QPushButton("Delete")
         delete_button.clicked.connect(
-            lambda: self.delete_selected_vendor(vendor_table_widget))  # Assuming delete function exists
+            lambda: self.delete_selected_vendor(vendor_table_widget, vendor_list_dialog))  # Assuming delete function exists
         button_layout.addWidget(delete_button)
 
         button_layout.addStretch()  # Spacer at the bottom
