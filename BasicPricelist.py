@@ -1234,10 +1234,14 @@ class BasicPricelist(QMainWindow):
         """Saves the updated vendor information to the database."""
 
         try:
+            # Update all rows that have the same vendor name
+            # The key here is NOT to change the 'vendor' name itself during the update
+            original_vendor_name = self.get_original_vendor_name(vendor_id)  # Fetch the original name to match correctly
+
             # Update the vendor's details in the database
             self.c.execute('''UPDATE materials 
                               SET vendor = ?, vendor_phone = ?, vendor_email = ?, vendor_location = ? 
-                              WHERE id = ?''', (name, phone, email, location, vendor_id))
+                              WHERE vendor = ?''', (name, phone, email, location, original_vendor_name))
             self.conn.commit()
 
             # Show success message
@@ -1251,6 +1255,16 @@ class BasicPricelist(QMainWindow):
 
         except sqlite3.Error as e:
             QMessageBox.critical(self, "Database Error", f"An error occurred while updating the vendor: {e}")
+
+    def get_original_vendor_name(self, vendor_id):
+        """Fetches the original vendor name based on vendor_id."""
+        try:
+            self.c.execute("SELECT vendor FROM materials WHERE id = ?", (vendor_id,))
+            result = self.c.fetchone()
+            return result[0] if result else None
+        except sqlite3.Error as e:
+            QMessageBox.critical(self, "Database Error", f"An error occurred while fetching vendor: {e}")
+            return None
 
     def closeEvent(self, event):
         """Handles the window close event."""
