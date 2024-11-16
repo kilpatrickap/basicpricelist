@@ -1196,7 +1196,7 @@ class BasicPricelist(QMainWindow):
         # Create the dialog window for editing vendor details
         edit_vendor_dialog = QDialog(self)
         edit_vendor_dialog.setWindowTitle(f"Edit Vendor - {vendor_name}")
-        edit_vendor_dialog.setGeometry(300, 200, 400, 300)
+        edit_vendor_dialog.setGeometry(300, 200, 300, 200)
 
         # Create form layout for vendor details
         form_layout = QFormLayout()
@@ -1229,6 +1229,48 @@ class BasicPricelist(QMainWindow):
 
         edit_vendor_dialog.setLayout(form_layout)
         edit_vendor_dialog.exec()
+
+
+    def delete_selected_vendor(self, vendor_table_widget, vendor_list_dialog):
+        """Deletes all entries of the selected vendor after user confirmation."""
+
+        # Close the vendor list dialog first
+        vendor_list_dialog.close()
+
+        # Get the selected row in the vendor table
+        selected_row = vendor_table_widget.currentRow()
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a vendor to delete.")
+            return
+
+        # Retrieve the vendor name (or ID) from the selected row
+        vendor_name = vendor_table_widget.item(selected_row, 1).text()  # Assume the name is in column 1
+
+        # Show a confirmation dialog to the user
+        confirmation = QMessageBox.question(
+            self,
+            "Confirm Deletion",
+            f"Are you sure you want to delete all entries associated with vendor '{vendor_name}'?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.No
+        )
+
+        # Check if the user clicked 'Yes'
+        if confirmation == QMessageBox.StandardButton.Yes:
+            try:
+                # Delete all entries with the same vendor name
+                self.c.execute("DELETE FROM materials WHERE vendor = ?", (vendor_name,))
+                self.conn.commit()
+
+                # Notify the user of successful deletion
+                QMessageBox.information(self, "Deletion Successful",
+                                        f"All entries for vendor '{vendor_name}' have been deleted.")
+
+                # Refresh the vendor list to reflect the changes
+                self.show_vendor_list_window()
+
+            except sqlite3.Error as e:
+                QMessageBox.critical(self, "Database Error", f"An error occurred while deleting the vendor: {e}")
 
     def save_vendor_changes(self, vendor_id, name, phone, email, location, dialog):
         """Saves the updated vendor information to the database."""
