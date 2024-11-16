@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Deleted Vendors updates everywhere.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Everything works perfectely now.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,14 +177,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00101" summary="done for the day. &#10;To set up smtpServer next.">
-      <option name="closed" value="true" />
-      <created>1730996313771</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1730996313771</updated>
     </task>
     <task id="LOCAL-00102" summary="smtp_server and client.">
       <option name="closed" value="true" />
@@ -571,7 +562,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731794827715</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="Everything works perfectely now.">
+      <option name="closed" value="true" />
+      <created>1731796915703</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1731796915703</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -586,7 +585,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="done for the day. &#10;To set up smtpServer next." />
     <MESSAGE value="smtp_server and client." />
     <MESSAGE value="vendor data in RFP reset." />
     <MESSAGE value="Send Request button in RFP removed." />
@@ -611,6 +609,7 @@
     <MESSAGE value="vendor edit." />
     <MESSAGE value="Edited Vendors updates everywhere." />
     <MESSAGE value="Deleted Vendors updates everywhere." />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleted Vendors updates everywhere." />
+    <MESSAGE value="Everything works perfectely now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Everything works perfectely now." />
   </component>
 </project>
