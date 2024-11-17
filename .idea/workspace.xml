@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Working on duplicated mat-ids. Almost there.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="DONEEEE !!!!!!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,14 +198,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00113" summary="Open_compare_window().">
-      <option name="closed" value="true" />
-      <created>1731280891796</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1731280891796</updated>
     </task>
     <task id="LOCAL-00114" summary="Open_compare_window().">
       <option name="closed" value="true" />
@@ -594,7 +583,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731885933030</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="DONEEEE !!!!!!">
+      <option name="closed" value="true" />
+      <created>1731886663169</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1731886663169</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -609,7 +606,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Open_compare_window() work on it." />
     <MESSAGE value="Open_compare_window()." />
     <MESSAGE value="Notify user if item is only one." />
     <MESSAGE value="Unit column added to compare." />
@@ -634,6 +630,7 @@
     <MESSAGE value="import from excel button added." />
     <MESSAGE value="Working on duplicated mat-ids." />
     <MESSAGE value="Working on duplicated mat-ids. Almost there." />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on duplicated mat-ids. Almost there." />
+    <MESSAGE value="DONEEEE !!!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="DONEEEE !!!!!!" />
   </component>
 </project>

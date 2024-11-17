@@ -58,7 +58,7 @@ def generate_vendor_details():
 
 # Create the dataset for construction material pricing
 data = []
-for i in range(1, 100):  # Generate 500 entries for the dataset     todo: 100 data set
+for i in range(1, 11):  # Generate 500 entries for the dataset     todo: 100 data set
     # Randomly select a trade and an associated material
     trade = random.choice(trades)
     material = random.choice(materials[trade])
