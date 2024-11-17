@@ -49,7 +49,7 @@ for i in range(1, 101):  # Create 100 entries
         'Trade': trade,
         'Material': material,
         'Currency': currency,
-        'Average Price': price,
+        'Price': price,
         'Unit': unit,
         'Vendor': vendor,
         'Phone': phone,
