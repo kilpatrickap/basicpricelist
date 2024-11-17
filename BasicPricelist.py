@@ -861,14 +861,18 @@ class BasicPricelist(QMainWindow):
             QMessageBox.critical(self, "Import Error", f"An error occurred during import: {e}")
 
     def generate_new_mat_id(self):
-        """Generate a new unique material ID."""
-        # Example logic to generate a new unique mat_id
-        # This assumes `mat_id` is a numeric value. Adjust accordingly if it's alphanumeric or has a specific format.
-        self.c.execute("SELECT MAX(CAST(mat_id AS INTEGER)) FROM materials")
-        max_id = self.c.fetchone()[0]
-        new_id = (max_id + 1) if max_id is not None else 1
-        return str(new_id)  # Ensure the new ID is a string
+        """Generate a new unique material ID in the format MAT-XXX."""
+        # Fetch the maximum mat_id from the database and extract the numeric part
+        self.c.execute("SELECT mat_id FROM materials WHERE mat_id LIKE 'MAT-%'")
+        all_ids = [row[0] for row in self.c.fetchall()]
 
+        if not all_ids:
+            new_id = 1
+        else:
+            max_id = max([int(id.split('-')[1]) for id in all_ids])
+            new_id = max_id + 1
+
+        return f"MAT-{new_id}"
 
     def open_rfp_window(self):
         """Opens the RFP window with the vendor's email and lists all materials from that vendor."""
