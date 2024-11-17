@@ -726,6 +726,17 @@ class BasicPricelist(QMainWindow):
         if not file_path:  # Check if a file path was provided
             return
 
+        # Ask the user how to handle duplicates: Skip or Update
+        duplicate_action = QMessageBox.question(
+            self, "Duplicate Handling", "How would you like to handle existing material IDs?\n\n"
+                                        "Yes - Update existing records\nNo - Skip duplicates\nCancel - Abort import",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No | QMessageBox.StandardButton.Cancel,
+            QMessageBox.StandardButton.Cancel
+        )
+
+        if duplicate_action == QMessageBox.StandardButton.Cancel:
+            return  # Abort the import process
+
         try:
             # Read the Excel file into a DataFrame
             df = pd.read_excel(file_path)
@@ -733,11 +744,16 @@ class BasicPricelist(QMainWindow):
             # Ensure that the Excel file has the correct columns
             expected_columns = ['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone',
                                 'Email', 'Location', 'Price Date']
-            if not all(col in df.columns for col in expected_columns):
-                QMessageBox.critical(self, "Import Error", "The Excel file does not have the expected columns.")
+            missing_columns = [col for col in expected_columns if col not in df.columns]
+            if missing_columns:
+                QMessageBox.critical(self, "Import Error",
+                                     f"The Excel file is missing the following columns: {', '.join(missing_columns)}.")
                 return
 
             invalid_rows = []  # Track rows that fail validation
+            skipped_mat_ids = []  # Track duplicates that are skipped
+            updated_mat_ids = []  # Track duplicates that are updated
+            inserted_mat_ids = []  # Track successfully inserted material IDs
 
             # Iterate through the DataFrame and validate data before inserting it into the database
             for index, row in df.iterrows():
@@ -771,12 +787,29 @@ class BasicPricelist(QMainWindow):
 
                 # Check if the mat_id already exists in the database
                 self.c.execute("SELECT COUNT(*) FROM materials WHERE mat_id = ?", (mat_id,))
-                if self.c.fetchone()[0] == 0:  # If mat_id doesn't exist, insert the row
+                exists = self.c.fetchone()[0] > 0
+
+                if exists:
+                    if duplicate_action == QMessageBox.StandardButton.Yes:  # User chose to update duplicates
+                        # Update the existing record
+                        self.c.execute('''UPDATE materials
+                                          SET trade = ?, material_name = ?, currency = ?, price = ?, unit = ?, 
+                                              vendor = ?, vendor_phone = ?, vendor_email = ?, vendor_location = ?, price_date = ?
+                                          WHERE mat_id = ?''',
+                                       (trade, material_name, currency, price, unit, vendor, phone, email, location,
+                                        price_date, mat_id))
+                        updated_mat_ids.append(mat_id)
+                    else:
+                        # Skip the duplicate
+                        skipped_mat_ids.append(mat_id)
+                else:
+                    # If mat_id doesn't exist, insert the row
                     self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit,
                                                             vendor, vendor_phone, vendor_email, vendor_location, price_date)
                                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
                                    (mat_id, trade, material_name, currency, price, unit, vendor, phone, email, location,
                                     price_date))
+                    inserted_mat_ids.append(mat_id)
 
             # Commit the changes to the database
             self.conn.commit()
@@ -785,11 +818,17 @@ class BasicPricelist(QMainWindow):
             self.load_data()
 
             # Provide feedback to the user
+            message = f"Data imported successfully from {file_path}.\n\n"
+            if inserted_mat_ids:
+                message += f"Inserted material IDs: {', '.join(map(str, inserted_mat_ids))}\n"
+            if updated_mat_ids:
+                message += f"Updated material IDs: {', '.join(map(str, updated_mat_ids))}\n"
+            if skipped_mat_ids:
+                message += f"Skipped material IDs (duplicates): {', '.join(map(str, skipped_mat_ids))}\n"
             if invalid_rows:
-                QMessageBox.warning(self, "Import Completed with Errors",
-                                    f"Data imported successfully, but the following rows had validation errors and were skipped: {', '.join(map(str, invalid_rows))}")
-            else:
-                QMessageBox.information(self, "Import Successful", f"Data imported successfully from {file_path}")
+                message += f"Rows with validation errors: {', '.join(map(str, invalid_rows))}\n"
+
+            QMessageBox.information(self, "Import Completed", message)
 
         except Exception as e:
             QMessageBox.critical(self, "Import Error", f"An error occurred during import: {e}")
