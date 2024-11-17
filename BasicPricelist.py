@@ -66,6 +66,10 @@ class BasicPricelist(QMainWindow):
         export_button.clicked.connect(self.export_to_excel)
         button_layout.addWidget(export_button)
 
+        export_button = QPushButton('Import from Excel')
+        export_button.clicked.connect(self.export_to_excel)
+        button_layout.addWidget(export_button)
+
         main_layout.addLayout(button_layout)
 
         # Search Bar

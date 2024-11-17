@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Prices generator added." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Prices generator added.">
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/construction_pricelist.xlsx" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -198,22 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00106" summary="vendor data in RFP reset.">
-      <option name="closed" value="true" />
-      <created>1731194685860</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1731194685860</updated>
-    </task>
-    <task id="LOCAL-00107" summary="Send Request button in RFP removed.">
-      <option name="closed" value="true" />
-      <created>1731273174777</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1731273174778</updated>
     </task>
     <task id="LOCAL-00108" summary="From &amp; To labels in RFP removed.">
       <option name="closed" value="true" />
@@ -591,7 +578,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731836955152</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="Prices generator added.">
+      <option name="closed" value="true" />
+      <created>1731837867932</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1731837867932</updated>
+    </task>
+    <task id="LOCAL-00156" summary="Prices generator added.">
+      <option name="closed" value="true" />
+      <created>1731837909616</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1731837909616</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
