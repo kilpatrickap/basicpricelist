@@ -754,10 +754,11 @@ class BasicPricelist(QMainWindow):
             skipped_mat_ids = []  # Track duplicates that are skipped
             updated_mat_ids = []  # Track duplicates that are updated
             inserted_mat_ids = []  # Track successfully inserted material IDs
+            skipped_rows = []  # Store rows for skipped duplicates to add later
 
             # Iterate through the DataFrame and validate data before inserting it into the database
             for index, row in df.iterrows():
-                mat_id = row['Mat ID']
+                mat_id = str(row['Mat ID'])  # Ensure mat_id is a string
                 trade = row['Trade']
                 material_name = row['Material']
                 currency = row['Currency']
@@ -771,18 +772,18 @@ class BasicPricelist(QMainWindow):
 
                 # Perform data validation
                 if not mat_id or not material_name or not trade:
-                    invalid_rows.append(index + 2)  # +2 to adjust for Excel row numbers (1-based)
+                    invalid_rows.append(str(index + 2))  # +2 to adjust for Excel row numbers (1-based)
                     continue
 
                 if not isinstance(price, (int, float)):
                     try:
                         price = float(str(price).replace(',', ''))  # Attempt to convert to a number
                     except ValueError:
-                        invalid_rows.append(index + 2)
+                        invalid_rows.append(str(index + 2))
                         continue
 
                 if email and not re.match(r"[^@]+@[^@]+\.[^@]+", email):  # Basic email validation
-                    invalid_rows.append(index + 2)
+                    invalid_rows.append(str(index + 2))
                     continue
 
                 # Check if the mat_id already exists in the database
@@ -800,8 +801,9 @@ class BasicPricelist(QMainWindow):
                                         price_date, mat_id))
                         updated_mat_ids.append(mat_id)
                     else:
-                        # Skip the duplicate
+                        # Skip the duplicate but store the row for later insertion with a new mat_id
                         skipped_mat_ids.append(mat_id)
+                        skipped_rows.append(row)
                 else:
                     # If mat_id doesn't exist, insert the row
                     self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit,
@@ -814,6 +816,31 @@ class BasicPricelist(QMainWindow):
             # Commit the changes to the database
             self.conn.commit()
 
+            # If there are skipped rows, generate new mat_ids and insert them
+            for row in skipped_rows:
+                mat_id = self.generate_new_mat_id()  # Generate a new unique mat_id
+                trade = row['Trade']
+                material_name = row['Material']
+                currency = row['Currency']
+                price = row['Price']
+                unit = row['Unit']
+                vendor = row['Vendor']
+                phone = row['Phone']
+                email = row['Email']
+                location = row['Location']
+                price_date = row['Price Date']
+
+                # Insert the skipped row with the new mat_id
+                self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit,
+                                                        vendor, vendor_phone, vendor_email, vendor_location, price_date)
+                                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                               (mat_id, trade, material_name, currency, price, unit, vendor, phone, email, location,
+                                price_date))
+                inserted_mat_ids.append(mat_id)
+
+            # Commit the changes for the new inserts
+            self.conn.commit()
+
             # Reload the data in the table to reflect new changes
             self.load_data()
 
@@ -824,7 +851,7 @@ class BasicPricelist(QMainWindow):
             if updated_mat_ids:
                 message += f"Updated material IDs: {', '.join(map(str, updated_mat_ids))}\n"
             if skipped_mat_ids:
-                message += f"Skipped material IDs (duplicates): {', '.join(map(str, skipped_mat_ids))}\n"
+                message += f"Skipped material IDs (duplicates, now added with new IDs): {', '.join(map(str, skipped_mat_ids))}\n"
             if invalid_rows:
                 message += f"Rows with validation errors: {', '.join(map(str, invalid_rows))}\n"
 
@@ -832,6 +859,16 @@ class BasicPricelist(QMainWindow):
 
         except Exception as e:
             QMessageBox.critical(self, "Import Error", f"An error occurred during import: {e}")
+
+    def generate_new_mat_id(self):
+        """Generate a new unique material ID."""
+        # Example logic to generate a new unique mat_id
+        # This assumes `mat_id` is a numeric value. Adjust accordingly if it's alphanumeric or has a specific format.
+        self.c.execute("SELECT MAX(mat_id) FROM materials")
+        max_id = self.c.fetchone()[0]
+        new_id = (max_id + 1) if max_id is not None else 1
+        return str(new_id)  # Ensure the new ID is a string
+
 
     def open_rfp_window(self):
         """Opens the RFP window with the vendor's email and lists all materials from that vendor."""
