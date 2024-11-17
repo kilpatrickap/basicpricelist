@@ -864,7 +864,7 @@ class BasicPricelist(QMainWindow):
         """Generate a new unique material ID."""
         # Example logic to generate a new unique mat_id
         # This assumes `mat_id` is a numeric value. Adjust accordingly if it's alphanumeric or has a specific format.
-        self.c.execute("SELECT MAX(mat_id) FROM materials")
+        self.c.execute("SELECT MAX(CAST(mat_id AS INTEGER)) FROM materials")
         max_id = self.c.fetchone()[0]
         new_id = (max_id + 1) if max_id is not None else 1
         return str(new_id)  # Ensure the new ID is a string
