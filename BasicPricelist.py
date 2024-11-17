@@ -67,7 +67,7 @@ class BasicPricelist(QMainWindow):
         button_layout.addWidget(export_button)
 
         export_button = QPushButton('Import from Excel')
-        export_button.clicked.connect(self.export_to_excel)
+        export_button.clicked.connect(self.import_from_excel)
         button_layout.addWidget(export_button)
 
         main_layout.addLayout(button_layout)
@@ -719,6 +719,80 @@ class BasicPricelist(QMainWindow):
 
         except Exception as e:
             QMessageBox.critical(self, "Export Error", f"An error occurred during export: {e}")
+
+    def import_from_excel(self):
+        """Imports data from an Excel file, validates it, and populates the materials database without repeating items."""
+        file_path, _ = QFileDialog.getOpenFileName(self, "Open File", "", "Excel Files (*.xlsx);;All Files (*)")
+        if not file_path:  # Check if a file path was provided
+            return
+
+        try:
+            # Read the Excel file into a DataFrame
+            df = pd.read_excel(file_path)
+
+            # Ensure that the Excel file has the correct columns
+            expected_columns = ['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone',
+                                'Email', 'Location', 'Price Date']
+            if not all(col in df.columns for col in expected_columns):
+                QMessageBox.critical(self, "Import Error", "The Excel file does not have the expected columns.")
+                return
+
+            invalid_rows = []  # Track rows that fail validation
+
+            # Iterate through the DataFrame and validate data before inserting it into the database
+            for index, row in df.iterrows():
+                mat_id = row['Mat ID']
+                trade = row['Trade']
+                material_name = row['Material']
+                currency = row['Currency']
+                price = row['Price']
+                unit = row['Unit']
+                vendor = row['Vendor']
+                phone = row['Phone']
+                email = row['Email']
+                location = row['Location']
+                price_date = row['Price Date']
+
+                # Perform data validation
+                if not mat_id or not material_name or not trade:
+                    invalid_rows.append(index + 2)  # +2 to adjust for Excel row numbers (1-based)
+                    continue
+
+                if not isinstance(price, (int, float)):
+                    try:
+                        price = float(str(price).replace(',', ''))  # Attempt to convert to a number
+                    except ValueError:
+                        invalid_rows.append(index + 2)
+                        continue
+
+                if email and not re.match(r"[^@]+@[^@]+\.[^@]+", email):  # Basic email validation
+                    invalid_rows.append(index + 2)
+                    continue
+
+                # Check if the mat_id already exists in the database
+                self.c.execute("SELECT COUNT(*) FROM materials WHERE mat_id = ?", (mat_id,))
+                if self.c.fetchone()[0] == 0:  # If mat_id doesn't exist, insert the row
+                    self.c.execute('''INSERT INTO materials (mat_id, trade, material_name, currency, price, unit,
+                                                            vendor, vendor_phone, vendor_email, vendor_location, price_date)
+                                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                                   (mat_id, trade, material_name, currency, price, unit, vendor, phone, email, location,
+                                    price_date))
+
+            # Commit the changes to the database
+            self.conn.commit()
+
+            # Reload the data in the table to reflect new changes
+            self.load_data()
+
+            # Provide feedback to the user
+            if invalid_rows:
+                QMessageBox.warning(self, "Import Completed with Errors",
+                                    f"Data imported successfully, but the following rows had validation errors and were skipped: {', '.join(map(str, invalid_rows))}")
+            else:
+                QMessageBox.information(self, "Import Successful", f"Data imported successfully from {file_path}")
+
+        except Exception as e:
+            QMessageBox.critical(self, "Import Error", f"An error occurred during import: {e}")
 
     def open_rfp_window(self):
         """Opens the RFP window with the vendor's email and lists all materials from that vendor."""

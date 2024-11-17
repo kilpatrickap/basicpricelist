@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Prices generator added.">
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/construction_pricelist.xlsx" beforeDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="import from excel button added." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,14 +198,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00108" summary="From &amp; To labels in RFP removed.">
-      <option name="closed" value="true" />
-      <created>1731273587444</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1731273587444</updated>
     </task>
     <task id="LOCAL-00109" summary="From &amp; To labels in RFP removed.">
       <option name="closed" value="true" />
@@ -594,7 +583,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731837909616</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="import from excel button added.">
+      <option name="closed" value="true" />
+      <created>1731838181659</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1731838181659</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -609,7 +606,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Send Request button in RFP removed." />
     <MESSAGE value="From &amp; To labels in RFP removed." />
     <MESSAGE value="UI size change in RFP window." />
     <MESSAGE value="Open_compare_window() work on it." />
@@ -634,6 +630,7 @@
     <MESSAGE value="Everything works perfectely now." />
     <MESSAGE value="Everything works perfectly now." />
     <MESSAGE value="Prices generator added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Prices generator added." />
+    <MESSAGE value="import from excel button added." />
+    <option name="LAST_COMMIT_MESSAGE" value="import from excel button added." />
   </component>
 </project>
