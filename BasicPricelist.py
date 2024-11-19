@@ -194,6 +194,43 @@ class BasicPricelist(QMainWindow):
             job_type_dialog.close()  # Close the selection dialog
             self.show_existing_job_window()  # Open the existing job window
 
+    def show_job_information_dialog(self):
+        """Opens the Job Information Window with location to save jobs database."""
+        job_info_dialog = QDialog(self)
+        job_info_dialog.setWindowTitle("New Job Information")
+        job_info_dialog.setGeometry(200, 200, 300, 200)
+
+        # User information input fields
+        form_layout = QFormLayout()
+        job_name_input = QLineEdit()
+        form_layout.addRow(QLabel("Job Name :"), job_name_input)
+        client_input = QLineEdit()
+        form_layout.addRow(QLabel("Client :"), client_input)
+        location_input = QLineEdit()
+        form_layout.addRow(QLabel("Location :"), location_input)
+
+
+        # Submit button
+        button_layout = QHBoxLayout()
+        submit_button = QPushButton(" Submit ")
+
+        # Lambda function to validate phone and email fields
+        submit_button.clicked.connect(lambda: self.validate_and_submit_job_info(
+            job_name_input, client_input, location_input, job_info_dialog))
+
+        button_layout.addStretch()
+        button_layout.addWidget(submit_button)
+        button_layout.addStretch()
+
+        # Set up the main layout
+        main_layout = QVBoxLayout()
+        main_layout.addLayout(form_layout)
+        main_layout.addLayout(button_layout)
+
+        job_info_dialog.setLayout(main_layout)
+        job_info_dialog.exec()
+
+
 
 
     def open_user_info_window(self):

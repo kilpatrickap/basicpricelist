@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="open_jobs_info_window() method">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="check_job_type_selection() method">
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -200,14 +200,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00116" summary="Notify user if item is only one.">
-      <option name="closed" value="true" />
-      <created>1731316601278</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1731316601278</updated>
     </task>
     <task id="LOCAL-00117" summary="Notify user if item is only one.">
       <option name="closed" value="true" />
@@ -593,7 +585,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732056102924</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="check_job_type_selection() method">
+      <option name="closed" value="true" />
+      <created>1732056355093</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1732056355094</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -608,7 +608,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Unit column added to compare." />
     <MESSAGE value="filter by low -high and reverse." />
     <MESSAGE value="mat_id &amp; mat_name in label." />
     <MESSAGE value="close button added." />
@@ -633,6 +632,7 @@
     <MESSAGE value="DONEEEE !!!!!!" />
     <MESSAGE value="jobs button added." />
     <MESSAGE value="open_jobs_info_window() method" />
-    <option name="LAST_COMMIT_MESSAGE" value="open_jobs_info_window() method" />
+    <MESSAGE value="check_job_type_selection() method" />
+    <option name="LAST_COMMIT_MESSAGE" value="check_job_type_selection() method" />
   </component>
 </project>
