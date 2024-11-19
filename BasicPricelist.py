@@ -158,7 +158,7 @@ class BasicPricelist(QMainWindow):
 
         layout = QVBoxLayout()
 
-        # Radio buttons for selecting user type
+        # Radio buttons for selecting job type
         new_job_radio = QRadioButton("New Job")
         existing_job_radio = QRadioButton("Existing Jobs")
 
@@ -176,7 +176,7 @@ class BasicPricelist(QMainWindow):
         submit_button = QPushButton("Next")
         submit_button.clicked.connect(
             lambda: self.check_job_type_selection(new_job_radio, existing_job_radio, job_type_dialog))
-        # Else if the existing_user_radio is selected, open the show_existing_user_window
+        # Else if the existing_job_radio is selected, open the show_existing_job_window
 
         button_layout.addWidget(submit_button)  # Center button
         button_layout.addStretch()  # Spacer on the right
@@ -184,6 +184,16 @@ class BasicPricelist(QMainWindow):
         layout.addLayout(button_layout)  # Add button layout to the main layout
         job_type_dialog.setLayout(layout)
         job_type_dialog.exec()
+
+    def check_job_type_selection(self, new_job_radio, existing_job_radio, job_type_dialog):
+        """Checks which radio button is selected and opens the appropriate window."""
+        if new_job_radio.isChecked():
+            job_type_dialog.close()  # Close the selection dialog
+            self.show_job_information_dialog()  # Open the job information window
+        elif existing_job_radio.isChecked():  # Check if the existing job radio is selected
+            job_type_dialog.close()  # Close the selection dialog
+            self.show_existing_job_window()  # Open the existing job window
+
 
 
     def open_user_info_window(self):
