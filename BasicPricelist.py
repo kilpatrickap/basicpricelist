@@ -29,6 +29,11 @@ class BasicPricelist(QMainWindow):
         # Buttons
         button_layout = QHBoxLayout()
 
+        # Add a "Jobs" button next to the "User" button
+        jobs_button = QPushButton("Jobs")
+        # user_button.clicked.connect(self.open_user_info_window)
+        button_layout.addWidget(jobs_button)
+
         # Add a "User" button next to the "New Material" button
         user_button = QPushButton("User")
         user_button.clicked.connect(self.open_user_info_window)
