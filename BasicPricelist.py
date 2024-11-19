@@ -150,6 +150,27 @@ class BasicPricelist(QMainWindow):
 
         self.users_conn.commit()
 
+        # Initialize Jobs database
+        self.jobs_conn = sqlite3.connect('jobs.db')
+        self.jobs_c = self.jobs_conn.cursor()
+        self.jobs_c.execute('''CREATE TABLE IF NOT EXISTS jobs (
+                    job_id INTEGER PRIMARY KEY,
+                    job_code TEXT UNIQUE,
+                    job_name TEXT,
+                    client TEXT,
+                    location TEXT
+                )''')
+
+        # Check if 'is_default' column exists; if not, add it
+        try:
+            self.jobs_c.execute("ALTER TABLE jobs ADD COLUMN is_default INTEGER DEFAULT 0")
+        except sqlite3.OperationalError:
+            # Column already exists, no need to add it
+            pass
+
+        self.jobs_conn.commit()
+
+
     def open_jobs_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
         job_type_dialog = QDialog(self)
@@ -243,6 +264,25 @@ class BasicPricelist(QMainWindow):
 
         QMessageBox.information(self, "Information Saved", "Job information has been saved successfully.")
         dialog.close()
+
+    def save_job_info(self, job_name_input, client_input, location_input):
+        """Saves the job information into the Jobs.db database."""
+        # Get existing user codes
+        self.jobs_c.execute("SELECT job_code FROM jobs")
+        existing_codes = {row[0] for row in self.jobs_c.fetchall()}
+
+        # Generate a new job code (Job-1, Job-2, etc.)
+        new_job_code = f"Job-{len(existing_codes) + 1}"
+
+        # Insert new job into the jobs table
+        self.jobs_c.execute('''INSERT INTO jobs (job_code, job_name, client, location)
+                                 VALUES (?, ?, ?, ?)''',
+                             (new_job_code, job_name_input.text(), client_input.text(), location_input.text()))
+        self.jobs_conn.commit()
+
+
+
+
 
     def open_user_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
