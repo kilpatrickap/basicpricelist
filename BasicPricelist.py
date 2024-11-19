@@ -31,7 +31,7 @@ class BasicPricelist(QMainWindow):
 
         # Add a "Jobs" button next to the "User" button
         jobs_button = QPushButton("Jobs")
-        # user_button.clicked.connect(self.open_user_info_window)
+        jobs_button.clicked.connect(self.open_jobs_info_window)
         button_layout.addWidget(jobs_button)
 
         # Add a "User" button next to the "New Material" button
@@ -149,6 +149,42 @@ class BasicPricelist(QMainWindow):
             pass
 
         self.users_conn.commit()
+
+    def open_jobs_info_window(self):
+        """Displays options for New User and Existing User, with a responsive Submit button."""
+        job_type_dialog = QDialog(self)
+        job_type_dialog.setWindowTitle("Select Job Type")
+        job_type_dialog.setGeometry(200, 200, 200, 100)
+
+        layout = QVBoxLayout()
+
+        # Radio buttons for selecting user type
+        new_job_radio = QRadioButton("New Job")
+        existing_job_radio = QRadioButton("Existing Jobs")
+
+        # Add the radio buttons to a button group for exclusive selection
+        button_group = QButtonGroup(job_type_dialog)
+        button_group.addButton(new_job_radio)
+        button_group.addButton(existing_job_radio)
+
+        layout.addWidget(new_job_radio)
+        layout.addWidget(existing_job_radio)
+
+        # Responsive layout for the Submit button
+        button_layout = QHBoxLayout()
+        button_layout.addStretch()  # Spacer on the left
+        submit_button = QPushButton("Next")
+        submit_button.clicked.connect(
+            lambda: self.check_job_type_selection(new_job_radio, existing_job_radio, job_type_dialog))
+        # Else if the existing_user_radio is selected, open the show_existing_user_window
+
+        button_layout.addWidget(submit_button)  # Center button
+        button_layout.addStretch()  # Spacer on the right
+
+        layout.addLayout(button_layout)  # Add button layout to the main layout
+        job_type_dialog.setLayout(layout)
+        job_type_dialog.exec()
+
 
     def open_user_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
