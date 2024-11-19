@@ -213,7 +213,7 @@ class BasicPricelist(QMainWindow):
             self.show_job_information_dialog()  # Open the job information window
         elif existing_job_radio.isChecked():  # Check if the existing job radio is selected
             job_type_dialog.close()  # Close the selection dialog
-            self.show_existing_job_window()  # Open the existing job window
+            self.show_existing_jobs_window()  # Open the existing job window
 
     def show_job_information_dialog(self):
         """Opens the Job Information Window with location to save jobs database."""
@@ -280,8 +280,65 @@ class BasicPricelist(QMainWindow):
                              (new_job_code, job_name_input.text(), client_input.text(), location_input.text()))
         self.jobs_conn.commit()
 
+    def show_existing_jobs_window(self):
+        """Shows the list of all existing jobs with 'Make Default', 'Edit', and 'Delete' buttons."""
+        job_list_dialog = QDialog(self)
+        job_list_dialog.setWindowTitle("Existing Jobs")
+        job_list_dialog.setGeometry(200, 200, 430, 200)
 
+        table_widget = QTableWidget()
+        table_widget.setRowCount(0)
+        table_widget.setColumnCount(3)
+        table_widget.setHorizontalHeaderLabels(["Job ID", "Job Name", "Make Default"])
 
+        # Fetch and populate data
+        self.jobs_c.execute("SELECT job_id, job_name FROM jobs")
+        jobs = self.jobs_c.fetchall()
+        for row_idx, job in enumerate(jobs):
+            table_widget.insertRow(row_idx)
+            table_widget.setItem(row_idx, 0, QTableWidgetItem(f"JOb-ID-{job[0]}"))
+            table_widget.setItem(row_idx, 1, QTableWidgetItem(job[1]))
+
+            make_default_job_button = QPushButton("Default Job")
+            make_default_job_button.clicked.connect(lambda checked, job_id=job[0]: self.make_default_job(job_id))
+            table_widget.setCellWidget(row_idx, 2, make_default_job_button)
+
+        # Horizontal layout for table and buttons
+        main_horizontal_layout = QHBoxLayout()
+        main_horizontal_layout.addWidget(table_widget)
+
+        # Vertical layout for edit and delete buttons
+        button_layout = QVBoxLayout()
+        edit_job_button = QPushButton("Edit Job")
+        edit_job_button.clicked.connect(lambda: self.open_edit_job_window(table_widget))
+        button_layout.addWidget(edit_job_button)
+
+        delete_job_button = QPushButton("Delete Job")
+        delete_job_button.clicked.connect(lambda: self.delete_selected_job(table_widget))  # Assuming delete function
+        button_layout.addWidget(delete_job_button)
+
+        button_layout.addStretch()  # Spacer at the bottom
+
+        # Add the vertical button layout to the horizontal layout
+        main_horizontal_layout.addLayout(button_layout)
+
+        # Main vertical layout for the dialog
+        main_layout = QVBoxLayout()
+        main_layout.addLayout(main_horizontal_layout)
+
+        # Layout for the close button
+        close_button_layout = QHBoxLayout()
+        close_button_layout.addStretch()  # Add stretch to center-align the button
+        close_button = QPushButton("Close")
+        close_button.clicked.connect(job_list_dialog.close)
+        close_button_layout.addWidget(close_button)
+        close_button_layout.addStretch()  # Add stretch to center-align the button
+
+        # Add the close button layout to the main vertical layout
+        main_layout.addLayout(close_button_layout)
+
+        job_list_dialog.setLayout(main_layout)
+        job_list_dialog.exec()
 
 
     def open_user_info_window(self):
