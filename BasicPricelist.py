@@ -230,8 +230,19 @@ class BasicPricelist(QMainWindow):
         job_info_dialog.setLayout(main_layout)
         job_info_dialog.exec()
 
+    # Add this helper method for validation
+    def validate_and_submit_job_info(self, job_name_input, client_input, location_input, dialog):
+        """Validates phone and email inputs, and displays an error message if validation fails."""
+        # Check if all required fields are filled
+        if not all([job_name_input.text(), client_input.text(), location_input.text()]):
+            QMessageBox.warning(self, "Input Error", "Please fill in all required fields.")
+            return
 
+        # If validations pass, save the user information
+        self.save_job_info(job_name_input, client_input, location_input)
 
+        QMessageBox.information(self, "Information Saved", "Job information has been saved successfully.")
+        dialog.close()
 
     def open_user_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
