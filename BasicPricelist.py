@@ -518,9 +518,9 @@ class BasicPricelist(QMainWindow):
             # Step 2: Create a dialog window to display the job databases
             dialog = QDialog(self)
             dialog.setWindowTitle("Jobs List")
-            dialog.setGeometry(300, 200, 600, 400)
+            dialog.setGeometry(300, 200, 400, 200)
 
-            layout = QHBoxLayout(dialog)  # Use a horizontal layout for table + buttons
+            layout = QVBoxLayout(dialog)  # Main layout to hold everything
 
             # Create a table to display the database files only
             table = QTableWidget()
@@ -534,25 +534,45 @@ class BasicPricelist(QMainWindow):
             # Adjust column width to fit contents dynamically
             table.resizeColumnsToContents()
 
-            layout.addWidget(table)
+            # Step 3: Create a horizontal layout for the table and the buttons
+            table_button_layout = QHBoxLayout()  # Horizontal layout for table and buttons
 
-            # Create buttons for Open and Delete actions
+            # Add the table to the left part of the horizontal layout
+            table_button_layout.addWidget(table)
+
+            # Create a vertical layout for the buttons (Open/Delete)
             button_layout = QVBoxLayout()  # Vertical layout for the buttons
 
-            open_button = QPushButton("Open Job")
+            open_button = QPushButton("Open Selected Job")
             open_button.clicked.connect(lambda: self.handle_job_action(table, "open", dialog))
 
-            delete_button = QPushButton("Delete Job")
+            delete_button = QPushButton("Delete Selected Job")
             delete_button.clicked.connect(lambda: self.handle_job_action(table, "delete", dialog))
 
             # Add buttons to the vertical layout
             button_layout.addWidget(open_button)
             button_layout.addWidget(delete_button)
 
-            # Add the button layout to the main layout (aligned on the right side)
-            layout.addLayout(button_layout)
+            # Add the button layout to the right part of the horizontal layout
+            table_button_layout.addLayout(button_layout)
 
-            dialog.setLayout(layout)
+            # Add the table and button layout to the main layout
+            layout.addLayout(table_button_layout)
+
+            # Create a horizontal layout for the close button at the bottom
+            close_button_layout = QHBoxLayout()  # Horizontal layout for close button
+            close_button_layout.addStretch(1)  # Add a stretchable space before the close button
+
+            close_button = QPushButton("Close")
+            close_button.clicked.connect(dialog.close)  # Close the dialog when clicked
+
+            close_button_layout.addWidget(close_button)  # Add close button to layout
+            close_button_layout.addStretch(1)  # Add a stretchable space after the close button
+
+            # Add the close button layout to the main layout
+            layout.addLayout(close_button_layout)
+
+            dialog.setLayout(layout)  # Set the layout for the dialog
 
             # Show dialog
             dialog.exec()
@@ -590,7 +610,6 @@ class BasicPricelist(QMainWindow):
                     dialog.accept()  # Close the dialog after deletion
                 except Exception as e:
                     QMessageBox.critical(self, "Error", f"Failed to delete {db_file}: {e}")
-
 
     def open_user_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
