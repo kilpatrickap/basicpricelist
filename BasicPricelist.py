@@ -949,14 +949,14 @@ class BasicPricelist(QMainWindow):
         # Create a dialog window for comparison
         compare_dialog = QDialog(self)
         compare_dialog.setWindowTitle(f"Price Comparison")
-        compare_dialog.setGeometry(300, 200, 750, 500)
+        compare_dialog.setGeometry(300, 200, 850, 500)
 
         # Layout for the comparison table
         layout = QVBoxLayout(compare_dialog)
 
         # Add filter drop-down
         filter_layout = QHBoxLayout()
-        filter_label = QLabel(f"[{material_id}] : {material_name}\t\t\t\t\t\t\t\t Sort by Price :")
+        filter_label = QLabel(f"[{material_id}] : {material_name}\t\t\t\t\t\t\t\t\t\t\t Sort by Price :")
         filter_combo = QComboBox()
         filter_combo.addItems(["Low - High", "High - Low"])
         filter_layout.addWidget(filter_label)
@@ -985,7 +985,7 @@ class BasicPricelist(QMainWindow):
                 compare_table.setItem(row, 6, QTableWidgetItem(price_date))
 
                 # Add an "Assign Job" button
-                assign_job_button = QPushButton("Assign to Job")
+                assign_job_button = QPushButton("Allocate to Job")
                 assign_job_button.clicked.connect(
                     lambda checked, material_id=mat_id: self.assign_material_to_job(material_id))
                 compare_table.setCellWidget(row, 7, assign_job_button)
@@ -1056,8 +1056,75 @@ class BasicPricelist(QMainWindow):
 
     def assign_material_to_job(self, material_id):
         """Assigns a selected material to the default job."""
-        # Open a dialog or perform any action to assign a job
-        QMessageBox.information(self, "Material allocation to Job", f"Material ID: {material_id} allocated to Job: {material_id}")
+        try:
+            # Step 1: Retrieve the default job from jobs.db
+            self.jobs_c.execute("SELECT job_id, job_name FROM jobs WHERE is_default = 1")
+            default_job = self.jobs_c.fetchone()
+
+            if not default_job:
+                QMessageBox.warning(self, "No Default Job", "No default job is set. Please set a default job first.")
+                return
+
+            job_id, job_name = default_job
+
+            # Step 2: Create a database file name using job_id and job_name
+            job_db_name = f"{job_id}_{job_name.replace(' ', '_')}.db"
+
+            # Step 3: Establish a connection to the job database (creates it if it doesn’t exist)
+            job_conn = sqlite3.connect(job_db_name)
+            job_c = job_conn.cursor()
+
+            # Step 4: Create a table for assigned materials if it doesn’t already exist
+            job_c.execute('''CREATE TABLE IF NOT EXISTS assigned_materials (
+                                material_id TEXT PRIMARY KEY,
+                                vendor TEXT,
+                                currency TEXT,
+                                price REAL,
+                                unit TEXT,
+                                location TEXT,
+                                date TEXT
+                            )''')
+
+            # Step 5: Fetch material details from the current materials table
+            self.c.execute(
+                "SELECT vendor, currency, price, unit, vendor_location, price_date FROM materials WHERE mat_id = ?",
+                (material_id,)
+            )
+            material_details = self.c.fetchone()
+
+            if not material_details:
+                QMessageBox.warning(self, "Material Not Found", "The selected material could not be found.")
+                return
+
+            # Step 6: Insert the material into the job-specific database
+            job_c.execute('''INSERT OR IGNORE INTO assigned_materials 
+                              (material_id, vendor, currency, price, unit, location, date)
+                              VALUES (?, ?, ?, ?, ?, ?, ?)''',
+                          (material_id, *material_details))
+            job_conn.commit()
+
+            # Inform the user of successful assignment
+            QMessageBox.information(
+                self,
+                "Material Assigned",
+                f"Material ID: {material_id} has been successfully assigned to Job: {job_name}."
+            )
+
+        except sqlite3.Error as e:
+            # Step 7: Handle database errors
+            QMessageBox.critical(self, "Database Error", f"An error occurred: {e}")
+
+        except Exception as e:
+            # Step 8: Handle unexpected errors
+            QMessageBox.critical(self, "Unexpected Error", f"An unexpected error occurred: {e}")
+
+        finally:
+            # Step 9: Ensure connections are closed
+            try:
+                if 'job_conn' in locals():
+                    job_conn.close()
+            except Exception:
+                pass
 
     def export_to_excel(self):
         """Exports the data to an Excel file."""

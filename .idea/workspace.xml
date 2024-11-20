@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="jobs DONE !!!!!!!!!!">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Assign to job button in price comparison table.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
@@ -202,14 +202,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00127" summary="close button added.">
-      <option name="closed" value="true" />
-      <created>1731363549845</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1731363549845</updated>
     </task>
     <task id="LOCAL-00128" summary="close button added.">
       <option name="closed" value="true" />
@@ -595,7 +587,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732103568438</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="Assign to job button in price comparison table.">
+      <option name="closed" value="true" />
+      <created>1732109157582</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1732109157582</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -610,7 +610,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Works now." />
     <MESSAGE value="New prices populated." />
     <MESSAGE value="close button on RFP dialog." />
     <MESSAGE value="Close button beneath existing users table." />
@@ -635,6 +634,7 @@
     <MESSAGE value="open_edit_job_window and save_job_edits." />
     <MESSAGE value="delete_selected_job" />
     <MESSAGE value="jobs DONE !!!!!!!!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="jobs DONE !!!!!!!!!!" />
+    <MESSAGE value="Assign to job button in price comparison table." />
+    <option name="LAST_COMMIT_MESSAGE" value="Assign to job button in price comparison table." />
   </component>
 </project>
