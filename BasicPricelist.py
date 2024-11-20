@@ -1076,18 +1076,25 @@ class BasicPricelist(QMainWindow):
 
             # Step 4: Create a table for assigned materials if it doesn’t already exist
             job_c.execute('''CREATE TABLE IF NOT EXISTS assigned_materials (
-                                material_id TEXT PRIMARY KEY,
-                                vendor TEXT,
+                                id INTEGER PRIMARY KEY,
+                                mat_id TEXT UNIQUE,
+                                trade TEXT,
+                                material_name TEXT,
                                 currency TEXT,
                                 price REAL,
                                 unit TEXT,
-                                location TEXT,
-                                date TEXT
+                                vendor TEXT,
+                                vendor_phone TEXT,
+                                vendor_email TEXT,
+                                vendor_location TEXT,
+                                price_date TEXT
                             )''')
 
-            # Step 5: Fetch material details from the current materials table
+            # Step 5: Fetch all material details from materials.db using the material_id
             self.c.execute(
-                "SELECT vendor, currency, price, unit, vendor_location, price_date FROM materials WHERE mat_id = ?",
+                '''SELECT id, mat_id, trade, material_name, currency, price, unit, vendor, 
+                          vendor_phone, vendor_email, vendor_location, price_date 
+                   FROM materials WHERE mat_id = ?''',
                 (material_id,)
             )
             material_details = self.c.fetchone()
@@ -1098,9 +1105,10 @@ class BasicPricelist(QMainWindow):
 
             # Step 6: Insert the material into the job-specific database
             job_c.execute('''INSERT OR IGNORE INTO assigned_materials 
-                              (material_id, vendor, currency, price, unit, location, date)
-                              VALUES (?, ?, ?, ?, ?, ?, ?)''',
-                          (material_id, *material_details))
+                              (id, mat_id, trade, material_name, currency, price, unit, vendor, 
+                               vendor_phone, vendor_email, vendor_location, price_date)
+                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                          material_details)
             job_conn.commit()
 
             # Inform the user of successful assignment
@@ -1111,15 +1119,15 @@ class BasicPricelist(QMainWindow):
             )
 
         except sqlite3.Error as e:
-            # Step 7: Handle database errors
+            # Handle SQLite database errors
             QMessageBox.critical(self, "Database Error", f"An error occurred: {e}")
 
         except Exception as e:
-            # Step 8: Handle unexpected errors
+            # Handle unexpected errors
             QMessageBox.critical(self, "Unexpected Error", f"An unexpected error occurred: {e}")
 
         finally:
-            # Step 9: Ensure connections are closed
+            # Ensure connections are closed
             try:
                 if 'job_conn' in locals():
                     job_conn.close()
