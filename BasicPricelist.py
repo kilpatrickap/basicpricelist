@@ -10,7 +10,8 @@ from PyQt6.QtGui import QFontMetrics
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
-                             QMessageBox, QFileDialog, QComboBox, QDateEdit, QRadioButton, QButtonGroup, QSpacerItem)
+                             QMessageBox, QFileDialog, QComboBox, QDateEdit, QRadioButton, QButtonGroup, QSpacerItem,
+                             QTabWidget)
 
 
 class BasicPricelist(QMainWindow):
@@ -543,7 +544,7 @@ class BasicPricelist(QMainWindow):
             button_layout = QVBoxLayout()  # Vertical layout for the buttons
 
             open_button = QPushButton("Open Job")
-            open_button.clicked.connect(lambda: self.handle_job_action(table, "open", dialog))
+            open_button.clicked.connect(lambda: self.open_job_window(table, dialog))
 
             delete_button = QPushButton("Delete Job")
             delete_button.clicked.connect(lambda: self.handle_job_action(table, "delete", dialog))
@@ -614,6 +615,80 @@ class BasicPricelist(QMainWindow):
                     dialog.accept()  # Close the dialog after deletion
                 except Exception as e:
                     QMessageBox.critical(self, "Error", f"Failed to delete {db_file}: {e}")
+
+    def open_job_window(self, table, parent_dialog):
+        """Opens a Job window with the job name as the title and displays all data from the selected job database."""
+        selected_row = table.currentRow()
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a job to open.")
+            return
+
+        # Get the database file name
+        db_file = table.item(selected_row, 0).text()
+
+        try:
+            # Open a connection to the selected job's database
+            conn = sqlite3.connect(db_file)
+            cursor = conn.cursor()
+
+            # Fetch all table names in the database
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+            tables = cursor.fetchall()
+            if not tables:
+                QMessageBox.information(self, "No Tables Found", f"The database '{db_file}' contains no tables.")
+                return
+
+            # Create a new dialog window for the job
+            job_dialog = QDialog(self)
+            job_dialog.setWindowTitle(f"Contents of {db_file}")
+            job_dialog.setGeometry(300, 300, 700, 500)
+
+            layout = QVBoxLayout(job_dialog)
+
+            # Tab widget to display multiple tables
+            tab_widget = QTabWidget()
+            layout.addWidget(tab_widget)
+
+            for table_name in tables:
+                table_name = table_name[0]  # Extract table name from tuple
+
+                # Create a table widget for each database table
+                table_widget = QTableWidget()
+                tab_widget.addTab(table_widget, table_name)
+
+                # Fetch data from the current table
+                cursor.execute(f"SELECT * FROM {table_name}")
+                rows = cursor.fetchall()
+                columns = [description[0] for description in cursor.description]
+
+                # Populate the table widget
+                table_widget.setRowCount(len(rows))
+                table_widget.setColumnCount(len(columns))
+                table_widget.setHorizontalHeaderLabels(columns)
+
+                for row_idx, row_data in enumerate(rows):
+                    for col_idx, data in enumerate(row_data):
+                        table_widget.setItem(row_idx, col_idx, QTableWidgetItem(str(data)))
+
+                # Adjust column widths
+                table_widget.resizeColumnsToContents()
+
+            # Add a close button
+            close_button = QPushButton("Close")
+            close_button.clicked.connect(job_dialog.close)
+            layout.addWidget(close_button)
+
+            job_dialog.setLayout(layout)
+            job_dialog.exec()
+
+            # Close the parent dialog
+            parent_dialog.accept()
+
+        except sqlite3.Error as e:
+            QMessageBox.critical(self, "Error", f"Failed to load data from the database '{db_file}': {e}")
+        finally:
+            if 'conn' in locals():
+                conn.close()
 
     def open_user_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
