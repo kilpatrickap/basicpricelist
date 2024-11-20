@@ -638,6 +638,9 @@ class BasicPricelist(QMainWindow):
                 QMessageBox.information(self, "No Tables Found", f"The database '{db_file}' contains no tables.")
                 return
 
+            # We are displaying data from only the first table (or you can choose another table)
+            table_name = tables[0][0]  # Use the first table in the database
+
             # Create a new dialog window for the job
             job_dialog = QDialog(self)
             job_dialog.setWindowTitle(db_file)
@@ -645,33 +648,26 @@ class BasicPricelist(QMainWindow):
 
             layout = QVBoxLayout(job_dialog)
 
-            # Tab widget to display multiple tables
-            tab_widget = QTabWidget()
-            layout.addWidget(tab_widget)
+            # Create a table widget to display the contents of the selected table
+            table_widget = QTableWidget()
+            layout.addWidget(table_widget)
 
-            for table_name in tables:
-                table_name = table_name[0]  # Extract table name from tuple
+            # Fetch data from the selected table
+            cursor.execute(f"SELECT * FROM {table_name}")
+            rows = cursor.fetchall()
+            columns = [description[0] for description in cursor.description]
 
-                # Create a table widget for each database table
-                table_widget = QTableWidget()
-                tab_widget.addTab(table_widget, table_name)
+            # Populate the table widget with the data
+            table_widget.setRowCount(len(rows))
+            table_widget.setColumnCount(len(columns))
+            table_widget.setHorizontalHeaderLabels(columns)
 
-                # Fetch data from the current table
-                cursor.execute(f"SELECT * FROM {table_name}")
-                rows = cursor.fetchall()
-                columns = [description[0] for description in cursor.description]
+            for row_idx, row_data in enumerate(rows):
+                for col_idx, data in enumerate(row_data):
+                    table_widget.setItem(row_idx, col_idx, QTableWidgetItem(str(data)))
 
-                # Populate the table widget
-                table_widget.setRowCount(len(rows))
-                table_widget.setColumnCount(len(columns))
-                table_widget.setHorizontalHeaderLabels(columns)
-
-                for row_idx, row_data in enumerate(rows):
-                    for col_idx, data in enumerate(row_data):
-                        table_widget.setItem(row_idx, col_idx, QTableWidgetItem(str(data)))
-
-                # Adjust column widths
-                table_widget.resizeColumnsToContents()
+            # Adjust column widths
+            table_widget.resizeColumnsToContents()
 
             # Add a close button
             close_button = QPushButton("Close")
