@@ -1068,7 +1068,7 @@ class BasicPricelist(QMainWindow):
             job_id, job_name = default_job
 
             # Step 2: Create a database file name using job_id and job_name
-            job_db_name = f"{job_id}_{job_name.replace(' ', '_')}.db"
+            job_db_name = f"Job-ID-{job_id}_{job_name.replace(' ', '_')}.db"
 
             # Step 3: Establish a connection to the job database (creates it if it doesn’t exist)
             job_conn = sqlite3.connect(job_db_name)
