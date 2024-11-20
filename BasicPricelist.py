@@ -10,7 +10,7 @@ from PyQt6.QtGui import QFontMetrics
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
-                             QMessageBox, QFileDialog, QComboBox, QDateEdit, QRadioButton, QButtonGroup)
+                             QMessageBox, QFileDialog, QComboBox, QDateEdit, QRadioButton, QButtonGroup, QSpacerItem)
 
 
 class BasicPricelist(QMainWindow):
@@ -503,6 +503,9 @@ class BasicPricelist(QMainWindow):
             except sqlite3.Error as e:
                 QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
 
+    import os
+    from PyQt6.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QPushButton, \
+        QSpacerItem, QSizePolicy, QMessageBox
 
     def open_jobs_list(self):
         """Lists all job-related databases in the current working directory with options to open or delete."""
@@ -552,6 +555,11 @@ class BasicPricelist(QMainWindow):
             # Add buttons to the vertical layout
             button_layout.addWidget(open_button)
             button_layout.addWidget(delete_button)
+
+            # Add a vertical spacer below the delete button
+            spacer = QSpacerItem(20, 40, QSizePolicy.Policy.Fixed,
+                                 QSizePolicy.Policy.Expanding)  # Corrected QSizePolicy
+            button_layout.addItem(spacer)
 
             # Add the button layout to the right part of the horizontal layout
             table_button_layout.addLayout(button_layout)

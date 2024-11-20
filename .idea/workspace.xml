@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="dynamic resize of column width based on content.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="ui resize.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,30 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00135" summary="Works now.">
-      <option name="closed" value="true" />
-      <created>1731586103041</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1731586103041</updated>
-    </task>
-    <task id="LOCAL-00136" summary="Works now.">
-      <option name="closed" value="true" />
-      <created>1731586304995</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1731586304995</updated>
-    </task>
-    <task id="LOCAL-00137" summary="Works now.">
-      <option name="closed" value="true" />
-      <created>1731586795130</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1731586795146</updated>
     </task>
     <task id="LOCAL-00138" summary="Works now.">
       <option name="closed" value="true" />
@@ -595,7 +570,31 @@
       <option name="project" value="LOCAL" />
       <updated>1732113639335</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="ui resize.">
+      <option name="closed" value="true" />
+      <created>1732114201442</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1732114201442</updated>
+    </task>
+    <task id="LOCAL-00185" summary="ui resize.">
+      <option name="closed" value="true" />
+      <created>1732114323914</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1732114323914</updated>
+    </task>
+    <task id="LOCAL-00186" summary="ui resize.">
+      <option name="closed" value="true" />
+      <created>1732114374077</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1732114374077</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -610,7 +609,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Everything works perfectely now." />
     <MESSAGE value="Everything works perfectly now." />
     <MESSAGE value="Prices generator added." />
     <MESSAGE value="import from excel button added." />
@@ -635,6 +633,7 @@
     <MESSAGE value="Jobs list." />
     <MESSAGE value="open_jobs_list() and handle_job_action() methods." />
     <MESSAGE value="dynamic resize of column width based on content." />
-    <option name="LAST_COMMIT_MESSAGE" value="dynamic resize of column width based on content." />
+    <MESSAGE value="ui resize." />
+    <option name="LAST_COMMIT_MESSAGE" value="ui resize." />
   </component>
 </project>
