@@ -543,10 +543,10 @@ class BasicPricelist(QMainWindow):
             # Create a vertical layout for the buttons (Open/Delete)
             button_layout = QVBoxLayout()  # Vertical layout for the buttons
 
-            open_button = QPushButton("Open Selected Job")
+            open_button = QPushButton("Open Job")
             open_button.clicked.connect(lambda: self.handle_job_action(table, "open", dialog))
 
-            delete_button = QPushButton("Delete Selected Job")
+            delete_button = QPushButton("Delete Job")
             delete_button.clicked.connect(lambda: self.handle_job_action(table, "delete", dialog))
 
             # Add buttons to the vertical layout
