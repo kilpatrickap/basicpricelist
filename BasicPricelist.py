@@ -616,11 +616,6 @@ class BasicPricelist(QMainWindow):
                 except Exception as e:
                     QMessageBox.critical(self, "Error", f"Failed to delete {db_file}: {e}")
 
-    from PyQt6.QtWidgets import QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QPushButton, QDialog, \
-        QMessageBox, QFileDialog
-    from PyQt6.QtCore import Qt
-    import sqlite3
-
     def open_job_window(self, table, parent_dialog):
         """Opens a Job window with the job name as the title and displays all data from the selected job database."""
         selected_row = table.currentRow()
@@ -690,7 +685,15 @@ class BasicPricelist(QMainWindow):
                     # Skip the first column (id) in the data
                     if data_idx == 0:  # Assuming the id column is the first column
                         continue
-                    self.table_widget.setItem(row_idx, col_idx, QTableWidgetItem(str(data)))
+
+                    # Format the price column if it's numeric
+                    if isinstance(data, (int, float)):  # Check if the data is numeric
+                        # Format price to 2 decimal places with commas
+                        formatted_data = "{:,.2f}".format(data)
+                        self.table_widget.setItem(row_idx, col_idx, QTableWidgetItem(formatted_data))
+                    else:
+                        self.table_widget.setItem(row_idx, col_idx, QTableWidgetItem(str(data)))
+
                     col_idx += 1
 
             # Adjust column widths

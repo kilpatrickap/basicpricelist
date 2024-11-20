@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="export job to excel not working. fixing it.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="export_job_to_excel is DONE !!!">
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,14 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00149" summary="Deleted Vendors updates everywhere.">
-      <option name="closed" value="true" />
-      <created>1731794827714</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1731794827715</updated>
     </task>
     <task id="LOCAL-00150" summary="Everything works perfectely now.">
       <option name="closed" value="true" />
@@ -595,7 +586,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732138098626</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="export_job_to_excel is DONE !!!">
+      <option name="closed" value="true" />
+      <created>1732139019188</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1732139019188</updated>
+    </task>
+    <option name="localTasksCounter" value="199" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -610,7 +609,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="show_job_information_dialog() method" />
     <MESSAGE value="validate_and_submit_job_info() method" />
     <MESSAGE value="save_job_info() method and jobs.db" />
     <MESSAGE value="jobs.db successfull" />
@@ -635,6 +633,7 @@
     <MESSAGE value="Almost there! Cancel button needs to be centered." />
     <MESSAGE value="DONE !!!!!" />
     <MESSAGE value="export job to excel not working. fixing it." />
-    <option name="LAST_COMMIT_MESSAGE" value="export job to excel not working. fixing it." />
+    <MESSAGE value="export_job_to_excel is DONE !!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="export_job_to_excel is DONE !!!" />
   </component>
 </project>
