@@ -503,11 +503,9 @@ class BasicPricelist(QMainWindow):
             except sqlite3.Error as e:
                 QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
 
-    import os
-    from PyQt6.QtWidgets import QDialog, QVBoxLayout, QTableWidget, QTableWidgetItem, QPushButton, QMessageBox
 
     def open_jobs_list(self):
-        """Lists all job-related databases in the current working directory."""
+        """Lists all job-related databases in the current working directory with options to open or delete."""
         try:
             # Step 1: Get all .db files in the current working directory
             db_files = [f for f in os.listdir(os.getcwd()) if f.endswith('.db') and f.startswith('Job-ID')]
@@ -517,47 +515,79 @@ class BasicPricelist(QMainWindow):
                                         "No job-related databases were found in the current directory.")
                 return
 
-            # Step 2: Parse filenames to extract Job-ID and Job Name
-            jobs_list = []
-            for db_file in db_files:
-                try:
-                    # Extract Job-ID and Job Name from the filename
-                    _, job_id, job_name = db_file[:-3].split('_', 2)  # Remove `.db` and split
-                    jobs_list.append((job_id, job_name, db_file))
-                except ValueError:
-                    # Skip files that don't match the expected pattern
-                    continue
-
-            # Step 3: Create a dialog window to display the job databases
+            # Step 2: Create a dialog window to display the job databases
             dialog = QDialog(self)
             dialog.setWindowTitle("Jobs List")
             dialog.setGeometry(300, 200, 600, 400)
 
-            layout = QVBoxLayout(dialog)
+            layout = QHBoxLayout(dialog)  # Use a horizontal layout for table + buttons
 
-            # Create a table to display the jobs
+            # Create a table to display the database files only
             table = QTableWidget()
-            table.setColumnCount(3)
-            table.setHorizontalHeaderLabels(["Job-ID", "Job Name", "Database File"])
-            table.setRowCount(len(jobs_list))
+            table.setColumnCount(1)  # Only one column to show the database filename
+            table.setHorizontalHeaderLabels(["Database File"])
+            table.setRowCount(len(db_files))
 
-            for row, (job_id, job_name, db_file) in enumerate(jobs_list):
-                table.setItem(row, 0, QTableWidgetItem(job_id))
-                table.setItem(row, 1, QTableWidgetItem(job_name.replace('_', ' ')))  # Replace underscores with spaces
-                table.setItem(row, 2, QTableWidgetItem(db_file))
+            for row, db_file in enumerate(db_files):
+                table.setItem(row, 0, QTableWidgetItem(db_file))  # Display the full database filename
 
             layout.addWidget(table)
 
-            # Add a close button
-            close_button = QPushButton("Close")
-            close_button.clicked.connect(dialog.close)
-            layout.addWidget(close_button)
+            # Create buttons for Open and Delete actions
+            button_layout = QVBoxLayout()  # Vertical layout for the buttons
 
+            open_button = QPushButton("Open Job")
+            open_button.clicked.connect(lambda: self.handle_job_action(table, "open", dialog))
+
+            delete_button = QPushButton("Delete Job")
+            delete_button.clicked.connect(lambda: self.handle_job_action(table, "delete", dialog))
+
+            # Add buttons to the vertical layout
+            button_layout.addWidget(open_button)
+            button_layout.addWidget(delete_button)
+
+            # Add the button layout to the main layout (aligned on the right side)
+            layout.addLayout(button_layout)
+
+            dialog.setLayout(layout)
+
+            # Show dialog
             dialog.exec()
 
         except Exception as e:
             # Handle unexpected errors
             QMessageBox.critical(self, "Error", f"An error occurred while listing job databases: {e}")
+
+    def handle_job_action(self, table, action, dialog):
+        """Handles the action based on the selected button: open or delete a job."""
+        selected_row = table.currentRow()
+
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a job to perform the action.")
+            return
+
+        db_file = table.item(selected_row, 0).text()  # Get the selected job database filename
+
+        if action == "open":
+            # Open the job database (you can modify this action as needed)
+            QMessageBox.information(self, "Open Job", f"Opening job database: {db_file}")
+            # Perform the opening of the job database (e.g., loading the database or showing job details)
+            dialog.accept()
+
+        elif action == "delete":
+            # Confirm deletion of the job database
+            reply = QMessageBox.question(self, "Delete Job", f"Are you sure you want to delete {db_file}?",
+                                         QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+
+            if reply == QMessageBox.StandardButton.Yes:
+                try:
+                    # Attempt to delete the selected job database file
+                    os.remove(db_file)
+                    QMessageBox.information(self, "Job Deleted", f"{db_file} has been deleted successfully.")
+                    dialog.accept()  # Close the dialog after deletion
+                except Exception as e:
+                    QMessageBox.critical(self, "Error", f"Failed to delete {db_file}: {e}")
+
 
     def open_user_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""

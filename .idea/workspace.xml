@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Works PERFECTLY AGAIN !!!!">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Jobs list.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
@@ -202,14 +202,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00132" summary="debugging location on compare.">
-      <option name="closed" value="true" />
-      <created>1731585771159</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1731585771159</updated>
     </task>
     <task id="LOCAL-00133" summary="Works now.">
       <option name="closed" value="true" />
@@ -595,7 +587,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732111416440</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="Jobs list.">
+      <option name="closed" value="true" />
+      <created>1732112564843</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1732112564843</updated>
+    </task>
+    <option name="localTasksCounter" value="182" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -610,7 +610,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="vendor edit." />
     <MESSAGE value="Edited Vendors updates everywhere." />
     <MESSAGE value="Deleted Vendors updates everywhere." />
     <MESSAGE value="Everything works perfectely now." />
@@ -635,6 +634,7 @@
     <MESSAGE value="assign_material_to_job" />
     <MESSAGE value="Works PERFECTLY !!!!" />
     <MESSAGE value="Works PERFECTLY AGAIN !!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Works PERFECTLY AGAIN !!!!" />
+    <MESSAGE value="Jobs list." />
+    <option name="LAST_COMMIT_MESSAGE" value="Jobs list." />
   </component>
 </project>
