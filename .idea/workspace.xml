@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Works PERFECTLY !!!!">
-      <change beforePath="$PROJECT_DIR$/jobs.db" beforeDir="false" afterPath="$PROJECT_DIR$/jobs.db" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Works PERFECTLY AGAIN !!!!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,14 +199,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00130" summary="Reverted back to without Location.">
-      <option name="closed" value="true" />
-      <created>1731492105689</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1731492105689</updated>
     </task>
     <task id="LOCAL-00131" summary="Reverted back to without Location. Back on track.">
       <option name="closed" value="true" />
@@ -594,7 +584,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732110645377</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="Works PERFECTLY AGAIN !!!!">
+      <option name="closed" value="true" />
+      <created>1732111135370</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1732111135371</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -609,7 +607,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Close button beneath existing users table." />
     <MESSAGE value="vendor edit." />
     <MESSAGE value="Edited Vendors updates everywhere." />
     <MESSAGE value="Deleted Vendors updates everywhere." />
@@ -634,6 +631,7 @@
     <MESSAGE value="Assign to job button in price comparison table." />
     <MESSAGE value="assign_material_to_job" />
     <MESSAGE value="Works PERFECTLY !!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Works PERFECTLY !!!!" />
+    <MESSAGE value="Works PERFECTLY AGAIN !!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Works PERFECTLY AGAIN !!!!" />
   </component>
 </project>
