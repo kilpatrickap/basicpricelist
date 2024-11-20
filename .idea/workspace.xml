@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="ui resize.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="ui resize BEAUTIFULLY!!!.">
+      <change beforePath="$PROJECT_DIR$/jobs.db" beforeDir="false" afterPath="$PROJECT_DIR$/jobs.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,22 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00138" summary="Works now.">
-      <option name="closed" value="true" />
-      <created>1731586869903</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1731586869903</updated>
-    </task>
-    <task id="LOCAL-00139" summary="New prices populated.">
-      <option name="closed" value="true" />
-      <created>1731626061265</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1731626061265</updated>
     </task>
     <task id="LOCAL-00140" summary="New prices populated.">
       <option name="closed" value="true" />
@@ -594,7 +578,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732114374077</updated>
     </task>
-    <option name="localTasksCounter" value="187" />
+    <task id="LOCAL-00187" summary="ui resize BEAUTIFULLY!!!.">
+      <option name="closed" value="true" />
+      <created>1732114932011</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1732114932011</updated>
+    </task>
+    <task id="LOCAL-00188" summary="ui resize BEAUTIFULLY!!!.">
+      <option name="closed" value="true" />
+      <created>1732115003003</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1732115003003</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -609,7 +609,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Everything works perfectly now." />
     <MESSAGE value="Prices generator added." />
     <MESSAGE value="import from excel button added." />
     <MESSAGE value="Working on duplicated mat-ids." />
@@ -634,6 +633,7 @@
     <MESSAGE value="open_jobs_list() and handle_job_action() methods." />
     <MESSAGE value="dynamic resize of column width based on content." />
     <MESSAGE value="ui resize." />
-    <option name="LAST_COMMIT_MESSAGE" value="ui resize." />
+    <MESSAGE value="ui resize BEAUTIFULLY!!!." />
+    <option name="LAST_COMMIT_MESSAGE" value="ui resize BEAUTIFULLY!!!." />
   </component>
 </project>
