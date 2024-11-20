@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="jobs DONE !!!!!!!!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +31,12 @@
     &quot;assignee&quot;: &quot;kilpatrickap&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/kilpatrickap/basicpricelist.git&quot;,
-    &quot;accountId&quot;: &quot;b56d5b1d-bd3e-4a5a-9bf1-7ad5dbda81eb&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/kilpatrickap/basicpricelist",
+    "accountId": "b2b34f02-6aa0-4641-8b55-d64aff92f9a3"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -45,19 +46,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.BasicPricelist.executor&quot;: &quot;Run&quot;,
-    &quot;Python.BidPriceManager_v1.0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.prices_generator.executor&quot;: &quot;Run&quot;,
-    &quot;Python.smtp_client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.smtp_server.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Consar-Kilpatrick/PycharmProjects/pricelist&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.BasicPricelist.executor": "Run",
+    "Python.BidPriceManager_v1.0.executor": "Run",
+    "Python.prices_generator.executor": "Run",
+    "Python.smtp_client.executor": "Run",
+    "Python.smtp_server.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Consar-Kilpatrick/PycharmProjects/pricelist",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist" />
@@ -188,7 +190,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d7ad00fb9fc3-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23726.102" />
+        <option value="bundled-python-sdk-fb887030ada0-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.21565.199" />
       </set>
     </attachedChunks>
   </component>
@@ -200,22 +202,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00125" summary="mat_id &amp; mat_name in label.">
-      <option name="closed" value="true" />
-      <created>1731363102703</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1731363102703</updated>
-    </task>
-    <task id="LOCAL-00126" summary="mat_id &amp; mat_name in label.">
-      <option name="closed" value="true" />
-      <created>1731363160948</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1731363160948</updated>
     </task>
     <task id="LOCAL-00127" summary="close button added.">
       <option name="closed" value="true" />
@@ -593,7 +579,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732102860224</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="jobs DONE !!!!!!!!!!">
+      <option name="closed" value="true" />
+      <created>1732103387361</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1732103387361</updated>
+    </task>
+    <task id="LOCAL-00175" summary="jobs DONE !!!!!!!!!!">
+      <option name="closed" value="true" />
+      <created>1732103568438</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1732103568438</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -965,8 +965,8 @@ class BasicPricelist(QMainWindow):
 
         # Table to display comparison data
         compare_table = QTableWidget()
-        compare_table.setColumnCount(7)  # Increase the column count to 7 to include Location
-        compare_table.setHorizontalHeaderLabels(["Mat ID", "Vendor", "Currency", "Price", "Unit", "Location", "Date"])
+        compare_table.setColumnCount(8)  # Increase the column count to 7 to include Location
+        compare_table.setHorizontalHeaderLabels(["Mat ID", "Vendor", "Currency", "Price", "Unit", "Location", "Date", "Allocation"])
 
         # Function to populate the table with formatted prices
         def populate_table(data):
@@ -983,6 +983,12 @@ class BasicPricelist(QMainWindow):
                 compare_table.setItem(row, 4, QTableWidgetItem(unit))
                 compare_table.setItem(row, 5, QTableWidgetItem(vendor_location))  # Add Location data
                 compare_table.setItem(row, 6, QTableWidgetItem(price_date))
+
+                # Add an "Assign Job" button
+                assign_job_button = QPushButton("Assign to Job")
+                assign_job_button.clicked.connect(
+                    lambda checked, material_id=mat_id: self.assign_material_to_job(material_id))
+                compare_table.setCellWidget(row, 7, assign_job_button)
 
             # Debugging step: Check if the table is being populated correctly
             # print("Comparison table populated successfully.")
@@ -1047,6 +1053,11 @@ class BasicPricelist(QMainWindow):
 
         # Show the comparison dialog
         compare_dialog.exec()
+
+    def assign_material_to_job(self, material_id):
+        """Assigns a selected material to the default job."""
+        # Open a dialog or perform any action to assign a job
+        QMessageBox.information(self, "Material allocation to Job", f"Material ID: {material_id} allocated to Job: {material_id}")
 
     def export_to_excel(self):
         """Exports the data to an Excel file."""
