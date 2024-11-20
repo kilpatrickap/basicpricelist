@@ -1,3 +1,4 @@
+import os
 import sys
 import sqlite3
 import pandas as pd
@@ -29,10 +30,15 @@ class BasicPricelist(QMainWindow):
         # Buttons
         button_layout = QHBoxLayout()
 
-        # Add a "Jobs" button next to the "User" button
-        jobs_button = QPushButton("Jobs")
+        # Add a "Job" button next to the "User" button
+        jobs_button = QPushButton("Job")
         jobs_button.clicked.connect(self.open_jobs_info_window)
         button_layout.addWidget(jobs_button)
+
+        # Add a "Jobs list" button next to the "Jobs" button
+        jobs_list_button = QPushButton("Jobs List")
+        jobs_list_button.clicked.connect(self.open_jobs_list)
+        button_layout.addWidget(jobs_list_button)
 
         # Add a "User" button next to the "New Material" button
         user_button = QPushButton("User")
@@ -496,6 +502,62 @@ class BasicPricelist(QMainWindow):
                     QMessageBox.warning(self, "Deletion Failed", f"Failed to delete {job_name}. Please try again.")
             except sqlite3.Error as e:
                 QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
+
+    import os
+    from PyQt6.QtWidgets import QDialog, QVBoxLayout, QTableWidget, QTableWidgetItem, QPushButton, QMessageBox
+
+    def open_jobs_list(self):
+        """Lists all job-related databases in the current working directory."""
+        try:
+            # Step 1: Get all .db files in the current working directory
+            db_files = [f for f in os.listdir(os.getcwd()) if f.endswith('.db') and f.startswith('Job-ID')]
+
+            if not db_files:
+                QMessageBox.information(self, "No Job Databases Found",
+                                        "No job-related databases were found in the current directory.")
+                return
+
+            # Step 2: Parse filenames to extract Job-ID and Job Name
+            jobs_list = []
+            for db_file in db_files:
+                try:
+                    # Extract Job-ID and Job Name from the filename
+                    _, job_id, job_name = db_file[:-3].split('_', 2)  # Remove `.db` and split
+                    jobs_list.append((job_id, job_name, db_file))
+                except ValueError:
+                    # Skip files that don't match the expected pattern
+                    continue
+
+            # Step 3: Create a dialog window to display the job databases
+            dialog = QDialog(self)
+            dialog.setWindowTitle("Jobs List")
+            dialog.setGeometry(300, 200, 600, 400)
+
+            layout = QVBoxLayout(dialog)
+
+            # Create a table to display the jobs
+            table = QTableWidget()
+            table.setColumnCount(3)
+            table.setHorizontalHeaderLabels(["Job-ID", "Job Name", "Database File"])
+            table.setRowCount(len(jobs_list))
+
+            for row, (job_id, job_name, db_file) in enumerate(jobs_list):
+                table.setItem(row, 0, QTableWidgetItem(job_id))
+                table.setItem(row, 1, QTableWidgetItem(job_name.replace('_', ' ')))  # Replace underscores with spaces
+                table.setItem(row, 2, QTableWidgetItem(db_file))
+
+            layout.addWidget(table)
+
+            # Add a close button
+            close_button = QPushButton("Close")
+            close_button.clicked.connect(dialog.close)
+            layout.addWidget(close_button)
+
+            dialog.exec()
+
+        except Exception as e:
+            # Handle unexpected errors
+            QMessageBox.critical(self, "Error", f"An error occurred while listing job databases: {e}")
 
     def open_user_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
