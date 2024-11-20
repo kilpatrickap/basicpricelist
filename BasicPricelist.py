@@ -55,16 +55,16 @@ class BasicPricelist(QMainWindow):
         delete_button.clicked.connect(self.delete_material)
         button_layout.addWidget(delete_button)
 
+        compare_button = QPushButton('Vendors')
+        compare_button.clicked.connect(self.show_vendor_list_window)
+        button_layout.addWidget(compare_button)
+
         rfq_button = QPushButton('RFP')
         rfq_button.clicked.connect(self.open_rfp_window)
         button_layout.addWidget(rfq_button)
 
         compare_button = QPushButton('Compare')
         compare_button.clicked.connect(self.open_compare_window)
-        button_layout.addWidget(compare_button)
-
-        compare_button = QPushButton('Vendors')
-        compare_button.clicked.connect(self.show_vendor_list_window)
         button_layout.addWidget(compare_button)
 
         export_button = QPushButton('Export to Excel')
