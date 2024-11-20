@@ -295,8 +295,10 @@ class BasicPricelist(QMainWindow):
         self.jobs_c.execute("SELECT job_id, job_name FROM jobs")
         jobs = self.jobs_c.fetchall()
         for row_idx, job in enumerate(jobs):
+
+
             table_widget.insertRow(row_idx)
-            table_widget.setItem(row_idx, 0, QTableWidgetItem(f"JOb-ID-{job[0]}"))
+            table_widget.setItem(row_idx, 0, QTableWidgetItem(f"Job-ID-{job[0]}"))
             table_widget.setItem(row_idx, 1, QTableWidgetItem(job[1]))
 
             make_default_job_button = QPushButton("Default Job")
@@ -339,6 +341,48 @@ class BasicPricelist(QMainWindow):
 
         job_list_dialog.setLayout(main_layout)
         job_list_dialog.exec()
+
+    def make_default_job(self, job_id):
+        """Sets the selected job as the default job after confirming the job."""
+        try:
+            # Retrieve the job's name based on job_id
+            self.jobs_c.execute("SELECT job_name FROM jobs WHERE job_id = ?", (job_id,))
+            job_name = self.jobs_c.fetchone()
+
+            if job_name:  # Ensure the job was found
+                job_name = job_name[0]  # Extract the name from the tuple
+
+                # Show confirmation dialog
+                reply = QMessageBox.question(
+                    self,
+                    "Confirm Default Job",
+                    f"Are you sure you want to make {job_name} the current default job?",
+                    QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+                )
+
+                # Proceed only if the job is confirmed
+                if reply == QMessageBox.StandardButton.Yes:
+                    # Clear any existing default job
+                    self.jobs_c.execute("UPDATE jobs SET is_default = 0 WHERE is_default = 1")
+
+                    # Set the new default job
+                    self.jobs_c.execute("UPDATE jobs SET is_default = 1 WHERE job_id = ?", (job_id,))
+                    self.jobs_conn.commit()
+
+                    QMessageBox.information(self, "Default Job", f"{job_name} has been set as the default Job.")
+            else:
+                QMessageBox.warning(self, "User Not Found", "The selected job does not exist.")
+        except sqlite3.Error as e:
+            QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
+
+
+
+
+
+
+
+
+
 
 
     def open_user_info_window(self):
