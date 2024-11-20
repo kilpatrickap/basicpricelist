@@ -518,7 +518,7 @@ class BasicPricelist(QMainWindow):
             # Step 2: Create a dialog window to display the job databases
             dialog = QDialog(self)
             dialog.setWindowTitle("Jobs List")
-            dialog.setGeometry(300, 200, 400, 200)
+            dialog.setGeometry(200, 200, 400, 200)
 
             layout = QVBoxLayout(dialog)  # Main layout to hold everything
 
