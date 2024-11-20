@@ -646,11 +646,15 @@ class BasicPricelist(QMainWindow):
             job_dialog.setWindowTitle(db_file)
             job_dialog.setGeometry(300, 300, 1200, 700)
 
+            # Create the main layout for the dialog
             layout = QVBoxLayout(job_dialog)
+
+            # Create a horizontal layout for the table
+            table_layout = QHBoxLayout()
 
             # Create a table widget to display the contents of the selected table
             table_widget = QTableWidget()
-            layout.addWidget(table_widget)
+            table_layout.addWidget(table_widget)
 
             # Fetch data from the selected table
             cursor.execute(f"SELECT * FROM {table_name}")
@@ -677,10 +681,22 @@ class BasicPricelist(QMainWindow):
             # Adjust column widths
             table_widget.resizeColumnsToContents()
 
-            # Add a close button
+            # Add the table layout to the main layout
+            layout.addLayout(table_layout)
+
+            # Create a horizontal layout for the close button
+            button_layout = QHBoxLayout()
+
+            # Add close button
             close_button = QPushButton("Close")
             close_button.clicked.connect(job_dialog.close)
-            layout.addWidget(close_button)
+            button_layout.addWidget(close_button)
+
+            # Center the close button horizontally
+            button_layout.setAlignment(close_button, Qt.AlignmentFlag.AlignCenter)
+
+            # Add the button layout beneath the table
+            layout.addLayout(button_layout)
 
             job_dialog.setLayout(layout)
             job_dialog.exec()

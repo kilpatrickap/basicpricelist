@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="It works now.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="It works now. id column is not shown.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,14 +202,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00144" summary="Close button beneath existing users table.">
-      <option name="closed" value="true" />
-      <created>1731662761566</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1731662761566</updated>
     </task>
     <task id="LOCAL-00145" summary="Close button beneath existing users table.">
       <option name="closed" value="true" />
@@ -594,7 +587,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732135712157</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL-00193" summary="It works now. id column is not shown.">
+      <option name="closed" value="true" />
+      <created>1732135882445</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1732135882446</updated>
+    </task>
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -609,7 +610,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Working on duplicated mat-ids. Almost there." />
     <MESSAGE value="DONEEEE !!!!!!" />
     <MESSAGE value="jobs button added." />
     <MESSAGE value="open_jobs_info_window() method" />
@@ -634,6 +634,7 @@
     <MESSAGE value="open_job_window()" />
     <MESSAGE value="open_job_window(), adjustment needed." />
     <MESSAGE value="It works now." />
-    <option name="LAST_COMMIT_MESSAGE" value="It works now." />
+    <MESSAGE value="It works now. id column is not shown." />
+    <option name="LAST_COMMIT_MESSAGE" value="It works now. id column is not shown." />
   </component>
 </project>
