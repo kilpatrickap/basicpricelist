@@ -668,8 +668,8 @@ class BasicPricelist(QMainWindow):
             table_layout = QHBoxLayout()
 
             # Create a table widget to display the contents of the selected table
-            table_widget = QTableWidget()
-            table_layout.addWidget(table_widget)
+            self.table_widget = QTableWidget()  # Store the table widget as an instance variable
+            table_layout.addWidget(self.table_widget)
 
             # Fetch data from the selected table
             cursor.execute(f"SELECT * FROM {table_name}")
@@ -680,9 +680,9 @@ class BasicPricelist(QMainWindow):
             columns = [col for col in columns if col.lower() != 'id']  # Modify 'id' if it's not exactly "id"
 
             # Populate the table widget with the data, excluding the id column
-            table_widget.setRowCount(len(rows))
-            table_widget.setColumnCount(len(columns))
-            table_widget.setHorizontalHeaderLabels(columns)
+            self.table_widget.setRowCount(len(rows))
+            self.table_widget.setColumnCount(len(columns))
+            self.table_widget.setHorizontalHeaderLabels(columns)
 
             for row_idx, row_data in enumerate(rows):
                 col_idx = 0  # Initialize column index
@@ -690,11 +690,11 @@ class BasicPricelist(QMainWindow):
                     # Skip the first column (id) in the data
                     if data_idx == 0:  # Assuming the id column is the first column
                         continue
-                    table_widget.setItem(row_idx, col_idx, QTableWidgetItem(str(data)))
+                    self.table_widget.setItem(row_idx, col_idx, QTableWidgetItem(str(data)))
                     col_idx += 1
 
             # Adjust column widths
-            table_widget.resizeColumnsToContents()
+            self.table_widget.resizeColumnsToContents()
 
             # Add the table layout to the main layout
             layout.addLayout(table_layout)
@@ -726,34 +726,30 @@ class BasicPricelist(QMainWindow):
 
     def export_job_to_excel(self):
         """Exports the contents of the table widget to an Excel file."""
+        # Access the table widget that displays the data
+        table_widget = self.table_widget  # This assumes the table widget is named self.table_widget
+
+        # Prepare the data from the table widget
+        data = []
+        for row in range(table_widget.rowCount()):
+            row_data = []
+            for col in range(table_widget.columnCount()):
+                item = table_widget.item(row, col)
+                row_data.append(item.text() if item is not None else "")  # Handle None values safely
+            data.append(row_data)
+
+        # Get the column names (headers)
+        columns = [table_widget.horizontalHeaderItem(i).text() for i in range(table_widget.columnCount())]
+
+        # Create a DataFrame with the data
+        df = pd.DataFrame(data, columns=columns)
+
+        # Prompt the user to choose where to save the Excel file
+        file_path, _ = QFileDialog.getSaveFileName(self, "Save File", "", "Excel Files (*.xlsx);;All Files (*)")
+        if not file_path:
+            return  # Exit if no file was chosen
+
         try:
-            # Get the table widget (assuming it's named 'table_widget' in the current scope)
-            table_widget = self.findChild(QTableWidget)  # Retrieve the QTableWidget (you may need to adjust this)
-
-            if not table_widget:
-                QMessageBox.warning(self, "No Data", "No table data found to export.")
-                return
-
-            # Get the column headers
-            columns = [table_widget.horizontalHeaderItem(i).text() for i in range(table_widget.columnCount())]
-
-            # Prepare the data
-            data = []
-            for row in range(table_widget.rowCount()):
-                row_data = []
-                for col in range(table_widget.columnCount()):
-                    item = table_widget.item(row, col)
-                    row_data.append(item.text() if item is not None else "")
-                data.append(row_data)
-
-            # Create a DataFrame
-            df = pd.DataFrame(data, columns=columns)
-
-            # Prompt the user to choose where to save the file
-            file_path, _ = QFileDialog.getSaveFileName(self, "Save File", "", "Excel Files (*.xlsx);;All Files (*)")
-            if not file_path:
-                return  # Exit if no file was chosen
-
             # Save the DataFrame to an Excel file
             df.to_excel(file_path, index=False)
 
