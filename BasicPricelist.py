@@ -49,7 +49,7 @@ class BasicPricelist(QMainWindow):
 
         duplicate_button = QPushButton('Duplicate Material')
         duplicate_button.clicked.connect(self.duplicate_material)
-        button_layout.insertWidget(2, duplicate_button)  # Inserts Duplicate Material between Edit and Delete
+        button_layout.addWidget(duplicate_button)  # Inserts Duplicate Material between Edit and Delete
 
         delete_button = QPushButton('Delete Material')
         delete_button.clicked.connect(self.delete_material)
