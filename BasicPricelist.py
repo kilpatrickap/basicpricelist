@@ -702,10 +702,12 @@ class BasicPricelist(QMainWindow):
             # Create a horizontal layout for the close button
             button_layout = QHBoxLayout()
 
-            # Add close button
+            # Add stretchable space to center the button
+            button_layout.addStretch(1)  # Adds flexible space before the button
             close_button = QPushButton("Close")
             close_button.clicked.connect(job_dialog.close)
             button_layout.addWidget(close_button)
+            button_layout.addStretch(1)  # Adds flexible space after the button
 
             # Add button layout to the main layout
             layout.addLayout(button_layout)

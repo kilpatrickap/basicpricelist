@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Done !!!">
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Almost there! Cancel button needs to be centered." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,14 +199,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00146" summary="vendor edit.">
-      <option name="closed" value="true" />
-      <created>1731668792397</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1731668792397</updated>
     </task>
     <task id="LOCAL-00147" summary="Edited Vendors updates everywhere.">
       <option name="closed" value="true" />
@@ -594,7 +584,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732136456547</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="Almost there! Cancel button needs to be centered.">
+      <option name="closed" value="true" />
+      <created>1732137239280</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1732137239281</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -609,7 +607,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="jobs button added." />
     <MESSAGE value="open_jobs_info_window() method" />
     <MESSAGE value="check_job_type_selection() method" />
     <MESSAGE value="show_job_information_dialog() method" />
@@ -634,6 +631,7 @@
     <MESSAGE value="It works now." />
     <MESSAGE value="It works now. id column is not shown." />
     <MESSAGE value="Done !!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done !!!" />
+    <MESSAGE value="Almost there! Cancel button needs to be centered." />
+    <option name="LAST_COMMIT_MESSAGE" value="Almost there! Cancel button needs to be centered." />
   </component>
 </project>
