@@ -640,8 +640,8 @@ class BasicPricelist(QMainWindow):
 
             # Create a new dialog window for the job
             job_dialog = QDialog(self)
-            job_dialog.setWindowTitle(f"Contents of {db_file}")
-            job_dialog.setGeometry(300, 300, 700, 500)
+            job_dialog.setWindowTitle(db_file)
+            job_dialog.setGeometry(300, 300, 1200, 700)
 
             layout = QVBoxLayout(job_dialog)
 
