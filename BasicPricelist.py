@@ -503,10 +503,6 @@ class BasicPricelist(QMainWindow):
             except sqlite3.Error as e:
                 QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
 
-    import os
-    from PyQt6.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QPushButton, \
-        QSpacerItem, QSizePolicy, QMessageBox
-
     def open_jobs_list(self):
         """Lists all job-related databases in the current working directory with options to open or delete."""
         try:
