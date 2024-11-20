@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="show_existing_jobs_window">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="open_edit_job_window and save_job_edits." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,14 +198,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00122" summary="filter by low -high and reverse.">
-      <option name="closed" value="true" />
-      <created>1731335455955</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1731335455955</updated>
     </task>
     <task id="LOCAL-00123" summary="filter by low -high and reverse.">
       <option name="closed" value="true" />
@@ -594,7 +583,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732058702526</updated>
     </task>
-    <option name="localTasksCounter" value="171" />
+    <task id="LOCAL-00171" summary="open_edit_job_window and save_job_edits.">
+      <option name="closed" value="true" />
+      <created>1732101456756</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1732101456756</updated>
+    </task>
+    <option name="localTasksCounter" value="172" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -609,7 +606,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reverted back to without Location." />
     <MESSAGE value="Reverted back to without Location. Back on track." />
     <MESSAGE value="debugging location on compare." />
     <MESSAGE value="Works now." />
@@ -634,6 +630,7 @@
     <MESSAGE value="save_job_info() method and jobs.db" />
     <MESSAGE value="jobs.db successfull" />
     <MESSAGE value="show_existing_jobs_window" />
-    <option name="LAST_COMMIT_MESSAGE" value="show_existing_jobs_window" />
+    <MESSAGE value="open_edit_job_window and save_job_edits." />
+    <option name="LAST_COMMIT_MESSAGE" value="open_edit_job_window and save_job_edits." />
   </component>
 </project>

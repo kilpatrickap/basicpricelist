@@ -455,6 +455,56 @@ class BasicPricelist(QMainWindow):
         except sqlite3.Error as e:
             QMessageBox.critical(self, "Error", f"Failed to update job: {str(e)}")
 
+    def delete_selected_job(self, table_widget):
+        """Deletes the selected job from the database and removes the row from the table."""
+        # Get the selected row
+        selected_row = table_widget.currentRow()
+
+        # Check if a row is selected
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a job to delete.")
+            return
+
+        # Retrieve the job ID and name from the selected row
+        job_id_item = table_widget.item(selected_row, 0)
+        job_name_item = table_widget.item(selected_row, 1)
+
+        if not job_id_item or not job_name_item:
+            QMessageBox.warning(self, "Selection Error", "Unable to retrieve job information.")
+            return
+
+        job_id = job_id_item.text().replace("Job-ID-", "")  # Remove prefix to get the numeric ID
+        job_name = job_name_item.text()
+
+        # Confirm deletion with the job's name
+        reply = QMessageBox.question(self, "Delete Job", f"Delete {job_name} from the existing jobs?",
+                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+
+        if reply == QMessageBox.StandardButton.Yes:
+            try:
+                # Delete the job from the database
+                self.jobs_c.execute("DELETE FROM jobs WHERE job_id = ?", (job_id,))
+                self.jobs_conn.commit()
+
+                # Verify deletion
+                self.jobs_c.execute("SELECT COUNT(*) FROM jobs WHERE job_id = ?", (job_id,))
+                if self.jobs_c.fetchone()[0] == 0:
+                    # Remove the row from the table
+                    table_widget.removeRow(selected_row)
+                    QMessageBox.information(self, "Job Deleted", f"{job_name} has been deleted successfully.")
+                else:
+                    QMessageBox.warning(self, "Deletion Failed", f"Failed to delete {job_name}. Please try again.")
+            except sqlite3.Error as e:
+                QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
+
+
+
+
+
+
+
+
+
 
 
 
