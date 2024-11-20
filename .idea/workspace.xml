@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="save_job_info() method and jobs.db" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="show_existing_jobs_window">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs.db" beforeDir="false" afterPath="$PROJECT_DIR$/jobs.db" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -198,22 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00120" summary="filter by low -high and reverse.">
-      <option name="closed" value="true" />
-      <created>1731331403871</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1731331403871</updated>
-    </task>
-    <task id="LOCAL-00121" summary="filter by low -high and reverse.">
-      <option name="closed" value="true" />
-      <created>1731335243408</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1731335243408</updated>
     </task>
     <task id="LOCAL-00122" summary="filter by low -high and reverse.">
       <option name="closed" value="true" />
@@ -591,7 +578,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732057942155</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="jobs.db successfull">
+      <option name="closed" value="true" />
+      <created>1732058095388</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1732058095388</updated>
+    </task>
+    <task id="LOCAL-00170" summary="show_existing_jobs_window">
+      <option name="closed" value="true" />
+      <created>1732058702526</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1732058702526</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -606,8 +609,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reset 2." />
-    <MESSAGE value="Reset 3." />
     <MESSAGE value="Reverted back to without Location." />
     <MESSAGE value="Reverted back to without Location. Back on track." />
     <MESSAGE value="debugging location on compare." />
@@ -631,6 +632,8 @@
     <MESSAGE value="show_job_information_dialog() method" />
     <MESSAGE value="validate_and_submit_job_info() method" />
     <MESSAGE value="save_job_info() method and jobs.db" />
-    <option name="LAST_COMMIT_MESSAGE" value="save_job_info() method and jobs.db" />
+    <MESSAGE value="jobs.db successfull" />
+    <MESSAGE value="show_existing_jobs_window" />
+    <option name="LAST_COMMIT_MESSAGE" value="show_existing_jobs_window" />
   </component>
 </project>
