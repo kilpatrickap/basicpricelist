@@ -616,6 +616,11 @@ class BasicPricelist(QMainWindow):
                 except Exception as e:
                     QMessageBox.critical(self, "Error", f"Failed to delete {db_file}: {e}")
 
+    from PyQt6.QtWidgets import QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QPushButton, QDialog, \
+        QMessageBox, QFileDialog
+    from PyQt6.QtCore import Qt
+    import sqlite3
+
     def open_job_window(self, table, parent_dialog):
         """Opens a Job window with the job name as the title and displays all data from the selected job database."""
         selected_row = table.currentRow()
@@ -648,6 +653,16 @@ class BasicPricelist(QMainWindow):
 
             # Create the main layout for the dialog
             layout = QVBoxLayout(job_dialog)
+
+            # Create a horizontal layout for the Export to Excel button and align it to the right
+            export_layout = QHBoxLayout()
+            export_layout.addStretch(1)  # Push the button to the right
+            export_button = QPushButton("Export to Excel")
+            export_button.clicked.connect(self.export_to_excel)  # Make sure this is defined elsewhere in your code
+            export_layout.addWidget(export_button)
+
+            # Add the export button layout above the table layout
+            layout.addLayout(export_layout)
 
             # Create a horizontal layout for the table
             table_layout = QHBoxLayout()
@@ -692,10 +707,7 @@ class BasicPricelist(QMainWindow):
             close_button.clicked.connect(job_dialog.close)
             button_layout.addWidget(close_button)
 
-            # Center the close button horizontally
-            button_layout.setAlignment(close_button, Qt.AlignmentFlag.AlignCenter)
-
-            # Add the button layout beneath the table
+            # Add button layout to the main layout
             layout.addLayout(button_layout)
 
             job_dialog.setLayout(layout)
