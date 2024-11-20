@@ -657,14 +657,22 @@ class BasicPricelist(QMainWindow):
             rows = cursor.fetchall()
             columns = [description[0] for description in cursor.description]
 
-            # Populate the table widget with the data
+            # Exclude the first column (id) from the columns list
+            columns = [col for col in columns if col.lower() != 'id']  # Modify 'id' if it's not exactly "id"
+
+            # Populate the table widget with the data, excluding the id column
             table_widget.setRowCount(len(rows))
             table_widget.setColumnCount(len(columns))
             table_widget.setHorizontalHeaderLabels(columns)
 
             for row_idx, row_data in enumerate(rows):
-                for col_idx, data in enumerate(row_data):
+                col_idx = 0  # Initialize column index
+                for data_idx, data in enumerate(row_data):
+                    # Skip the first column (id) in the data
+                    if data_idx == 0:  # Assuming the id column is the first column
+                        continue
                     table_widget.setItem(row_idx, col_idx, QTableWidgetItem(str(data)))
+                    col_idx += 1
 
             # Adjust column widths
             table_widget.resizeColumnsToContents()

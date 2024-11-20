@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="open_job_window(), adjustment needed.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="It works now.">
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,22 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00142" summary="close button on RFP dialog.">
-      <option name="closed" value="true" />
-      <created>1731627470401</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1731627470401</updated>
-    </task>
-    <task id="LOCAL-00143" summary="Close button beneath existing users table.">
-      <option name="closed" value="true" />
-      <created>1731661928107</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1731661928107</updated>
     </task>
     <task id="LOCAL-00144" summary="Close button beneath existing users table.">
       <option name="closed" value="true" />
@@ -594,7 +578,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732135195744</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="open_job_window(), adjustment needed.">
+      <option name="closed" value="true" />
+      <created>1732135407173</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1732135407173</updated>
+    </task>
+    <task id="LOCAL-00192" summary="It works now.">
+      <option name="closed" value="true" />
+      <created>1732135712157</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1732135712157</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -609,7 +609,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Working on duplicated mat-ids." />
     <MESSAGE value="Working on duplicated mat-ids. Almost there." />
     <MESSAGE value="DONEEEE !!!!!!" />
     <MESSAGE value="jobs button added." />
@@ -634,6 +633,7 @@
     <MESSAGE value="ui resize BEAUTIFULLY!!!." />
     <MESSAGE value="open_job_window()" />
     <MESSAGE value="open_job_window(), adjustment needed." />
-    <option name="LAST_COMMIT_MESSAGE" value="open_job_window(), adjustment needed." />
+    <MESSAGE value="It works now." />
+    <option name="LAST_COMMIT_MESSAGE" value="It works now." />
   </component>
 </project>
