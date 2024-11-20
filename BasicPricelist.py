@@ -531,6 +531,9 @@ class BasicPricelist(QMainWindow):
             for row, db_file in enumerate(db_files):
                 table.setItem(row, 0, QTableWidgetItem(db_file))  # Display the full database filename
 
+            # Adjust column width to fit contents dynamically
+            table.resizeColumnsToContents()
+
             layout.addWidget(table)
 
             # Create buttons for Open and Delete actions

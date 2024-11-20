@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Jobs list.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="open_jobs_list() and handle_job_action() methods." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -202,14 +199,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00133" summary="Works now.">
-      <option name="closed" value="true" />
-      <created>1731585998204</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1731585998204</updated>
     </task>
     <task id="LOCAL-00134" summary="Works now.">
       <option name="closed" value="true" />
@@ -595,7 +584,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732112564843</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="open_jobs_list() and handle_job_action() methods.">
+      <option name="closed" value="true" />
+      <created>1732113336576</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1732113336576</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -610,7 +607,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Edited Vendors updates everywhere." />
     <MESSAGE value="Deleted Vendors updates everywhere." />
     <MESSAGE value="Everything works perfectely now." />
     <MESSAGE value="Everything works perfectly now." />
@@ -635,6 +631,7 @@
     <MESSAGE value="Works PERFECTLY !!!!" />
     <MESSAGE value="Works PERFECTLY AGAIN !!!!" />
     <MESSAGE value="Jobs list." />
-    <option name="LAST_COMMIT_MESSAGE" value="Jobs list." />
+    <MESSAGE value="open_jobs_list() and handle_job_action() methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="open_jobs_list() and handle_job_action() methods." />
   </component>
 </project>
