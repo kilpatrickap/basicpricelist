@@ -497,19 +497,6 @@ class BasicPricelist(QMainWindow):
             except sqlite3.Error as e:
                 QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     def open_user_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
         user_type_dialog = QDialog(self)
