@@ -640,21 +640,21 @@ class BasicPricelist(QMainWindow):
 
             # Create a new dialog window for the job
             job_dialog = QDialog(self)
-            job_dialog.setWindowTitle(f"Contents of {db_file}")
+            job_dialog.setWindowTitle(f"{db_file}")
             job_dialog.setGeometry(300, 300, 700, 500)
 
             layout = QVBoxLayout(job_dialog)
 
-            # Tab widget to display multiple tables
-            tab_widget = QTabWidget()
-            layout.addWidget(tab_widget)
+            # # Tab widget to display multiple tables
+            # tab_widget = QTabWidget()
+            # layout.addWidget(tab_widget)
 
             for table_name in tables:
                 table_name = table_name[0]  # Extract table name from tuple
 
                 # Create a table widget for each database table
                 table_widget = QTableWidget()
-                tab_widget.addTab(table_widget, table_name)
+                # tab_widget.addTab(table_widget, table_name)
 
                 # Fetch data from the current table
                 cursor.execute(f"SELECT * FROM {table_name}")
