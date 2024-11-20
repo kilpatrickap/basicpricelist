@@ -657,8 +657,8 @@ class BasicPricelist(QMainWindow):
             # Create a horizontal layout for the Export to Excel button and align it to the right
             export_layout = QHBoxLayout()
             export_layout.addStretch(1)  # Push the button to the right
-            export_button = QPushButton("Export to Excel")
-            export_button.clicked.connect(self.export_to_excel)  # Make sure this is defined elsewhere in your code
+            export_button = QPushButton("Export Job to Excel")
+            export_button.clicked.connect(self.export_job_to_excel)  # Make sure this is defined elsewhere in your code
             export_layout.addWidget(export_button)
 
             # Add the export button layout above the table layout
@@ -723,6 +723,45 @@ class BasicPricelist(QMainWindow):
         finally:
             if 'conn' in locals():
                 conn.close()
+
+    def export_job_to_excel(self):
+        """Exports the contents of the table widget to an Excel file."""
+        try:
+            # Get the table widget (assuming it's named 'table_widget' in the current scope)
+            table_widget = self.findChild(QTableWidget)  # Retrieve the QTableWidget (you may need to adjust this)
+
+            if not table_widget:
+                QMessageBox.warning(self, "No Data", "No table data found to export.")
+                return
+
+            # Get the column headers
+            columns = [table_widget.horizontalHeaderItem(i).text() for i in range(table_widget.columnCount())]
+
+            # Prepare the data
+            data = []
+            for row in range(table_widget.rowCount()):
+                row_data = []
+                for col in range(table_widget.columnCount()):
+                    item = table_widget.item(row, col)
+                    row_data.append(item.text() if item is not None else "")
+                data.append(row_data)
+
+            # Create a DataFrame
+            df = pd.DataFrame(data, columns=columns)
+
+            # Prompt the user to choose where to save the file
+            file_path, _ = QFileDialog.getSaveFileName(self, "Save File", "", "Excel Files (*.xlsx);;All Files (*)")
+            if not file_path:
+                return  # Exit if no file was chosen
+
+            # Save the DataFrame to an Excel file
+            df.to_excel(file_path, index=False)
+
+            # Show success message
+            QMessageBox.information(self, "Export Successful", f"Data exported successfully to {file_path}")
+
+        except Exception as e:
+            QMessageBox.critical(self, "Export Error", f"An error occurred during export: {e}")
 
     def open_user_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
