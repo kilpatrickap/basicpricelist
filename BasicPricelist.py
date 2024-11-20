@@ -375,10 +375,85 @@ class BasicPricelist(QMainWindow):
         except sqlite3.Error as e:
             QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
 
+    def open_edit_job_window(self, table_widget):
+        """Opens a dialog to edit the selected job's information or prompts if no selection."""
+        selected_row = table_widget.currentRow()
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a Job to edit.")
+            return
 
+        # Retrieve selected job ID
+        job_id_item = table_widget.item(selected_row, 0)
+        if not job_id_item:
+            QMessageBox.warning(self, "Selection Error", "No valid Job ID found.")
+            return
 
+        job_id_text = job_id_item.text()
+        if not job_id_text.startswith("Job-ID-") or '-' not in job_id_text:
+            QMessageBox.critical(self, "Error", "Invalid Job ID format.")
+            return
 
+        job_id = job_id_text.split('-')[-1]  # Safely extract the numeric ID
 
+        # Fetch current job information from the database
+        self.jobs_c.execute("SELECT job_name, client, location FROM jobs WHERE job_id = ?", (job_id,))
+        job_data = self.jobs_c.fetchone()
+
+        if not job_data:
+            QMessageBox.critical(self, "Error", "Job not found in the database.")
+            return
+
+        current_job_name, current_client, current_location = job_data
+
+        # Open edit dialog with current job information
+        edit_dialog = QDialog(self)
+        edit_dialog.setWindowTitle("Edit Job")
+        edit_dialog.setGeometry(300, 300, 300, 200)
+
+        layout = QFormLayout()
+
+        job_name_input = QLineEdit()
+        job_name_input.setText(current_job_name)
+        client_input = QLineEdit()
+        client_input.setText(current_client)
+        location_input = QLineEdit()
+        location_input.setText(current_location)
+
+        layout.addRow("Job Name:", job_name_input)
+        layout.addRow("Client:", client_input)
+        layout.addRow("Location:", location_input)
+
+        save_job_button = QPushButton("Save Job")
+        save_job_button.clicked.connect(lambda: self.save_job_edits(
+            job_id, job_name_input.text(), client_input.text(),
+            location_input.text(), edit_dialog, table_widget, selected_row
+        ))
+        layout.addWidget(save_job_button)
+        edit_dialog.setLayout(layout)
+        edit_dialog.exec()
+
+    def save_job_edits(self, job_id, job_name, client, location, dialog, table_widget, row):
+        """Saves the edited job information to the database and updates the table."""
+        try:
+            # Update the jobs table with the new values
+            self.jobs_c.execute(
+                "UPDATE jobs SET job_name = ?, client = ?, location = ? WHERE job_id = ?",
+                (job_name, client, location, job_id)
+            )
+            self.jobs_conn.commit()
+
+            QMessageBox.information(self, "Update", f"Job {job_id} updated successfully!")
+
+            # Update the table widget with the new values
+            table_widget.setItem(row, 1, QTableWidgetItem(job_name))  # Update job name
+            # Add additional columns as needed:
+            # table_widget.setItem(row, 2, QTableWidgetItem(client))  # Example for client column
+            # table_widget.setItem(row, 3, QTableWidgetItem(location))  # Example for location column
+
+            dialog.close()
+
+        except sqlite3.Error as e:
+            QMessageBox.critical(self, "Error", f"Failed to update job: {str(e)}")
 
 
 
