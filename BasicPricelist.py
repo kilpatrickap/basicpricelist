@@ -5,6 +5,7 @@ import pandas as pd
 import openpyxl
 import re
 import pycountry
+from PyQt6 import QtWidgets, QtCore
 from PyQt6.QtCore import QDate, Qt
 from PyQt6.QtGui import QFontMetrics
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
@@ -26,63 +27,60 @@ class BasicPricelist(QMainWindow):
         self.setWindowTitle('Basic Prices Manager v.1.0')
         self.setGeometry(100, 100, 1400, 750)
 
-        main_layout = QVBoxLayout()
+        # Tool Bar
+        self.toolBar = QtWidgets.QToolBar(self)  # Assign self as parent
+        self.addToolBar(QtCore.Qt.ToolBarArea.TopToolBarArea, self.toolBar)
 
-        # Buttons
-        button_layout = QHBoxLayout()
-
-        # Add a "Job" button next to the "User" button
+        # Buttons added to the toolbar instead of a separate layout
         jobs_button = QPushButton("Job")
         jobs_button.clicked.connect(self.open_jobs_info_window)
-        button_layout.addWidget(jobs_button)
+        self.toolBar.addWidget(jobs_button)
 
-        # Add a "Jobs list" button next to the "Jobs" button
         jobs_list_button = QPushButton("Jobs List")
         jobs_list_button.clicked.connect(self.open_jobs_list)
-        button_layout.addWidget(jobs_list_button)
+        self.toolBar.addWidget(jobs_list_button)
 
-        # Add a "User" button next to the "New Material" button
         user_button = QPushButton("User")
         user_button.clicked.connect(self.open_user_info_window)
-        button_layout.addWidget(user_button)
+        self.toolBar.addWidget(user_button)
 
         new_material_button = QPushButton('New Material')
         new_material_button.clicked.connect(self.open_new_material_window)
-        button_layout.addWidget(new_material_button)
+        self.toolBar.addWidget(new_material_button)
 
         edit_material_button = QPushButton('Edit Material')
         edit_material_button.clicked.connect(self.open_edit_material_window)
-        button_layout.addWidget(edit_material_button)
+        self.toolBar.addWidget(edit_material_button)
 
         duplicate_button = QPushButton('Duplicate Material')
         duplicate_button.clicked.connect(self.duplicate_material)
-        button_layout.addWidget(duplicate_button)  # Inserts Duplicate Material between Edit and Delete
+        self.toolBar.addWidget(duplicate_button)
 
         delete_button = QPushButton('Delete Material')
         delete_button.clicked.connect(self.delete_material)
-        button_layout.addWidget(delete_button)
+        self.toolBar.addWidget(delete_button)
 
         compare_button = QPushButton('Vendors')
         compare_button.clicked.connect(self.show_vendor_list_window)
-        button_layout.addWidget(compare_button)
+        self.toolBar.addWidget(compare_button)
 
         rfq_button = QPushButton('RFP')
         rfq_button.clicked.connect(self.open_rfp_window)
-        button_layout.addWidget(rfq_button)
+        self.toolBar.addWidget(rfq_button)
 
         compare_button = QPushButton('Compare')
         compare_button.clicked.connect(self.open_compare_window)
-        button_layout.addWidget(compare_button)
+        self.toolBar.addWidget(compare_button)
 
         export_button = QPushButton('Export to Excel')
         export_button.clicked.connect(self.export_to_excel)
-        button_layout.addWidget(export_button)
+        self.toolBar.addWidget(export_button)
 
-        export_button = QPushButton('Import from Excel')
-        export_button.clicked.connect(self.import_from_excel)
-        button_layout.addWidget(export_button)
+        import_button = QPushButton('Import from Excel')
+        import_button.clicked.connect(self.import_from_excel)
+        self.toolBar.addWidget(import_button)
 
-        main_layout.addLayout(button_layout)
+        main_layout = QVBoxLayout()
 
         # Search Bar
         search_layout = QHBoxLayout()
@@ -103,10 +101,10 @@ class BasicPricelist(QMainWindow):
         # Material List Table
         self.table = QTableWidget()
         self.table.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        self.table.setColumnCount(11)  # Updated to 10 for new date column
+        self.table.setColumnCount(11)  # Updated to 11 columns to match the header count
         self.table.setHorizontalHeaderLabels(
             ['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone', 'Email', 'Location',
-             'Price Date'])  # Added Price Date
+             'Price Date'])  # Correct number of columns
         main_layout.addWidget(self.table)
 
         container = QWidget()
