@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="allocate to job updates default job label.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="comparison window updates default job label.">
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -203,14 +203,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00176" summary="Assign to job button in price comparison table.">
-      <option name="closed" value="true" />
-      <created>1732109157582</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1732109157582</updated>
     </task>
     <task id="LOCAL-00177" summary="assign_material_to_job">
       <option name="closed" value="true" />
@@ -596,7 +588,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732287300548</updated>
     </task>
-    <option name="localTasksCounter" value="225" />
+    <task id="LOCAL-00225" summary="comparison window updates default job label.">
+      <option name="closed" value="true" />
+      <created>1732287500811</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1732287500811</updated>
+    </task>
+    <option name="localTasksCounter" value="226" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -611,7 +611,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="open_job_window(), adjustment needed." />
     <MESSAGE value="It works now." />
     <MESSAGE value="It works now. id column is not shown." />
     <MESSAGE value="Done !!!" />
@@ -636,6 +635,7 @@
     <MESSAGE value="Job file location bottom label Done." />
     <MESSAGE value="RFP updates default user label." />
     <MESSAGE value="allocate to job updates default job label." />
-    <option name="LAST_COMMIT_MESSAGE" value="allocate to job updates default job label." />
+    <MESSAGE value="comparison window updates default job label." />
+    <option name="LAST_COMMIT_MESSAGE" value="comparison window updates default job label." />
   </component>
 </project>
