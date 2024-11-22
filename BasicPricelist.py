@@ -96,7 +96,8 @@ class BasicPricelist(QMainWindow):
         self.toolBar.addWidget(rfp_button)
         self.toolBar.addSeparator()
 
-        compare_button = create_tool_button_with_icon("price-comparison.png", "Compare Vendors Price", self.open_compare_window)
+        compare_button = create_tool_button_with_icon("price-comparison.png", "Compare Vendors Price",
+                                                      self.open_compare_window)
         self.toolBar.addWidget(compare_button)
         self.toolBar.addSeparator()
 
@@ -122,8 +123,7 @@ class BasicPricelist(QMainWindow):
             QtGui.QPixmap(icon_path).scaled(30, 30, QtCore.Qt.AspectRatioMode.KeepAspectRatio))  # Adjust size as needed
 
         # Create the label for the job name
-        self.current_job_label = QLabel("Current Job :")  # Initialize with a placeholder
-        self.update_current_job_label("db_file")     # dynamically update the current job.
+        self.current_job_label = QLabel("No job selected")  # Placeholder text initially
         self.current_job_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)  # Align the text to the left
 
         # Add the icon and label to the horizontal layout
@@ -165,6 +165,9 @@ class BasicPricelist(QMainWindow):
         container = QWidget()
         container.setLayout(main_layout)
         self.setCentralWidget(container)
+
+        # Set an initial value for the current job label
+        self.update_current_job_label("No job selected")  # Placeholder text for now
 
     def initDB(self):
         """Initializes the SQLite database for materials and users."""
@@ -230,9 +233,9 @@ class BasicPricelist(QMainWindow):
 
         self.jobs_conn.commit()
 
-    def update_current_job_label(self, job_name):
-        """Update the current job label with the given job name."""
-        self.current_job_label.setText(f"Current Job : {job_name}")
+    def update_current_job_label(self, db_file):
+        """Updates the current job label with the job name (db_file)."""
+        self.current_job_label.setText(f"Current Job: {db_file}")
 
     def open_jobs_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
@@ -773,6 +776,9 @@ class BasicPricelist(QMainWindow):
 
             job_dialog.setLayout(layout)
             job_dialog.exec()
+
+            # After the job window is closed, update the current job label
+            self.update_current_job_label(db_file)  # Dynamically update the current job label with the selected db_file
 
             # Close the parent dialog
             parent_dialog.accept()

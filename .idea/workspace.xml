@@ -205,14 +205,6 @@
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
     </task>
-    <task id="LOCAL-00161" summary="Working on duplicated mat-ids. Almost there.">
-      <option name="closed" value="true" />
-      <created>1731885933030</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1731885933030</updated>
-    </task>
     <task id="LOCAL-00162" summary="DONEEEE !!!!!!">
       <option name="closed" value="true" />
       <created>1731886663169</created>
@@ -597,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732271038600</updated>
     </task>
-    <option name="localTasksCounter" value="210" />
+    <task id="LOCAL-00210" summary="Current job and icon.">
+      <option name="closed" value="true" />
+      <created>1732272385306</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1732272385306</updated>
+    </task>
+    <option name="localTasksCounter" value="211" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
