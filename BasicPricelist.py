@@ -130,6 +130,10 @@ class BasicPricelist(QMainWindow):
         current_job_layout.addWidget(current_job_icon_label)
         current_job_layout.addWidget(self.current_job_label)
 
+        # Add a horizontal spacer after the label
+        spacer = QSpacerItem(20, 10, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        current_job_layout.addItem(spacer)
+
         # Add the horizontal layout to the main layout
         main_layout.addLayout(current_job_layout)
 
