@@ -233,9 +233,16 @@ class BasicPricelist(QMainWindow):
 
         self.jobs_conn.commit()
 
-    def update_default_job_label(self, db_file):
+    def update_default_job_label(self, job_name):
         """Updates the current job label with the job name (db_file)."""
-        self.default_job_label.setText(f"Default Job: {db_file}")
+        self.default_job_label.setText(f"Default Job: {job_name}")
+
+        if job_name == "No existing job selected":
+            # Set text color to red for the placeholder text
+            self.default_job_label.setStyleSheet("color: red;")
+        else:
+            # Set text color to blue once a job is selected
+            self.default_job_label.setStyleSheet("color: blue;")
 
     def open_jobs_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
