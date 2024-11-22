@@ -87,11 +87,11 @@ class BasicPricelist(QMainWindow):
         self.toolBar.addWidget(vendors_button)
         self.toolBar.addSeparator()
 
-        rfp_button = create_tool_button_with_icon("rfp.png", "Request For Prices", self.open_rfp_window)
+        rfp_button = create_tool_button_with_icon("rfp.png", "Request For Vendors Prices", self.open_rfp_window)
         self.toolBar.addWidget(rfp_button)
         self.toolBar.addSeparator()
 
-        compare_button = create_tool_button_with_icon("price-comparison.png", "Compare", self.open_compare_window)
+        compare_button = create_tool_button_with_icon("price-comparison.png", "Compare Vendors Price", self.open_compare_window)
         self.toolBar.addWidget(compare_button)
         self.toolBar.addSeparator()
 
@@ -1236,7 +1236,7 @@ class BasicPricelist(QMainWindow):
 
         # Create a dialog window for comparison
         compare_dialog = QDialog(self)
-        compare_dialog.setWindowTitle(f"Price Comparison")
+        compare_dialog.setWindowTitle(f"Vendors Price Comparison")
         compare_dialog.setGeometry(300, 200, 850, 500)
 
         # Layout for the comparison table
@@ -1652,7 +1652,7 @@ class BasicPricelist(QMainWindow):
 
             # Set up the RFP dialog
             rfq_dialog = QDialog(self)
-            rfq_dialog.setWindowTitle("Request For Prices")
+            rfq_dialog.setWindowTitle("Request For Vendors Prices")
             rfq_dialog.setGeometry(200, 200, 500, 500)
 
             layout = QVBoxLayout()
