@@ -119,11 +119,11 @@ class BasicPricelist(QMainWindow):
         current_job_icon_label = QLabel()
         icon_path = os.path.join(icon_folder_path, "current-job.png")  # Path to the icon
         current_job_icon_label.setPixmap(
-            QtGui.QPixmap(icon_path).scaled(32, 32, QtCore.Qt.AspectRatioMode.KeepAspectRatio))  # Adjust size as needed
+            QtGui.QPixmap(icon_path).scaled(30, 30, QtCore.Qt.AspectRatioMode.KeepAspectRatio))  # Adjust size as needed
 
         # Create the label for the job name
-        self.current_job_label = QLabel("Current Job:")  # Initialize with a placeholder
-        self.update_current_job_label("Kilpatrick")     # updates the current job.
+        self.current_job_label = QLabel("Current Job :")  # Initialize with a placeholder
+        self.update_current_job_label("db_file")     # dynamically update the current job.
         self.current_job_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)  # Align the text to the left
 
         # Add the icon and label to the horizontal layout
@@ -232,7 +232,7 @@ class BasicPricelist(QMainWindow):
 
     def update_current_job_label(self, job_name):
         """Update the current job label with the given job name."""
-        self.current_job_label.setText(f"Current Job: {job_name}")
+        self.current_job_label.setText(f"Current Job : {job_name}")
 
     def open_jobs_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
