@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Job file location bottom label.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Job file location bottom label Done.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs.db" beforeDir="false" afterPath="$PROJECT_DIR$/jobs.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,14 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00172" summary="delete_selected_job">
-      <option name="closed" value="true" />
-      <created>1732102556817</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1732102556817</updated>
     </task>
     <task id="LOCAL-00173" summary="jobs DONE !!!!!!!!!!">
       <option name="closed" value="true" />
@@ -596,7 +591,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732282868907</updated>
     </task>
-    <option name="localTasksCounter" value="221" />
+    <task id="LOCAL-00221" summary="Job file location bottom label Done.">
+      <option name="closed" value="true" />
+      <created>1732283495556</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1732283495556</updated>
+    </task>
+    <option name="localTasksCounter" value="222" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -611,7 +614,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ui resize." />
     <MESSAGE value="ui resize BEAUTIFULLY!!!." />
     <MESSAGE value="open_job_window()" />
     <MESSAGE value="open_job_window(), adjustment needed." />
@@ -636,6 +638,7 @@
     <MESSAGE value="Default user." />
     <MESSAGE value="Done for today." />
     <MESSAGE value="Job file location bottom label." />
-    <option name="LAST_COMMIT_MESSAGE" value="Job file location bottom label." />
+    <MESSAGE value="Job file location bottom label Done." />
+    <option name="LAST_COMMIT_MESSAGE" value="Job file location bottom label Done." />
   </component>
 </project>

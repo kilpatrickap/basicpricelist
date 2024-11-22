@@ -1704,16 +1704,34 @@ class BasicPricelist(QMainWindow):
         return f"MAT-{new_id}"
 
     def open_rfp_window(self):
-        """Opens the RFP window with the vendor's email and lists all materials from that vendor."""
-        selected_row = self.table.currentRow()
-        if selected_row == -1:
-            QMessageBox.warning(self, "Selection Error", "Please select a material to Request For its Price.")
-            return
-
-        # Get the vendor's email from the selected row
-        vendor_email = self.table.item(selected_row, 8).text()  # Adjusted for the new column
+        """Opens the RFP window, but first checks if a default user is selected."""
 
         try:
+            # Query the database for the default user details
+            self.users_c.execute("SELECT name, company, position, phone, email FROM users WHERE is_default = 1 LIMIT 1")
+            user_info = self.users_c.fetchone()
+
+            # Check if a default user exists
+            if not user_info:
+                QMessageBox.warning(self, "User Info Missing",
+                                    "No default user information found. Please set a default user before proceeding.")
+                return
+
+            # Unpack user information if a default user is found
+            user_name, company_name, user_position, user_phone, user_email = user_info
+
+            # update the default user label
+            self.update_default_user_label(user_name)
+
+            # Proceed with the rest of the logic if a default user is selected
+            selected_row = self.table.currentRow()
+            if selected_row == -1:
+                QMessageBox.warning(self, "Selection Error", "Please select a material to Request For its Price.")
+                return
+
+            # Get the vendor's email from the selected row
+            vendor_email = self.table.item(selected_row, 8).text()  # Adjusted for the new column
+
             # Fetch the vendor's name from the materials.db database using the vendor_email
             self.c.execute("SELECT vendor FROM materials WHERE vendor_email = ?", (vendor_email,))
             vendor_info = self.c.fetchone()
@@ -1728,24 +1746,11 @@ class BasicPricelist(QMainWindow):
             materials = [self.table.item(row, 2).text() for row in range(self.table.rowCount())
                          if self.table.item(row, 8).text() == vendor_email]
 
-            # Query the database for the user details
-            self.users_c.execute("SELECT name, company, position, phone, email FROM users WHERE is_default = 1 LIMIT 1")
-            user_info = self.users_c.fetchone()
-
-            if not user_info:
-                QMessageBox.warning(self, "User Info Missing",
-                                    "No default user information found. Please set a default user.")
-                return
-
-            # Unpack user information
-            user_name, company_name, user_position, user_phone, user_email = user_info
-
             # Create the email body with the list of materials
             material_list = "\n".join(f"{i + 1}.  {material}" for i, material in enumerate(materials))
             email_body_text = (
                 f"From : {user_email}\n"
                 f"To : {vendor_email}\n\n"
-
                 f"Dear {vendor_name},\n\n"
                 f"I would like to request for your current prices for the following materials:\n\n"
                 f"{material_list}\n\n"
