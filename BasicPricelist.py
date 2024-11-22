@@ -103,6 +103,7 @@ class BasicPricelist(QMainWindow):
         import_excel_button = create_tool_button_with_icon("import-from-excel.png", "Import from Excel",
                                                            self.import_from_excel)
         self.toolBar.addWidget(import_excel_button)
+        self.toolBar.addSeparator()
 
         main_layout = QVBoxLayout()
 
