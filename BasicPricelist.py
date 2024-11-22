@@ -24,8 +24,16 @@ class BasicPricelist(QMainWindow):
 
     def initUI(self):
         """Sets up the user interface."""
+
+        # Define the path to the icons folder
+        icon_folder_path = os.path.join(os.path.dirname(__file__), "images")
+
         self.setWindowTitle('Basic Prices Manager v.1.0')
         self.setGeometry(50, 50, 1400, 750)
+
+        # Create an icon for the window.
+        window_icon_path = os.path.join(icon_folder_path, "basic-prices-manager.png")
+        self.setWindowIcon(QtGui.QIcon(window_icon_path))
 
         # Tool Bar
         self.toolBar = QtWidgets.QToolBar(self)  # Assign self as parent
@@ -33,9 +41,6 @@ class BasicPricelist(QMainWindow):
 
         # Set the icon size for the toolbar (e.g., 32x32 pixels)
         self.toolBar.setIconSize(QtCore.QSize(50, 50))  # Increase size to your preference
-
-        # Define the path to the icons folder
-        icon_folder_path = os.path.join(os.path.dirname(__file__), "images")
 
         # Helper function to create a QToolButton with an icon
         def create_tool_button_with_icon(icon_name, text, callback):

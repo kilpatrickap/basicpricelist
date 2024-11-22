@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="tool button with an icon (50x50) and name beneath.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pricelist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pricelist.iml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="UI improvement.">
+      <change afterPath="$PROJECT_DIR$/images/basic-prices-manager.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,20 +47,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.BasicPricelist.executor&quot;: &quot;Run&quot;,
-    &quot;Python.BidPriceManager_v1.0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.prices_generator.executor&quot;: &quot;Run&quot;,
-    &quot;Python.smtp_client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.smtp_server.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kilpatrick/Documents/pythonProject/basicpricelist/images&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.BasicPricelist.executor": "Run",
+    "Python.BidPriceManager_v1.0.executor": "Run",
+    "Python.prices_generator.executor": "Run",
+    "Python.smtp_client.executor": "Run",
+    "Python.smtp_server.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Consar-Kilpatrick/PycharmProjects/pricelist/images",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images" />
@@ -204,14 +204,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00156" summary="Prices generator added.">
-      <option name="closed" value="true" />
-      <created>1731837909616</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1731837909616</updated>
     </task>
     <task id="LOCAL-00157" summary="import from excel button added.">
       <option name="closed" value="true" />
@@ -597,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732234558885</updated>
     </task>
-    <option name="localTasksCounter" value="205" />
+    <task id="LOCAL-00205" summary="UI improvement.">
+      <option name="closed" value="true" />
+      <created>1732261454579</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1732261454579</updated>
+    </task>
+    <option name="localTasksCounter" value="206" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -612,7 +612,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="open_edit_job_window and save_job_edits." />
     <MESSAGE value="delete_selected_job" />
     <MESSAGE value="jobs DONE !!!!!!!!!!" />
     <MESSAGE value="Assign to job button in price comparison table." />
@@ -637,6 +636,7 @@
     <MESSAGE value="buttons in toolbar." />
     <MESSAGE value="QIcons and pngs in toolbar." />
     <MESSAGE value="tool button with an icon (50x50) and name beneath." />
-    <option name="LAST_COMMIT_MESSAGE" value="tool button with an icon (50x50) and name beneath." />
+    <MESSAGE value="UI improvement." />
+    <option name="LAST_COMMIT_MESSAGE" value="UI improvement." />
   </component>
 </project>
