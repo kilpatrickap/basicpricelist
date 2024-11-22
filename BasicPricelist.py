@@ -1086,6 +1086,10 @@ class BasicPricelist(QMainWindow):
 
                     # Set the new default user
                     self.users_c.execute("UPDATE users SET is_default = 1 WHERE user_id = ?", (user_id,))
+
+                    # dynamically update default user label
+                    self.update_default_user_label(user_name)
+
                     self.users_conn.commit()
 
                     QMessageBox.information(self, "Default User", f"{user_name} has been set as the default user.")
