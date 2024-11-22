@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="almost working.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Works perfectly.">
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Job-ID-2_Civil_works_for_GenSer_Energy_Prestea.db" beforeDir="false" afterPath="$PROJECT_DIR$/Job-ID-2_Civil_works_for_GenSer_Energy_Prestea.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs.db" beforeDir="false" afterPath="$PROJECT_DIR$/jobs.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,14 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00163" summary="jobs button added.">
-      <option name="closed" value="true" />
-      <created>1732055427248</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1732055427248</updated>
     </task>
     <task id="LOCAL-00164" summary="open_jobs_info_window() method">
       <option name="closed" value="true" />
@@ -597,7 +590,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732274223839</updated>
     </task>
-    <option name="localTasksCounter" value="212" />
+    <task id="LOCAL-00212" summary="Works perfectly.">
+      <option name="closed" value="true" />
+      <created>1732275463819</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1732275463819</updated>
+    </task>
+    <option name="localTasksCounter" value="213" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -612,7 +613,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="assign_material_to_job" />
     <MESSAGE value="Works PERFECTLY !!!!" />
     <MESSAGE value="Works PERFECTLY AGAIN !!!!" />
     <MESSAGE value="Jobs list." />
@@ -637,6 +637,7 @@
     <MESSAGE value="Basic Prices Manager, Window icon added." />
     <MESSAGE value="Current job and icon." />
     <MESSAGE value="almost working." />
-    <option name="LAST_COMMIT_MESSAGE" value="almost working." />
+    <MESSAGE value="Works perfectly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Works perfectly." />
   </component>
 </project>

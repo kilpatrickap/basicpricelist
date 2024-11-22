@@ -114,28 +114,29 @@ class BasicPricelist(QMainWindow):
         main_layout = QVBoxLayout()
 
         # Add updated Current Job label with an icon
-        current_job_layout = QHBoxLayout()  # Create a horizontal layout to hold icon and label
+        default_job_layout = QHBoxLayout()  # Create a horizontal layout to hold icon and label
 
         # Load the current-job.png icon
-        current_job_icon_label = QLabel()
+        default_job_icon_label = QLabel()
         icon_path = os.path.join(icon_folder_path, "current-job.png")  # Path to the icon
-        current_job_icon_label.setPixmap(
+        default_job_icon_label.setPixmap(
             QtGui.QPixmap(icon_path).scaled(30, 30, QtCore.Qt.AspectRatioMode.KeepAspectRatio))  # Adjust size as needed
 
         # Create the label for the job name
-        self.current_job_label = QLabel("No job selected")  # Placeholder text initially
-        self.current_job_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)  # Align the text to the left
+        self.default_job_label = QLabel()
+        self.update_default_job_label("No existing job selected")  # Placeholder text for now
+        self.default_job_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)  # Align the text to the left
 
         # Add the icon and label to the horizontal layout
-        current_job_layout.addWidget(current_job_icon_label)
-        current_job_layout.addWidget(self.current_job_label)
+        default_job_layout.addWidget(default_job_icon_label)
+        default_job_layout.addWidget(self.default_job_label)
 
         # Add a horizontal spacer after the label
         spacer = QSpacerItem(20, 10, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-        current_job_layout.addItem(spacer)
+        default_job_layout.addItem(spacer)
 
         # Add the horizontal layout to the main layout
-        main_layout.addLayout(current_job_layout)
+        main_layout.addLayout(default_job_layout)
 
         # Search Bar
         search_layout = QHBoxLayout()
@@ -166,8 +167,7 @@ class BasicPricelist(QMainWindow):
         container.setLayout(main_layout)
         self.setCentralWidget(container)
 
-        # Set an initial value for the current job label
-        self.update_default_job_label("No existing job selected")  # Placeholder text for now
+
 
     def initDB(self):
         """Initializes the SQLite database for materials and users."""
@@ -235,7 +235,7 @@ class BasicPricelist(QMainWindow):
 
     def update_default_job_label(self, db_file):
         """Updates the current job label with the job name (db_file)."""
-        self.current_job_label.setText(f"Default Job: {db_file}")
+        self.default_job_label.setText(f"Default Job: {db_file}")
 
     def open_jobs_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
