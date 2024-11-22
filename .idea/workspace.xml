@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="comparison window updates default job label.">
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="default job and user changed to current job and user.">
+      <change beforePath="$PROJECT_DIR$/jobs.db" beforeDir="false" afterPath="$PROJECT_DIR$/jobs.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,14 +204,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00177" summary="assign_material_to_job">
-      <option name="closed" value="true" />
-      <created>1732110000744</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1732110000745</updated>
     </task>
     <task id="LOCAL-00178" summary="Works PERFECTLY !!!!">
       <option name="closed" value="true" />
@@ -596,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732287500811</updated>
     </task>
-    <option name="localTasksCounter" value="226" />
+    <task id="LOCAL-00226" summary="default job and user changed to current job and user.">
+      <option name="closed" value="true" />
+      <created>1732287738501</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1732287738501</updated>
+    </task>
+    <option name="localTasksCounter" value="227" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -611,7 +612,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="It works now." />
     <MESSAGE value="It works now. id column is not shown." />
     <MESSAGE value="Done !!!" />
     <MESSAGE value="Almost there! Cancel button needs to be centered." />
@@ -636,6 +636,7 @@
     <MESSAGE value="RFP updates default user label." />
     <MESSAGE value="allocate to job updates default job label." />
     <MESSAGE value="comparison window updates default job label." />
-    <option name="LAST_COMMIT_MESSAGE" value="comparison window updates default job label." />
+    <MESSAGE value="default job and user changed to current job and user." />
+    <option name="LAST_COMMIT_MESSAGE" value="default job and user changed to current job and user." />
   </component>
 </project>
