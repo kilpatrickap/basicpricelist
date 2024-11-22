@@ -37,55 +37,72 @@ class BasicPricelist(QMainWindow):
         # Define the path to the icons folder
         icon_folder_path = os.path.join(os.path.dirname(__file__), "images")
 
-        # Helper function to create an action with an icon
-        def create_action_with_icon(icon_name, tooltip, callback):
+        # Helper function to create a QToolButton with an icon
+        def create_tool_button_with_icon(icon_name, text, callback):
             icon = QtGui.QIcon()
             icon_path = os.path.join(icon_folder_path, icon_name)
             icon.addPixmap(QtGui.QPixmap(icon_path), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-            action = QtGui.QAction(icon, tooltip, self)
-            action.triggered.connect(callback)
-            return action
 
-        # Adding actions with icons to the toolbar
-        jobs_action = create_action_with_icon("job.png", "Job", self.open_jobs_info_window)
-        self.toolBar.addAction(jobs_action)
+            button = QtWidgets.QToolButton(self)
+            button.setIcon(icon)
+            button.setText(text)
+            button.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextUnderIcon)  # Tooltip beneath icon
+            button.clicked.connect(callback)
 
-        jobs_list_action = create_action_with_icon("job-list.png", "Jobs List", self.open_jobs_list)
-        self.toolBar.addAction(jobs_list_action)
+            return button
 
-        user_action = create_action_with_icon("user.png", "User", self.open_user_info_window)
-        self.toolBar.addAction(user_action)
+        # Adding tool buttons with icons to the toolbar
+        jobs_button = create_tool_button_with_icon("job.png", "Job", self.open_jobs_info_window)
+        self.toolBar.addWidget(jobs_button)
+        self.toolBar.addSeparator()  # Separator between icons
 
-        new_material_action = create_action_with_icon("new-material.png", "New Material",
-                                                      self.open_new_material_window)
-        self.toolBar.addAction(new_material_action)
+        jobs_list_button = create_tool_button_with_icon("job-list.png", "Jobs List", self.open_jobs_list)
+        self.toolBar.addWidget(jobs_list_button)
+        self.toolBar.addSeparator()
 
-        edit_material_action = create_action_with_icon("edit-material.png", "Edit Material",
-                                                       self.open_edit_material_window)
-        self.toolBar.addAction(edit_material_action)
+        user_button = create_tool_button_with_icon("user.png", "User", self.open_user_info_window)
+        self.toolBar.addWidget(user_button)
+        self.toolBar.addSeparator()
 
-        duplicate_material_action = create_action_with_icon("duplicate-material.png", "Duplicate Material",
-                                                            self.duplicate_material)
-        self.toolBar.addAction(duplicate_material_action)
+        new_material_button = create_tool_button_with_icon("new-material.png", "New Material",
+                                                           self.open_new_material_window)
+        self.toolBar.addWidget(new_material_button)
+        self.toolBar.addSeparator()
 
-        delete_material_action = create_action_with_icon("delete.png", "Delete Material", self.delete_material)
-        self.toolBar.addAction(delete_material_action)
+        edit_material_button = create_tool_button_with_icon("edit-material.png", "Edit Material",
+                                                            self.open_edit_material_window)
+        self.toolBar.addWidget(edit_material_button)
+        self.toolBar.addSeparator()
 
-        vendors_action = create_action_with_icon("vendors.png", "Vendors", self.show_vendor_list_window)
-        self.toolBar.addAction(vendors_action)
+        duplicate_material_button = create_tool_button_with_icon("duplicate-material.png", "Duplicate Material",
+                                                                 self.duplicate_material)
+        self.toolBar.addWidget(duplicate_material_button)
+        self.toolBar.addSeparator()
 
-        rfp_action = create_action_with_icon("rfp.png", "RFP", self.open_rfp_window)
-        self.toolBar.addAction(rfp_action)
+        delete_material_button = create_tool_button_with_icon("delete.png", "Delete Material", self.delete_material)
+        self.toolBar.addWidget(delete_material_button)
+        self.toolBar.addSeparator()
 
-        compare_action = create_action_with_icon("price-comparison.png", "Compare", self.open_compare_window)
-        self.toolBar.addAction(compare_action)
+        vendors_button = create_tool_button_with_icon("vendors.png", "Vendors", self.show_vendor_list_window)
+        self.toolBar.addWidget(vendors_button)
+        self.toolBar.addSeparator()
 
-        export_excel_action = create_action_with_icon("export-to-excel.png", "Export to Excel", self.export_to_excel)
-        self.toolBar.addAction(export_excel_action)
+        rfp_button = create_tool_button_with_icon("rfp.png", "RFP", self.open_rfp_window)
+        self.toolBar.addWidget(rfp_button)
+        self.toolBar.addSeparator()
 
-        import_excel_action = create_action_with_icon("import-from-excel.png", "Import from Excel",
-                                                      self.import_from_excel)
-        self.toolBar.addAction(import_excel_action)
+        compare_button = create_tool_button_with_icon("price-comparison.png", "Compare", self.open_compare_window)
+        self.toolBar.addWidget(compare_button)
+        self.toolBar.addSeparator()
+
+        export_excel_button = create_tool_button_with_icon("export-to-excel.png", "Export to Excel",
+                                                           self.export_to_excel)
+        self.toolBar.addWidget(export_excel_button)
+        self.toolBar.addSeparator()
+
+        import_excel_button = create_tool_button_with_icon("import-from-excel.png", "Import from Excel",
+                                                           self.import_from_excel)
+        self.toolBar.addWidget(import_excel_button)
 
         main_layout = QVBoxLayout()
 
