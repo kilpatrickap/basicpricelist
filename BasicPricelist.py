@@ -28,7 +28,7 @@ class BasicPricelist(QMainWindow):
         # Define the path to the icons folder
         icon_folder_path = os.path.join(os.path.dirname(__file__), "images")
 
-        self.setWindowTitle('Materials Manager v.1.0')
+        self.setWindowTitle('Basic Prices Manager v.1.0')
         self.setGeometry(50, 50, 1400, 750)
 
         # Create an icon for the window.
@@ -131,6 +131,10 @@ class BasicPricelist(QMainWindow):
         # Add the icon and label to the layout
         default_info_layout.addWidget(default_job_icon_label)
         default_info_layout.addWidget(self.default_job_label)
+
+        # Add a horizontal spacer to push the labels to the left
+        spacer = QSpacerItem(10, 10, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        default_info_layout.addItem(spacer)
 
         # ------------------- Default User Section -------------------
         # Create the icon for the default user
