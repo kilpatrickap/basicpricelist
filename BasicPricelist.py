@@ -31,6 +31,9 @@ class BasicPricelist(QMainWindow):
         self.toolBar = QtWidgets.QToolBar(self)  # Assign self as parent
         self.addToolBar(QtCore.Qt.ToolBarArea.TopToolBarArea, self.toolBar)
 
+        # Set the icon size for the toolbar (e.g., 32x32 pixels)
+        self.toolBar.setIconSize(QtCore.QSize(50, 50))  # Increase size to your preference
+
         # Define the path to the icons folder
         icon_folder_path = os.path.join(os.path.dirname(__file__), "images")
 
