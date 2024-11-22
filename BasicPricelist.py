@@ -25,7 +25,7 @@ class BasicPricelist(QMainWindow):
     def initUI(self):
         """Sets up the user interface."""
         self.setWindowTitle('Basic Prices Manager v.1.0')
-        self.setGeometry(100, 100, 1400, 750)
+        self.setGeometry(50, 50, 1400, 750)
 
         # Tool Bar
         self.toolBar = QtWidgets.QToolBar(self)  # Assign self as parent
