@@ -1381,8 +1381,10 @@ class BasicPricelist(QMainWindow):
                     lambda checked, material_id=mat_id: self.assign_material_to_job(material_id))
                 compare_table.setCellWidget(row, 7, assign_job_button)
 
-            # Debugging step: Check if the table is being populated correctly
-            # print("Comparison table populated successfully.")
+                # update default job label
+                # self.update_default_job_label(job_name=)      todo When the allocate to Job button is clicked, update default job label.
+
+
 
         # Convert prices to float for accurate sorting
         try:
