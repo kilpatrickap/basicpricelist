@@ -1359,6 +1359,17 @@ class BasicPricelist(QMainWindow):
         compare_table.setColumnCount(8)  # Increase the column count to 7 to include Location
         compare_table.setHorizontalHeaderLabels(["Mat ID", "Vendor", "Currency", "Price", "Unit", "Location", "Date", "Allocation"])
 
+        # Step 1: Retrieve the default job from jobs.db
+        self.jobs_c.execute("SELECT job_name FROM jobs WHERE is_default = 1")
+        default_job = self.jobs_c.fetchone()
+
+        job_name = default_job
+
+        # update the default job label
+        self.update_default_job_label(job_name)
+
+
+
         # Function to populate the table with formatted prices
         def populate_table(data):
             compare_table.setRowCount(len(data))
@@ -1380,11 +1391,6 @@ class BasicPricelist(QMainWindow):
                 assign_job_button.clicked.connect(
                     lambda checked, material_id=mat_id: self.assign_material_to_job(material_id))
                 compare_table.setCellWidget(row, 7, assign_job_button)
-
-                # update default job label
-                # self.update_default_job_label(job_name=)      todo When the allocate to Job button is clicked, update default job label.
-
-
 
         # Convert prices to float for accurate sorting
         try:
@@ -1454,11 +1460,11 @@ class BasicPricelist(QMainWindow):
             self.jobs_c.execute("SELECT job_id, job_name FROM jobs WHERE is_default = 1")
             default_job = self.jobs_c.fetchone()
 
+            job_id, job_name = default_job
+
             if not default_job:
                 QMessageBox.warning(self, "No Default Job", "No default job is set. Please set a default job first.")
                 return
-
-            job_id, job_name = default_job
 
             # Step 2: Create a database file name using job_id and job_name
             job_db_name = f"Job-ID-{job_id}_{job_name.replace(' ', '_')}.db"
