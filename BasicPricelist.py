@@ -112,6 +112,27 @@ class BasicPricelist(QMainWindow):
 
         main_layout = QVBoxLayout()
 
+        # Add updated Current Job label with an icon
+        current_job_layout = QHBoxLayout()  # Create a horizontal layout to hold icon and label
+
+        # Load the current-job.png icon
+        current_job_icon_label = QLabel()
+        icon_path = os.path.join(icon_folder_path, "current-job.png")  # Path to the icon
+        current_job_icon_label.setPixmap(
+            QtGui.QPixmap(icon_path).scaled(32, 32, QtCore.Qt.AspectRatioMode.KeepAspectRatio))  # Adjust size as needed
+
+        # Create the label for the job name
+        self.current_job_label = QLabel("Current Job:")  # Initialize with a placeholder
+        self.update_current_job_label("Kilpatrick")     # updates the current job.
+        self.current_job_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)  # Align the text to the left
+
+        # Add the icon and label to the horizontal layout
+        current_job_layout.addWidget(current_job_icon_label)
+        current_job_layout.addWidget(self.current_job_label)
+
+        # Add the horizontal layout to the main layout
+        main_layout.addLayout(current_job_layout)
+
         # Search Bar
         search_layout = QHBoxLayout()
         self.search_input = QLineEdit()
@@ -205,6 +226,9 @@ class BasicPricelist(QMainWindow):
 
         self.jobs_conn.commit()
 
+    def update_current_job_label(self, job_name):
+        """Update the current job label with the given job name."""
+        self.current_job_label.setText(f"Current Job: {job_name}")
 
     def open_jobs_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""

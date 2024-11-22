@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="UI improvement.">
-      <change afterPath="$PROJECT_DIR$/images/basic-prices-manager.png" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Basic Prices Manager, Window icon added.">
+      <change afterPath="$PROJECT_DIR$/images/current-job.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
     </list>
@@ -63,6 +63,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\images" />
       <recent name="$PROJECT_DIR$/images" />
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist" />
       <recent name="$PROJECT_DIR$" />
@@ -204,14 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00157" summary="import from excel button added.">
-      <option name="closed" value="true" />
-      <created>1731838181659</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1731838181659</updated>
     </task>
     <task id="LOCAL-00158" summary="Working on duplicated mat-ids.">
       <option name="closed" value="true" />
@@ -597,7 +590,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732261454579</updated>
     </task>
-    <option name="localTasksCounter" value="206" />
+    <task id="LOCAL-00206" summary="Basic Prices Manager, Window icon added.">
+      <option name="closed" value="true" />
+      <created>1732266093255</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1732266093255</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -612,7 +613,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="delete_selected_job" />
     <MESSAGE value="jobs DONE !!!!!!!!!!" />
     <MESSAGE value="Assign to job button in price comparison table." />
     <MESSAGE value="assign_material_to_job" />
@@ -637,6 +637,7 @@
     <MESSAGE value="QIcons and pngs in toolbar." />
     <MESSAGE value="tool button with an icon (50x50) and name beneath." />
     <MESSAGE value="UI improvement." />
-    <option name="LAST_COMMIT_MESSAGE" value="UI improvement." />
+    <MESSAGE value="Basic Prices Manager, Window icon added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Prices Manager, Window icon added." />
   </component>
 </project>
