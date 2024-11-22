@@ -235,7 +235,7 @@ class BasicPricelist(QMainWindow):
 
     def update_default_job_label(self, job_name):
         """Updates the current job label with the job name (db_file)."""
-        self.default_job_label.setText(f"Default Job: {job_name}")
+        self.default_job_label.setText(f"Default Job: \t{job_name}")
 
         if job_name == "No existing job selected":
             # Set text color to red for the placeholder text

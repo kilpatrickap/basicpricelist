@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Default Job: dynamic label is done." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Default Job: dynamic label red and blue." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,14 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00165" summary="check_job_type_selection() method">
-      <option name="closed" value="true" />
-      <created>1732056355093</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1732056355094</updated>
     </task>
     <task id="LOCAL-00166" summary="show_job_information_dialog() method">
       <option name="closed" value="true" />
@@ -594,7 +586,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732276034810</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL-00214" summary="Default Job: dynamic label red and blue.">
+      <option name="closed" value="true" />
+      <created>1732276429275</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1732276429275</updated>
+    </task>
+    <option name="localTasksCounter" value="215" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -609,7 +609,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Works PERFECTLY AGAIN !!!!" />
     <MESSAGE value="Jobs list." />
     <MESSAGE value="open_jobs_list() and handle_job_action() methods." />
     <MESSAGE value="dynamic resize of column width based on content." />
@@ -634,6 +633,7 @@
     <MESSAGE value="almost working." />
     <MESSAGE value="Works perfectly." />
     <MESSAGE value="Default Job: dynamic label is done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Default Job: dynamic label is done." />
+    <MESSAGE value="Default Job: dynamic label red and blue." />
+    <option name="LAST_COMMIT_MESSAGE" value="Default Job: dynamic label red and blue." />
   </component>
 </project>
