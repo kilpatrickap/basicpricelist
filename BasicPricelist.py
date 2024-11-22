@@ -167,7 +167,7 @@ class BasicPricelist(QMainWindow):
         self.setCentralWidget(container)
 
         # Set an initial value for the current job label
-        self.update_current_job_label("No job selected")  # Placeholder text for now
+        self.update_default_job_label("No existing job selected")  # Placeholder text for now
 
     def initDB(self):
         """Initializes the SQLite database for materials and users."""
@@ -233,9 +233,9 @@ class BasicPricelist(QMainWindow):
 
         self.jobs_conn.commit()
 
-    def update_current_job_label(self, db_file):
+    def update_default_job_label(self, db_file):
         """Updates the current job label with the job name (db_file)."""
-        self.current_job_label.setText(f"Current Job: {db_file}")
+        self.current_job_label.setText(f"Default Job: {db_file}")
 
     def open_jobs_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
@@ -433,6 +433,10 @@ class BasicPricelist(QMainWindow):
 
                     # Set the new default job
                     self.jobs_c.execute("UPDATE jobs SET is_default = 1 WHERE job_id = ?", (job_id,))
+
+                    # set the default job_name as a label
+                    self.update_default_job_label(job_name)
+
                     self.jobs_conn.commit()
 
                     QMessageBox.information(self, "Default Job", f"{job_name} has been set as the default Job.")
@@ -776,9 +780,6 @@ class BasicPricelist(QMainWindow):
 
             job_dialog.setLayout(layout)
             job_dialog.exec()
-
-            # After the job window is closed, update the current job label
-            self.update_current_job_label(db_file)  # Dynamically update the current job label with the selected db_file
 
             # Close the parent dialog
             parent_dialog.accept()
