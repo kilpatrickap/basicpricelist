@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Default user.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Job-ID-1_Ghana_Gas_Processing_Plant.db" beforeDir="false" afterPath="$PROJECT_DIR$/Job-ID-1_Ghana_Gas_Processing_Plant.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs.db" beforeDir="false" afterPath="$PROJECT_DIR$/jobs.db" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Done for today." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,14 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00168" summary="save_job_info() method and jobs.db">
-      <option name="closed" value="true" />
-      <created>1732057942154</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL-00168" />
-      <option name="project" value="LOCAL" />
-      <updated>1732057942155</updated>
     </task>
     <task id="LOCAL-00169" summary="jobs.db successfull">
       <option name="closed" value="true" />
@@ -599,7 +586,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732277442611</updated>
     </task>
-    <option name="localTasksCounter" value="217" />
+    <task id="LOCAL-00217" summary="Done for today.">
+      <option name="closed" value="true" />
+      <created>1732281177466</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1732281177467</updated>
+    </task>
+    <option name="localTasksCounter" value="218" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -614,7 +609,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="open_jobs_list() and handle_job_action() methods." />
     <MESSAGE value="dynamic resize of column width based on content." />
     <MESSAGE value="ui resize." />
     <MESSAGE value="ui resize BEAUTIFULLY!!!." />
@@ -639,6 +633,7 @@
     <MESSAGE value="Default Job: dynamic label is done." />
     <MESSAGE value="Default Job: dynamic label red and blue." />
     <MESSAGE value="Default user." />
-    <option name="LAST_COMMIT_MESSAGE" value="Default user." />
+    <MESSAGE value="Done for today." />
+    <option name="LAST_COMMIT_MESSAGE" value="Done for today." />
   </component>
 </project>
