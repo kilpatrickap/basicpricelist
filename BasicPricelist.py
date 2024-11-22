@@ -11,8 +11,8 @@ from PyQt6.QtGui import QFontMetrics
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
-                             QMessageBox, QFileDialog, QComboBox, QDateEdit, QRadioButton, QButtonGroup, QSpacerItem,
-                             QTabWidget)
+                             QMessageBox, QFileDialog, QComboBox, QDateEdit, QRadioButton, QButtonGroup, QSpacerItem
+                             )
 
 
 class BasicPricelist(QMainWindow):
