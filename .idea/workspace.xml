@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Done for today.">
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Job file location bottom label.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,14 +203,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00171" summary="open_edit_job_window and save_job_edits.">
-      <option name="closed" value="true" />
-      <created>1732101456756</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1732101456756</updated>
     </task>
     <task id="LOCAL-00172" summary="delete_selected_job">
       <option name="closed" value="true" />
@@ -596,7 +588,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732282233988</updated>
     </task>
-    <option name="localTasksCounter" value="220" />
+    <task id="LOCAL-00220" summary="Job file location bottom label.">
+      <option name="closed" value="true" />
+      <created>1732282868907</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1732282868907</updated>
+    </task>
+    <option name="localTasksCounter" value="221" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -611,7 +611,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dynamic resize of column width based on content." />
     <MESSAGE value="ui resize." />
     <MESSAGE value="ui resize BEAUTIFULLY!!!." />
     <MESSAGE value="open_job_window()" />
@@ -636,6 +635,7 @@
     <MESSAGE value="Default Job: dynamic label red and blue." />
     <MESSAGE value="Default user." />
     <MESSAGE value="Done for today." />
-    <option name="LAST_COMMIT_MESSAGE" value="Done for today." />
+    <MESSAGE value="Job file location bottom label." />
+    <option name="LAST_COMMIT_MESSAGE" value="Job file location bottom label." />
   </component>
 </project>
