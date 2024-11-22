@@ -204,14 +204,6 @@
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
     </task>
-    <task id="LOCAL-00170" summary="show_existing_jobs_window">
-      <option name="closed" value="true" />
-      <created>1732058702526</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL-00170" />
-      <option name="project" value="LOCAL" />
-      <updated>1732058702526</updated>
-    </task>
     <task id="LOCAL-00171" summary="open_edit_job_window and save_job_edits.">
       <option name="closed" value="true" />
       <created>1732101456756</created>
@@ -596,7 +588,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732281660134</updated>
     </task>
-    <option name="localTasksCounter" value="219" />
+    <task id="LOCAL-00219" summary="Done for today.">
+      <option name="closed" value="true" />
+      <created>1732282233988</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1732282233988</updated>
+    </task>
+    <option name="localTasksCounter" value="220" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

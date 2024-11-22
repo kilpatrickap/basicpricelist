@@ -184,6 +184,22 @@ class BasicPricelist(QMainWindow):
              'Price Date'])  # Correct number of columns
         main_layout.addWidget(self.table)
 
+        #----------------- bottom label --------------------------------
+        # Create the label for the job file location
+        self.job_file_location_label = QLabel()
+        self.job_file_location_label.setText("Job File Location: None")  # Placeholder text
+
+        # Optionally, align it to the left
+        self.job_file_location_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
+
+        # Add a spacer before the label if you want the label centered or aligned to a specific area
+        bottom_spacer = QSpacerItem(10, 10, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        # Add the label to the layout, after adding the spacer
+        main_layout.addItem(bottom_spacer)
+        main_layout.addWidget(self.job_file_location_label)
+
+
         container = QWidget()
         container.setLayout(main_layout)
         self.setCentralWidget(container)
