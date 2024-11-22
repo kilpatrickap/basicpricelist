@@ -113,30 +113,47 @@ class BasicPricelist(QMainWindow):
 
         main_layout = QVBoxLayout()
 
-        # Add updated Current Job label with an icon
-        default_job_layout = QHBoxLayout()  # Create a horizontal layout to hold icon and label
+        # Create a single horizontal layout to hold both the default job and default user labels
+        default_info_layout = QHBoxLayout()
 
-        # Load the current-job.png icon
+        # ------------------- Default Job Section -------------------
+        # Create the icon for the default job
         default_job_icon_label = QLabel()
-        icon_path = os.path.join(icon_folder_path, "current-job.png")  # Path to the icon
+        icon_path = os.path.join(icon_folder_path, "current-job.png")
         default_job_icon_label.setPixmap(
-            QtGui.QPixmap(icon_path).scaled(30, 30, QtCore.Qt.AspectRatioMode.KeepAspectRatio))  # Adjust size as needed
+            QtGui.QPixmap(icon_path).scaled(30, 30, QtCore.Qt.AspectRatioMode.KeepAspectRatio))
 
         # Create the label for the job name
         self.default_job_label = QLabel()
-        self.update_default_job_label("No existing job selected")  # Placeholder text for now
-        self.default_job_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)  # Align the text to the left
+        self.update_default_job_label("No existing Job selected")  # Placeholder text for now
+        self.default_job_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
 
-        # Add the icon and label to the horizontal layout
-        default_job_layout.addWidget(default_job_icon_label)
-        default_job_layout.addWidget(self.default_job_label)
+        # Add the icon and label to the layout
+        default_info_layout.addWidget(default_job_icon_label)
+        default_info_layout.addWidget(self.default_job_label)
 
-        # Add a horizontal spacer after the label
+        # ------------------- Default User Section -------------------
+        # Create the icon for the default user
+        default_user_icon_label = QLabel()
+        icon_path = os.path.join(icon_folder_path, "user.png")
+        default_user_icon_label.setPixmap(
+            QtGui.QPixmap(icon_path).scaled(30, 30, QtCore.Qt.AspectRatioMode.KeepAspectRatio))
+
+        # Create the label for the user
+        self.default_user_label = QLabel()
+        self.update_default_user_label("No existing User selected")  # Placeholder text for now
+        self.default_user_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
+
+        # Add the icon and label to the layout
+        default_info_layout.addWidget(default_user_icon_label)
+        default_info_layout.addWidget(self.default_user_label)
+
+        # Add a horizontal spacer to push the labels to the left
         spacer = QSpacerItem(20, 10, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-        default_job_layout.addItem(spacer)
+        default_info_layout.addItem(spacer)
 
-        # Add the horizontal layout to the main layout
-        main_layout.addLayout(default_job_layout)
+        # Add the combined layout to the main layout
+        main_layout.addLayout(default_info_layout)
 
         # Search Bar
         search_layout = QHBoxLayout()
@@ -237,12 +254,24 @@ class BasicPricelist(QMainWindow):
         """Updates the current job label with the job name (db_file)."""
         self.default_job_label.setText(f"Default Job: \t{job_name}")
 
-        if job_name == "No existing job selected":
+        if job_name == "No existing Job selected":
             # Set text color to red for the placeholder text
             self.default_job_label.setStyleSheet("color: red;")
         else:
             # Set text color to blue once a job is selected
             self.default_job_label.setStyleSheet("color: blue;")
+
+    def update_default_user_label(self, user_name):
+        """Updates the current job label with the job name (db_file)."""
+        self.default_user_label.setText(f"Default User: \t{user_name}")
+
+        if user_name == "No existing User selected":
+            # Set text color to red for the placeholder text
+            self.default_user_label.setStyleSheet("color: red;")
+        else:
+            # Set text color to blue once a user is selected
+            self.default_user_label.setStyleSheet("color: blue;")
+
 
     def open_jobs_info_window(self):
         """Displays options for New User and Existing User, with a responsive Submit button."""
