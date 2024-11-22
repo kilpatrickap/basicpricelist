@@ -83,7 +83,7 @@ class BasicPricelist(QMainWindow):
         self.toolBar.addWidget(delete_material_button)
         self.toolBar.addSeparator()
 
-        vendors_button = create_tool_button_with_icon("vendors.png", "Vendors", self.show_vendor_list_window)
+        vendors_button = create_tool_button_with_icon("vendors.png", "Vendor Management", self.show_vendor_list_window)
         self.toolBar.addWidget(vendors_button)
         self.toolBar.addSeparator()
 
@@ -1984,7 +1984,7 @@ class BasicPricelist(QMainWindow):
     def show_vendor_list_window(self):
         """Shows the list of all existing vendors with their details including location."""
         vendor_list_dialog = QDialog(self)
-        vendor_list_dialog.setWindowTitle("Vendor List")
+        vendor_list_dialog.setWindowTitle("Vendor Management")
         vendor_list_dialog.setGeometry(200, 200, 700, 400)
 
         # Create a table widget for vendors
