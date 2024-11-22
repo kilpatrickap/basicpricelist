@@ -1313,18 +1313,12 @@ class BasicPricelist(QMainWindow):
         material_id = self.table.item(selected_row, 0).text()  # Assuming column 0 is mat_id
         material_name = self.table.item(selected_row, 2).text()  # Assuming column 2 is material_name
 
-        # Debugging step: Print out selected material details
-        # print(f"Selected Material ID: {material_id}, Name: {material_name}")
-
         # Query database to fetch all vendors and prices for the selected material
         try:
             self.c.execute('''SELECT mat_id, vendor, currency, price, unit, vendor_location, price_date 
                               FROM materials 
                               WHERE material_name = ?''', (material_name,))
             results = self.c.fetchall()
-
-            # Debugging step: Print out fetched results from the database
-            # print(f"Fetched Results from Database: {results}")
 
         except sqlite3.Error as e:
             # Show an error message if there’s a database issue
@@ -1359,16 +1353,14 @@ class BasicPricelist(QMainWindow):
         compare_table.setColumnCount(8)  # Increase the column count to 7 to include Location
         compare_table.setHorizontalHeaderLabels(["Mat ID", "Vendor", "Currency", "Price", "Unit", "Location", "Date", "Allocation"])
 
-        # Step 1: Retrieve the default job from jobs.db
-        self.jobs_c.execute("SELECT job_name FROM jobs WHERE is_default = 1")
+        # Extract job_id and job_name for view in label
+        self.jobs_c.execute("SELECT job_id, job_name FROM jobs WHERE is_default = 1")
         default_job = self.jobs_c.fetchone()
 
-        job_name = default_job
+        job_id, job_name = default_job
 
         # update the default job label
         self.update_default_job_label(job_name)
-
-
 
         # Function to populate the table with formatted prices
         def populate_table(data):
@@ -1402,9 +1394,6 @@ class BasicPricelist(QMainWindow):
             # Show an error message if there’s an issue with data conversion
             QMessageBox.critical(self, "Data Error", f"Error processing data: {e}")
             return
-
-        # Debugging step: Print out results after conversion
-        # print(f"Processed Results: {results}")
 
         sorted_results = sorted(results, key=lambda x: x[3])
         populate_table(sorted_results)
