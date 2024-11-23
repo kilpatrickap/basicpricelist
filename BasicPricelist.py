@@ -322,7 +322,6 @@ class BasicPricelist(QMainWindow):
         submit_button = QPushButton("Next")
         submit_button.clicked.connect(
             lambda: self.check_job_type_selection(new_job_radio, existing_job_radio, job_type_dialog))
-        # Else if the existing_job_radio is selected, open the show_existing_job_window
 
         button_layout.addWidget(submit_button)  # Center button
         button_layout.addStretch()  # Spacer on the right
@@ -344,15 +343,18 @@ class BasicPricelist(QMainWindow):
         """Opens the Job Information Window with location to save jobs database."""
         job_info_dialog = QDialog(self)
         job_info_dialog.setWindowTitle("New Job Information")
-        job_info_dialog.setGeometry(200, 200, 300, 200)
+        job_info_dialog.setGeometry(200, 200, 400, 200)
 
         # User information input fields
         form_layout = QFormLayout()
         job_name_input = QLineEdit()
+        job_name_input.setMinimumWidth(400)
         form_layout.addRow(QLabel("Job Name :"), job_name_input)
         client_input = QLineEdit()
+        client_input.setMinimumWidth(400)
         form_layout.addRow(QLabel("Client :"), client_input)
         location_input = QLineEdit()
+        location_input.setMinimumWidth(400)
         form_layout.addRow(QLabel("Location :"), location_input)
 
 
@@ -409,12 +411,12 @@ class BasicPricelist(QMainWindow):
         """Shows the list of all existing jobs with 'Make Default', 'Edit', and 'Delete' buttons."""
         job_list_dialog = QDialog(self)
         job_list_dialog.setWindowTitle("Existing Jobs")
-        job_list_dialog.setGeometry(200, 200, 430, 200)
+        job_list_dialog.setGeometry(200, 200, 800, 400)
 
         table_widget = QTableWidget()
         table_widget.setRowCount(0)
         table_widget.setColumnCount(3)
-        table_widget.setHorizontalHeaderLabels(["Job ID", "Job Name", "Make Default"])
+        table_widget.setHorizontalHeaderLabels(["Job ID", "Job Name", "Make Current"])
 
         # Fetch and populate data
         self.jobs_c.execute("SELECT job_id, job_name FROM jobs")
@@ -425,8 +427,9 @@ class BasicPricelist(QMainWindow):
             table_widget.insertRow(row_idx)
             table_widget.setItem(row_idx, 0, QTableWidgetItem(f"Job-ID-{job[0]}"))
             table_widget.setItem(row_idx, 1, QTableWidgetItem(job[1]))
+            table_widget.setColumnWidth(1, 400)
 
-            make_default_job_button = QPushButton("Default Job")
+            make_default_job_button = QPushButton("Current Job")
             make_default_job_button.clicked.connect(lambda checked, job_id=job[0]: self.make_default_job(job_id))
             table_widget.setCellWidget(row_idx, 2, make_default_job_button)
 
@@ -537,22 +540,25 @@ class BasicPricelist(QMainWindow):
         # Open edit dialog with current job information
         edit_dialog = QDialog(self)
         edit_dialog.setWindowTitle("Edit Job")
-        edit_dialog.setGeometry(300, 300, 300, 200)
+        edit_dialog.setGeometry(200, 200, 400, 200)
 
         layout = QFormLayout()
 
         job_name_input = QLineEdit()
+        job_name_input.setMinimumWidth(400)
         job_name_input.setText(current_job_name)
         client_input = QLineEdit()
+        client_input.setMinimumWidth(400)
         client_input.setText(current_client)
         location_input = QLineEdit()
+        location_input.setMinimumWidth(400)
         location_input.setText(current_location)
 
         layout.addRow("Job Name:", job_name_input)
         layout.addRow("Client:", client_input)
         layout.addRow("Location:", location_input)
 
-        save_job_button = QPushButton("Save Job")
+        save_job_button = QPushButton("Save Job")           #TODO: Centre the save button.
         save_job_button.clicked.connect(lambda: self.save_job_edits(
             job_id, job_name_input.text(), client_input.text(),
             location_input.text(), edit_dialog, table_widget, selected_row
@@ -932,7 +938,7 @@ class BasicPricelist(QMainWindow):
         """Shows the list of all existing users with 'Make Default', 'Edit', and 'Delete' buttons."""
         user_list_dialog = QDialog(self)
         user_list_dialog.setWindowTitle("Existing Users")
-        user_list_dialog.setGeometry(200, 200, 430, 200)
+        user_list_dialog.setGeometry(200, 200, 600, 400)
 
         table_widget = QTableWidget()
         table_widget.setRowCount(0)
@@ -1037,19 +1043,24 @@ class BasicPricelist(QMainWindow):
         # Open edit dialog with current user information
         edit_dialog = QDialog(self)
         edit_dialog.setWindowTitle("Edit User")
-        edit_dialog.setGeometry(300, 300, 300, 200)
+        edit_dialog.setGeometry(200, 200, 400, 200)
 
         layout = QFormLayout()
 
         name_input = QLineEdit()
+        name_input.setMinimumWidth(400)
         name_input.setText(current_name)
         company_input = QLineEdit()
+        company_input.setMinimumWidth(400)
         company_input.setText(current_company)
         position_input = QLineEdit()
+        position_input.setMinimumWidth(400)
         position_input.setText(current_position)
         phone_input = QLineEdit()
+        phone_input.setMinimumWidth(400)
         phone_input.setText(current_phone)
         email_input = QLineEdit()
+        email_input.setMinimumWidth(400)
         email_input.setText(current_email)
 
         layout.addRow("Name :", name_input)
@@ -1125,19 +1136,29 @@ class BasicPricelist(QMainWindow):
         """Opens the User Information Window with validation for phone and email fields."""
         user_info_dialog = QDialog(self)
         user_info_dialog.setWindowTitle("New User Information")
-        user_info_dialog.setGeometry(200, 200, 300, 200)
+        user_info_dialog.setGeometry(200, 200, 400, 200)
 
         # User information input fields
         form_layout = QFormLayout()
         name_input = QLineEdit()
+        name_input.setMinimumWidth(400)
+
         form_layout.addRow(QLabel("Name :"), name_input)
         company_input = QLineEdit()
+        company_input.setMinimumWidth(400)
+
         form_layout.addRow(QLabel("Company :"), company_input)
         position_input = QLineEdit()
+        position_input.setMinimumWidth(400)
+
         form_layout.addRow(QLabel("Position :"), position_input)
         phone_input = QLineEdit()
+        phone_input.setMinimumWidth(400)
+
         form_layout.addRow(QLabel("User Phone :"), phone_input)
         email_input = QLineEdit()
+        email_input.setMinimumWidth(400)
+
         form_layout.addRow(QLabel("Email :"), email_input)
 
         # Submit button
@@ -1334,7 +1355,7 @@ class BasicPricelist(QMainWindow):
         # Create a dialog window for comparison
         compare_dialog = QDialog(self)
         compare_dialog.setWindowTitle(f"Vendors Price Comparison")
-        compare_dialog.setGeometry(300, 200, 850, 500)
+        compare_dialog.setGeometry(200, 200, 800, 400)
 
         # Layout for the comparison table
         layout = QVBoxLayout(compare_dialog)
@@ -1758,7 +1779,7 @@ class BasicPricelist(QMainWindow):
             # Set up the RFP dialog
             rfq_dialog = QDialog(self)
             rfq_dialog.setWindowTitle("Request For Vendors Prices")
-            rfq_dialog.setGeometry(200, 200, 500, 500)
+            rfq_dialog.setGeometry(200, 200, 600, 600)
 
             layout = QVBoxLayout()
             email_body = QTextEdit()
@@ -1786,25 +1807,45 @@ class BasicPricelist(QMainWindow):
         """Opens a window to input a new material."""
         self.material_dialog = QDialog(self)
         self.material_dialog.setWindowTitle("New Material")
-        self.material_dialog.setGeometry(200, 200, 300, 300)  # Updated height for new field
+        self.material_dialog.setGeometry(200, 200, 400, 300)  # Updated height for new field
 
         layout = QFormLayout()
         self.trade_input = QLineEdit()
+        self.trade_input.setMinimumWidth(400)
+
         self.material_name_input = QLineEdit()
+        self.material_name_input.setMinimumWidth(400)
+
         self.material_name_input.setAlignment(Qt.AlignmentFlag.AlignLeft)  # Text aligns left
 
         self.currency_input = QComboBox()
+        self.currency_input.setMinimumWidth(400)
+
         self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
         self.currency_input.setCurrentText("GHS - Ghana Cedi")  # default GHS currency
-        self.currency_input.setMinimumWidth(150)  # Set minimum width for the combo box
+        self.currency_input.setMinimumWidth(400)  # Set minimum width for the combo box
 
         self.price_input = QLineEdit()
+        self.price_input.setMinimumWidth(400)
+
         self.unit_input = QLineEdit()
+        self.unit_input.setMinimumWidth(400)
+
         self.vendor_input = QLineEdit()
+        self.vendor_input.setMinimumWidth(400)
+
         self.vendor_phone_input = QLineEdit()
+        self.vendor_phone_input.setMinimumWidth(400)
+
         self.vendor_email_input = QLineEdit()
+        self.vendor_email_input.setMinimumWidth(400)
+
         self.vendor_location_input = QLineEdit()
+        self.vendor_location_input.setMinimumWidth(400)
+
         self.price_date_input = QDateEdit()  # New date input field
+        self.price_date_input.setMinimumWidth(400)
+
         self.price_date_input.setDate(QDate.currentDate())  # Set default date to today
         self.price_date_input.setCalendarPopup(True)  # Show calendar popup for date selection
 
@@ -1910,15 +1951,21 @@ class BasicPricelist(QMainWindow):
 
         self.material_dialog = QDialog(self)
         self.material_dialog.setWindowTitle("Edit Material")
-        self.material_dialog.setGeometry(200, 200, 300, 300)  # Updated height for new field
+        self.material_dialog.setGeometry(200, 200, 400, 300)  # Updated height for new field
 
         layout = QFormLayout()
         self.trade_input = QLineEdit(trade)
+        self.trade_input.setMinimumWidth(400)
+
         self.material_name_input = QLineEdit(material_name)
+        self.material_name_input.setMinimumWidth(400)
+
         self.material_name_input.setAlignment(Qt.AlignmentFlag.AlignLeft)  # Text aligns left
 
         # Populate currency dropdown
         self.currency_input = QComboBox()
+        self.currency_input.setMinimumWidth(400)
+
         self.populate_currency_combo(self.currency_input)
 
         self.currency_input.setMinimumWidth(150)  # Set minimum width for the combo box
@@ -1934,12 +1981,26 @@ class BasicPricelist(QMainWindow):
             print(f"Currency '{currency_text}' not found in ComboBox items. Please check formatting.")
 
         self.price_input = QLineEdit(price)
+        self.price_input.setMinimumWidth(400)
+
         self.unit_input = QLineEdit(unit)
+        self.unit_input.setMinimumWidth(400)
+
         self.vendor_input = QLineEdit(vendor)
+        self.vendor_input.setMinimumWidth(400)
+
         self.vendor_phone_input = QLineEdit(vendor_phone)
+        self.vendor_phone_input.setMinimumWidth(400)
+
         self.vendor_email_input = QLineEdit(vendor_email)
+        self.vendor_email_input.setMinimumWidth(400)
+
         self.vendor_location_input = QLineEdit(vendor_location)
+        self.vendor_location_input.setMinimumWidth(400)
+
         self.price_date_input = QDateEdit()  # New date input field
+        self.price_date_input.setMinimumWidth(400)
+
         self.price_date_input.setDate(
             pd.to_datetime(price_date, dayfirst=True))  # Set the date input from current value
         self.price_date_input.setCalendarPopup(True)  # Show calendar popup for date selection
@@ -2090,7 +2151,7 @@ class BasicPricelist(QMainWindow):
         """Shows the list of all existing vendors with their details including location."""
         vendor_list_dialog = QDialog(self)
         vendor_list_dialog.setWindowTitle("Vendor Management")
-        vendor_list_dialog.setGeometry(200, 200, 700, 400)
+        vendor_list_dialog.setGeometry(200, 200, 800, 400)
 
         # Create a table widget for vendors
         vendor_table_widget = QTableWidget()
