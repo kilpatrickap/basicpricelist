@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="DONE !!!">
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,22 +203,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00180" summary="Works PERFECTLY AGAIN !!!!">
-      <option name="closed" value="true" />
-      <created>1732111416440</created>
-      <option name="number" value="00180" />
-      <option name="presentableId" value="LOCAL-00180" />
-      <option name="project" value="LOCAL" />
-      <updated>1732111416440</updated>
-    </task>
-    <task id="LOCAL-00181" summary="Jobs list.">
-      <option name="closed" value="true" />
-      <created>1732112564843</created>
-      <option name="number" value="00181" />
-      <option name="presentableId" value="LOCAL-00181" />
-      <option name="project" value="LOCAL" />
-      <updated>1732112564843</updated>
     </task>
     <task id="LOCAL-00182" summary="open_jobs_list() and handle_job_action() methods.">
       <option name="closed" value="true" />
@@ -596,7 +580,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732408725264</updated>
     </task>
-    <option name="localTasksCounter" value="229" />
+    <task id="LOCAL-00229" summary="DONE !!!">
+      <option name="closed" value="true" />
+      <created>1732408871907</created>
+      <option name="number" value="00229" />
+      <option name="presentableId" value="LOCAL-00229" />
+      <option name="project" value="LOCAL" />
+      <updated>1732408871908</updated>
+    </task>
+    <task id="LOCAL-00230" summary="DONE !!!">
+      <option name="closed" value="true" />
+      <created>1732409654214</created>
+      <option name="number" value="00230" />
+      <option name="presentableId" value="LOCAL-00230" />
+      <option name="project" value="LOCAL" />
+      <updated>1732409654214</updated>
+    </task>
+    <option name="localTasksCounter" value="231" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
