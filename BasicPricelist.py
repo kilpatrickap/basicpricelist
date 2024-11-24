@@ -1950,7 +1950,7 @@ class BasicPricelist(QMainWindow):
         price_date = self.table.item(selected_row, 10).text()  # Get price date
 
         self.material_dialog = QDialog(self)
-        self.material_dialog.setWindowTitle("Edit Material")
+        self.material_dialog.setWindowTitle(f"Edit Material [{mat_id}]")
         self.material_dialog.setGeometry(200, 200, 400, 300)  # Updated height for new field
 
         layout = QFormLayout()
