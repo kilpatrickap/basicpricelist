@@ -40,7 +40,7 @@ class BasicPricelist(QMainWindow):
         self.addToolBar(QtCore.Qt.ToolBarArea.TopToolBarArea, self.toolBar)
 
         # Set the icon size for the toolbar (e.g., 32x32 pixels)
-        self.toolBar.setIconSize(QtCore.QSize(50, 50))  # Increase size to your preference
+        self.toolBar.setIconSize(QtCore.QSize(32, 32))  # Increase size to your preference
 
         # Helper function to create a QToolButton with an icon
         def create_tool_button_with_icon(icon_name, text, callback):
@@ -646,7 +646,7 @@ class BasicPricelist(QMainWindow):
             # Step 2: Create a dialog window to display the job databases
             dialog = QDialog(self)
             dialog.setWindowTitle("Jobs List")
-            dialog.setGeometry(200, 200, 400, 200)
+            dialog.setGeometry(200, 200, 600, 400)
 
             layout = QVBoxLayout(dialog)  # Main layout to hold everything
 
@@ -943,7 +943,7 @@ class BasicPricelist(QMainWindow):
         table_widget = QTableWidget()
         table_widget.setRowCount(0)
         table_widget.setColumnCount(3)
-        table_widget.setHorizontalHeaderLabels(["User ID", "Name", "Make Default"])
+        table_widget.setHorizontalHeaderLabels(["User ID", "Name", "Make Current"])
 
         # Fetch and populate data
         self.users_c.execute("SELECT user_id, name FROM users")
@@ -953,7 +953,7 @@ class BasicPricelist(QMainWindow):
             table_widget.setItem(row_idx, 0, QTableWidgetItem(f"UserID-{user[0]}"))
             table_widget.setItem(row_idx, 1, QTableWidgetItem(user[1]))
 
-            make_default_button = QPushButton("Default")
+            make_default_button = QPushButton("Current")
             make_default_button.clicked.connect(lambda checked, user_id=user[0]: self.make_default_user(user_id))
             table_widget.setCellWidget(row_idx, 2, make_default_button)
 
