@@ -893,47 +893,22 @@ class BasicPricelist(QMainWindow):
 
             # Fetch the ID of the selected material (assuming it's in the first column)
             material_id = self.table_widget.item(selected_row, 0).text()  # Assuming the ID is in the first column
-            if material_id is None:
+            if not material_id:  # Check for None or empty value
                 QMessageBox.warning(self, "Error", "The selected material does not have an ID.")
                 return
 
             # Debug: Confirm material_id
             print(material_id)
 
-            # Confirm deletion with the user
-            reply = QMessageBox.question(self, "Delete Material",
-                                         f"Are you sure you want to delete the material with ID {material_id}?",
-                                         QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
-            if reply == QMessageBox.No:
-                return
-
-            # Fetch all table names in the database
-            cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
-            tables = cursor.fetchall()
-            if not tables:
-                QMessageBox.information(self, "No Tables Found", f"The database '{db_file}' contains no tables.")
-                return
-
-            # We are displaying data from only the first table
-            table_name = tables[0][0]  # Use the first table in the database
-
-            # Delete the material from the database
-            cursor.execute(f"DELETE FROM {table_name} WHERE id = ?", (material_id,))
-            conn.commit()
-
-            # Remove the row from the table widget
-            self.table_widget.removeRow(selected_row)
-
-            # Show success message
-            QMessageBox.information(self, "Material Deleted",
-                                    f"Material with ID {material_id} has been deleted successfully.")
+            # Delete the selected material from the db_file
 
         except sqlite3.Error as e:
             QMessageBox.critical(self, "Error", f"Failed to delete material: {e}")
             # Debug: Print the specific error message
             print(f"Database error: {e}")
         finally:
-            if 'conn' in locals():
+            # Ensure connection closure in all cases
+            if 'conn' in locals() and conn:
                 conn.close()
                 # Debug: Confirm connection closure
                 print("Database connection closed.")
