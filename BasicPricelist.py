@@ -898,6 +898,9 @@ class BasicPricelist(QMainWindow):
                 return
             material_id = item.text()
 
+            # Debug: Confirm material_id
+            print(material_id)
+
             # Confirm deletion with the user
             reply = QMessageBox.question(self, "Delete Material",
                                          f"Are you sure you want to delete the material with ID {material_id}?",
