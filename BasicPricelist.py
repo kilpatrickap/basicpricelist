@@ -915,6 +915,8 @@ class BasicPricelist(QMainWindow):
             # Debug: Confirm material_id
             print(material_id)
 
+            # Issue a QMessage.question if yes, delete elso dont.
+
             # Delete the selected material from the db_file
             cursor.execute(f"DELETE FROM {table_name} WHERE id=?", (material_id,))
             conn.commit()
