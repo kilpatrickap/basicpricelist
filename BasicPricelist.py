@@ -343,7 +343,7 @@ class BasicPricelist(QMainWindow):
         """Opens the Job Information Window with location to save jobs database."""
         job_info_dialog = QDialog(self)
         job_info_dialog.setWindowTitle("New Job Information")
-        job_info_dialog.setGeometry(200, 200, 400, 200)
+        job_info_dialog.setGeometry(200, 200, 400, 150)
 
         # User information input fields
         form_layout = QFormLayout()
@@ -1079,13 +1079,23 @@ class BasicPricelist(QMainWindow):
         layout.addRow("Phone :", phone_input)
         layout.addRow("Email :", email_input)
 
-        save_button = QPushButton(" Save ")
+        # Create a horizontal layout for the save button
+        save_button_layout = QHBoxLayout()
+        save_button = QPushButton("Save User")
+        save_button.setFixedWidth(150)  # Optional: Set a fixed width if needed
         save_button.clicked.connect(lambda: self.save_user_edits(
             user_id, name_input.text(), company_input.text(),
             position_input.text(), phone_input.text(),
             email_input.text(), edit_dialog, table_widget, selected_row
         ))
-        layout.addWidget(save_button)
+
+        # Center the button within the horizontal layout
+        save_button_layout.addWidget(save_button)
+        save_button_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        # Add the horizontal layout to the main form layout
+        layout.addRow(save_button_layout)
+
         edit_dialog.setLayout(layout)
         edit_dialog.exec()
 
