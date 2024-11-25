@@ -1335,7 +1335,7 @@ class BasicPricelist(QMainWindow):
                     max_width_vendor = max(max_width_vendor, font_metrics.horizontalAdvance(item_text))
                 elif col_num == 8:  # Email column
                     max_width_email = max(max_width_email, font_metrics.horizontalAdvance(item_text))
-                elif col_num == 9:  # Email column
+                elif col_num == 9:  # Location column
                     max_width_location = max(max_width_location, font_metrics.horizontalAdvance(item_text))
 
                 if col_num == 4:  # Assuming 'price' is the 5th column
@@ -1343,9 +1343,14 @@ class BasicPricelist(QMainWindow):
                     if isinstance(data, str):
                         data = float(data.replace(',', ''))
                     formatted_price = f"{data:,.2f}"
-                    self.table.setItem(row_num, col_num, QTableWidgetItem(formatted_price))
+                    item = QTableWidgetItem(formatted_price)
                 else:
-                    self.table.setItem(row_num, col_num, QTableWidgetItem(item_text))
+                    item = QTableWidgetItem(item_text)
+
+                # Set item to be non-editable
+                item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEditable)
+
+                self.table.setItem(row_num, col_num, item)
 
         # Set the column widths based on the widest entry for each column
         self.table.setColumnWidth(0, max_width_mat_id + 20)  # Mat ID column with padding
@@ -1355,7 +1360,7 @@ class BasicPricelist(QMainWindow):
         self.table.setColumnWidth(5, max_width_unit + 20)  # Unit column with padding
         self.table.setColumnWidth(6, max_width_vendor + 20)  # Vendor column with padding
         self.table.setColumnWidth(8, max_width_email + 20)  # Email column with padding
-        self.table.setColumnWidth(9, max_width_location + 20)  # Email column with padding
+        self.table.setColumnWidth(9, max_width_location + 20)  # Location column with padding
 
     def populate_currency_combo(self, combo_box):
         """Populates the currency dropdown with available currencies."""
