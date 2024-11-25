@@ -205,14 +205,6 @@
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
     </task>
-    <task id="LOCAL-00190" summary="open_job_window(), adjustment needed.">
-      <option name="closed" value="true" />
-      <created>1732135195744</created>
-      <option name="number" value="00190" />
-      <option name="presentableId" value="LOCAL-00190" />
-      <option name="project" value="LOCAL" />
-      <updated>1732135195744</updated>
-    </task>
     <task id="LOCAL-00191" summary="open_job_window(), adjustment needed.">
       <option name="closed" value="true" />
       <created>1732135407173</created>
@@ -597,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732530024923</updated>
     </task>
-    <option name="localTasksCounter" value="239" />
+    <task id="LOCAL-00239" summary=" Working on deleting a selected material from job db.">
+      <option name="closed" value="true" />
+      <created>1732532782409</created>
+      <option name="number" value="00239" />
+      <option name="presentableId" value="LOCAL-00239" />
+      <option name="project" value="LOCAL" />
+      <updated>1732532782409</updated>
+    </task>
+    <option name="localTasksCounter" value="240" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
