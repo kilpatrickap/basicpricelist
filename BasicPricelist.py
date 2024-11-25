@@ -787,15 +787,22 @@ class BasicPricelist(QMainWindow):
             # Create the main layout for the dialog
             layout = QVBoxLayout(job_dialog)
 
-            # Create a horizontal layout for the Export to Excel button and align it to the right
-            export_layout = QHBoxLayout()
-            export_layout.addStretch(1)  # Push the button to the right
+            # Create a horizontal layout for the buttons (Export and Delete Material)
+            button_layout = QHBoxLayout()
+            button_layout.addStretch(1)  # Push buttons to the right
+
+            # Delete Material button
+            delete_button = QPushButton("Delete Material")
+            delete_button.clicked.connect(self.job_delete_material)  # Implement the delete_material method
+            button_layout.addWidget(delete_button)
+
+            # Export Job to Excel button
             export_button = QPushButton("Export Job to Excel")
             export_button.clicked.connect(self.export_job_to_excel)  # Make sure this is defined elsewhere in your code
-            export_layout.addWidget(export_button)
+            button_layout.addWidget(export_button)
 
-            # Add the export button layout above the table layout
-            layout.addLayout(export_layout)
+            # Add the button layout above the table layout
+            layout.addLayout(button_layout)
 
             # Create a horizontal layout for the table
             table_layout = QHBoxLayout()
@@ -841,17 +848,17 @@ class BasicPricelist(QMainWindow):
             layout.addLayout(table_layout)
 
             # Create a horizontal layout for the close button
-            button_layout = QHBoxLayout()
+            close_button_layout = QHBoxLayout()
 
             # Add stretchable space to center the button
-            button_layout.addStretch(1)  # Adds flexible space before the button
+            close_button_layout.addStretch(1)  # Adds flexible space before the button
             close_button = QPushButton("Close")
             close_button.clicked.connect(job_dialog.close)
-            button_layout.addWidget(close_button)
-            button_layout.addStretch(1)  # Adds flexible space after the button
+            close_button_layout.addWidget(close_button)
+            close_button_layout.addStretch(1)  # Adds flexible space after the button
 
-            # Add button layout to the main layout
-            layout.addLayout(button_layout)
+            # Add close button layout to the main layout
+            layout.addLayout(close_button_layout)
 
             job_dialog.setLayout(layout)
             job_dialog.exec()
@@ -862,6 +869,54 @@ class BasicPricelist(QMainWindow):
         except sqlite3.Error as e:
             QMessageBox.critical(self, "Error", f"Failed to load data from the database '{db_file}': {e}")
         finally:
+            if 'conn' in locals():
+                conn.close()
+
+    def job_delete_material(self):
+        """Deletes the selected material from the job's database."""
+
+        # Step 1: Get the selected row from the table
+        selected_row = self.table_widget.currentRow()
+
+        # If no row is selected, show a warning
+        if selected_row == -1:
+            QMessageBox.warning(self, "Selection Error", "Please select a material to delete.")
+            return
+
+        # Step 2: Get the material ID (assuming it's in the first column of the table)
+        material_id = self.table_widget.item(selected_row, 0).text()
+
+        # Step 3: Confirm deletion with the user
+        reply = QMessageBox.question(self, "Confirm Deletion",
+                                     f"Are you sure you want to delete material {material_id}?",
+                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                                     QMessageBox.StandardButton.No)
+
+        # If the user clicks "No", do nothing and return
+        if reply == QMessageBox.StandardButton.No:
+            return
+
+        # Step 4: Perform the deletion in the database
+        try:
+            # Assuming `self.current_job_db_file` stores the path to the current job's database
+            conn = sqlite3.connect(self.current_job_db_file)
+            cursor = conn.cursor()
+
+            # Execute the delete statement (assuming the table has 'mat_id' as the primary key)
+            cursor.execute("DELETE FROM materials WHERE mat_id = ?", (material_id,))
+            conn.commit()
+
+            # Step 5: Update the table to reflect the deletion
+            self.table_widget.removeRow(selected_row)
+
+            # Show success message
+            QMessageBox.information(self, "Success", f"Material {material_id} has been deleted successfully.")
+
+        except sqlite3.Error as e:
+            # In case of database error, show error message
+            QMessageBox.critical(self, "Error", f"Failed to delete material: {e}")
+        finally:
+            # Ensure the database connection is always closed
             if 'conn' in locals():
                 conn.close()
 
