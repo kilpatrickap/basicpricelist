@@ -205,22 +205,6 @@
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
     </task>
-    <task id="LOCAL-00201" summary="buttons in toolbar.">
-      <option name="closed" value="true" />
-      <created>1732229182954</created>
-      <option name="number" value="00201" />
-      <option name="presentableId" value="LOCAL-00201" />
-      <option name="project" value="LOCAL" />
-      <updated>1732229182955</updated>
-    </task>
-    <task id="LOCAL-00202" summary="QIcons and pngs in toolbar.">
-      <option name="closed" value="true" />
-      <created>1732233852253</created>
-      <option name="number" value="00202" />
-      <option name="presentableId" value="LOCAL-00202" />
-      <option name="project" value="LOCAL" />
-      <updated>1732233852253</updated>
-    </task>
     <task id="LOCAL-00203" summary="QIcons and pngs in toolbar.">
       <option name="closed" value="true" />
       <created>1732234401709</created>
@@ -597,7 +581,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732537517738</updated>
     </task>
-    <option name="localTasksCounter" value="250" />
+    <task id="LOCAL-00250" summary=" Working on deleting a selected material from job db.">
+      <option name="closed" value="true" />
+      <created>1732538097653</created>
+      <option name="number" value="00250" />
+      <option name="presentableId" value="LOCAL-00250" />
+      <option name="project" value="LOCAL" />
+      <updated>1732538097653</updated>
+    </task>
+    <task id="LOCAL-00251" summary=" Working on deleting a selected material from job db.">
+      <option name="closed" value="true" />
+      <created>1732538197449</created>
+      <option name="number" value="00251" />
+      <option name="presentableId" value="LOCAL-00251" />
+      <option name="project" value="LOCAL" />
+      <updated>1732538197449</updated>
+    </task>
+    <option name="localTasksCounter" value="252" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

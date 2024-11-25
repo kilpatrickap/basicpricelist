@@ -894,7 +894,7 @@ class BasicPricelist(QMainWindow):
             # Fetch and print the list of tables
             cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
             tables = cursor.fetchall()
-            print("Tables in the database:",tables)
+            print("Tables in the database:", tables)
 
             if not tables:
                 QMessageBox.information(self, "No Tables Found", f"The database '{db_file}' contains no tables.")
@@ -915,10 +915,10 @@ class BasicPricelist(QMainWindow):
             # Debug: Confirm material_id
             print(material_id)
 
-            # Issue a QMessage.question if yes, delete elso dont.
+            # Issue a QMessage.question if yes, delete.
 
             # Delete the selected material from the db_file
-            cursor.execute(f"DELETE FROM {table_name} WHERE id=?", (material_id,))
+            cursor.execute(f"DELETE FROM {table_name} WHERE mat_id=?", (material_id,))
             conn.commit()
 
             # Debug: Confirm deletion
