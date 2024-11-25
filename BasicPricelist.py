@@ -879,22 +879,15 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Selection Error", "Please select a material to delete.")
             return
 
-        # Debug confirmation of access to database file.
-        print(db_file)
-
         try:
             # Attempt to open a connection to the selected job's database
             conn = sqlite3.connect(db_file)
-
-            # Debug: Confirm if connection is successful
-            print("Database connection successful.")
 
             cursor = conn.cursor()
 
             # Fetch and print the list of tables
             cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
             tables = cursor.fetchall()
-            print("Tables in the database:", tables)
 
             if not tables:
                 QMessageBox.information(self, "No Tables Found", f"The database '{db_file}' contains no tables.")
@@ -902,9 +895,6 @@ class BasicPricelist(QMainWindow):
 
             # We are displaying data from only the first table (or you can choose another table)
             table_name = tables[0][0]  # Use the first table in the database
-
-            # Debug: confirm table_name
-            print(table_name)
 
             # Fetch the ID and name of the selected material (assuming ID is in the first column and name in the third)
             material_id = self.table_widget.item(selected_row, 0).text()  # Assuming the ID is in the first column
@@ -914,9 +904,6 @@ class BasicPricelist(QMainWindow):
                 QMessageBox.warning(self, "Error", "The selected material does not have an ID.")
                 return
 
-            # Debug: Confirm material_id and material_name
-            print(material_id, material_name)
-
             # Confirm deletion with the user
             reply = QMessageBox.question(self, 'Delete Material',
                                          f'Are you sure you want to delete [{material_id}] {material_name}?',
@@ -925,11 +912,8 @@ class BasicPricelist(QMainWindow):
                 return
 
             # Delete the selected material from the db_file
-            cursor.execute(f"DELETE FROM {table_name} WHERE id=?", (material_id,))
+            cursor.execute(f"DELETE FROM {table_name} WHERE mat_id=?", (material_id,))
             conn.commit()
-
-            # Debug: Confirm deletion
-            print("Material deleted successfully.")
 
             # Remove deleted row from table
             self.table_widget.removeRow(selected_row)
@@ -942,8 +926,6 @@ class BasicPricelist(QMainWindow):
             # Ensure connection closure in all cases
             if 'conn' in locals() and conn:
                 conn.close()
-                # Debug: Confirm connection closure
-                print("Database connection closed.")
 
     def export_job_to_excel(self):
         """Exports the contents of the table widget to an Excel file."""
