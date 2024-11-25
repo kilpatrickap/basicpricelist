@@ -892,11 +892,10 @@ class BasicPricelist(QMainWindow):
             cursor = conn.cursor()
 
             # Fetch the ID of the selected material (assuming it's in the first column)
-            item = self.table_widget.item(selected_row, 0)  # Assuming the ID is in the first column
-            if item is None:
+            material_id = self.table_widget.item(selected_row, 0).text()  # Assuming the ID is in the first column
+            if material_id is None:
                 QMessageBox.warning(self, "Error", "The selected material does not have an ID.")
                 return
-            material_id = item.text()
 
             # Debug: Confirm material_id
             print(material_id)
@@ -908,10 +907,17 @@ class BasicPricelist(QMainWindow):
             if reply == QMessageBox.No:
                 return
 
-            # Delete the material from the database (assuming the table name is stored in self.table_name)
-            table_name = self.table_widget.horizontalHeaderItem(
-                0).text()  # Fetch the table name (you may want to adjust this logic)
+            # Fetch all table names in the database
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+            tables = cursor.fetchall()
+            if not tables:
+                QMessageBox.information(self, "No Tables Found", f"The database '{db_file}' contains no tables.")
+                return
 
+            # We are displaying data from only the first table
+            table_name = tables[0][0]  # Use the first table in the database
+
+            # Delete the material from the database
             cursor.execute(f"DELETE FROM {table_name} WHERE id = ?", (material_id,))
             conn.commit()
 
