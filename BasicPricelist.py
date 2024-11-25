@@ -2304,7 +2304,7 @@ class BasicPricelist(QMainWindow):
 
         # Create a horizontal layout for the save button
         button_layout = QHBoxLayout()
-        save_button = QPushButton("Save Vendor")
+        save_button = QPushButton("Save Changes")
         save_button.setFixedWidth(100)  # Optional: Set a fixed width for the button
         save_button.clicked.connect(lambda: self.save_vendor_changes(
             vendor_id,
