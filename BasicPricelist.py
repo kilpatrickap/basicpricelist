@@ -782,7 +782,7 @@ class BasicPricelist(QMainWindow):
             # Create a new dialog window for the job
             job_dialog = QDialog(self)
             job_dialog.setWindowTitle(db_file)
-            job_dialog.setGeometry(200, 200, 1200, 600)
+            job_dialog.setGeometry(300, 200, 1000, 600)
 
             # Create the main layout for the dialog
             layout = QVBoxLayout(job_dialog)
@@ -862,9 +862,6 @@ class BasicPricelist(QMainWindow):
 
             job_dialog.setLayout(layout)
             job_dialog.exec()
-
-            # Close the parent dialog
-            parent_dialog.accept()
 
         except sqlite3.Error as e:
             QMessageBox.critical(self, "Error", f"Failed to load data from the database '{db_file}': {e}")
