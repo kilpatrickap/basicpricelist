@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment=" Working on deleting a selected material from job db.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="DONE!!!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,22 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00203" summary="QIcons and pngs in toolbar.">
-      <option name="closed" value="true" />
-      <created>1732234401709</created>
-      <option name="number" value="00203" />
-      <option name="presentableId" value="LOCAL-00203" />
-      <option name="project" value="LOCAL" />
-      <updated>1732234401709</updated>
-    </task>
-    <task id="LOCAL-00204" summary="tool button with an icon (50x50) and name beneath.">
-      <option name="closed" value="true" />
-      <created>1732234558885</created>
-      <option name="number" value="00204" />
-      <option name="presentableId" value="LOCAL-00204" />
-      <option name="project" value="LOCAL" />
-      <updated>1732234558885</updated>
     </task>
     <task id="LOCAL-00205" summary="UI improvement.">
       <option name="closed" value="true" />
@@ -597,7 +578,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732538197449</updated>
     </task>
-    <option name="localTasksCounter" value="252" />
+    <task id="LOCAL-00252" summary="DONE!!!">
+      <option name="closed" value="true" />
+      <created>1732540953546</created>
+      <option name="number" value="00252" />
+      <option name="presentableId" value="LOCAL-00252" />
+      <option name="project" value="LOCAL" />
+      <updated>1732540953546</updated>
+    </task>
+    <task id="LOCAL-00253" summary="DONE!!!">
+      <option name="closed" value="true" />
+      <created>1732541119394</created>
+      <option name="number" value="00253" />
+      <option name="presentableId" value="LOCAL-00253" />
+      <option name="project" value="LOCAL" />
+      <updated>1732541119394</updated>
+    </task>
+    <option name="localTasksCounter" value="254" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -612,7 +609,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="QIcons and pngs in toolbar." />
     <MESSAGE value="tool button with an icon (50x50) and name beneath." />
     <MESSAGE value="UI improvement." />
     <MESSAGE value="Basic Prices Manager, Window icon added." />
@@ -637,6 +633,7 @@
     <MESSAGE value="UI-changes New Material Add Material button centred." />
     <MESSAGE value="UI-changes Edit Vendor Save Vendor button centred." />
     <MESSAGE value=" Working on deleting a selected material from job db." />
-    <option name="LAST_COMMIT_MESSAGE" value=" Working on deleting a selected material from job db." />
+    <MESSAGE value="DONE!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="DONE!!!" />
   </component>
 </project>
