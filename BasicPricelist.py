@@ -1355,14 +1355,14 @@ class BasicPricelist(QMainWindow):
         # Create a dialog window for comparison
         compare_dialog = QDialog(self)
         compare_dialog.setWindowTitle(f"Vendors Price Comparison")
-        compare_dialog.setGeometry(200, 200, 800, 400)
+        compare_dialog.setGeometry(200, 200, 1000, 600)
 
         # Layout for the comparison table
         layout = QVBoxLayout(compare_dialog)
 
         # Add filter drop-down
         filter_layout = QHBoxLayout()
-        filter_label = QLabel(f"[{material_id}] : {material_name}\t\t\t\t\t\t\t\t\t\t\t Sort by Price :")
+        filter_label = QLabel(f"[{material_id}] : {material_name}\t\t\t\t\t\t\t\t\t\t\t\t\t\t Sort by Price :")
         filter_combo = QComboBox()
         filter_combo.addItems(["Low - High", "High - Low"])
         filter_layout.addWidget(filter_label)
