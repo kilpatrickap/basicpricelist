@@ -1830,20 +1830,20 @@ class BasicPricelist(QMainWindow):
         self.material_dialog.setGeometry(200, 200, 400, 300)  # Updated height for new field
 
         layout = QFormLayout()
+
+        # Create input fields
         self.trade_input = QLineEdit()
         self.trade_input.setMinimumWidth(400)
 
         self.material_name_input = QLineEdit()
         self.material_name_input.setMinimumWidth(400)
-
         self.material_name_input.setAlignment(Qt.AlignmentFlag.AlignLeft)  # Text aligns left
 
         self.currency_input = QComboBox()
         self.currency_input.setMinimumWidth(400)
-
         self.populate_currency_combo(self.currency_input)  # Populate currency dropdown
-        self.currency_input.setCurrentText("GHS - Ghana Cedi")  # default GHS currency
-        self.currency_input.setMinimumWidth(400)  # Set minimum width for the combo box
+        self.currency_input.setCurrentText("GHS - Ghana Cedi")  # Default currency to GHS
+        self.currency_input.setMinimumWidth(400)
 
         self.price_input = QLineEdit()
         self.price_input.setMinimumWidth(400)
@@ -1865,10 +1865,10 @@ class BasicPricelist(QMainWindow):
 
         self.price_date_input = QDateEdit()  # New date input field
         self.price_date_input.setMinimumWidth(400)
-
         self.price_date_input.setDate(QDate.currentDate())  # Set default date to today
         self.price_date_input.setCalendarPopup(True)  # Show calendar popup for date selection
 
+        # Add fields to the layout
         layout.addRow('Trade:', self.trade_input)
         layout.addRow('Material:', self.material_name_input)
         layout.addRow('Currency:', self.currency_input)
@@ -1878,11 +1878,20 @@ class BasicPricelist(QMainWindow):
         layout.addRow('Vendor Phone:', self.vendor_phone_input)
         layout.addRow('Vendor Email:', self.vendor_email_input)
         layout.addRow('Vendor Location:', self.vendor_location_input)
-        layout.addRow('Price Date:', self.price_date_input)  # Add the date input field
+        layout.addRow('Price Date:', self.price_date_input)
 
+        # Create a horizontal layout for the Add Material button
+        button_layout = QHBoxLayout()
         add_button = QPushButton("Add Material")
+        add_button.setFixedWidth(150)  # Optional: Set a fixed width for consistency
         add_button.clicked.connect(self.add_material)
-        layout.addWidget(add_button)
+
+        # Center the button within the horizontal layout
+        button_layout.addWidget(add_button)
+        button_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        # Add the horizontal layout to the main form layout
+        layout.addRow(button_layout)
 
         self.material_dialog.setLayout(layout)
         self.material_dialog.exec()
