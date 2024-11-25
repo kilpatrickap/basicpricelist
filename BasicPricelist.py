@@ -540,7 +540,7 @@ class BasicPricelist(QMainWindow):
         # Open edit dialog with current job information
         edit_dialog = QDialog(self)
         edit_dialog.setWindowTitle("Edit Job")
-        edit_dialog.setGeometry(200, 200, 400, 200)
+        edit_dialog.setGeometry(200, 200, 400, 150)
 
         layout = QFormLayout()
 
@@ -558,12 +558,22 @@ class BasicPricelist(QMainWindow):
         layout.addRow("Client:", client_input)
         layout.addRow("Location:", location_input)
 
-        save_job_button = QPushButton("Save Job")           #TODO: Centre the save button.
+        # Create a horizontal layout for the save button
+        save_button_layout = QHBoxLayout()
+        save_job_button = QPushButton("Save Job")
+        save_job_button.setFixedWidth(150)  # Optional: Set a fixed width if you prefer
         save_job_button.clicked.connect(lambda: self.save_job_edits(
             job_id, job_name_input.text(), client_input.text(),
             location_input.text(), edit_dialog, table_widget, selected_row
         ))
-        layout.addWidget(save_job_button)
+
+        # Center the button within the horizontal layout
+        save_button_layout.addWidget(save_job_button)
+        save_button_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        # Add the horizontal layout to the main form layout
+        layout.addRow(save_button_layout)
+
         edit_dialog.setLayout(layout)
         edit_dialog.exec()
 
