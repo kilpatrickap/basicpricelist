@@ -2017,8 +2017,18 @@ class BasicPricelist(QMainWindow):
         layout.addRow('Price Date:', self.price_date_input)  # Add the date input field
 
         save_button = QPushButton("Save Changes")
+        save_button.setFixedWidth(100)
         save_button.clicked.connect(lambda: self.update_material(mat_id))
-        layout.addWidget(save_button)
+
+        # Create a horizontal layout for the button
+        button_layout = QHBoxLayout()
+        button_layout.addWidget(save_button)
+
+        # Center the button within the horizontal layout
+        button_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        # Add the horizontal layout to the main form layout
+        layout.addRow(button_layout)
 
         self.material_dialog.setLayout(layout)
         self.material_dialog.exec()
