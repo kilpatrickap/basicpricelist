@@ -922,6 +922,9 @@ class BasicPricelist(QMainWindow):
             # Debug: Confirm deletion
             print("Material deleted successfully.")
 
+            # Remove deleted row from table.
+            self.table_widget.removeRow(selected_row)
+
         except sqlite3.Error as e:
             QMessageBox.critical(self, "Error", f"Failed to delete material: {e}")
             # Debug: Print the specific error message
