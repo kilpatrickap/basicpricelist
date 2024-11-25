@@ -2285,7 +2285,7 @@ class BasicPricelist(QMainWindow):
         # Create the dialog window for editing vendor details
         edit_vendor_dialog = QDialog(self)
         edit_vendor_dialog.setWindowTitle(f"Edit Vendor - {vendor_name}")
-        edit_vendor_dialog.setGeometry(300, 200, 300, 200)
+        edit_vendor_dialog.setGeometry(200, 200, 300, 150)
 
         # Create form layout for vendor details
         form_layout = QFormLayout()
@@ -2302,8 +2302,10 @@ class BasicPricelist(QMainWindow):
         form_layout.addRow("Email:", vendor_email_edit)
         form_layout.addRow("Location:", vendor_location_edit)
 
-        # Save button to update the database
-        save_button = QPushButton("Save")
+        # Create a horizontal layout for the save button
+        button_layout = QHBoxLayout()
+        save_button = QPushButton("Save Vendor")
+        save_button.setFixedWidth(100)  # Optional: Set a fixed width for the button
         save_button.clicked.connect(lambda: self.save_vendor_changes(
             vendor_id,
             vendor_name_edit.text(),
@@ -2313,12 +2315,15 @@ class BasicPricelist(QMainWindow):
             edit_vendor_dialog  # Pass the dialog to close it after saving
         ))
 
-        # Add the save button to the layout
-        form_layout.addWidget(save_button)
+        # Center the button within the horizontal layout
+        button_layout.addWidget(save_button)
+        button_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        # Add the horizontal layout to the main form layout
+        form_layout.addRow(button_layout)
 
         edit_vendor_dialog.setLayout(form_layout)
         edit_vendor_dialog.exec()
-
 
     def delete_selected_vendor(self, vendor_table_widget, vendor_list_dialog):
         """Deletes all entries of the selected vendor after user confirmation."""
