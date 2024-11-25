@@ -906,25 +906,32 @@ class BasicPricelist(QMainWindow):
             # Debug: confirm table_name
             print(table_name)
 
-            # Fetch the ID of the selected material (assuming it's in the first column)
+            # Fetch the ID and name of the selected material (assuming ID is in the first column and name in the third)
             material_id = self.table_widget.item(selected_row, 0).text()  # Assuming the ID is in the first column
+            material_name = self.table_widget.item(selected_row, 2).text()  # Assuming the name is in the third column
+
             if not material_id:  # Check for None or empty value
                 QMessageBox.warning(self, "Error", "The selected material does not have an ID.")
                 return
 
-            # Debug: Confirm material_id
-            print(material_id)
+            # Debug: Confirm material_id and material_name
+            print(material_id, material_name)
 
-            # Issue a QMessage.question if yes, delete.
+            # Confirm deletion with the user
+            reply = QMessageBox.question(self, 'Delete Material',
+                                         f'Are you sure you want to delete [{material_id}] {material_name}?',
+                                         QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+            if reply == QMessageBox.StandardButton.No:
+                return
 
             # Delete the selected material from the db_file
-            cursor.execute(f"DELETE FROM {table_name} WHERE mat_id=?", (material_id,))
+            cursor.execute(f"DELETE FROM {table_name} WHERE id=?", (material_id,))
             conn.commit()
 
             # Debug: Confirm deletion
             print("Material deleted successfully.")
 
-            # Remove deleted row from table.
+            # Remove deleted row from table
             self.table_widget.removeRow(selected_row)
 
         except sqlite3.Error as e:
