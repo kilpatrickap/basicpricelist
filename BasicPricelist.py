@@ -883,8 +883,12 @@ class BasicPricelist(QMainWindow):
         print(db_file)
 
         try:
-            # Open a connection to the selected job's database
+            # Attempt to open a connection to the selected job's database
             conn = sqlite3.connect(db_file)
+
+            # Debug: Confirm if connection is successful
+            print("Database connection successful.")
+
             cursor = conn.cursor()
 
             # Fetch the ID of the selected material (assuming it's in the first column)
@@ -917,9 +921,13 @@ class BasicPricelist(QMainWindow):
 
         except sqlite3.Error as e:
             QMessageBox.critical(self, "Error", f"Failed to delete material: {e}")
+            # Debug: Print the specific error message
+            print(f"Database error: {e}")
         finally:
             if 'conn' in locals():
                 conn.close()
+                # Debug: Confirm connection closure
+                print("Database connection closed.")
 
     def export_job_to_excel(self):
         """Exports the contents of the table widget to an Excel file."""
