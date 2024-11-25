@@ -879,7 +879,7 @@ class BasicPricelist(QMainWindow):
             QMessageBox.warning(self, "Selection Error", "Please select a material to delete.")
             return
 
-        # Debug
+        # Debug confirmation of access to database file.
         print(db_file)
 
         try:
