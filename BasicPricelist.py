@@ -900,7 +900,12 @@ class BasicPricelist(QMainWindow):
             # Debug: Confirm material_id
             print(material_id)
 
-            # Delete the selected material from the db_file     Todo: Fix it
+            # Delete the selected material from the db_file
+            cursor.execute("DELETE FROM materials WHERE id=?", (material_id,))
+            conn.commit()
+
+            # Debug: Confirm deletion
+            print("Material deleted successfully.")
 
         except sqlite3.Error as e:
             QMessageBox.critical(self, "Error", f"Failed to delete material: {e}")
