@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="UI-changes Edit Vendor Save Vendor button centred.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment=" Working on deleting a selected material from job db.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Job-ID-4_Vase_Apartment.db" beforeDir="false" afterPath="$PROJECT_DIR$/Job-ID-4_Vase_Apartment.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,14 +204,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00189" summary="open_job_window()">
-      <option name="closed" value="true" />
-      <created>1732133517754</created>
-      <option name="number" value="00189" />
-      <option name="presentableId" value="LOCAL-00189" />
-      <option name="project" value="LOCAL" />
-      <updated>1732133517755</updated>
     </task>
     <task id="LOCAL-00190" summary="open_job_window(), adjustment needed.">
       <option name="closed" value="true" />
@@ -599,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732525445324</updated>
     </task>
-    <option name="localTasksCounter" value="238" />
+    <task id="LOCAL-00238" summary=" Working on deleting a selected material from job db.">
+      <option name="closed" value="true" />
+      <created>1732530024923</created>
+      <option name="number" value="00238" />
+      <option name="presentableId" value="LOCAL-00238" />
+      <option name="project" value="LOCAL" />
+      <updated>1732530024923</updated>
+    </task>
+    <option name="localTasksCounter" value="239" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -614,7 +612,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="buttons in toolbar." />
     <MESSAGE value="QIcons and pngs in toolbar." />
     <MESSAGE value="tool button with an icon (50x50) and name beneath." />
     <MESSAGE value="UI improvement." />
@@ -639,6 +636,7 @@
     <MESSAGE value="UI-changes Edit User Save User button centred." />
     <MESSAGE value="UI-changes New Material Add Material button centred." />
     <MESSAGE value="UI-changes Edit Vendor Save Vendor button centred." />
-    <option name="LAST_COMMIT_MESSAGE" value="UI-changes Edit Vendor Save Vendor button centred." />
+    <MESSAGE value=" Working on deleting a selected material from job db." />
+    <option name="LAST_COMMIT_MESSAGE" value=" Working on deleting a selected material from job db." />
   </component>
 </project>

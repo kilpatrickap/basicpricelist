@@ -872,53 +872,9 @@ class BasicPricelist(QMainWindow):
             if 'conn' in locals():
                 conn.close()
 
-    def job_delete_material(self):
-        """Deletes the selected material from the job's database."""
-
-        # Step 1: Get the selected row from the table
-        selected_row = self.table_widget.currentRow()
-
-        # If no row is selected, show a warning
-        if selected_row == -1:
-            QMessageBox.warning(self, "Selection Error", "Please select a material to delete.")
-            return
-
-        # Step 2: Get the material ID (assuming it's in the first column of the table)
-        material_id = self.table_widget.item(selected_row, 0).text()
-
-        # Step 3: Confirm deletion with the user
-        reply = QMessageBox.question(self, "Confirm Deletion",
-                                     f"Are you sure you want to delete material {material_id}?",
-                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
-                                     QMessageBox.StandardButton.No)
-
-        # If the user clicks "No", do nothing and return
-        if reply == QMessageBox.StandardButton.No:
-            return
-
-        # Step 4: Perform the deletion in the database
-        try:
-            # Assuming `self.current_job_db_file` stores the path to the current job's database
-            conn = sqlite3.connect(self.current_job_db_file)
-            cursor = conn.cursor()
-
-            # Execute the delete statement (assuming the table has 'mat_id' as the primary key)
-            cursor.execute("DELETE FROM materials WHERE mat_id = ?", (material_id,))
-            conn.commit()
-
-            # Step 5: Update the table to reflect the deletion
-            self.table_widget.removeRow(selected_row)
-
-            # Show success message
-            QMessageBox.information(self, "Success", f"Material {material_id} has been deleted successfully.")
-
-        except sqlite3.Error as e:
-            # In case of database error, show error message
-            QMessageBox.critical(self, "Error", f"Failed to delete material: {e}")
-        finally:
-            # Ensure the database connection is always closed
-            if 'conn' in locals():
-                conn.close()
+    def job_delete_material(self, table):
+        """Deletes the selected material from the job's database."""    #TODO: Fix it.
+        return
 
     def export_job_to_excel(self):
         """Exports the contents of the table widget to an Excel file."""
