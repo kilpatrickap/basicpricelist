@@ -1347,8 +1347,8 @@ class BasicPricelist(QMainWindow):
                 else:
                     item = QTableWidgetItem(item_text)
 
-                # Set item to be non-editable
-                item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEditable)
+                # # Set item to be non-editable
+                # item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEditable)
 
                 self.table.setItem(row_num, col_num, item)
 
