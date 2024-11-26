@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="DONE !!!" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="DONE!!!">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,12 +30,12 @@
     &quot;assignee&quot;: &quot;kilpatrickap&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/kilpatrickap/basicpricelist.git&quot;,
-    &quot;accountId&quot;: &quot;b56d5b1d-bd3e-4a5a-9bf1-7ad5dbda81eb&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/kilpatrickap/basicpricelist",
+    "accountId": "b2b34f02-6aa0-4641-8b55-d64aff92f9a3"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -189,7 +191,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d7ad00fb9fc3-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23726.102" />
+        <option value="bundled-python-sdk-fb887030ada0-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.21565.199" />
       </set>
     </attachedChunks>
   </component>
@@ -201,22 +203,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00207" summary="Current job and icon.">
-      <option name="closed" value="true" />
-      <created>1732270478476</created>
-      <option name="number" value="00207" />
-      <option name="presentableId" value="LOCAL-00207" />
-      <option name="project" value="LOCAL" />
-      <updated>1732270478476</updated>
-    </task>
-    <task id="LOCAL-00208" summary="Current job and icon.">
-      <option name="closed" value="true" />
-      <created>1732270889296</created>
-      <option name="number" value="00208" />
-      <option name="presentableId" value="LOCAL-00208" />
-      <option name="project" value="LOCAL" />
-      <updated>1732270889296</updated>
     </task>
     <task id="LOCAL-00209" summary="Current job and icon.">
       <option name="closed" value="true" />
@@ -594,7 +580,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732559430079</updated>
     </task>
-    <option name="localTasksCounter" value="256" />
+    <task id="LOCAL-00256" summary="DONE!!!">
+      <option name="closed" value="true" />
+      <created>1732614074939</created>
+      <option name="number" value="00256" />
+      <option name="presentableId" value="LOCAL-00256" />
+      <option name="project" value="LOCAL" />
+      <updated>1732614074939</updated>
+    </task>
+    <task id="LOCAL-00257" summary="DONE!!!">
+      <option name="closed" value="true" />
+      <created>1732614104644</created>
+      <option name="number" value="00257" />
+      <option name="presentableId" value="LOCAL-00257" />
+      <option name="project" value="LOCAL" />
+      <updated>1732614104644</updated>
+    </task>
+    <option name="localTasksCounter" value="258" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -632,8 +634,8 @@
     <MESSAGE value="UI-changes New Material Add Material button centred." />
     <MESSAGE value="UI-changes Edit Vendor Save Vendor button centred." />
     <MESSAGE value=" Working on deleting a selected material from job db." />
-    <MESSAGE value="DONE!!!" />
     <MESSAGE value="DONE !!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="DONE !!!" />
+    <MESSAGE value="DONE!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="DONE!!!" />
   </component>
 </project>
