@@ -2476,10 +2476,10 @@ class BasicPricelist(QMainWindow):
         icon_path = os.path.join(icon_folder_path, "materials-manager.png")
 
         about_text = f"""
-        Materials Manager v1.0
+        \t\t\t\t\t Materials Manager v1.0
 
-        Developed by: Surv. Kilpatrick Atta-Poku (MGHIS)
-                     KilTech Enterprise
+        Developed by: \tSurv. Kilpatrick Atta-Poku (MGHIS)
+                     \t\tKilTech Enterprise
 
         Overview:
         Materials Manager helps streamline material management for projects, 
@@ -2499,7 +2499,7 @@ class BasicPricelist(QMainWindow):
 
         Contact:
         📧 For support, contact us on 0541193598.
-                                and on kiltech21@gmail.com
+                        and email us at kiltech21@gmail.com
 
         © 2024 (Kilpatrick/ KilTech Ent). All rights reserved.
         """
@@ -2512,12 +2512,11 @@ class BasicPricelist(QMainWindow):
         # Set up the layout and label to display the text
         main_layout = QVBoxLayout()
 
-        # Adding icon next to title
+        # Adding icon next to title and centering it
         icon_label_layout = QHBoxLayout()
-        title_label = QLabel("Materials Manager v1.0")
+        icon_label_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter)  # Center the layout
         icon_label = QLabel()
-        icon_label.setPixmap(QPixmap(icon_path).scaled(24, 24))
-        icon_label_layout.addWidget(title_label)
+        icon_label.setPixmap(QPixmap(icon_path).scaled(50, 50))
         icon_label_layout.addWidget(icon_label)
         main_layout.addLayout(icon_label_layout)
 
