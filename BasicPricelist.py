@@ -111,6 +111,11 @@ class BasicPricelist(QMainWindow):
         self.toolBar.addWidget(import_excel_button)
         self.toolBar.addSeparator()
 
+        about_button = create_tool_button_with_icon("about.png", "About",
+                                                           self.about)
+        self.toolBar.addWidget(about_button)
+        self.toolBar.addSeparator()
+
         main_layout = QVBoxLayout()
 
         # Create a single horizontal layout to hold both the default job and default user labels
@@ -2465,6 +2470,9 @@ class BasicPricelist(QMainWindow):
         except sqlite3.Error as e:
             QMessageBox.critical(self, "Database Error", f"An error occurred while fetching vendor: {e}")
             return None
+
+    def about(self):
+        return
 
     def closeEvent(self, event):
         """Handles the window close event."""
