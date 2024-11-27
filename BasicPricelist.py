@@ -7,7 +7,7 @@ import re
 import pycountry
 from PyQt6 import QtWidgets, QtCore, QtGui
 from PyQt6.QtCore import QDate, Qt
-from PyQt6.QtGui import QFontMetrics
+from PyQt6.QtGui import QFontMetrics, QPixmap
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QPushButton, QLabel, QTableWidget, QTableWidgetItem,
                              QDialog, QTextEdit, QFormLayout, QLineEdit, QSizePolicy,
@@ -2472,11 +2472,14 @@ class BasicPricelist(QMainWindow):
             return None
 
     def about(self):
-        about_text = """
+        icon_folder_path = os.path.join(os.path.dirname(__file__), "images")
+        icon_path = os.path.join(icon_folder_path, "materials-manager.png")
+
+        about_text = f"""
         Materials Manager v1.0
 
-        Developed by:\tSurv. Kilpatrick Atta-Poku (MGHIS)
-                     \t\tKilTech Enterprise
+        Developed by: Surv. Kilpatrick Atta-Poku (MGHIS)
+                     KilTech Enterprise
 
         Overview:
         Materials Manager helps streamline material management for projects, 
@@ -2508,6 +2511,16 @@ class BasicPricelist(QMainWindow):
 
         # Set up the layout and label to display the text
         main_layout = QVBoxLayout()
+
+        # Adding icon next to title
+        icon_label_layout = QHBoxLayout()
+        title_label = QLabel("Materials Manager v1.0")
+        icon_label = QLabel()
+        icon_label.setPixmap(QPixmap(icon_path).scaled(24, 24))
+        icon_label_layout.addWidget(title_label)
+        icon_label_layout.addWidget(icon_label)
+        main_layout.addLayout(icon_label_layout)
+
         label = QLabel(about_text)
         label.setWordWrap(True)
         main_layout.addWidget(label)
