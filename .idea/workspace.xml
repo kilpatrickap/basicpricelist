@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Materials Manager ico file added.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/materials-manager.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/materials-manager.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +30,12 @@
     &quot;assignee&quot;: &quot;kilpatrickap&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/kilpatrickap/basicpricelist",
-    "accountId": "b2b34f02-6aa0-4641-8b55-d64aff92f9a3"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kilpatrickap/basicpricelist&quot;,
+    &quot;accountId&quot;: &quot;b2b34f02-6aa0-4641-8b55-d64aff92f9a3&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -204,14 +203,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00212" summary="Works perfectly.">
-      <option name="closed" value="true" />
-      <created>1732275463819</created>
-      <option name="number" value="00212" />
-      <option name="presentableId" value="LOCAL-00212" />
-      <option name="project" value="LOCAL" />
-      <updated>1732275463819</updated>
     </task>
     <task id="LOCAL-00213" summary="Default Job: dynamic label is done.">
       <option name="closed" value="true" />
@@ -597,7 +588,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732634907352</updated>
     </task>
-    <option name="localTasksCounter" value="261" />
+    <task id="LOCAL-00261" summary="Materials Manager ico file added.">
+      <option name="closed" value="true" />
+      <created>1732635803438</created>
+      <option name="number" value="00261" />
+      <option name="presentableId" value="LOCAL-00261" />
+      <option name="project" value="LOCAL" />
+      <updated>1732635803438</updated>
+    </task>
+    <option name="localTasksCounter" value="262" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
