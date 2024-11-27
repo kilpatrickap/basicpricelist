@@ -2478,7 +2478,7 @@ class BasicPricelist(QMainWindow):
         about_text = f"""
         \t\t\t\t\t Materials Manager v1.0
 
-        Developed by: \tSurv. Kilpatrick Atta-Poku (MGHIS)
+        Developed by: \tKilpatrick Atta-Poku
                      \t\tKilTech Enterprise
 
         Overview:
