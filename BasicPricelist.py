@@ -2472,7 +2472,58 @@ class BasicPricelist(QMainWindow):
             return None
 
     def about(self):
-        return
+        about_text = """
+        Materials Manager v1.0
+
+        Developed by:\tSurv. Kilpatrick Atta-Poku (MGHIS)
+                     \t\tKilTech Enterprise
+
+        Overview:
+        Materials Manager helps streamline material management for projects, 
+        boosting efficiency with its intuitive interface and powerful features.
+
+        Features:
+        🔧 Quick access toolbar for Job and User management, material handling, and Vendor management.
+        🔍 Easy search and sort for materials, trades, prices and vendors.
+        📊 Detailed material info with prices, vendors, and more.
+        📤 Export to and from Excel for seamless data management.
+        ⚖️ Compare vendor prices and locations for smart procurement decisions.
+
+        Purpose:
+        🛠️  Developed for Quantity Surveyors, Estimators, Project and Construction managers,
+            Procurement officers, and other professionals to manage materials and vendors efficiently,
+            enhancing overall productivity.
+
+        Contact:
+        📧 For support, contact us on 0541193598.
+                                and on kiltech21@gmail.com
+
+        © 2024 (Kilpatrick/ KilTech Ent). All rights reserved.
+        """
+
+        # Create a QDialog to display the "About" information
+        about_dialog = QDialog(self)
+        about_dialog.setWindowTitle("About Materials Manager")
+        about_dialog.setGeometry(200, 200, 600, 400)
+
+        # Set up the layout and label to display the text
+        main_layout = QVBoxLayout()
+        label = QLabel(about_text)
+        label.setWordWrap(True)
+        main_layout.addWidget(label)
+
+        # Add a close button centered in a QHBoxLayout
+        button_layout = QHBoxLayout()
+        close_button = QPushButton("Close")
+        close_button.clicked.connect(about_dialog.close)
+        button_layout.addStretch()  # Add stretch to center the button
+        button_layout.addWidget(close_button)
+        button_layout.addStretch()  # Add stretch to center the button
+
+        main_layout.addLayout(button_layout)
+
+        about_dialog.setLayout(main_layout)
+        about_dialog.exec()
 
     def closeEvent(self, event):
         """Handles the window close event."""

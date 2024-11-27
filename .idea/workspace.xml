@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Materials Manager ico file added." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="About button added in toolbar.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,14 +207,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00214" summary="Default Job: dynamic label red and blue.">
-      <option name="closed" value="true" />
-      <created>1732276429275</created>
-      <option name="number" value="00214" />
-      <option name="presentableId" value="LOCAL-00214" />
-      <option name="project" value="LOCAL" />
-      <updated>1732276429275</updated>
     </task>
     <task id="LOCAL-00215" summary="Default Job: dynamic label red and blue.">
       <option name="closed" value="true" />
@@ -597,7 +592,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732697789746</updated>
     </task>
-    <option name="localTasksCounter" value="263" />
+    <task id="LOCAL-00263" summary="About button added in toolbar.">
+      <option name="closed" value="true" />
+      <created>1732701291702</created>
+      <option name="number" value="00263" />
+      <option name="presentableId" value="LOCAL-00263" />
+      <option name="project" value="LOCAL" />
+      <updated>1732701291702</updated>
+    </task>
+    <option name="localTasksCounter" value="264" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -612,7 +615,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Basic Prices Manager, Window icon added." />
     <MESSAGE value="Current job and icon." />
     <MESSAGE value="almost working." />
     <MESSAGE value="Works perfectly." />
@@ -637,6 +639,7 @@
     <MESSAGE value="DONE!!!" />
     <MESSAGE value="Materials Manager v.1.0 icon and title set." />
     <MESSAGE value="Materials Manager ico file added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Materials Manager ico file added." />
+    <MESSAGE value="About button added in toolbar." />
+    <option name="LAST_COMMIT_MESSAGE" value="About button added in toolbar." />
   </component>
 </project>
