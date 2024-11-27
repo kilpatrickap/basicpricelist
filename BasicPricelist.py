@@ -824,7 +824,7 @@ class BasicPricelist(QMainWindow):
             # Exclude the first column (id) from the columns list
             columns = [col for col in columns if col.lower() != 'id']  # Modify 'id' if it's not exactly "id"
 
-            # Populate the table widget with the data, excluding the id column
+            # Populate the table widget with the data, excluding the id column      #todo job table column headings should match materials.db column headings
             self.table_widget.setRowCount(len(rows))
             self.table_widget.setColumnCount(len(columns))
             self.table_widget.setHorizontalHeaderLabels(columns)
