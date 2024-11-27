@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="todo: job column headings mismatch to materials table." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="DONE!!! Ready for deployment.">
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,14 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00219" summary="Done for today.">
-      <option name="closed" value="true" />
-      <created>1732282233988</created>
-      <option name="number" value="00219" />
-      <option name="presentableId" value="LOCAL-00219" />
-      <option name="project" value="LOCAL" />
-      <updated>1732282233988</updated>
     </task>
     <task id="LOCAL-00220" summary="Job file location bottom label.">
       <option name="closed" value="true" />
@@ -597,7 +591,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732708634045</updated>
     </task>
-    <option name="localTasksCounter" value="268" />
+    <task id="LOCAL-00268" summary="DONE!!! Ready for deployment.">
+      <option name="closed" value="true" />
+      <created>1732708764027</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1732708764027</updated>
+    </task>
+    <option name="localTasksCounter" value="269" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -612,7 +614,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Works perfectly." />
     <MESSAGE value="Default Job: dynamic label is done." />
     <MESSAGE value="Default Job: dynamic label red and blue." />
     <MESSAGE value="Default user." />
@@ -637,6 +638,7 @@
     <MESSAGE value="About button added in toolbar." />
     <MESSAGE value="About()." />
     <MESSAGE value="todo: job column headings mismatch to materials table." />
-    <option name="LAST_COMMIT_MESSAGE" value="todo: job column headings mismatch to materials table." />
+    <MESSAGE value="DONE!!! Ready for deployment." />
+    <option name="LAST_COMMIT_MESSAGE" value="DONE!!! Ready for deployment." />
   </component>
 </project>

@@ -2478,8 +2478,8 @@ class BasicPricelist(QMainWindow):
         about_text = f"""
         \t\t\t\t\t Materials Manager v1.0
 
-        Developed by: \tKilpatrick Atta-Poku
-                     \t\tKilTech Enterprise
+        Software Developed by: \tKilpatrick Atta-Poku
+                             \t\tKilTech Enterprise
 
         Overview:
         Materials Manager helps streamline material management for projects, 
@@ -2506,7 +2506,7 @@ class BasicPricelist(QMainWindow):
 
         # Create a QDialog to display the "About" information
         about_dialog = QDialog(self)
-        about_dialog.setWindowTitle("About Materials Manager")
+        about_dialog.setWindowTitle("About")
         about_dialog.setGeometry(200, 200, 600, 400)
 
         # Set up the layout and label to display the text
