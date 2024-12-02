@@ -43,23 +43,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.BasicPricelist.executor": "Run",
-    "Python.BidPriceManager_v1.0.executor": "Run",
-    "Python.Materials_Manager.executor": "Run",
-    "Python.prices_generator.executor": "Run",
-    "Python.smtp_client.executor": "Run",
-    "Python.smtp_server.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Consar-Kilpatrick/PycharmProjects/materials_manager",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.BasicPricelist.executor&quot;: &quot;Run&quot;,
+    &quot;Python.BidPriceManager_v1.0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Materials_Manager.executor&quot;: &quot;Run&quot;,
+    &quot;Python.prices_generator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.smtp_client.executor&quot;: &quot;Run&quot;,
+    &quot;Python.smtp_server.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Consar-Kilpatrick/PycharmProjects/materials_manager/ico_file&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\materials_manager\ico_file" />
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\images" />
       <recent name="$PROJECT_DIR$/images" />
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist" />
@@ -205,14 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00222" summary="RFP updates default user label.">
-      <option name="closed" value="true" />
-      <created>1732285667806</created>
-      <option name="number" value="00222" />
-      <option name="presentableId" value="LOCAL-00222" />
-      <option name="project" value="LOCAL" />
-      <updated>1732285667806</updated>
     </task>
     <task id="LOCAL-00223" summary="allocate to job updates default job label.">
       <option name="closed" value="true" />
@@ -598,7 +591,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733151546772</updated>
     </task>
-    <option name="localTasksCounter" value="271" />
+    <task id="LOCAL-00271" summary="DONE!!! Ready for deployment.">
+      <option name="closed" value="true" />
+      <created>1733152330740</created>
+      <option name="number" value="00271" />
+      <option name="presentableId" value="LOCAL-00271" />
+      <option name="project" value="LOCAL" />
+      <updated>1733152330740</updated>
+    </task>
+    <option name="localTasksCounter" value="272" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
