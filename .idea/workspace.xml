@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="DONE!!! Ready for deployment.">
-      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" afterPath="$PROJECT_DIR$/BasicPricelist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pricelist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pricelist.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicPricelist.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,20 +48,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.BasicPricelist.executor&quot;: &quot;Run&quot;,
-    &quot;Python.BidPriceManager_v1.0.executor&quot;: &quot;Run&quot;,
-    &quot;Python.prices_generator.executor&quot;: &quot;Run&quot;,
-    &quot;Python.smtp_client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.smtp_server.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Consar-Kilpatrick/PycharmProjects/pricelist/images&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.BasicPricelist.executor": "Run",
+    "Python.BidPriceManager_v1.0.executor": "Run",
+    "Python.Materials_Manager.executor": "Run",
+    "Python.prices_generator.executor": "Run",
+    "Python.smtp_client.executor": "Run",
+    "Python.smtp_server.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Consar-Kilpatrick/PycharmProjects/materials_manager",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\images" />
@@ -70,7 +74,7 @@
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\ico file" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.BasicPricelist">
+  <component name="RunManager" selected="Python.Materials_Manager">
     <configuration name="BasicPricelist" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -93,7 +97,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="BidPriceManager_v1.0" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Materials_Manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -106,7 +110,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BidPriceManager_v1.0.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Materials_Manager.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,11 +187,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Materials_Manager" />
         <item itemvalue="Python.BasicPricelist" />
         <item itemvalue="Python.prices_generator" />
         <item itemvalue="Python.smtp_client" />
         <item itemvalue="Python.smtp_server" />
-        <item itemvalue="Python.BidPriceManager_v1.0" />
       </list>
     </recent_temporary>
   </component>
@@ -206,14 +210,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00220" summary="Job file location bottom label.">
-      <option name="closed" value="true" />
-      <created>1732282868907</created>
-      <option name="number" value="00220" />
-      <option name="presentableId" value="LOCAL-00220" />
-      <option name="project" value="LOCAL" />
-      <updated>1732282868907</updated>
     </task>
     <task id="LOCAL-00221" summary="Job file location bottom label Done.">
       <option name="closed" value="true" />
@@ -599,7 +595,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732708764027</updated>
     </task>
-    <option name="localTasksCounter" value="269" />
+    <task id="LOCAL-00269" summary="DONE!!! Ready for deployment.">
+      <option name="closed" value="true" />
+      <created>1732713841490</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1732713841490</updated>
+    </task>
+    <option name="localTasksCounter" value="270" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
