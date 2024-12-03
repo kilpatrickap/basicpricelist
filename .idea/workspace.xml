@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="No database. Deploy!!!">
-      <change afterPath="$PROJECT_DIR$/License - GNUv3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exe-to-setup-tutorial" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Tutorial &amp; License == Deploy!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exe-to-setup-tutorial" beforeDir="false" afterPath="$PROJECT_DIR$/exe-to-setup-tutorial" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,14 +209,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00223" summary="allocate to job updates default job label.">
-      <option name="closed" value="true" />
-      <created>1732286156593</created>
-      <option name="number" value="00223" />
-      <option name="presentableId" value="LOCAL-00223" />
-      <option name="project" value="LOCAL" />
-      <updated>1732286156593</updated>
     </task>
     <task id="LOCAL-00224" summary="allocate to job updates default job label.">
       <option name="closed" value="true" />
@@ -603,7 +594,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733152330740</updated>
     </task>
-    <option name="localTasksCounter" value="272" />
+    <task id="LOCAL-00272" summary="Tutorial &amp; License == Deploy!!!">
+      <option name="closed" value="true" />
+      <created>1733219195141</created>
+      <option name="number" value="00272" />
+      <option name="presentableId" value="LOCAL-00272" />
+      <option name="project" value="LOCAL" />
+      <updated>1733219195141</updated>
+    </task>
+    <option name="localTasksCounter" value="273" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -618,7 +617,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Default Job: dynamic label is done." />
     <MESSAGE value="Default Job: dynamic label red and blue." />
     <MESSAGE value="Default user." />
     <MESSAGE value="Done for today." />
@@ -643,6 +641,7 @@
     <MESSAGE value="About()." />
     <MESSAGE value="todo: job column headings mismatch to materials table." />
     <MESSAGE value="DONE!!! Ready for deployment." />
-    <option name="LAST_COMMIT_MESSAGE" value="DONE!!! Ready for deployment." />
+    <MESSAGE value="Tutorial &amp; License == Deploy!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tutorial &amp; License == Deploy!!!" />
   </component>
 </project>
