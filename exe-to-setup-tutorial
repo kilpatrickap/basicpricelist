@@ -1,0 +1,19 @@
+Convert py to exe - from code to software
+URL Source: https://www.youtube.com/watch?v=Y0HN9tdLuJo&t=10s
+1.  pip install auto-py-to-exe
+2.  run auto-py-to-exe
+3.  Script Location "C:/Users/Consar-Kilpatrick/PycharmProjects/materials_manager/Materials_Manager.py"
+4.  One-Directory Selected
+5.  Console Window "Window Based (hide the console)"
+6.  Icon.ico "C:/Users/Consar-Kilpatrick/PycharmProjects/materials_manager/ico_file/materials-manager.ico"
+7.  Additional Files "Add Folder" >> images/
+8.  Settings "Output directory" >> Desktop
+9.  Convert .py to .exe
+
+Convert GUI App to Real Program - Python to exe to setup wizard
+URL Source: https://www.youtube.com/watch?v=p3tSLatmGvU         @ 13:37 / 23:26
+1.  Download and install Inno Setup (Stable Release - US) from htttp://www.jrsoftware.org/isinfo.php
+2.  Open Inno Setup Compiler 6.3.3
+3.  Create a new script file using the Script Wizard
+4.  License file at http://www.opensource.org/licenses/MIT
+
