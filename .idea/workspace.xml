@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Vendors Price Comparison works." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Ready for deployment v1.1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,14 +208,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00235" summary="UI-changes New Material Add Material button centred.">
-      <option name="closed" value="true" />
-      <created>1732525058344</created>
-      <option name="number" value="00235" />
-      <option name="presentableId" value="LOCAL-00235" />
-      <option name="project" value="LOCAL" />
-      <updated>1732525058345</updated>
     </task>
     <task id="LOCAL-00236" summary="UI-changes Edit Vendor Save Vendor button centred.">
       <option name="closed" value="true" />
@@ -599,7 +593,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733830522694</updated>
     </task>
-    <option name="localTasksCounter" value="284" />
+    <task id="LOCAL-00284" summary="Ready for deployment v1.1">
+      <option name="closed" value="true" />
+      <created>1733831019673</created>
+      <option name="number" value="00284" />
+      <option name="presentableId" value="LOCAL-00284" />
+      <option name="project" value="LOCAL" />
+      <updated>1733831019673</updated>
+    </task>
+    <option name="localTasksCounter" value="285" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -614,7 +616,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="RFP updates default user label." />
     <MESSAGE value="allocate to job updates default job label." />
     <MESSAGE value="comparison window updates default job label." />
     <MESSAGE value="default job and user changed to current job and user." />
@@ -639,6 +640,7 @@
     <MESSAGE value="Done." />
     <MESSAGE value="Work on Compare vendors." />
     <MESSAGE value="Vendors Price Comparison works." />
-    <option name="LAST_COMMIT_MESSAGE" value="Vendors Price Comparison works." />
+    <MESSAGE value="Ready for deployment v1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ready for deployment v1.1" />
   </component>
 </project>

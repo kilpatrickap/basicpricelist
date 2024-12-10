@@ -1329,7 +1329,8 @@ class BasicPricelist(QMainWindow):
 
         for row_num, row_data in enumerate(rows):
             for col_num, data in enumerate(row_data[1:]):  # Skip the id column
-                item_text = str(data)
+                # Convert data to string if it is not None
+                item_text = '' if data is None else str(data)
                 if col_num == 0:  # Mat ID column
                     max_width_mat_id = max(max_width_mat_id, font_metrics.horizontalAdvance(item_text))
                 elif col_num == 1:  # Trade column
