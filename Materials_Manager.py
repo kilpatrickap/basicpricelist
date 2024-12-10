@@ -1414,146 +1414,152 @@ class BasicPricelist(QMainWindow):
 
     def open_compare_window(self):
         """Opens a window to compare vendor prices for the selected material."""
-
-        # Get the selected row in the table
-        selected_row = self.table.currentRow()
-        if selected_row == -1:
-            QMessageBox.warning(self, "Selection Error", "Please select a material to compare.")
-            return
-
-        # Get the material name and other information from the selected row
-        material_id = self.table.item(selected_row, 0).text()  # Assuming column 0 is mat_id
-        material_name = self.table.item(selected_row, 2).text()  # Assuming column 2 is material_name
-
-        # Query database to fetch all vendors and prices for the selected material
         try:
-            self.c.execute('''SELECT mat_id, vendor, currency, price, unit, vendor_location, price_date, comment 
-                              FROM materials 
-                              WHERE material_name = ?''', (material_name,))
-            results = self.c.fetchall()
+            # Get the selected row in the table
+            selected_row = self.table.currentRow()
+            if selected_row == -1:
+                QMessageBox.warning(self, "Selection Error", "Please select a material to compare.")
+                return
 
-        except sqlite3.Error as e:
-            # Show an error message if there’s a database issue
-            QMessageBox.critical(self, "Database Error", f"Error fetching data: {e}")
-            return
+            # Get the material name and other information from the selected row
+            material_id = self.table.item(selected_row, 0).text()  # Assuming column 0 is mat_id
+            material_name = self.table.item(selected_row, 2).text()  # Assuming column 2 is material_name
 
-        # Check if there is only one item in the database for this material
-        if len(results) <= 1:
-            QMessageBox.information(self, "Comparison not possible",
-                                    "The selected material is the only item and has nothing to compare with.")
-            return
+            # Query database to fetch all vendors and prices for the selected material
+            try:
+                self.c.execute('''SELECT mat_id, vendor, currency, price, unit, vendor_location, price_date, comment 
+                                  FROM materials 
+                                  WHERE material_name = ?''', (material_name,))
+                results = self.c.fetchall()
+                print(results)
+            except sqlite3.Error as e:
+                # Show an error message if there’s a database issue
+                QMessageBox.critical(self, "Database Error", f"Error fetching data: {e}")
+                return
 
-        # Create a dialog window for comparison
-        compare_dialog = QDialog(self)
-        compare_dialog.setWindowTitle(f"Vendors Price Comparison")
-        compare_dialog.setGeometry(200, 200, 1000, 600)
+            # Check if there is only one item in the database for this material
+            if len(results) <= 1:
+                QMessageBox.information(self, "Comparison not possible",
+                                        "The selected material is the only item and has nothing to compare with.")
+                return
 
-        # Layout for the comparison table
-        layout = QVBoxLayout(compare_dialog)
+            # Create a dialog window for comparison
+            compare_dialog = QDialog(self)
+            compare_dialog.setWindowTitle(f"Vendors Price Comparison")
+            compare_dialog.setGeometry(200, 200, 1000, 600)
 
-        # Add filter drop-down
-        filter_layout = QHBoxLayout()
-        filter_label = QLabel(f"[{material_id}] : {material_name}\t\t\t\t\t\t\t\t\t\t\t\t\t\t Sort by Price :")
-        filter_combo = QComboBox()
-        filter_combo.addItems(["Low - High", "High - Low"])
-        filter_layout.addWidget(filter_label)
-        filter_layout.addWidget(filter_combo)
-        layout.addLayout(filter_layout)
+            # Layout for the comparison table
+            layout = QVBoxLayout(compare_dialog)
 
-        # Table to display comparison data
-        compare_table = QTableWidget()
-        compare_table.setColumnCount(8)  # Increase the column count to 7 to include Location
-        compare_table.setHorizontalHeaderLabels(["Mat ID", "Vendor", "Currency", "Price", "Unit", "Location", "Date", "Comment","Allocation"])
+            # Add filter drop-down
+            filter_layout = QHBoxLayout()
+            filter_label = QLabel(f"[{material_id}] : {material_name}\t\t\t\t\t\t\t\t\t\t\t\t\t\t Sort by Price :")
+            filter_combo = QComboBox()
+            filter_combo.addItems(["Low - High", "High - Low"])
+            filter_layout.addWidget(filter_label)
+            filter_layout.addWidget(filter_combo)
+            layout.addLayout(filter_layout)
 
-        # Extract job_id and job_name for view in label
-        self.jobs_c.execute("SELECT job_id, job_name FROM jobs WHERE is_default = 1")
-        default_job = self.jobs_c.fetchone()
+            # Table to display comparison data
+            compare_table = QTableWidget()
+            compare_table.setColumnCount(9)  # Increase the column count to 9 to include Comment
+            compare_table.setHorizontalHeaderLabels(
+                ["Mat ID", "Vendor", "Currency", "Price", "Unit", "Location", "Date", "Comment", "Allocation"])
 
-        job_id, job_name = default_job
+            # Extract job_id and job_name for view in label
+            self.jobs_c.execute("SELECT job_id, job_name FROM jobs WHERE is_default = 1")
+            default_job = self.jobs_c.fetchone()
 
-        # update the default job label
-        self.update_default_job_label(job_name)
+            job_id, job_name = default_job
 
-        # Function to populate the table with formatted prices
-        def populate_table(data):
-            compare_table.setRowCount(len(data))
-            for row, (mat_id, vendor, currency, price, unit, vendor_location, price_date, comment) in enumerate(data):
-                compare_table.setItem(row, 0, QTableWidgetItem(mat_id))
-                compare_table.setItem(row, 1, QTableWidgetItem(vendor))
-                compare_table.setItem(row, 2, QTableWidgetItem(currency))
+            # Update the default job label
+            self.update_default_job_label(job_name)
 
-                # Format price to two decimal places with commas
-                formatted_price = "{:,.2f}".format(price)
-                compare_table.setItem(row, 3, QTableWidgetItem(formatted_price))
+            # Function to populate the table with formatted prices
+            def populate_table(data):
+                compare_table.setRowCount(len(data))
+                for row, (mat_id, vendor, currency, price, unit, vendor_location, price_date, comment) in enumerate(
+                        data):
+                    compare_table.setItem(row, 0, QTableWidgetItem(mat_id))
+                    compare_table.setItem(row, 1, QTableWidgetItem(vendor))
+                    compare_table.setItem(row, 2, QTableWidgetItem(currency))
 
-                compare_table.setItem(row, 4, QTableWidgetItem(unit))
-                compare_table.setItem(row, 5, QTableWidgetItem(vendor_location))  # Add Location data
-                compare_table.setItem(row, 6, QTableWidgetItem(price_date))
-                compare_table.setItem(row, 7, QTableWidgetItem(comment))    # Add comment
+                    # Format price to two decimal places with commas
+                    formatted_price = "{:,.2f}".format(price)
+                    compare_table.setItem(row, 3, QTableWidgetItem(formatted_price))
 
-                # Add an "Assign Job" button
-                assign_job_button = QPushButton("Allocate to Job")
-                assign_job_button.clicked.connect(
-                    lambda checked, material_id=mat_id: self.assign_material_to_job(material_id))
-                compare_table.setCellWidget(row, 7, assign_job_button)
+                    compare_table.setItem(row, 4, QTableWidgetItem(unit))
+                    compare_table.setItem(row, 5, QTableWidgetItem(vendor_location))  # Add Location data
+                    compare_table.setItem(row, 6, QTableWidgetItem(price_date))
+                    compare_table.setItem(row, 7, QTableWidgetItem(comment))  # Add comment
 
-        # Convert prices to float for accurate sorting
-        try:
-            results = [(mat_id, vendor, currency, float(price.replace(',', '')) if isinstance(price, str) else price,
-                        unit, vendor_location, price_date)
-                       for mat_id, vendor, currency, price, unit, vendor_location, price_date, comment in results]
+                    # Add an "Assign Job" button
+                    assign_job_button = QPushButton("Allocate to Job")
+                    assign_job_button.clicked.connect(
+                        lambda checked, material_id=mat_id: self.assign_material_to_job(material_id))
+                    compare_table.setCellWidget(row, 8, assign_job_button)
 
-        except Exception as e:
-            # Show an error message if there’s an issue with data conversion
-            QMessageBox.critical(self, "Data Error", f"Error processing data: {e}")
-            return
+            # Convert prices to float for accurate sorting
+            try:
+                results = [
+                    (mat_id, vendor, currency, float(price.replace(',', '')) if isinstance(price, str) else price,
+                     unit, vendor_location, price_date, comment)
+                    for (mat_id, vendor, currency, price, unit, vendor_location, price_date, comment) in results]
+            except Exception as e:
+                # Show an error message if there’s an issue with data conversion
+                QMessageBox.critical(self, "Data Error", f"Error processing data: {e}")
+                return
 
-        sorted_results = sorted(results, key=lambda x: x[3])
-        populate_table(sorted_results)
-
-        # Set default filter selection to "Low - High"
-        filter_combo.setCurrentIndex(0)
-
-        # Handle filter changes
-        def on_filter_change():
-            sorted_results = sorted(results, key=lambda x: x[3], reverse=(filter_combo.currentText() == "High - Low"))
+            sorted_results = sorted(results, key=lambda x: x[3])
             populate_table(sorted_results)
 
-        filter_combo.currentIndexChanged.connect(on_filter_change)
+            # Set default filter selection to "Low - High"
+            filter_combo.setCurrentIndex(0)
 
-        # Add the table to the layout
-        layout.addWidget(compare_table)
+            # Handle filter changes
+            def on_filter_change():
+                sorted_results = sorted(results, key=lambda x: x[3],
+                                        reverse=(filter_combo.currentText() == "High - Low"))
+                populate_table(sorted_results)
 
-        # Calculate average price if all currencies are the same
-        unique_currencies = {currency for _, _, currency, _, _, _, _ in results}
-        if len(unique_currencies) == 1:
-            # Calculate average price
-            average_price = sum(price for _, _, _, price, _, _, _ in results) / len(results)
-            currency = unique_currencies.pop()
-            average_price_label_text = f"Average Price : {currency} {average_price:,.2f}"
-        else:
-            # Display message if currencies vary
-            average_price_label_text = "Average prices cannot be calculated due to currency variance."
+            filter_combo.currentIndexChanged.connect(on_filter_change)
 
-        # Create and add the average price label
-        average_price_label = QLabel(average_price_label_text)
-        average_price_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        layout.addWidget(average_price_label)
+            # Add the table to the layout
+            layout.addWidget(compare_table)
 
-        # Add a close button at the bottom, center-aligned
-        close_button_layout = QHBoxLayout()
-        close_button_layout.addStretch(1)  # Add stretch to center-align
-        close_button = QPushButton("Close")
-        close_button.clicked.connect(compare_dialog.close)
-        close_button_layout.addWidget(close_button)
-        close_button_layout.addStretch(1)  # Add stretch to center-align
+            # Calculate average price if all currencies are the same
+            unique_currencies = {currency for _, _, currency, _, _, _, _, _ in results}
+            if len(unique_currencies) == 1:
+                # Calculate average price
+                average_price = sum(price for _, _, _, price, _, _, _, _ in results) / len(results)
+                currency = unique_currencies.pop()
+                average_price_label_text = f"Average Price : {currency} {average_price:,.2f}"
+            else:
+                # Display message if currencies vary
+                average_price_label_text = "Average prices cannot be calculated due to currency variance."
 
-        # Add the close button layout to the main layout
-        layout.addLayout(close_button_layout)
-        compare_dialog.setLayout(layout)
+            # Create and add the average price label
+            average_price_label = QLabel(average_price_label_text)
+            average_price_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            layout.addWidget(average_price_label)
 
-        # Show the comparison dialog
-        compare_dialog.exec()
+            # Add a close button at the bottom, center-aligned
+            close_button_layout = QHBoxLayout()
+            close_button_layout.addStretch(1)  # Add stretch to center-align
+            close_button = QPushButton("Close")
+            close_button.clicked.connect(compare_dialog.close)
+            close_button_layout.addWidget(close_button)
+            close_button_layout.addStretch(1)  # Add stretch to center-align
+
+            # Add the close button layout to the main layout
+            layout.addLayout(close_button_layout)
+            compare_dialog.setLayout(layout)
+
+            # Show the comparison dialog
+            compare_dialog.exec()
+
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"An unexpected error occurred: {e}")
 
     def assign_material_to_job(self, material_id):
         """Assigns a selected material to the default job."""
