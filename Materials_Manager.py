@@ -14,7 +14,6 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout
                              QMessageBox, QFileDialog, QComboBox, QDateEdit, QRadioButton, QButtonGroup, QSpacerItem
                              )
 
-
 class BasicPricelist(QMainWindow):
     def __init__(self):
         """Initializes the GUI and database."""
@@ -1323,7 +1322,7 @@ class BasicPricelist(QMainWindow):
         max_width_vendor = 0
         max_width_email = 0
         max_width_location = 0
-        max_width_comment = 0
+        max_width_comment = 0       # Comment column
 
         font_metrics = QFontMetrics(self.table.font())  # Use table's font to calculate width
 
