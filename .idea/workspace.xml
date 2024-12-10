@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Done.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Materials_Manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Materials_Manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,14 +209,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00225" summary="comparison window updates default job label.">
-      <option name="closed" value="true" />
-      <created>1732287500811</created>
-      <option name="number" value="00225" />
-      <option name="presentableId" value="LOCAL-00225" />
-      <option name="project" value="LOCAL" />
-      <updated>1732287500811</updated>
     </task>
     <task id="LOCAL-00226" summary="default job and user changed to current job and user.">
       <option name="closed" value="true" />
@@ -601,7 +594,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733220089257</updated>
     </task>
-    <option name="localTasksCounter" value="274" />
+    <task id="LOCAL-00274" summary="Done.">
+      <option name="closed" value="true" />
+      <created>1733821769902</created>
+      <option name="number" value="00274" />
+      <option name="presentableId" value="LOCAL-00274" />
+      <option name="project" value="LOCAL" />
+      <updated>1733821769902</updated>
+    </task>
+    <option name="localTasksCounter" value="275" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
