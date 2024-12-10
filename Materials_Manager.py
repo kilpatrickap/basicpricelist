@@ -1431,7 +1431,7 @@ class BasicPricelist(QMainWindow):
                                   FROM materials 
                                   WHERE material_name = ?''', (material_name,))
                 results = self.c.fetchall()
-                print(results)
+
             except sqlite3.Error as e:
                 # Show an error message if there’s a database issue
                 QMessageBox.critical(self, "Database Error", f"Error fetching data: {e}")
