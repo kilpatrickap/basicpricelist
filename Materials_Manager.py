@@ -1356,9 +1356,6 @@ class BasicPricelist(QMainWindow):
                 else:
                     item = QTableWidgetItem(item_text)
 
-                # # Set item to be non-editable
-                # item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEditable)
-
                 self.table.setItem(row_num, col_num, item)
 
         # Set the column widths based on the widest entry for each column
