@@ -2500,7 +2500,7 @@ class BasicPricelist(QMainWindow):
         icon_path = os.path.join(icon_folder_path, "materials-manager.png")
 
         about_text = f"""
-        \t\t\t\t\t Materials Manager v1.0
+        \t\t\t\t\t Materials Manager v1.1
 
         Software Developed by: \tKilpatrick Atta-Poku
                              \t\tKilTech Enterprise
