@@ -183,7 +183,7 @@ class BasicPricelist(QMainWindow):
         # Material List Table
         self.table = QTableWidget()
         self.table.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        self.table.setColumnCount(12)  # Updated to 11 columns to match the header count
+        self.table.setColumnCount(12)  # Updated to 12 columns to match the header count
         self.table.setHorizontalHeaderLabels(
             ['Mat ID', 'Trade', 'Material', 'Currency', 'Price', 'Unit', 'Vendor', 'Phone', 'Email', 'Location',
              'Price Date', 'Comment'])  # Correct number of columns
@@ -2118,7 +2118,7 @@ class BasicPricelist(QMainWindow):
             pd.to_datetime(price_date, dayfirst=True))  # Set the date input from current value
         self.price_date_input.setCalendarPopup(True)  # Show calendar popup for date selection
 
-        self.vendor_comment_input = QDateEdit(comment)  # New date input field
+        self.vendor_comment_input = QLineEdit(comment)  # New date input field
         self.vendor_comment_input.setMinimumWidth(400)
 
         layout.addRow('Trade:', self.trade_input)
