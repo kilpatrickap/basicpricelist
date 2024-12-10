@@ -1345,7 +1345,7 @@ class BasicPricelist(QMainWindow):
                     max_width_email = max(max_width_email, font_metrics.horizontalAdvance(item_text))
                 elif col_num == 9:  # Location column
                     max_width_location = max(max_width_location, font_metrics.horizontalAdvance(item_text))
-                elif col_num == 10:  # Location column
+                elif col_num == 10:  # comment column
                     max_width_comment = max(max_width_comment, font_metrics.horizontalAdvance(item_text))
 
                 if col_num == 4:  # Assuming 'price' is the 5th column
