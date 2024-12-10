@@ -825,7 +825,7 @@ class BasicPricelist(QMainWindow):
             # Exclude the first column (id) from the columns list
             columns = [col for col in columns if col.lower() != 'id']  # Modify 'id' if it's not exactly "id"
 
-            # Populate the table widget with the data, excluding the id column      #todo job table column headings should match materials.db column headings
+            # Populate the table widget with the data, excluding the id column
             self.table_widget.setRowCount(len(rows))
             self.table_widget.setColumnCount(len(columns))
             self.table_widget.setHorizontalHeaderLabels(columns)
@@ -1345,7 +1345,7 @@ class BasicPricelist(QMainWindow):
                     max_width_email = max(max_width_email, font_metrics.horizontalAdvance(item_text))
                 elif col_num == 9:  # Location column
                     max_width_location = max(max_width_location, font_metrics.horizontalAdvance(item_text))
-                elif col_num == 10:  # comment column
+                elif col_num == 11:  # comment column
                     max_width_comment = max(max_width_comment, font_metrics.horizontalAdvance(item_text))
 
                 if col_num == 4:  # Assuming 'price' is the 5th column
@@ -1368,7 +1368,7 @@ class BasicPricelist(QMainWindow):
         self.table.setColumnWidth(6, max_width_vendor + 20)  # Vendor column with padding
         self.table.setColumnWidth(8, max_width_email + 20)  # Email column with padding
         self.table.setColumnWidth(9, max_width_location + 20)  # Location column with padding
-        self.table.setColumnWidth(10, max_width_comment + 20)  # Comment column with padding
+        self.table.setColumnWidth(11, max_width_comment + 20)  # Comment column with padding
 
     def populate_currency_combo(self, combo_box):
         """Populates the currency dropdown with available currencies."""
