@@ -1345,7 +1345,7 @@ class BasicPricelist(QMainWindow):
                 elif col_num == 9:  # Location column
                     max_width_location = max(max_width_location, font_metrics.horizontalAdvance(item_text))
                 elif col_num == 10:  # Location column
-                    max_comment_location = max(max_width_comment, font_metrics.horizontalAdvance(item_text))
+                    max_width_comment = max(max_width_comment, font_metrics.horizontalAdvance(item_text))
 
                 if col_num == 4:  # Assuming 'price' is the 5th column
                     # Check if data is a string, and remove commas if necessary
