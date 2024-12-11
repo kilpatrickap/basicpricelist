@@ -9,6 +9,7 @@ URL Source: https://www.youtube.com/watch?v=Y0HN9tdLuJo&t=10s
 7.  Additional Files "Add Folder" >> images/
 8.  Settings "Output directory" >> Desktop
 9.  Convert .py to .exe
+10. Copy users, jobs and materials.db to Output folder
 
 Convert GUI App to Real Program - Python to exe to setup wizard
 URL Source: https://www.youtube.com/watch?v=p3tSLatmGvU         @ 13:37 / 23:26
