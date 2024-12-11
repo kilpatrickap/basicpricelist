@@ -1387,13 +1387,24 @@ class BasicPricelist(QMainWindow):
 
     def search_materials(self):
         """Searches for materials based on user input."""
-        search_text = self.search_input.text().lower()
-        self.c.execute('SELECT * FROM materials')
-        rows = self.c.fetchall()
-        filtered_rows = [row for row in rows if search_text in row[1].lower() or  # Trade
-                         search_text in row[2].lower() or  # Material name
-                         search_text in row[7].lower()]  # Vendor
-        self.populate_table(filtered_rows)
+        search_text = f"%{self.search_input.text().lower()}%"  # Add wildcards for SQL LIKE search
+
+        try:
+            # Perform the search query with placeholders
+            query = """
+                SELECT * FROM materials
+                WHERE LOWER(trade) LIKE ?
+                OR LOWER(material_name) LIKE ?
+                OR LOWER(vendor) LIKE ?
+            """
+            self.c.execute(query, (search_text, search_text, search_text))
+            rows = self.c.fetchall()
+
+            # Populate the table with the filtered rows
+            self.populate_table(rows)
+        except sqlite3.Error as e:
+            # Display an error message if the database query fails
+            QMessageBox.critical(self, "Database Error", f"Failed to search materials: {e}")
 
     def sort_materials(self):
         """Sorts the materials based on the selected criteria."""

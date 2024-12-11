@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Ready for deployment v1.1">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Materials Manager v1.1 Deployed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Setup_Tutorials_and_License/License - GNUv3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Setup_Tutorials_and_License/exe-to-setup-tutorial" beforeDir="false" afterPath="$PROJECT_DIR$/Setup_Tutorials_and_License/exe-to-setup-tutorial" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,14 +210,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00244" summary=" Working on deleting a selected material from job db.">
-      <option name="closed" value="true" />
-      <created>1732536089147</created>
-      <option name="number" value="00244" />
-      <option name="presentableId" value="LOCAL-00244" />
-      <option name="project" value="LOCAL" />
-      <updated>1732536089147</updated>
     </task>
     <task id="LOCAL-00245" summary=" Working on deleting a selected material from job db.">
       <option name="closed" value="true" />
@@ -604,7 +595,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733909966375</updated>
     </task>
-    <option name="localTasksCounter" value="293" />
+    <task id="LOCAL-00293" summary="Materials Manager v1.1 Deployed">
+      <option name="closed" value="true" />
+      <created>1733911113817</created>
+      <option name="number" value="00293" />
+      <option name="presentableId" value="LOCAL-00293" />
+      <option name="project" value="LOCAL" />
+      <updated>1733911113817</updated>
+    </task>
+    <option name="localTasksCounter" value="294" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -619,7 +618,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="comparison window updates default job label." />
     <MESSAGE value="default job and user changed to current job and user." />
     <MESSAGE value="UI-changes VPC 400 to 600." />
     <MESSAGE value="UI-changes Edit Material Save Changes button centred." />
@@ -644,6 +642,7 @@
     <MESSAGE value="Vendors Price Comparison works." />
     <MESSAGE value="Ready for deployment v1.1 (if item_text is 'None' make it null)." />
     <MESSAGE value="Ready for deployment v1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ready for deployment v1.1" />
+    <MESSAGE value="Materials Manager v1.1 Deployed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Materials Manager v1.1 Deployed" />
   </component>
 </project>
