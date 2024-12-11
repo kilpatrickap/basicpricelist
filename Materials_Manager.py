@@ -2385,9 +2385,16 @@ class BasicPricelist(QMainWindow):
 
         # Vendor fields with current data
         vendor_name_edit = QLineEdit(vendor_name)
+        vendor_name_edit.setMinimumWidth(400)
+
         vendor_phone_edit = QLineEdit(vendor_phone)
+        vendor_phone_edit.setMinimumWidth(400)
+
         vendor_email_edit = QLineEdit(vendor_email)
+        vendor_email_edit.setMinimumWidth(400)
+
         vendor_location_edit = QLineEdit(vendor_location)
+        vendor_location_edit.setMinimumWidth(400)
 
         # Add fields to form layout
         form_layout.addRow("Vendor Name:", vendor_name_edit)

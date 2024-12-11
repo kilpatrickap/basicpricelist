@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Ready for deployment v1.1 (if item_text is 'None' make it null).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Materials_Manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Materials_Manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,30 +208,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00238" summary=" Working on deleting a selected material from job db.">
-      <option name="closed" value="true" />
-      <created>1732530024923</created>
-      <option name="number" value="00238" />
-      <option name="presentableId" value="LOCAL-00238" />
-      <option name="project" value="LOCAL" />
-      <updated>1732530024923</updated>
-    </task>
-    <task id="LOCAL-00239" summary=" Working on deleting a selected material from job db.">
-      <option name="closed" value="true" />
-      <created>1732532782409</created>
-      <option name="number" value="00239" />
-      <option name="presentableId" value="LOCAL-00239" />
-      <option name="project" value="LOCAL" />
-      <updated>1732532782409</updated>
-    </task>
-    <task id="LOCAL-00240" summary=" Working on deleting a selected material from job db.">
-      <option name="closed" value="true" />
-      <created>1732534358488</created>
-      <option name="number" value="00240" />
-      <option name="presentableId" value="LOCAL-00240" />
-      <option name="project" value="LOCAL" />
-      <updated>1732534358488</updated>
     </task>
     <task id="LOCAL-00241" summary=" Working on deleting a selected material from job db.">
       <option name="closed" value="true" />
@@ -602,7 +577,31 @@
       <option name="project" value="LOCAL" />
       <updated>1733837467886</updated>
     </task>
-    <option name="localTasksCounter" value="287" />
+    <task id="LOCAL-00287" summary="Ready for deployment v1.1 (if item_text is 'None' make it null).">
+      <option name="closed" value="true" />
+      <created>1733838266308</created>
+      <option name="number" value="00287" />
+      <option name="presentableId" value="LOCAL-00287" />
+      <option name="project" value="LOCAL" />
+      <updated>1733838266308</updated>
+    </task>
+    <task id="LOCAL-00288" summary="Ready for deployment v1.1 (if item_text is 'None' make it null).">
+      <option name="closed" value="true" />
+      <created>1733838445251</created>
+      <option name="number" value="00288" />
+      <option name="presentableId" value="LOCAL-00288" />
+      <option name="project" value="LOCAL" />
+      <updated>1733838445251</updated>
+    </task>
+    <task id="LOCAL-00289" summary="Ready for deployment v1.1 (if item_text is 'None' make it null).">
+      <option name="closed" value="true" />
+      <created>1733838896015</created>
+      <option name="number" value="00289" />
+      <option name="presentableId" value="LOCAL-00289" />
+      <option name="project" value="LOCAL" />
+      <updated>1733838896015</updated>
+    </task>
+    <option name="localTasksCounter" value="290" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
