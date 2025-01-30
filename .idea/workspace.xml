@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="v2-API Update - API reverted to stable point.">
-      <change afterPath="$PROJECT_DIR$/client-side-request.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-side-post.py" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="v2-API Update - API done">
+      <change afterPath="$PROJECT_DIR$/sever-side-put.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materials-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/materials-data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/request_sample.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +63,7 @@
     "Python.sample.executor": "Run",
     "Python.server-side-post.executor": "Run",
     "Python.server.executor": "Run",
+    "Python.sever-side-put.executor": "Run",
     "Python.smtp_client.executor": "Run",
     "Python.smtp_server.executor": "Run",
     "Python.sql_to_csv_converter.executor": "Run",
@@ -89,7 +88,7 @@
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\ico file" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.client-side-request">
+  <component name="RunManager" selected="Python.sever-side-put">
     <configuration name="Materials_Manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -134,28 +133,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="request_sample" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="pricelist" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/request_sample.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="server-side-post" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -170,6 +147,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server-side-post.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sever-side-put" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pricelist" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sever-side-put.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -202,11 +201,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.sever-side-put" />
         <item itemvalue="Python.client-side-request" />
-        <item itemvalue="Python.server-side-post" />
         <item itemvalue="Python.sqliteDB_to_json_converter" />
         <item itemvalue="Python.Materials_Manager" />
-        <item itemvalue="Python.request_sample" />
+        <item itemvalue="Python.server-side-post" />
       </list>
     </recent_temporary>
   </component>
@@ -225,14 +224,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00261" summary="Materials Manager ico file added.">
-      <option name="closed" value="true" />
-      <created>1732635803438</created>
-      <option name="number" value="00261" />
-      <option name="presentableId" value="LOCAL-00261" />
-      <option name="project" value="LOCAL" />
-      <updated>1732635803438</updated>
     </task>
     <task id="LOCAL-00262" summary="Materials Manager ico file added.">
       <option name="closed" value="true" />
@@ -618,7 +609,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738250829414</updated>
     </task>
-    <option name="localTasksCounter" value="310" />
+    <task id="LOCAL-00310" summary="v2-API Update - API done">
+      <option name="closed" value="true" />
+      <created>1738253998607</created>
+      <option name="number" value="00310" />
+      <option name="presentableId" value="LOCAL-00310" />
+      <option name="project" value="LOCAL" />
+      <updated>1738253998607</updated>
+    </task>
+    <option name="localTasksCounter" value="311" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -633,7 +632,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="UI-changes Edit User Save User button centred." />
     <MESSAGE value="UI-changes New Material Add Material button centred." />
     <MESSAGE value="UI-changes Edit Vendor Save Vendor button centred." />
     <MESSAGE value=" Working on deleting a selected material from job db." />
@@ -658,6 +656,7 @@
     <MESSAGE value="v2-API Update - localhost ready." />
     <MESSAGE value="v2-API Update - API ready." />
     <MESSAGE value="v2-API Update - API reverted to stable point." />
-    <option name="LAST_COMMIT_MESSAGE" value="v2-API Update - API reverted to stable point." />
+    <MESSAGE value="v2-API Update - API done" />
+    <option name="LAST_COMMIT_MESSAGE" value="v2-API Update - API done" />
   </component>
 </project>
