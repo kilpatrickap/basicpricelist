@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="v2-API Update - localhost ready." />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="v2-API Update - localhost ready.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/materials-data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/request_sample.py" beforeDir="false" afterPath="$PROJECT_DIR$/request_sample.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,6 +57,7 @@
     "Python.fastAPI.executor": "Run",
     "Python.mm_API.executor": "Run",
     "Python.prices_generator.executor": "Run",
+    "Python.request_sample.executor": "Run",
     "Python.sample.executor": "Run",
     "Python.server.executor": "Run",
     "Python.smtp_client.executor": "Run",
@@ -78,7 +84,7 @@
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\ico file" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.request_sample">
+  <component name="RunManager" selected="Python.API-upload">
     <configuration name="API-upload" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -191,8 +197,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.request_sample" />
         <item itemvalue="Python.API-upload" />
+        <item itemvalue="Python.request_sample" />
         <item itemvalue="Python.sqliteDB_to_json_converter" />
         <item itemvalue="Python.Materials_Manager" />
         <item itemvalue="Python.mm_API" />
@@ -214,38 +220,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00253" summary="DONE!!!">
-      <option name="closed" value="true" />
-      <created>1732541119394</created>
-      <option name="number" value="00253" />
-      <option name="presentableId" value="LOCAL-00253" />
-      <option name="project" value="LOCAL" />
-      <updated>1732541119394</updated>
-    </task>
-    <task id="LOCAL-00254" summary="DONE!!!">
-      <option name="closed" value="true" />
-      <created>1732541366130</created>
-      <option name="number" value="00254" />
-      <option name="presentableId" value="LOCAL-00254" />
-      <option name="project" value="LOCAL" />
-      <updated>1732541366130</updated>
-    </task>
-    <task id="LOCAL-00255" summary="DONE !!!">
-      <option name="closed" value="true" />
-      <created>1732559430079</created>
-      <option name="number" value="00255" />
-      <option name="presentableId" value="LOCAL-00255" />
-      <option name="project" value="LOCAL" />
-      <updated>1732559430079</updated>
-    </task>
-    <task id="LOCAL-00256" summary="DONE!!!">
-      <option name="closed" value="true" />
-      <created>1732614074939</created>
-      <option name="number" value="00256" />
-      <option name="presentableId" value="LOCAL-00256" />
-      <option name="project" value="LOCAL" />
-      <updated>1732614074939</updated>
     </task>
     <task id="LOCAL-00257" summary="DONE!!!">
       <option name="closed" value="true" />
@@ -607,7 +581,39 @@
       <option name="project" value="LOCAL" />
       <updated>1738245258024</updated>
     </task>
-    <option name="localTasksCounter" value="302" />
+    <task id="LOCAL-00302" summary="v2-API Update - localhost ready.">
+      <option name="closed" value="true" />
+      <created>1738246587939</created>
+      <option name="number" value="00302" />
+      <option name="presentableId" value="LOCAL-00302" />
+      <option name="project" value="LOCAL" />
+      <updated>1738246587939</updated>
+    </task>
+    <task id="LOCAL-00303" summary="v2-API Update - localhost ready.">
+      <option name="closed" value="true" />
+      <created>1738247406117</created>
+      <option name="number" value="00303" />
+      <option name="presentableId" value="LOCAL-00303" />
+      <option name="project" value="LOCAL" />
+      <updated>1738247406117</updated>
+    </task>
+    <task id="LOCAL-00304" summary="v2-API Update - localhost ready.">
+      <option name="closed" value="true" />
+      <created>1738247901463</created>
+      <option name="number" value="00304" />
+      <option name="presentableId" value="LOCAL-00304" />
+      <option name="project" value="LOCAL" />
+      <updated>1738247901463</updated>
+    </task>
+    <task id="LOCAL-00305" summary="v2-API Update - localhost ready.">
+      <option name="closed" value="true" />
+      <created>1738248083414</created>
+      <option name="number" value="00305" />
+      <option name="presentableId" value="LOCAL-00305" />
+      <option name="project" value="LOCAL" />
+      <updated>1738248083414</updated>
+    </task>
+    <option name="localTasksCounter" value="306" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

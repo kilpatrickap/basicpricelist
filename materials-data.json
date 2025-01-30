@@ -29,6 +29,21 @@
             "vendor_location": "Sample Location",
             "price_date": "11/12/2024",
             "comment": "Sample 2"
+        },
+        {
+            "id": 3,
+            "mat_id": "MAT-3",
+            "trade": "Sample Trade",
+            "material_name": "Sample Material",
+            "currency": "GHS",
+            "price": 2.0,
+            "unit": "Unit",
+            "vendor": "Sample Vendor 3",
+            "vendor_phone": "0123456789",
+            "vendor_email": "sample_vendor2@email.com",
+            "vendor_location": "Sample Location",
+            "price_date": "11/12/2024",
+            "comment": "Sample 3"
         }
     ]
 }

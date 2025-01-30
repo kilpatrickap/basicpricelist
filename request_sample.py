@@ -1,4 +1,5 @@
 import requests
 
-request = requests.get('http://127.0.0.1:8000/materials')
+# Request materials data from API
+request = requests.get('https://mm-api-rz05.onrender.com')
 print(request.json())
