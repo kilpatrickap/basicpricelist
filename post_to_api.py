@@ -17,7 +17,3 @@ if response.status_code == 200:
     print("Data uploaded successfully")
 else:
     print(f"Failed to upload data: {response.status_code} - {response.text}")
-
-# Request materials data from API
-request = requests.get("https://mm-api-rz05.onrender.com")
-print(request.json())
