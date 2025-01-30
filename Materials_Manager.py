@@ -43,6 +43,22 @@ class BasicPricelist(QMainWindow):
 
         # Helper function to create a QToolButton with an icon
         def create_tool_button_with_icon(icon_name, text, callback):
+            """
+            Creates a GUI button with an icon from a specified file name and sets a callback function when clicked.
+
+            Args:
+                icon_name (str): The name of the icon file (e.g., 'my_icon.ico').
+                text (str): The text label or title for the button.
+                callback (callable): A function to be called when the button is clicked.
+
+            Returns:
+                QToolButton: An object containing an icon and a text label with the specified text and icon.
+
+            Example:
+                To create a button with the ' Materials Manager' text and a click handler, you can use:
+                >>> btn = create_tool_button_with_icon('my_icon.ico', 'Materials Manager', lambda btn: print("Button clicked"))
+            """
+
             icon = QtGui.QIcon()
             icon_path = os.path.join(icon_folder_path, icon_name)
             icon.addPixmap(QtGui.QPixmap(icon_path), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
