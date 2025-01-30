@@ -5,7 +5,7 @@ import requests
 
 app = FastAPI()
 
-@app.get("/materials")
+@app.get("/")
 async def get_and_post_materials():
     """Fetch materials-data.json from parent directory and post it to an external API."""
     parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
