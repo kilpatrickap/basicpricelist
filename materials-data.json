@@ -1,0 +1,34 @@
+{
+    "materials": [
+        {
+            "id": 1,
+            "mat_id": "MAT-1",
+            "trade": "Sample Trade",
+            "material_name": "Sample Material",
+            "currency": "GHS",
+            "price": 1.0,
+            "unit": "Unit",
+            "vendor": "Sample Vendor 1",
+            "vendor_phone": "0123456789",
+            "vendor_email": "sample_vendor1@email.com",
+            "vendor_location": "Sample Location",
+            "price_date": "11/12/2024",
+            "comment": "Sample 1"
+        },
+        {
+            "id": 2,
+            "mat_id": "MAT-2",
+            "trade": "Sample Trade",
+            "material_name": "Sample Material",
+            "currency": "GHS",
+            "price": 2.0,
+            "unit": "Unit",
+            "vendor": "Sample Vendor 2",
+            "vendor_phone": "0123456789",
+            "vendor_email": "sample_vendor2@email.com",
+            "vendor_location": "Sample Location",
+            "price_date": "11/12/2024",
+            "comment": "Sample 2"
+        }
+    ]
+}
