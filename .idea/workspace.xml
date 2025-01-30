@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="v2-API Update">
-      <change afterPath="$PROJECT_DIR$/sqliteDB_to_json_converter.py" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="v2-API Update - localhost ready.">
+      <change afterPath="$PROJECT_DIR$/request_sample.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/API-upload.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +82,7 @@
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\ico file" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.API-upload">
+  <component name="RunManager" selected="Python.request_sample">
     <configuration name="API-upload" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -149,7 +149,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sample" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="request_sample" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -162,7 +162,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sample.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/request_sample.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -195,10 +195,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.request_sample" />
         <item itemvalue="Python.API-upload" />
         <item itemvalue="Python.sqliteDB_to_json_converter" />
         <item itemvalue="Python.Materials_Manager" />
-        <item itemvalue="Python.sample" />
         <item itemvalue="Python.mm_API" />
       </list>
     </recent_temporary>
@@ -218,14 +218,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00249" summary=" Working on deleting a selected material from job db.">
-      <option name="closed" value="true" />
-      <created>1732537517738</created>
-      <option name="number" value="00249" />
-      <option name="presentableId" value="LOCAL-00249" />
-      <option name="project" value="LOCAL" />
-      <updated>1732537517738</updated>
     </task>
     <task id="LOCAL-00250" summary=" Working on deleting a selected material from job db.">
       <option name="closed" value="true" />
@@ -611,7 +603,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738234443124</updated>
     </task>
-    <option name="localTasksCounter" value="298" />
+    <task id="LOCAL-00298" summary="v2-API Update - localhost ready.">
+      <option name="closed" value="true" />
+      <created>1738241983637</created>
+      <option name="number" value="00298" />
+      <option name="presentableId" value="LOCAL-00298" />
+      <option name="project" value="LOCAL" />
+      <updated>1738241983637</updated>
+    </task>
+    <option name="localTasksCounter" value="299" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -626,7 +626,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="UI-changes VPC 400 to 600." />
     <MESSAGE value="UI-changes Edit Material Save Changes button centred." />
     <MESSAGE value="UI-changes Edit Job Save Job button centred." />
     <MESSAGE value="UI-changes Edit User Save User button centred." />
@@ -651,6 +650,7 @@
     <MESSAGE value="Ready for deployment v1.1" />
     <MESSAGE value="Materials Manager v1.1 Deployed" />
     <MESSAGE value="v2-API Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="v2-API Update" />
+    <MESSAGE value="v2-API Update - localhost ready." />
+    <option name="LAST_COMMIT_MESSAGE" value="v2-API Update - localhost ready." />
   </component>
 </project>
