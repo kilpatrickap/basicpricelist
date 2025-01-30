@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="v2-API Update - API done">
-      <change afterPath="$PROJECT_DIR$/sever-side-put.py" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="v2-API Update - API done almost">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materials-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/materials-data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
@@ -88,7 +87,7 @@
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\ico file" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.sever-side-put">
+  <component name="RunManager" selected="Python.client-side-request">
     <configuration name="Materials_Manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -201,10 +200,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.sever-side-put" />
         <item itemvalue="Python.client-side-request" />
         <item itemvalue="Python.sqliteDB_to_json_converter" />
         <item itemvalue="Python.Materials_Manager" />
+        <item itemvalue="Python.sever-side-put" />
         <item itemvalue="Python.server-side-post" />
       </list>
     </recent_temporary>
@@ -224,14 +223,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00262" summary="Materials Manager ico file added.">
-      <option name="closed" value="true" />
-      <created>1732697789746</created>
-      <option name="number" value="00262" />
-      <option name="presentableId" value="LOCAL-00262" />
-      <option name="project" value="LOCAL" />
-      <updated>1732697789746</updated>
     </task>
     <task id="LOCAL-00263" summary="About button added in toolbar.">
       <option name="closed" value="true" />
@@ -617,7 +608,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738253998607</updated>
     </task>
-    <option name="localTasksCounter" value="311" />
+    <task id="LOCAL-00311" summary="v2-API Update - API done almost">
+      <option name="closed" value="true" />
+      <created>1738266271361</created>
+      <option name="number" value="00311" />
+      <option name="presentableId" value="LOCAL-00311" />
+      <option name="project" value="LOCAL" />
+      <updated>1738266271361</updated>
+    </task>
+    <option name="localTasksCounter" value="312" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -632,7 +631,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="UI-changes New Material Add Material button centred." />
     <MESSAGE value="UI-changes Edit Vendor Save Vendor button centred." />
     <MESSAGE value=" Working on deleting a selected material from job db." />
     <MESSAGE value="DONE !!!" />
@@ -657,6 +655,7 @@
     <MESSAGE value="v2-API Update - API ready." />
     <MESSAGE value="v2-API Update - API reverted to stable point." />
     <MESSAGE value="v2-API Update - API done" />
-    <option name="LAST_COMMIT_MESSAGE" value="v2-API Update - API done" />
+    <MESSAGE value="v2-API Update - API done almost" />
+    <option name="LAST_COMMIT_MESSAGE" value="v2-API Update - API done almost" />
   </component>
 </project>
