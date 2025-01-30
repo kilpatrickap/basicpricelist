@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="v2-API Update - localhost ready.">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="v2-API Update - API reverted to stable point.">
+      <change afterPath="$PROJECT_DIR$/client-side-request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server-side-post.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materials-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/materials-data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/request_sample.py" beforeDir="false" afterPath="$PROJECT_DIR$/request_sample.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/request_sample.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,11 +56,14 @@
     "Python.BasicPricelist.executor": "Run",
     "Python.BidPriceManager_v1.0.executor": "Run",
     "Python.Materials_Manager.executor": "Run",
+    "Python.client-side-request.executor": "Run",
+    "Python.client-side.executor": "Run",
     "Python.fastAPI.executor": "Run",
     "Python.mm_API.executor": "Run",
     "Python.prices_generator.executor": "Run",
     "Python.request_sample.executor": "Run",
     "Python.sample.executor": "Run",
+    "Python.server-side-post.executor": "Run",
     "Python.server.executor": "Run",
     "Python.smtp_client.executor": "Run",
     "Python.smtp_server.executor": "Run",
@@ -84,29 +89,7 @@
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\ico file" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.API-upload">
-    <configuration name="API-upload" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="pricelist" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/API-upload.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.client-side-request">
     <configuration name="Materials_Manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -129,7 +112,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mm_API" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="client-side-request" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -142,7 +125,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mm_API.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/client-side-request.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,6 +148,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/request_sample.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="server-side-post" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pricelist" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server-side-post.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -197,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.API-upload" />
-        <item itemvalue="Python.request_sample" />
+        <item itemvalue="Python.client-side-request" />
+        <item itemvalue="Python.server-side-post" />
         <item itemvalue="Python.sqliteDB_to_json_converter" />
         <item itemvalue="Python.Materials_Manager" />
-        <item itemvalue="Python.mm_API" />
+        <item itemvalue="Python.request_sample" />
       </list>
     </recent_temporary>
   </component>
@@ -220,38 +225,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00257" summary="DONE!!!">
-      <option name="closed" value="true" />
-      <created>1732614104644</created>
-      <option name="number" value="00257" />
-      <option name="presentableId" value="LOCAL-00257" />
-      <option name="project" value="LOCAL" />
-      <updated>1732614104644</updated>
-    </task>
-    <task id="LOCAL-00258" summary="Materials Manager v.1.0 icon and title set.">
-      <option name="closed" value="true" />
-      <created>1732633138956</created>
-      <option name="number" value="00258" />
-      <option name="presentableId" value="LOCAL-00258" />
-      <option name="project" value="LOCAL" />
-      <updated>1732633138956</updated>
-    </task>
-    <task id="LOCAL-00259" summary="Materials Manager v.1.0 icon and title set.">
-      <option name="closed" value="true" />
-      <created>1732634642538</created>
-      <option name="number" value="00259" />
-      <option name="presentableId" value="LOCAL-00259" />
-      <option name="project" value="LOCAL" />
-      <updated>1732634642538</updated>
-    </task>
-    <task id="LOCAL-00260" summary="Materials Manager ico file added.">
-      <option name="closed" value="true" />
-      <created>1732634907352</created>
-      <option name="number" value="00260" />
-      <option name="presentableId" value="LOCAL-00260" />
-      <option name="project" value="LOCAL" />
-      <updated>1732634907352</updated>
     </task>
     <task id="LOCAL-00261" summary="Materials Manager ico file added.">
       <option name="closed" value="true" />
@@ -613,7 +586,39 @@
       <option name="project" value="LOCAL" />
       <updated>1738248083414</updated>
     </task>
-    <option name="localTasksCounter" value="306" />
+    <task id="LOCAL-00306" summary="v2-API Update - localhost ready.">
+      <option name="closed" value="true" />
+      <created>1738249702712</created>
+      <option name="number" value="00306" />
+      <option name="presentableId" value="LOCAL-00306" />
+      <option name="project" value="LOCAL" />
+      <updated>1738249702712</updated>
+    </task>
+    <task id="LOCAL-00307" summary="v2-API Update - API ready.">
+      <option name="closed" value="true" />
+      <created>1738249748662</created>
+      <option name="number" value="00307" />
+      <option name="presentableId" value="LOCAL-00307" />
+      <option name="project" value="LOCAL" />
+      <updated>1738249748662</updated>
+    </task>
+    <task id="LOCAL-00308" summary="v2-API Update - API ready.">
+      <option name="closed" value="true" />
+      <created>1738249762385</created>
+      <option name="number" value="00308" />
+      <option name="presentableId" value="LOCAL-00308" />
+      <option name="project" value="LOCAL" />
+      <updated>1738249762385</updated>
+    </task>
+    <task id="LOCAL-00309" summary="v2-API Update - API reverted to stable point.">
+      <option name="closed" value="true" />
+      <created>1738250829414</created>
+      <option name="number" value="00309" />
+      <option name="presentableId" value="LOCAL-00309" />
+      <option name="project" value="LOCAL" />
+      <updated>1738250829414</updated>
+    </task>
+    <option name="localTasksCounter" value="310" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -628,8 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="UI-changes Edit Material Save Changes button centred." />
-    <MESSAGE value="UI-changes Edit Job Save Job button centred." />
     <MESSAGE value="UI-changes Edit User Save User button centred." />
     <MESSAGE value="UI-changes New Material Add Material button centred." />
     <MESSAGE value="UI-changes Edit Vendor Save Vendor button centred." />
@@ -653,6 +656,8 @@
     <MESSAGE value="Materials Manager v1.1 Deployed" />
     <MESSAGE value="v2-API Update" />
     <MESSAGE value="v2-API Update - localhost ready." />
-    <option name="LAST_COMMIT_MESSAGE" value="v2-API Update - localhost ready." />
+    <MESSAGE value="v2-API Update - API ready." />
+    <MESSAGE value="v2-API Update - API reverted to stable point." />
+    <option name="LAST_COMMIT_MESSAGE" value="v2-API Update - API reverted to stable point." />
   </component>
 </project>
