@@ -4,7 +4,7 @@ import json
 
 app = FastAPI()
 
-@app.get('/materials')
+@app.get('/')
 async def upload_materials():
     parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
     json_path = os.path.join(parent_dir, "materials-data.json")
