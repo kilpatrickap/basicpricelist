@@ -293,25 +293,54 @@ class BasicPricelist(QMainWindow):
 
         self.jobs_conn.commit()
 
-    def update_json(self):
-        # Anytime the user calls the materials.db, create if it does not exist or update the materials-data.json file
+    def check_user(self):
+        # Query the users.db for the current user
         try:
-            cursor = self.conn.cursor()
-            cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-            tables = [table[0] for table in cursor.fetchall()]
+            self.users_c.execute("SELECT name FROM users WHERE is_default = 1 LIMIT 1")
+            user = self.users_c.fetchone()
 
-            all_data = {}
-            for table in tables:
-                df = pd.read_sql_query(f"SELECT * FROM {table}", self.conn)
-                all_data[table] = df.to_dict(orient="records")
-
-            if all_data:
-                parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
-                json_path = os.path.join(parent_dir, "materials-data.json")
-                with open(json_path, "w", encoding="utf-8") as json_file:
-                    json.dump(all_data, json_file, indent=4, ensure_ascii=False)
+            if user:
+                # Return only the user's name
+                return user[0]
+            else:
+                print("No default user found.")
+                return None
         except Exception as e:
-            QMessageBox.critical(self, "Error", f"Failed to update JSON file: {str(e)}")
+            print(f"Error checking user: {str(e)}")
+            return None
+
+    def authorized_users_to_post_API(self):
+        authorized_users = ["kil", "pat"]
+        return authorized_users
+
+    def update_json(self):
+        # Check current user if is in the list of authorized_users, if yes, update_json, else don't
+        current_user = self.check_user()
+
+        if current_user in self.authorized_users_to_post_API():
+
+            # Proceed with JSON update if the user is authorized
+            try:
+                cursor = self.conn.cursor()
+                cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+                tables = [table[0] for table in cursor.fetchall()]
+
+                all_data = {}
+                for table in tables:
+                    df = pd.read_sql_query(f"SELECT * FROM {table}", self.conn)
+                    all_data[table] = df.to_dict(orient="records")
+
+                if all_data:
+                    parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
+                    json_path = os.path.join(parent_dir, "materials-data.json")
+                    with open(json_path, "w", encoding="utf-8") as json_file:
+                        json.dump(all_data, json_file, indent=4, ensure_ascii=False)
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"Failed to update JSON file: {str(e)}")
+
+            print(f"{current_user} is authorized to post to API.")
+        else:
+            print(f"{current_user} is not authorized to post to API.")
 
     def update_default_job_label(self, job_name):
         """Updates the current job label with the job name (db_file)."""
