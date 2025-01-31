@@ -25,7 +25,7 @@ class ApiDownloaderApp(QWidget):
         api_url = "https://mm-api-rz05.onrender.com"
         parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
         json_filename = os.path.join(parent_dir, "materials-data-TEST.json")
-        db_filename = os.path.join(parent_dir, "materials-TEST.db")
+        db_filename = os.path.join(parent_dir, "materialsTEST.db")
 
         if self.download_json(api_url, json_filename):
             self.create_and_populate_db(json_filename, db_filename)
@@ -43,45 +43,72 @@ class ApiDownloaderApp(QWidget):
         return False
 
     def create_and_populate_db(self, json_filename, db_filename):
-        """Creates an SQLite database and populates it with data from the JSON file."""
-        with open(json_filename, "r", encoding="utf-8") as file:
-            data = json.load(file)
+        """Creates an SQLite database and populates it with data from the JSON file, with error handling."""
+        try:
+            # Load JSON data
+            with open(json_filename, "r", encoding="utf-8") as file:
+                data = json.load(file)
 
-        conn = sqlite3.connect(db_filename)
-        cursor = conn.cursor()
+            # Connect to database
+            conn = sqlite3.connect(db_filename)
+            cursor = conn.cursor()
 
-        # Create materials table
-        cursor.execute('''CREATE TABLE IF NOT EXISTS materials-TEST (
-            id INTEGER PRIMARY KEY,
-            mat_id TEXT UNIQUE,
-            trade TEXT,
-            material_name TEXT,
-            currency TEXT,
-            price REAL,
-            unit TEXT,
-            vendor TEXT,
-            vendor_phone TEXT,
-            vendor_email TEXT,
-            vendor_location TEXT,
-            price_date TEXT,
-            comment TEXT
-        )''')
+            # Create table if it doesn't exist
+            cursor.execute('''CREATE TABLE IF NOT EXISTS materialsTEST (
+                id INTEGER PRIMARY KEY,
+                mat_id TEXT UNIQUE,
+                trade TEXT,
+                material_name TEXT,
+                currency TEXT,
+                price REAL,
+                unit TEXT,
+                vendor TEXT,
+                vendor_phone TEXT,
+                vendor_email TEXT,
+                vendor_location TEXT,
+                price_date TEXT,
+                comment TEXT
+            )''')
 
-        # Insert data into the materials table
-        for item in data["materials"]:
-            cursor.execute('''
-                    UPDATE materials-TEST (
-                        id, mat_id, trade, material_name, currency, price, unit, 
-                        vendor, vendor_phone, vendor_email, vendor_location, price_date, comment
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            # Insert or update data
+            for item in data["materials"]:
+                cursor.execute('''
+                    UPDATE materialsTEST 
+                    SET trade=?, material_name=?, currency=?, price=?, unit=?, vendor=?, 
+                        vendor_phone=?, vendor_email=?, vendor_location=?, price_date=?, comment=?
+                    WHERE mat_id=?
                 ''', (
-                item["id"], item["mat_id"], item["trade"], item["material_name"], item["currency"],
-                item["price"], item["unit"], item["vendor"], item["vendor_phone"],
-                item["vendor_email"], item["vendor_location"], item["price_date"], item["comment"]
-            ))
+                    item["trade"], item["material_name"], item["currency"], item["price"], item["unit"],
+                    item["vendor"], item["vendor_phone"], item["vendor_email"], item["vendor_location"],
+                    item["price_date"], item["comment"], item["mat_id"]
+                ))
 
-        conn.commit()
-        conn.close()
+                # If no rows were updated, insert new data
+                if cursor.rowcount == 0:
+                    cursor.execute('''
+                        INSERT INTO materialsTEST (
+                            id, mat_id, trade, material_name, currency, price, unit, 
+                            vendor, vendor_phone, vendor_email, vendor_location, price_date, comment
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ''', (
+                        item["id"], item["mat_id"], item["trade"], item["material_name"], item["currency"],
+                        item["price"], item["unit"], item["vendor"], item["vendor_phone"],
+                        item["vendor_email"], item["vendor_location"], item["price_date"], item["comment"]
+                    ))
+
+            conn.commit()
+
+        except FileNotFoundError:
+            QMessageBox.warning(self, "Error", f"File '{json_filename}' not found.")
+        except json.JSONDecodeError:
+            QMessageBox.warning(self, "Error", "Invalid JSON format in the file.")
+        except sqlite3.DatabaseError as e:
+            QMessageBox.warning(self, "Database Error", f"An error occurred: {e}")
+            print(e)
+        except Exception as e:
+            QMessageBox.warning(self, "Unexpected Error", f"An error occurred: {str(e)}")
+        finally:
+            conn.close()  # Ensure connection is closed
 
 
 def main():
