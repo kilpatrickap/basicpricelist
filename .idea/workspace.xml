@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="working on API download integration.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API download integration nearly done.">
       <change beforePath="$PROJECT_DIR$/API-download.py" beforeDir="false" afterPath="$PROJECT_DIR$/API-download.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,14 +224,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00275" summary="Add Comment column.">
-      <option name="closed" value="true" />
-      <created>1733825169324</created>
-      <option name="number" value="00275" />
-      <option name="presentableId" value="LOCAL-00275" />
-      <option name="project" value="LOCAL" />
-      <updated>1733825169324</updated>
     </task>
     <task id="LOCAL-00276" summary="Done.">
       <option name="closed" value="true" />
@@ -619,7 +609,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738329187133</updated>
     </task>
-    <option name="localTasksCounter" value="324" />
+    <task id="LOCAL-00324" summary="API download integration nearly done.">
+      <option name="closed" value="true" />
+      <created>1738330421062</created>
+      <option name="number" value="00324" />
+      <option name="presentableId" value="LOCAL-00324" />
+      <option name="project" value="LOCAL" />
+      <updated>1738330421062</updated>
+    </task>
+    <option name="localTasksCounter" value="325" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -634,7 +632,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Materials Manager v.1.0 icon and title set." />
     <MESSAGE value="Materials Manager ico file added." />
     <MESSAGE value="About button added in toolbar." />
     <MESSAGE value="About()." />
@@ -659,6 +656,7 @@
     <MESSAGE value="authorized users only can post to API." />
     <MESSAGE value="API authorized post integration done." />
     <MESSAGE value="working on API download integration." />
-    <option name="LAST_COMMIT_MESSAGE" value="working on API download integration." />
+    <MESSAGE value="API download integration nearly done." />
+    <option name="LAST_COMMIT_MESSAGE" value="API download integration nearly done." />
   </component>
 </project>
