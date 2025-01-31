@@ -2755,6 +2755,9 @@ class BasicPricelist(QMainWindow):
 
             QMessageBox.information(self, "Success", "Database refreshed successfully!")
 
+            # After refreshing the database, reload the data into the table
+            self.load_data()
+
         except sqlite3.DatabaseError as e:
             QMessageBox.warning(self, "Database Error", f"An error occurred while refreshing the database: {e}")
             print(e)
