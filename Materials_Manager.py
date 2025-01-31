@@ -303,9 +303,7 @@ class BasicPricelist(QMainWindow):
             if user:
                 # Return only the user's name
                 return user[0]
-            else:
-                print("No default user found.")
-                return None
+
         except Exception as e:
             print(f"Error checking user: {str(e)}")
             return None
