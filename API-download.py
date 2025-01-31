@@ -25,7 +25,7 @@ class ApiDownloaderApp(QWidget):
         api_url = "https://mm-api-rz05.onrender.com"
         parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
         json_filename = os.path.join(parent_dir, "materials-data.json")
-        db_filename = os.path.join(parent_dir, "materials.db")
+        db_filename = os.path.join(parent_dir, "materialsAPI.db")
 
         if self.download_json(api_url, json_filename):
             self.create_and_populate_db(json_filename, db_filename)
@@ -54,7 +54,7 @@ class ApiDownloaderApp(QWidget):
             cursor = conn.cursor()
 
             # Create table if it doesn't exist
-            cursor.execute('''CREATE TABLE IF NOT EXISTS materials (
+            cursor.execute('''CREATE TABLE IF NOT EXISTS materialsAPI (
                 id INTEGER PRIMARY KEY,
                 mat_id TEXT UNIQUE,
                 trade TEXT,
@@ -73,7 +73,7 @@ class ApiDownloaderApp(QWidget):
             # Insert or update data
             for item in data["materials"]:
                 cursor.execute('''
-                    UPDATE materials 
+                    UPDATE materialsAPI 
                     SET trade=?, material_name=?, currency=?, price=?, unit=?, vendor=?, 
                         vendor_phone=?, vendor_email=?, vendor_location=?, price_date=?, comment=?
                     WHERE mat_id=?
@@ -86,7 +86,7 @@ class ApiDownloaderApp(QWidget):
                 # If no rows were updated, insert new data
                 if cursor.rowcount == 0:
                     cursor.execute('''
-                        INSERT INTO materials (
+                        INSERT INTO materialsAPI (
                             id, mat_id, trade, material_name, currency, price, unit, 
                             vendor, vendor_phone, vendor_email, vendor_location, price_date, comment
                         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)

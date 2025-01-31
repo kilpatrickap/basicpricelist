@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API download integration done.">
-      <change afterPath="$PROJECT_DIR$/images/api.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Materials_Manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Materials_Manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API-download.py" beforeDir="false" afterPath="$PROJECT_DIR$/API-download.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
@@ -49,36 +47,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.API-download.executor": "Run",
-    "Python.API-upload.executor": "Run",
-    "Python.BasicPricelist.executor": "Run",
-    "Python.BidPriceManager_v1.0.executor": "Run",
-    "Python.Materials_Manager.executor": "Run",
-    "Python.client-side-request.executor": "Run",
-    "Python.client-side.executor": "Run",
-    "Python.fastAPI.executor": "Run",
-    "Python.mm_API.executor": "Run",
-    "Python.post_to_api.executor": "Run",
-    "Python.prices_generator.executor": "Run",
-    "Python.req-from-api.executor": "Run",
-    "Python.request_sample.executor": "Run",
-    "Python.sample.executor": "Run",
-    "Python.server-side-post.executor": "Run",
-    "Python.server.executor": "Run",
-    "Python.sever-side-put.executor": "Run",
-    "Python.smtp_client.executor": "Run",
-    "Python.smtp_server.executor": "Run",
-    "Python.sql_to_csv_converter.executor": "Run",
-    "Python.sqliteDB_to_json_converter.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Consar-Kilpatrick/PycharmProjects/materials_manager/images",
-    "settings.editor.selected.configurable": "settings.codegpt.services.ollama"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.API-download.executor&quot;: &quot;Run&quot;,
+    &quot;Python.API-upload.executor&quot;: &quot;Run&quot;,
+    &quot;Python.BasicPricelist.executor&quot;: &quot;Run&quot;,
+    &quot;Python.BidPriceManager_v1.0.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Materials_Manager.executor&quot;: &quot;Run&quot;,
+    &quot;Python.client-side-request.executor&quot;: &quot;Run&quot;,
+    &quot;Python.client-side.executor&quot;: &quot;Run&quot;,
+    &quot;Python.fastAPI.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mm_API.executor&quot;: &quot;Run&quot;,
+    &quot;Python.post_to_api.executor&quot;: &quot;Run&quot;,
+    &quot;Python.prices_generator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.req-from-api.executor&quot;: &quot;Run&quot;,
+    &quot;Python.request_sample.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sample.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server-side-post.executor&quot;: &quot;Run&quot;,
+    &quot;Python.server.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sever-side-put.executor&quot;: &quot;Run&quot;,
+    &quot;Python.smtp_client.executor&quot;: &quot;Run&quot;,
+    &quot;Python.smtp_server.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sql_to_csv_converter.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sqliteDB_to_json_converter.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Consar-Kilpatrick/PycharmProjects/materials_manager/images&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.codegpt.services.ollama&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\materials_manager\images" />
@@ -92,7 +90,7 @@
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\ico file" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Materials_Manager">
+  <component name="RunManager" selected="Python.API-download">
     <configuration name="API-download" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -205,8 +203,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Materials_Manager" />
         <item itemvalue="Python.API-download" />
+        <item itemvalue="Python.Materials_Manager" />
         <item itemvalue="Python.post_to_api" />
         <item itemvalue="Python.sqliteDB_to_json_converter" />
         <item itemvalue="Python.req-from-api" />
