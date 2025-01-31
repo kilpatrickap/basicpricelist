@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="authorized users only can post to API.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API authorized post integration done.">
       <change beforePath="$PROJECT_DIR$/Materials_Manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Materials_Manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,22 +223,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00268" summary="DONE!!! Ready for deployment.">
-      <option name="closed" value="true" />
-      <created>1732708764027</created>
-      <option name="number" value="00268" />
-      <option name="presentableId" value="LOCAL-00268" />
-      <option name="project" value="LOCAL" />
-      <updated>1732708764027</updated>
-    </task>
-    <task id="LOCAL-00269" summary="DONE!!! Ready for deployment.">
-      <option name="closed" value="true" />
-      <created>1732713841490</created>
-      <option name="number" value="00269" />
-      <option name="presentableId" value="LOCAL-00269" />
-      <option name="project" value="LOCAL" />
-      <updated>1732713841490</updated>
     </task>
     <task id="LOCAL-00270" summary="DONE!!! Ready for deployment.">
       <option name="closed" value="true" />
@@ -619,7 +600,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738321798755</updated>
     </task>
-    <option name="localTasksCounter" value="317" />
+    <task id="LOCAL-00317" summary="API authorized post integration done.">
+      <option name="closed" value="true" />
+      <created>1738322860117</created>
+      <option name="number" value="00317" />
+      <option name="presentableId" value="LOCAL-00317" />
+      <option name="project" value="LOCAL" />
+      <updated>1738322860117</updated>
+    </task>
+    <task id="LOCAL-00318" summary="API authorized post integration done.">
+      <option name="closed" value="true" />
+      <created>1738322899644</created>
+      <option name="number" value="00318" />
+      <option name="presentableId" value="LOCAL-00318" />
+      <option name="project" value="LOCAL" />
+      <updated>1738322899644</updated>
+    </task>
+    <option name="localTasksCounter" value="319" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -634,7 +631,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="DONE !!!" />
     <MESSAGE value="DONE!!!" />
     <MESSAGE value="Materials Manager v.1.0 icon and title set." />
     <MESSAGE value="Materials Manager ico file added." />
@@ -659,6 +655,7 @@
     <MESSAGE value="v2-API Update - API done" />
     <MESSAGE value="Update_json live for API integration." />
     <MESSAGE value="authorized users only can post to API." />
-    <option name="LAST_COMMIT_MESSAGE" value="authorized users only can post to API." />
+    <MESSAGE value="API authorized post integration done." />
+    <option name="LAST_COMMIT_MESSAGE" value="API authorized post integration done." />
   </component>
 </project>

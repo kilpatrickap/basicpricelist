@@ -319,7 +319,6 @@ class BasicPricelist(QMainWindow):
         current_user = self.check_user()
 
         if current_user in self.authorized_users_to_post_API():
-
             # Proceed with JSON update if the user is authorized
             try:
                 cursor = self.conn.cursor()
@@ -339,16 +338,10 @@ class BasicPricelist(QMainWindow):
             except Exception as e:
                 QMessageBox.critical(self, "Error", f"Failed to update JSON file: {str(e)}")
 
-            print(f"{current_user} is authorized to post to API.")
-
             # post json file to API
             self.post_json_to_API()
 
-        else:
-            print(f"{current_user} is not authorized to post to API.")
-
     def post_json_to_API(self):
-
         # Read the materials-data.json file
         parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
         json_path = os.path.join(parent_dir, "materials-data.json")
@@ -360,9 +353,7 @@ class BasicPricelist(QMainWindow):
         response = requests.post("https://mm-api-rz05.onrender.com", json=data)
 
         # Check the response
-        if response.status_code == 200:
-            print("Data uploaded successfully.")
-        else:
+        if response.status_code != 200:
             print(f"Failed to upload data: {response.status_code} - {response.text}")
 
 
