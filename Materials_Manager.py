@@ -2718,14 +2718,14 @@ class BasicPricelist(QMainWindow):
             target_db_filename = os.path.join(parent_dir, "materials.db")
 
             # Connect to the source (materialsAPI.db) and target (materials.db) databases
-            source_conn = sqlite3.connect(source_db_filename)
-            target_conn = sqlite3.connect(target_db_filename)
+            source_conn = sqlite3.connect(source_db_filename)   # materialsAPI.db
+            target_conn = sqlite3.connect(target_db_filename)   # materials.db
             source_cursor = source_conn.cursor()
             target_cursor = target_conn.cursor()
 
-            # Drop existing tables and create them again in the target database
-            target_cursor.execute("DROP TABLE IF EXISTS materialsAPI")
-            target_cursor.execute('''CREATE TABLE materialsAPI (
+            # Drop existing materials.db and create them again in the target database
+            target_cursor.execute("DROP TABLE IF EXISTS materials")
+            target_cursor.execute('''CREATE TABLE materials (
                 id INTEGER PRIMARY KEY,
                 mat_id TEXT UNIQUE,
                 trade TEXT,
@@ -2745,7 +2745,7 @@ class BasicPricelist(QMainWindow):
             source_cursor.execute("SELECT * FROM materialsAPI")
             rows = source_cursor.fetchall()
             target_cursor.executemany('''
-                INSERT INTO materialsAPI (
+                INSERT INTO materials (
                     id, mat_id, trade, material_name, currency, price, unit, 
                     vendor, vendor_phone, vendor_email, vendor_location, price_date, comment
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
