@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="v2-API Update - API done">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pricelist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pricelist.iml" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Update_json live for API integration.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Materials_Manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Materials_Manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials-data.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,14 +224,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00265" summary="About().">
-      <option name="closed" value="true" />
-      <created>1732705284014</created>
-      <option name="number" value="00265" />
-      <option name="presentableId" value="LOCAL-00265" />
-      <option name="project" value="LOCAL" />
-      <updated>1732705284014</updated>
     </task>
     <task id="LOCAL-00266" summary="About().">
       <option name="closed" value="true" />
@@ -621,7 +609,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738269827767</updated>
     </task>
-    <option name="localTasksCounter" value="314" />
+    <task id="LOCAL-00314" summary="Update_json live for API integration.">
+      <option name="closed" value="true" />
+      <created>1738319489020</created>
+      <option name="number" value="00314" />
+      <option name="presentableId" value="LOCAL-00314" />
+      <option name="project" value="LOCAL" />
+      <updated>1738319489020</updated>
+    </task>
+    <option name="localTasksCounter" value="315" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -636,7 +632,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="UI-changes Edit Vendor Save Vendor button centred." />
     <MESSAGE value=" Working on deleting a selected material from job db." />
     <MESSAGE value="DONE !!!" />
     <MESSAGE value="DONE!!!" />
@@ -661,6 +656,7 @@
     <MESSAGE value="v2-API Update - API reverted to stable point." />
     <MESSAGE value="v2-API Update - API done almost" />
     <MESSAGE value="v2-API Update - API done" />
-    <option name="LAST_COMMIT_MESSAGE" value="v2-API Update - API done" />
+    <MESSAGE value="Update_json live for API integration." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update_json live for API integration." />
   </component>
 </project>
