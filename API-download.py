@@ -68,27 +68,17 @@ class ApiDownloaderApp(QWidget):
         )''')
 
         # Insert data into the materials table
-        for item in data:
-            cursor.execute('''UPDATE materials-TEST 
-                SET trade=?, material_name=?, currency=?, price=?, unit=?, vendor=?, vendor_phone=?, 
-                    vendor_email=?, vendor_location=?, price_date=?, comment=?
-                WHERE mat_id=?''', (
-                item.get("trade"), item.get("material_name"), item.get("currency"),
-                item.get("price"), item.get("unit"), item.get("vendor"), item.get("vendor_phone"),
-                item.get("vendor_email"), item.get("vendor_location"), item.get("price_date"), item.get("comment"),
-                item.get("mat_id")
+        for item in data["materials"]:
+            cursor.execute('''
+                    UPDATE materials-TEST (
+                        id, mat_id, trade, material_name, currency, price, unit, 
+                        vendor, vendor_phone, vendor_email, vendor_location, price_date, comment
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ''', (
+                item["id"], item["mat_id"], item["trade"], item["material_name"], item["currency"],
+                item["price"], item["unit"], item["vendor"], item["vendor_phone"],
+                item["vendor_email"], item["vendor_location"], item["price_date"], item["comment"]
             ))
-
-            # If no rows were updated, insert new data
-            if cursor.rowcount == 0:
-                cursor.execute('''INSERT INTO materials-TEST (
-                    mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, 
-                    vendor_email, vendor_location, price_date, comment
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', (
-                    item.get("mat_id"), item.get("trade"), item.get("material_name"), item.get("currency"),
-                    item.get("price"), item.get("unit"), item.get("vendor"), item.get("vendor_phone"),
-                    item.get("vendor_email"), item.get("vendor_location"), item.get("price_date"), item.get("comment")
-                ))
 
         conn.commit()
         conn.close()
