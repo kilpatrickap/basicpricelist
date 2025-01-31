@@ -30,6 +30,7 @@ class ApiDownloaderApp(QWidget):
         if self.download_json(api_url, json_filename):
             self.create_and_populate_db(json_filename, db_filename)
             QMessageBox.information(self, "Success", "Database updated successfully!")
+            self.refresh_databases(db_filename)  # Refresh the databases
         else:
             QMessageBox.warning(self, "Error", "Failed to download data from API.")
 
@@ -112,10 +113,64 @@ class ApiDownloaderApp(QWidget):
 
     #############   REFRESH DATABASES     ##############
     # Replace the contents of materials.db with materialsAPI.db
+    # This function copies the data from materialsAPI.db to materials.db.
+    # If the "materials.db" file already exists, it will be overwritten.
+    # After refreshing the database, the new data will be available in "materials.db".
+    # This can be useful for scenarios where the database needs to be reset with the latest data
+    # from the API download process or when switching between different data sources.
+    def refresh_databases(self, source_db_filename):
+        """Replaces the contents of materials.db with materialsAPI.db."""
+        try:
+            parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
+            target_db_filename = os.path.join(parent_dir, "materials.db")
 
+            # Connect to the source (materialsAPI.db) and target (materials.db) databases
+            source_conn = sqlite3.connect(source_db_filename)
+            target_conn = sqlite3.connect(target_db_filename)
+            source_cursor = source_conn.cursor()
+            target_cursor = target_conn.cursor()
 
+            # Drop existing tables and create them again in the target database
+            target_cursor.execute("DROP TABLE IF EXISTS materialsAPI")
+            target_cursor.execute('''CREATE TABLE materialsAPI (
+                id INTEGER PRIMARY KEY,
+                mat_id TEXT UNIQUE,
+                trade TEXT,
+                material_name TEXT,
+                currency TEXT,
+                price REAL,
+                unit TEXT,
+                vendor TEXT,
+                vendor_phone TEXT,
+                vendor_email TEXT,
+                vendor_location TEXT,
+                price_date TEXT,
+                comment TEXT
+            )''')
 
+            # Copy data from the source database to the target database
+            source_cursor.execute("SELECT * FROM materialsAPI")
+            rows = source_cursor.fetchall()
+            target_cursor.executemany('''
+                INSERT INTO materialsAPI (
+                    id, mat_id, trade, material_name, currency, price, unit, 
+                    vendor, vendor_phone, vendor_email, vendor_location, price_date, comment
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ''', rows)
 
+            target_conn.commit()
+
+            QMessageBox.information(self, "Success", "Database refreshed successfully!")
+
+        except sqlite3.DatabaseError as e:
+            QMessageBox.warning(self, "Database Error", f"An error occurred while refreshing the database: {e}")
+            print(e)
+        except Exception as e:
+            QMessageBox.warning(self, "Unexpected Error", f"An error occurred: {str(e)}")
+        finally:
+            # Close connections
+            source_conn.close()
+            target_conn.close()
 
 
 def main():
