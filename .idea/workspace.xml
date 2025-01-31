@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API authorized post integration done.">
-      <change beforePath="$PROJECT_DIR$/Materials_Manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Materials_Manager.py" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API authorized post integration done." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,22 +221,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00270" summary="DONE!!! Ready for deployment.">
-      <option name="closed" value="true" />
-      <created>1733151546772</created>
-      <option name="number" value="00270" />
-      <option name="presentableId" value="LOCAL-00270" />
-      <option name="project" value="LOCAL" />
-      <updated>1733151546772</updated>
-    </task>
-    <task id="LOCAL-00271" summary="DONE!!! Ready for deployment.">
-      <option name="closed" value="true" />
-      <created>1733152330740</created>
-      <option name="number" value="00271" />
-      <option name="presentableId" value="LOCAL-00271" />
-      <option name="project" value="LOCAL" />
-      <updated>1733152330740</updated>
     </task>
     <task id="LOCAL-00272" summary="Tutorial &amp; License == Deploy!!!">
       <option name="closed" value="true" />
@@ -616,7 +598,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738322899644</updated>
     </task>
-    <option name="localTasksCounter" value="319" />
+    <task id="LOCAL-00319" summary="API authorized post integration done.">
+      <option name="closed" value="true" />
+      <created>1738323489739</created>
+      <option name="number" value="00319" />
+      <option name="presentableId" value="LOCAL-00319" />
+      <option name="project" value="LOCAL" />
+      <updated>1738323489739</updated>
+    </task>
+    <task id="LOCAL-00320" summary="API authorized post integration done.">
+      <option name="closed" value="true" />
+      <created>1738323714412</created>
+      <option name="number" value="00320" />
+      <option name="presentableId" value="LOCAL-00320" />
+      <option name="project" value="LOCAL" />
+      <updated>1738323714412</updated>
+    </task>
+    <option name="localTasksCounter" value="321" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
