@@ -90,7 +90,7 @@
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\ico file" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.API-download">
+  <component name="RunManager" selected="Python.Materials_Manager">
     <configuration name="API-download" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -203,8 +203,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.API-download" />
         <item itemvalue="Python.Materials_Manager" />
+        <item itemvalue="Python.API-download" />
         <item itemvalue="Python.post_to_api" />
         <item itemvalue="Python.sqliteDB_to_json_converter" />
         <item itemvalue="Python.req-from-api" />
