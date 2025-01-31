@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API download integration nearly done.">
-      <change beforePath="$PROJECT_DIR$/API-download.py" beforeDir="false" afterPath="$PROJECT_DIR$/API-download.py" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API download integration done.">
+      <change afterPath="$PROJECT_DIR$/images/api.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Materials_Manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Materials_Manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,24 +75,24 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Consar-Kilpatrick/PycharmProjects/materials_manager",
+    "last_opened_file_path": "C:/Users/Consar-Kilpatrick/PycharmProjects/materials_manager/images",
     "settings.editor.selected.configurable": "settings.codegpt.services.ollama"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\materials_manager\images" />
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\materials_manager" />
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\materials_manager\ico_file" />
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\images" />
       <recent name="$PROJECT_DIR$/images" />
-      <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\materials_manager\Setup_Tutorials_and_License" />
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\ico file" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.API-download">
+  <component name="RunManager" selected="Python.Materials_Manager">
     <configuration name="API-download" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pricelist" />
       <option name="ENV_FILES" value="" />
@@ -201,8 +205,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.API-download" />
         <item itemvalue="Python.Materials_Manager" />
+        <item itemvalue="Python.API-download" />
         <item itemvalue="Python.post_to_api" />
         <item itemvalue="Python.sqliteDB_to_json_converter" />
         <item itemvalue="Python.req-from-api" />
@@ -224,22 +228,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00276" summary="Done.">
-      <option name="closed" value="true" />
-      <created>1733825657259</created>
-      <option name="number" value="00276" />
-      <option name="presentableId" value="LOCAL-00276" />
-      <option name="project" value="LOCAL" />
-      <updated>1733825657260</updated>
-    </task>
-    <task id="LOCAL-00277" summary="comment not a necessary field.">
-      <option name="closed" value="true" />
-      <created>1733826542872</created>
-      <option name="number" value="00277" />
-      <option name="presentableId" value="LOCAL-00277" />
-      <option name="project" value="LOCAL" />
-      <updated>1733826542872</updated>
     </task>
     <task id="LOCAL-00278" summary="comment not a necessary field.">
       <option name="closed" value="true" />
@@ -617,7 +605,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738330421062</updated>
     </task>
-    <option name="localTasksCounter" value="325" />
+    <task id="LOCAL-00325" summary="API download integration done.">
+      <option name="closed" value="true" />
+      <created>1738330921235</created>
+      <option name="number" value="00325" />
+      <option name="presentableId" value="LOCAL-00325" />
+      <option name="project" value="LOCAL" />
+      <updated>1738330921235</updated>
+    </task>
+    <task id="LOCAL-00326" summary="API download integration done.">
+      <option name="closed" value="true" />
+      <created>1738330971294</created>
+      <option name="number" value="00326" />
+      <option name="presentableId" value="LOCAL-00326" />
+      <option name="project" value="LOCAL" />
+      <updated>1738330971294</updated>
+    </task>
+    <option name="localTasksCounter" value="327" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -632,7 +636,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Materials Manager ico file added." />
     <MESSAGE value="About button added in toolbar." />
     <MESSAGE value="About()." />
     <MESSAGE value="todo: job column headings mismatch to materials table." />
@@ -657,6 +660,7 @@
     <MESSAGE value="API authorized post integration done." />
     <MESSAGE value="working on API download integration." />
     <MESSAGE value="API download integration nearly done." />
-    <option name="LAST_COMMIT_MESSAGE" value="API download integration nearly done." />
+    <MESSAGE value="API download integration done." />
+    <option name="LAST_COMMIT_MESSAGE" value="API download integration done." />
   </component>
 </project>
