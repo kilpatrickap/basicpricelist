@@ -1,3 +1,4 @@
+import json
 import os
 import sys
 import sqlite3
@@ -227,8 +228,6 @@ class BasicPricelist(QMainWindow):
         container.setLayout(main_layout)
         self.setCentralWidget(container)
 
-
-
     def initDB(self):
         """Initializes the SQLite database for materials and users."""
         # Initialize materials database
@@ -293,6 +292,26 @@ class BasicPricelist(QMainWindow):
             pass
 
         self.jobs_conn.commit()
+
+    def update_json(self):
+        # Anytime the user calls the materials.db, create if it does not exist or update the materials-data.json file
+        try:
+            cursor = self.conn.cursor()
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+            tables = [table[0] for table in cursor.fetchall()]
+
+            all_data = {}
+            for table in tables:
+                df = pd.read_sql_query(f"SELECT * FROM {table}", self.conn)
+                all_data[table] = df.to_dict(orient="records")
+
+            if all_data:
+                parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
+                json_path = os.path.join(parent_dir, "materials-data.json")
+                with open(json_path, "w", encoding="utf-8") as json_file:
+                    json.dump(all_data, json_file, indent=4, ensure_ascii=False)
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to update JSON file: {str(e)}")
 
     def update_default_job_label(self, job_name):
         """Updates the current job label with the job name (db_file)."""
@@ -2068,6 +2087,10 @@ class BasicPricelist(QMainWindow):
                        (mat_id, trade, material_name, currency, formatted_price, unit, vendor, vendor_phone,
                         vendor_email, vendor_location, price_date, comment))
         self.conn.commit()
+
+        # Update the json file
+        self.update_json()
+
         self.load_data()  # Reload data to display updated list
         self.material_dialog.close()
 
@@ -2227,6 +2250,10 @@ class BasicPricelist(QMainWindow):
                        (trade, material_name, currency, formatted_price, unit, vendor, vendor_phone, vendor_email, vendor_location,
                         price_date, comment, mat_id))
         self.conn.commit()
+
+        # Update the json file
+        self.update_json()
+
         self.load_data()  # Reload data to display updated list
         self.material_dialog.close()
 
@@ -2280,6 +2307,9 @@ class BasicPricelist(QMainWindow):
                             vendor_email, vendor_location, price_date, comment))
             self.conn.commit()
 
+            # Update the json file
+            self.update_json()
+
             # Reload data to display updated list with duplicated entry
             self.load_data()
             QMessageBox.information(self, "Duplication Successful",
@@ -2304,6 +2334,10 @@ class BasicPricelist(QMainWindow):
         if reply == QMessageBox.StandardButton.Yes:
             self.c.execute('DELETE FROM materials WHERE mat_id=?', (mat_id,))
             self.conn.commit()
+
+            # Update the json file
+            self.update_json()
+
             self.load_data()  # Reload data to reflect deletion
 
     def show_vendor_list_window(self):
