@@ -2701,6 +2701,13 @@ class BasicPricelist(QMainWindow):
         finally:
             conn.close()  # Ensure connection is closed
 
+
+    #############   REFRESH DATABASES     ##############
+    # Replace the contents of materials.db with materialsAPI.db
+
+
+
+
     def about(self):
         icon_folder_path = os.path.join(os.path.dirname(__file__), "images")
         icon_path = os.path.join(icon_folder_path, "materials-manager.png")
@@ -2769,7 +2776,7 @@ class BasicPricelist(QMainWindow):
 
     def closeEvent(self, event):
         """Handles the window close event."""
-        self.conn.close()  # Close the database connection
+        # self.conn.close()  # Close the database connection
         event.accept()
 
 

@@ -110,6 +110,13 @@ class ApiDownloaderApp(QWidget):
         finally:
             conn.close()  # Ensure connection is closed
 
+    #############   REFRESH DATABASES     ##############
+    # Replace the contents of materials.db with materialsAPI.db
+
+
+
+
+
 
 def main():
     app = QApplication([])

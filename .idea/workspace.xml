@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API download integration done.">
-      <change beforePath="$PROJECT_DIR$/API-download.py" beforeDir="false" afterPath="$PROJECT_DIR$/API-download.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API update table.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Materials_Manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Materials_Manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,22 +225,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00278" summary="comment not a necessary field.">
-      <option name="closed" value="true" />
-      <created>1733826718871</created>
-      <option name="number" value="00278" />
-      <option name="presentableId" value="LOCAL-00278" />
-      <option name="project" value="LOCAL" />
-      <updated>1733826718871</updated>
-    </task>
-    <task id="LOCAL-00279" summary="Done.">
-      <option name="closed" value="true" />
-      <created>1733827419918</created>
-      <option name="number" value="00279" />
-      <option name="presentableId" value="LOCAL-00279" />
-      <option name="project" value="LOCAL" />
-      <updated>1733827419918</updated>
     </task>
     <task id="LOCAL-00280" summary="Done.">
       <option name="closed" value="true" />
@@ -619,7 +602,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738330971294</updated>
     </task>
-    <option name="localTasksCounter" value="327" />
+    <task id="LOCAL-00327" summary="API update table.">
+      <option name="closed" value="true" />
+      <created>1738336040734</created>
+      <option name="number" value="00327" />
+      <option name="presentableId" value="LOCAL-00327" />
+      <option name="project" value="LOCAL" />
+      <updated>1738336040734</updated>
+    </task>
+    <task id="LOCAL-00328" summary="API update table.">
+      <option name="closed" value="true" />
+      <created>1738336169499</created>
+      <option name="number" value="00328" />
+      <option name="presentableId" value="LOCAL-00328" />
+      <option name="project" value="LOCAL" />
+      <updated>1738336169499</updated>
+    </task>
+    <option name="localTasksCounter" value="329" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -634,7 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="About button added in toolbar." />
     <MESSAGE value="About()." />
     <MESSAGE value="todo: job column headings mismatch to materials table." />
     <MESSAGE value="DONE!!! Ready for deployment." />
@@ -659,6 +657,7 @@
     <MESSAGE value="working on API download integration." />
     <MESSAGE value="API download integration nearly done." />
     <MESSAGE value="API download integration done." />
-    <option name="LAST_COMMIT_MESSAGE" value="API download integration done." />
+    <MESSAGE value="API update table." />
+    <option name="LAST_COMMIT_MESSAGE" value="API update table." />
   </component>
 </project>
