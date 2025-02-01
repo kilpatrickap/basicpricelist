@@ -1,0 +1,81 @@
+{
+    "materialsAPI": [
+        {
+            "id": 1,
+            "mat_id": "MAT-1",
+            "trade": "Sample Trade TEST",
+            "material_name": "Sample Material 1",
+            "currency": "GHS",
+            "price": 1.0,
+            "unit": "Unit",
+            "vendor": "Sample Vendor 1",
+            "vendor_phone": "0123456789",
+            "vendor_email": "sample_vendor1@email.com",
+            "vendor_location": "Sample Location",
+            "price_date": "11/12/2024",
+            "comment": "Sample 1"
+        },
+        {
+            "id": 2,
+            "mat_id": "MAT-2",
+            "trade": "Sample Trade TEST2",
+            "material_name": "Sample Material 1",
+            "currency": "GHS",
+            "price": 1.0,
+            "unit": "Unit",
+            "vendor": "Sample Vendor 1",
+            "vendor_phone": "0123456789",
+            "vendor_email": "sample_vendor1@email.com",
+            "vendor_location": "Sample Location",
+            "price_date": "11/12/2024",
+            "comment": "Sample 1"
+        },
+        {
+            "id": 3,
+            "mat_id": "MAT-3",
+            "trade": "Sample Trade [SAMPLE USER]",
+            "material_name": "Sample Material 1",
+            "currency": "GHS",
+            "price": 1.0,
+            "unit": "Unit",
+            "vendor": "Sample Vendor 1",
+            "vendor_phone": "0123456789",
+            "vendor_email": "sample_vendor1@email.com",
+            "vendor_location": "Sample Location",
+            "price_date": "11/12/2024",
+            "comment": "Sample 1"
+        }
+    ],
+    "materials": [
+        {
+            "id": 1,
+            "mat_id": "MAT-1",
+            "trade": "test",
+            "material_name": "test",
+            "currency": "GHS",
+            "price": 1.0,
+            "unit": "m",
+            "vendor": "test",
+            "vendor_phone": "123",
+            "vendor_email": "a@b.com",
+            "vendor_location": "test",
+            "price_date": "01/02/2025",
+            "comment": "test"
+        },
+        {
+            "id": 2,
+            "mat_id": "MAT-2",
+            "trade": "Sample Trade - API",
+            "material_name": "Sample Material 1 - API",
+            "currency": "GHS",
+            "price": 1.0,
+            "unit": "Unit",
+            "vendor": "Sample Vendor 1",
+            "vendor_phone": "0123456789",
+            "vendor_email": "sample_vendor1@email.com",
+            "vendor_location": "Sample Location",
+            "price_date": "11/12/2024",
+            "comment": "Sample 1 - API"
+        }
+    ]
+}
