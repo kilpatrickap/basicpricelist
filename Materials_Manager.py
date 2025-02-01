@@ -2750,7 +2750,7 @@ class BasicPricelist(QMainWindow):
             )''')
 
             # Copy data from the source database to the target database
-            # Do not copy existing data     TODO: Append the data from source to target.
+            # Do not only copy existing data     TODO: Append the data from source to target.
 
             source_cursor.execute("SELECT * FROM materialsAPI")
             rows = source_cursor.fetchall()
