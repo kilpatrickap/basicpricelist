@@ -332,7 +332,7 @@ class BasicPricelist(QMainWindow):
 
                 all_data = {}
                 if table_exists:
-                    df = pd.read_sql_query("SELECT * FROM materials", self.conn)
+                    df = pd.read_sql_query("SELECT * FROM materials", self.conn)    # materials table only.
                     all_data["materials"] = df.to_dict(orient="records")
 
                 if all_data:
