@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API update table.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pricelist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pricelist.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Materials_Manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Materials_Manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

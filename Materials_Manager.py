@@ -299,6 +299,8 @@ class BasicPricelist(QMainWindow):
 
         self.jobs_conn.commit()
 
+###########     AUTHORISED USERS ONLY TO POST TO API    #############
+
     def check_user(self):
         # Query the users.db for the current user
         try:
@@ -358,6 +360,8 @@ class BasicPricelist(QMainWindow):
         # Check the response
         if response.status_code != 200:
             print(f"Failed to upload data: {response.status_code} - {response.text}")
+
+##################### END OF AUTHORISED USERS ONLY TO POST TO API ###############################
 
 
     def update_default_job_label(self, job_name):
@@ -2624,6 +2628,10 @@ class BasicPricelist(QMainWindow):
 
             #  Refresh the databases
             self.refresh_databases(db_filename)
+
+            # After refreshing the database, reload the data into the table
+            self.load_data()
+
         else:
             QMessageBox.warning(self, "Error", "Failed to download data from API.")
 
