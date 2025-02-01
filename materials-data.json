@@ -1,0 +1,49 @@
+{
+    "materials": [
+        {
+            "id": 1,
+            "mat_id": "MAT-1",
+            "trade": "Sample 1",
+            "material_name": "Sample 1",
+            "currency": "GHS",
+            "price": 1.0,
+            "unit": "m",
+            "vendor": "Sample 1",
+            "vendor_phone": "123",
+            "vendor_email": "a@b.com",
+            "vendor_location": "Sample 1",
+            "price_date": "01/02/2025",
+            "comment": "Sample 1"
+        },
+        {
+            "id": 2,
+            "mat_id": "MAT-2",
+            "trade": "Sample 2 - API",
+            "material_name": "Sample 2 - API",
+            "currency": "GHS",
+            "price": 1.0,
+            "unit": "m",
+            "vendor": "Sample 2 - API",
+            "vendor_phone": "123",
+            "vendor_email": "a@b.com",
+            "vendor_location": "Sample 2 - API",
+            "price_date": "01/02/2025",
+            "comment": "Sample 2 - API"
+        },
+        {
+            "id": 3,
+            "mat_id": "MAT-3",
+            "trade": "Sample 3 - API",
+            "material_name": "Sample 3 - API",
+            "currency": "GHS",
+            "price": 1.0,
+            "unit": "m",
+            "vendor": "Sample 3 - API",
+            "vendor_phone": "123",
+            "vendor_email": "a@b.com",
+            "vendor_location": "Sample 3 - API",
+            "price_date": "01/02/2025",
+            "comment": "Sample 3 - API"
+        }
+    ]
+}

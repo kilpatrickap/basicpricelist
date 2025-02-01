@@ -327,13 +327,13 @@ class BasicPricelist(QMainWindow):
             # Proceed with JSON update if the user is authorized
             try:
                 cursor = self.conn.cursor()
-                cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-                tables = [table[0] for table in cursor.fetchall()]
+                cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='materials';")
+                table_exists = cursor.fetchone()
 
                 all_data = {}
-                for table in tables:
-                    df = pd.read_sql_query(f"SELECT * FROM {table}", self.conn)
-                    all_data[table] = df.to_dict(orient="records")
+                if table_exists:
+                    df = pd.read_sql_query("SELECT * FROM materials", self.conn)
+                    all_data["materials"] = df.to_dict(orient="records")
 
                 if all_data:
                     parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
@@ -2614,7 +2614,7 @@ class BasicPricelist(QMainWindow):
             QMessageBox.critical(self, "Database Error", f"An error occurred while fetching vendor: {e}")
             return None
 
-    #############   API     ##############
+    #############   API OPERATIONS     ##############
 
     def import_from_API(self):
         api_url = "https://mm-api-rz05.onrender.com"
@@ -2750,6 +2750,8 @@ class BasicPricelist(QMainWindow):
             )''')
 
             # Copy data from the source database to the target database
+            # Do not copy existing data     TODO: Append the data from source to target.
+
             source_cursor.execute("SELECT * FROM materialsAPI")
             rows = source_cursor.fetchall()
             target_cursor.executemany('''
@@ -2762,9 +2764,6 @@ class BasicPricelist(QMainWindow):
             target_conn.commit()
 
             QMessageBox.information(self, "Success", "Database refreshed successfully!")
-
-            # After refreshing the database, reload the data into the table
-            self.load_data()
 
         except sqlite3.DatabaseError as e:
             QMessageBox.warning(self, "Database Error", f"An error occurred while refreshing the database: {e}")
