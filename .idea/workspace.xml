@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Refresh db appends with unique mat_id.">
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Refresh db appends with unique mat_id A-Z Suffix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -224,14 +222,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00296" summary="Materials Manager v1.1 Deployed">
-      <option name="closed" value="true" />
-      <created>1733915960317</created>
-      <option name="number" value="00296" />
-      <option name="presentableId" value="LOCAL-00296" />
-      <option name="project" value="LOCAL" />
-      <updated>1733915960317</updated>
     </task>
     <task id="LOCAL-00297" summary="v2-API Update">
       <option name="closed" value="true" />
@@ -617,7 +607,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738536973170</updated>
     </task>
-    <option name="localTasksCounter" value="345" />
+    <task id="LOCAL-00345" summary="Refresh db appends with unique mat_id A-Z Suffix">
+      <option name="closed" value="true" />
+      <created>1738537460755</created>
+      <option name="number" value="00345" />
+      <option name="presentableId" value="LOCAL-00345" />
+      <option name="project" value="LOCAL" />
+      <updated>1738537460755</updated>
+    </task>
+    <option name="localTasksCounter" value="346" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -632,7 +630,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="comment not a necessary field." />
     <MESSAGE value="Done." />
     <MESSAGE value="Work on Compare vendors." />
     <MESSAGE value="Vendors Price Comparison works." />
@@ -657,6 +654,7 @@
     <MESSAGE value="API done - append to existing data outstanding." />
     <MESSAGE value="current username shows when app loads." />
     <MESSAGE value="Refresh db appends with unique mat_id." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refresh db appends with unique mat_id." />
+    <MESSAGE value="Refresh db appends with unique mat_id A-Z Suffix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refresh db appends with unique mat_id A-Z Suffix" />
   </component>
 </project>
