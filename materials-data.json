@@ -44,6 +44,21 @@
             "vendor_location": "Sample 3 - API",
             "price_date": "01/02/2025",
             "comment": "Sample 3 - API"
+        },
+        {
+            "id": 4,
+            "mat_id": "MAT-4",
+            "trade": "Sample 4 - API",
+            "material_name": "Sample 4 - API",
+            "currency": "GHS",
+            "price": 1.0,
+            "unit": "m",
+            "vendor": "Sample 4 - API",
+            "vendor_phone": "123",
+            "vendor_email": "a@b.com",
+            "vendor_location": "Sample 4 - API",
+            "price_date": "01/02/2025",
+            "comment": "Sample 4 - API"
         }
     ]
 }
