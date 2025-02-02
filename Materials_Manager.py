@@ -172,7 +172,7 @@ class BasicPricelist(QMainWindow):
 
         # Create the label for the user
         self.default_user_label = QLabel()
-        self.update_default_user_label("No existing User selected")  # Placeholder text for now
+        self.update_default_user_label(self.current_user_name())  # Placeholder text for now
         self.default_user_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
 
         # Add the icon and label to the layout
@@ -385,6 +385,23 @@ class BasicPricelist(QMainWindow):
         else:
             # Set text color to blue once a user is selected
             self.default_user_label.setStyleSheet("color: blue;")
+
+    # A function that returns the current user_name
+    def current_user_name(self):
+        # Query the users.db for the current user
+        try:
+            # Initialize users database
+            self.users_conn = sqlite3.connect('users.db')
+            self.users_c = self.users_conn.cursor()
+
+            self.users_c.execute("SELECT name FROM users WHERE is_default = 1 LIMIT 1")
+            user = self.users_c.fetchone()
+
+            return user[0]
+
+        except Exception as e:
+            print(f"Error checking user: {str(e)}")
+            return None
 
 
     def open_jobs_info_window(self):
