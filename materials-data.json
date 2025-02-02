@@ -3,7 +3,7 @@
         {
             "id": 1,
             "mat_id": "MAT-1",
-            "trade": "Sample 1",
+            "trade": "Sample 1 - TEST",
             "material_name": "Sample 1",
             "currency": "GHS",
             "price": 1.0,
@@ -18,7 +18,7 @@
         {
             "id": 2,
             "mat_id": "MAT-1A",
-            "trade": "Sample 1 - TEST",
+            "trade": "Sample 1",
             "material_name": "Sample 1",
             "currency": "GHS",
             "price": 1.0,
