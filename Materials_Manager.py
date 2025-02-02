@@ -2730,27 +2730,23 @@ class BasicPricelist(QMainWindow):
             conn.close()  # Ensure connection is closed
 
     #############   REFRESH DATABASES     ##############
-    # Replace the contents of materials.db with materialsAPI.db
 
+    # Replace the contents of materials.db with materialsAPI.db
     def refresh_databases(self, source_db_filename):
-        """# This function copies the data from materialsAPI.db to materials.db.
-        If the "materials.db" file already exists, it will be overwritten.
-        After refreshing the database, the new data will be available in "materials.db".
-        This can be useful for scenarios where the database needs to be reset with the latest data
-        from the API download process or when switching between different data sources."""
+        """Appends new data from materialsAPI.db to materials.db.
+        If a mat_id already exists but has different content, a new unique mat_id is assigned."""
         try:
             parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
             target_db_filename = os.path.join(parent_dir, "materials.db")
 
             # Connect to the source (materialsAPI.db) and target (materials.db) databases
-            source_conn = sqlite3.connect(source_db_filename)   # materialsAPI.db
-            target_conn = sqlite3.connect(target_db_filename)   # materials.db
+            source_conn = sqlite3.connect(source_db_filename)
+            target_conn = sqlite3.connect(target_db_filename)
             source_cursor = source_conn.cursor()
             target_cursor = target_conn.cursor()
 
-            # Drop existing materials.db and create them again in the target database
-            target_cursor.execute("DROP TABLE IF EXISTS materials")
-            target_cursor.execute('''CREATE TABLE materials (
+            # Ensure the target database has the materials table
+            target_cursor.execute('''CREATE TABLE IF NOT EXISTS materials (
                 id INTEGER PRIMARY KEY,
                 mat_id TEXT UNIQUE,
                 trade TEXT,
@@ -2766,20 +2762,37 @@ class BasicPricelist(QMainWindow):
                 comment TEXT
             )''')
 
-            # Copy data from the source database to the target database
-            # Do not only copy or overwrite existing data     TODO: Append the data from source to target.
-
+            # Fetch all data from source
             source_cursor.execute("SELECT * FROM materialsAPI")
             rows = source_cursor.fetchall()
-            target_cursor.executemany('''
-                INSERT INTO materials (
-                    id, mat_id, trade, material_name, currency, price, unit, 
-                    vendor, vendor_phone, vendor_email, vendor_location, price_date, comment
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ''', rows)
+
+            # Check for existing mat_id and insert data
+            for row in rows:
+                mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, vendor_location, price_date, comment = row[
+                                                                                                                                                1:]
+
+                # Check if mat_id already exists
+                target_cursor.execute("SELECT * FROM materials WHERE mat_id = ?", (mat_id,))
+                existing_row = target_cursor.fetchone()
+
+                if existing_row:
+                    # Compare existing row with new row (excluding the id column)
+                    if existing_row[1:] != row[1:]:
+                        new_mat_id = self.generate_new_mat_id(target_cursor, mat_id)
+                        target_cursor.execute('''
+                            INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, vendor_location, price_date, comment)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        ''', (
+                        new_mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email,
+                        vendor_location, price_date, comment))
+                else:
+                    target_cursor.execute('''
+                        INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, vendor_location, price_date, comment)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ''', (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email,
+                          vendor_location, price_date, comment))
 
             target_conn.commit()
-
             QMessageBox.information(self, "Success", "Database refreshed successfully!")
 
         except sqlite3.DatabaseError as e:
@@ -2788,12 +2801,18 @@ class BasicPricelist(QMainWindow):
         except Exception as e:
             QMessageBox.warning(self, "Unexpected Error", f"An error occurred: {str(e)}")
         finally:
-            # Close connections
             source_conn.close()
             target_conn.close()
 
-
-
+    def generate_new_mat_id(self, cursor, base_mat_id):
+        """Generates a unique material ID by appending a numeric suffix (e.g., MAT-1 → MAT-2)."""
+        suffix = 2
+        while True:
+            new_mat_id = f"{base_mat_id}-{suffix}"
+            cursor.execute("SELECT COUNT(*) FROM materials WHERE mat_id = ?", (new_mat_id,))
+            if cursor.fetchone()[0] == 0:
+                return new_mat_id
+            suffix += 1
 
     def about(self):
         icon_folder_path = os.path.join(os.path.dirname(__file__), "images")
