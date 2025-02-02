@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Refresh db appends with unique mat_id A-Z Suffix">
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/materials-data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -227,14 +225,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00299" summary="v2-API Update - localhost ready.">
-      <option name="closed" value="true" />
-      <created>1738244570801</created>
-      <option name="number" value="00299" />
-      <option name="presentableId" value="LOCAL-00299" />
-      <option name="project" value="LOCAL" />
-      <updated>1738244570801</updated>
     </task>
     <task id="LOCAL-00300" summary="v2-API Update - localhost ready.">
       <option name="closed" value="true" />
@@ -620,7 +610,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738538612364</updated>
     </task>
-    <option name="localTasksCounter" value="348" />
+    <task id="LOCAL-00348" summary="Done">
+      <option name="closed" value="true" />
+      <created>1738539296151</created>
+      <option name="number" value="00348" />
+      <option name="presentableId" value="LOCAL-00348" />
+      <option name="project" value="LOCAL" />
+      <updated>1738539296151</updated>
+    </task>
+    <option name="localTasksCounter" value="349" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -635,7 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Done." />
     <MESSAGE value="Work on Compare vendors." />
     <MESSAGE value="Vendors Price Comparison works." />
     <MESSAGE value="Ready for deployment v1.1 (if item_text is 'None' make it null)." />
@@ -660,6 +657,7 @@
     <MESSAGE value="current username shows when app loads." />
     <MESSAGE value="Refresh db appends with unique mat_id." />
     <MESSAGE value="Refresh db appends with unique mat_id A-Z Suffix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refresh db appends with unique mat_id A-Z Suffix" />
+    <MESSAGE value="Done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done" />
   </component>
 </project>
