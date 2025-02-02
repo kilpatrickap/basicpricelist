@@ -1,3 +1,5 @@
+import string
+
 import requests
 import json
 import os
@@ -2805,14 +2807,22 @@ class BasicPricelist(QMainWindow):
             target_conn.close()
 
     def generate_new_mat_id(self, cursor, base_mat_id):
-        """Generates a unique material ID by appending a numeric suffix (e.g., MAT-1 → MAT-2)."""
-        suffix = 2
-        while True:
-            new_mat_id = f"{base_mat_id}-{suffix}"
+        """Generates a unique material ID by appending an alphabetic suffix (e.g., MAT-1 → MAT-1A, MAT-1B)."""
+        for letter in string.ascii_uppercase:  # Iterate over A-Z
+            new_mat_id = f"{base_mat_id}{letter}"
             cursor.execute("SELECT COUNT(*) FROM materials WHERE mat_id = ?", (new_mat_id,))
             if cursor.fetchone()[0] == 0:
                 return new_mat_id
-            suffix += 1
+
+        # If A-Z are all taken, append AA, AB, AC...
+        for first in string.ascii_uppercase:
+            for second in string.ascii_uppercase:
+                new_mat_id = f"{base_mat_id}{first}{second}"
+                cursor.execute("SELECT COUNT(*) FROM materials WHERE mat_id = ?", (new_mat_id,))
+                if cursor.fetchone()[0] == 0:
+                    return new_mat_id
+
+        raise ValueError(f"Could not generate a unique mat_id for {base_mat_id}")  # Should never happen in practice
 
     def about(self):
         icon_folder_path = os.path.join(os.path.dirname(__file__), "images")
