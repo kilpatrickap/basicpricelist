@@ -318,7 +318,7 @@ class BasicPricelist(QMainWindow):
             return None
 
     def authorized_users_to_post_API(self):
-        authorized_users = ["kilpatrickap18", "kil"]   #todo change user.
+        authorized_users = ["kilpatrickap18"]   #todo change user.
         return authorized_users
 
     def update_json(self):
