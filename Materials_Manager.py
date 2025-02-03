@@ -2644,13 +2644,13 @@ class BasicPricelist(QMainWindow):
         # Ask user for confirmation before proceeding with API download
         reply = QMessageBox.question(
             self,
-            "Confirm API Data Download",
+            "Confirm API data download",
             "Would you like to download the latest materials data from the API?",
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
         )
 
         if reply == QMessageBox.StandardButton.No:
-            QMessageBox.information(self, "Operation Canceled", "Materials data download from the API was canceled.")
+            QMessageBox.information(self, "API data download Canceled", "Materials data download from the API was canceled.")
             return  # Exit function if user chooses No
 
         if self.download_json(api_url, json_filename):

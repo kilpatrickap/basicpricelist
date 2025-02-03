@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Done">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pricelist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pricelist.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Materials_Manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Materials_Manager.py" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API download confirmation by user DONE!">
       <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,14 +224,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00302" summary="v2-API Update - localhost ready.">
-      <option name="closed" value="true" />
-      <created>1738246587939</created>
-      <option name="number" value="00302" />
-      <option name="presentableId" value="LOCAL-00302" />
-      <option name="project" value="LOCAL" />
-      <updated>1738246587939</updated>
     </task>
     <task id="LOCAL-00303" summary="v2-API Update - localhost ready.">
       <option name="closed" value="true" />
@@ -621,7 +609,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738540756674</updated>
     </task>
-    <option name="localTasksCounter" value="351" />
+    <task id="LOCAL-00351" summary="API download confirmation by user DONE!">
+      <option name="closed" value="true" />
+      <created>1738570307724</created>
+      <option name="number" value="00351" />
+      <option name="presentableId" value="LOCAL-00351" />
+      <option name="project" value="LOCAL" />
+      <updated>1738570307724</updated>
+    </task>
+    <option name="localTasksCounter" value="352" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -636,7 +632,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Work on Compare vendors." />
     <MESSAGE value="Vendors Price Comparison works." />
     <MESSAGE value="Ready for deployment v1.1 (if item_text is 'None' make it null)." />
     <MESSAGE value="Ready for deployment v1.1" />
@@ -661,6 +656,7 @@
     <MESSAGE value="Refresh db appends with unique mat_id." />
     <MESSAGE value="Refresh db appends with unique mat_id A-Z Suffix" />
     <MESSAGE value="Done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done" />
+    <MESSAGE value="API download confirmation by user DONE!" />
+    <option name="LAST_COMMIT_MESSAGE" value="API download confirmation by user DONE!" />
   </component>
 </project>
