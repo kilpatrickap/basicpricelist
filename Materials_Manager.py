@@ -2641,11 +2641,23 @@ class BasicPricelist(QMainWindow):
         json_filename = os.path.join(parent_dir, "materials-data.json")
         db_filename = os.path.join(parent_dir, "materialsAPI.db")
 
+        # Ask user for confirmation before proceeding with API download
+        reply = QMessageBox.question(
+            self,
+            "Confirm API Data Download",
+            "Would you like to download the latest materials data from the API?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+        )
+
+        if reply == QMessageBox.StandardButton.No:
+            QMessageBox.information(self, "Operation Canceled", "Materials data download from the API was canceled.")
+            return  # Exit function if user chooses No
+
         if self.download_json(api_url, json_filename):
             self.create_and_populate_db(json_filename, db_filename)
             QMessageBox.information(self, "Success", "Database updated successfully!")
 
-            #  Refresh the databases
+            # Refresh the databases
             self.refresh_databases(db_filename)
 
             # After refreshing the database, reload the data into the table
@@ -2787,8 +2799,7 @@ class BasicPricelist(QMainWindow):
                 same_content_exists = target_cursor.fetchone()[0] > 0
 
                 if same_content_exists:
-                    # If contents are the same, skip this row
-                    continue
+                    continue  # Skip this row if contents are the same
 
                 # Check if mat_id already exists in the target database
                 target_cursor.execute("SELECT * FROM materials WHERE mat_id = ?", (mat_id,))
