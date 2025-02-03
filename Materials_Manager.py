@@ -2736,12 +2736,14 @@ class BasicPricelist(QMainWindow):
     # Replace the contents of materials.db with materialsAPI.db
     def refresh_databases(self, source_db_filename):
         """Appends new data from materialsAPI.db to materials.db.
-        If a mat_id already exists but has different content, a new unique mat_id is assigned."""
+        - If a mat_id already exists but has different content, assign a new unique mat_id.
+        - If mat_ids are different but contents are the same, do not append the source record.
+        """
         try:
             parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
             target_db_filename = os.path.join(parent_dir, "materials.db")
 
-            # Connect to the source (materialsAPI.db) and target (materials.db) databases
+            # Connect to source (materialsAPI.db) and target (materials.db) databases
             source_conn = sqlite3.connect(source_db_filename)
             target_conn = sqlite3.connect(target_db_filename)
             source_cursor = source_conn.cursor()
@@ -2773,27 +2775,42 @@ class BasicPricelist(QMainWindow):
                 mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, vendor_location, price_date, comment = row[
                                                                                                                                                 1:]
 
-                # Check if mat_id already exists
+                # Check if the same content already exists in the target DB, regardless of mat_id
+                target_cursor.execute('''
+                    SELECT COUNT(*) FROM materials 
+                    WHERE trade = ? AND material_name = ? AND currency = ? AND price = ? AND unit = ? 
+                    AND vendor = ? AND vendor_phone = ? AND vendor_email = ? AND vendor_location = ? 
+                    AND price_date = ? AND comment = ?
+                ''', (trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, vendor_location,
+                      price_date, comment))
+
+                same_content_exists = target_cursor.fetchone()[0] > 0
+
+                if same_content_exists:
+                    # If contents are the same, skip this row
+                    continue
+
+                # Check if mat_id already exists in the target database
                 target_cursor.execute("SELECT * FROM materials WHERE mat_id = ?", (mat_id,))
                 existing_row = target_cursor.fetchone()
 
                 if existing_row:
-                    # Compare existing row with new row (excluding the id column)
-                    if existing_row[1:] != row[1:]:
-                        new_mat_id = self.generate_new_mat_id(target_cursor, mat_id)
-                        target_cursor.execute('''
-                            INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, vendor_location, price_date, comment)
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                        ''', (
-                        new_mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email,
-                        vendor_location, price_date, comment))
+                    # If mat_id exists but content is different, generate a new mat_id
+                    new_mat_id = self.generate_new_mat_id(target_cursor, mat_id)
+                    target_cursor.execute('''
+                        INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, vendor_location, price_date, comment)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ''', (new_mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email,
+                          vendor_location, price_date, comment))
                 else:
+                    # If mat_id does not exist, insert normally
                     target_cursor.execute('''
                         INSERT INTO materials (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email, vendor_location, price_date, comment)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ''', (mat_id, trade, material_name, currency, price, unit, vendor, vendor_phone, vendor_email,
                           vendor_location, price_date, comment))
 
+            # Commit changes
             target_conn.commit()
             QMessageBox.information(self, "Success", "Database refreshed successfully!")
 
