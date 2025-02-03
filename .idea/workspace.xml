@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API download confirmation by user DONE!" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API download confirmation by user DONE!">
+      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -222,14 +224,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00305" summary="v2-API Update - localhost ready.">
-      <option name="closed" value="true" />
-      <created>1738248083414</created>
-      <option name="number" value="00305" />
-      <option name="presentableId" value="LOCAL-00305" />
-      <option name="project" value="LOCAL" />
-      <updated>1738248083414</updated>
     </task>
     <task id="LOCAL-00306" summary="v2-API Update - localhost ready.">
       <option name="closed" value="true" />
@@ -615,7 +609,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738571839258</updated>
     </task>
-    <option name="localTasksCounter" value="354" />
+    <task id="LOCAL-00354" summary="API download confirmation by user DONE!">
+      <option name="closed" value="true" />
+      <created>1738572047675</created>
+      <option name="number" value="00354" />
+      <option name="presentableId" value="LOCAL-00354" />
+      <option name="project" value="LOCAL" />
+      <updated>1738572047675</updated>
+    </task>
+    <option name="localTasksCounter" value="355" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
