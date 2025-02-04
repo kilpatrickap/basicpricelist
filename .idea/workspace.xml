@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Setup - _internal folder directory issues.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Setup - _internal folder directory issues.-- FIXED!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -224,14 +222,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00314" summary="Update_json live for API integration.">
-      <option name="closed" value="true" />
-      <created>1738319489020</created>
-      <option name="number" value="00314" />
-      <option name="presentableId" value="LOCAL-00314" />
-      <option name="project" value="LOCAL" />
-      <updated>1738319489020</updated>
     </task>
     <task id="LOCAL-00315" summary="Update_json live for API integration.">
       <option name="closed" value="true" />
@@ -617,7 +607,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738673787568</updated>
     </task>
-    <option name="localTasksCounter" value="363" />
+    <task id="LOCAL-00363" summary="Setup - _internal folder directory issues.-- FIXED!">
+      <option name="closed" value="true" />
+      <created>1738674530991</created>
+      <option name="number" value="00363" />
+      <option name="presentableId" value="LOCAL-00363" />
+      <option name="project" value="LOCAL" />
+      <updated>1738674530991</updated>
+    </task>
+    <option name="localTasksCounter" value="364" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -632,7 +630,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ready for deployment v1.1" />
     <MESSAGE value="Materials Manager v1.1 Deployed" />
     <MESSAGE value="v2-API Update" />
     <MESSAGE value="v2-API Update - localhost ready." />
@@ -657,6 +654,7 @@
     <MESSAGE value="API download confirmation by user DONE!" />
     <MESSAGE value="DONE." />
     <MESSAGE value="Setup - _internal folder directory issues." />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup - _internal folder directory issues." />
+    <MESSAGE value="Setup - _internal folder directory issues.-- FIXED!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup - _internal folder directory issues.-- FIXED!" />
   </component>
 </project>
