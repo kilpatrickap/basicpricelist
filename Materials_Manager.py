@@ -76,7 +76,7 @@ class BasicPricelist(QMainWindow):
             return button
 
         # Adding tool buttons with icons to the toolbar
-        jobs_button = create_tool_button_with_icon("job.png", "Job", self.open_jobs_info_window)
+        jobs_button = create_tool_button_with_icon("job.png", "Jobs", self.open_jobs_info_window)
         self.toolBar.addWidget(jobs_button)
         self.toolBar.addSeparator()  # Separator between icons
 
@@ -84,7 +84,7 @@ class BasicPricelist(QMainWindow):
         self.toolBar.addWidget(jobs_list_button)
         self.toolBar.addSeparator()
 
-        user_button = create_tool_button_with_icon("user.png", "User", self.open_user_info_window)
+        user_button = create_tool_button_with_icon("user.png", "Users", self.open_user_info_window)
         self.toolBar.addWidget(user_button)
         self.toolBar.addSeparator()
 
