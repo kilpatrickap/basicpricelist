@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="API download confirmation by user DONE!">
-      <change beforePath="$PROJECT_DIR$/materials.db" beforeDir="false" afterPath="$PROJECT_DIR$/materials.db" afterDir="false" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="DONE.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +30,12 @@
     &quot;assignee&quot;: &quot;kilpatrickap&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/kilpatrickap/basicpricelist",
-    "accountId": "b2b34f02-6aa0-4641-8b55-d64aff92f9a3"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kilpatrickap/basicpricelist&quot;,
+    &quot;accountId&quot;: &quot;b2b34f02-6aa0-4641-8b55-d64aff92f9a3&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -224,14 +224,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00306" summary="v2-API Update - localhost ready.">
-      <option name="closed" value="true" />
-      <created>1738249702712</created>
-      <option name="number" value="00306" />
-      <option name="presentableId" value="LOCAL-00306" />
-      <option name="project" value="LOCAL" />
-      <updated>1738249702712</updated>
     </task>
     <task id="LOCAL-00307" summary="v2-API Update - API ready.">
       <option name="closed" value="true" />
@@ -617,7 +609,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738572047675</updated>
     </task>
-    <option name="localTasksCounter" value="355" />
+    <task id="LOCAL-00355" summary="DONE.">
+      <option name="closed" value="true" />
+      <created>1738574545654</created>
+      <option name="number" value="00355" />
+      <option name="presentableId" value="LOCAL-00355" />
+      <option name="project" value="LOCAL" />
+      <updated>1738574545654</updated>
+    </task>
+    <option name="localTasksCounter" value="356" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -632,7 +632,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Vendors Price Comparison works." />
     <MESSAGE value="Ready for deployment v1.1 (if item_text is 'None' make it null)." />
     <MESSAGE value="Ready for deployment v1.1" />
     <MESSAGE value="Materials Manager v1.1 Deployed" />
@@ -657,6 +656,7 @@
     <MESSAGE value="Refresh db appends with unique mat_id A-Z Suffix" />
     <MESSAGE value="Done" />
     <MESSAGE value="API download confirmation by user DONE!" />
-    <option name="LAST_COMMIT_MESSAGE" value="API download confirmation by user DONE!" />
+    <MESSAGE value="DONE." />
+    <option name="LAST_COMMIT_MESSAGE" value="DONE." />
   </component>
 </project>

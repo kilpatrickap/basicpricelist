@@ -111,11 +111,11 @@ class BasicPricelist(QMainWindow):
         self.toolBar.addWidget(vendors_button)
         self.toolBar.addSeparator()
 
-        rfp_button = create_tool_button_with_icon("rfp.png", "Request For Vendors Prices", self.open_rfp_window)
+        rfp_button = create_tool_button_with_icon("rfp.png", "Request For Prices", self.open_rfp_window)
         self.toolBar.addWidget(rfp_button)
         self.toolBar.addSeparator()
 
-        compare_button = create_tool_button_with_icon("price-comparison.png", "Compare Vendors Price",
+        compare_button = create_tool_button_with_icon("price-comparison.png", "Compare Prices",
                                                       self.open_compare_window)
         self.toolBar.addWidget(compare_button)
         self.toolBar.addSeparator()
