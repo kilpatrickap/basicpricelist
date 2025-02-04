@@ -107,7 +107,7 @@ class BasicPricelist(QMainWindow):
         self.toolBar.addWidget(delete_material_button)
         self.toolBar.addSeparator()
 
-        vendors_button = create_tool_button_with_icon("vendors.png", "Vendor Management", self.show_vendor_list_window)
+        vendors_button = create_tool_button_with_icon("vendors.png", "Manage Vendors", self.show_vendor_list_window)
         self.toolBar.addWidget(vendors_button)
         self.toolBar.addSeparator()
 
