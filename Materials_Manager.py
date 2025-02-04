@@ -2637,7 +2637,7 @@ class BasicPricelist(QMainWindow):
 
     def import_from_API(self):
         api_url = "https://mm-api-rz05.onrender.com"
-        parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
+        parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         json_filename = os.path.join(parent_dir, "materials-data.json")
         db_filename = os.path.join(parent_dir, "materialsAPI.db")
 
@@ -2752,7 +2752,7 @@ class BasicPricelist(QMainWindow):
         - If mat_ids are different but contents are the same, do not append the source record.
         """
         try:
-            parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
+            parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
             target_db_filename = os.path.join(parent_dir, "materials.db")
 
             # Connect to source (materialsAPI.db) and target (materials.db) databases
