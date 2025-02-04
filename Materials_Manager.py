@@ -31,7 +31,7 @@ class BasicPricelist(QMainWindow):
         # Define the path to the icons folder
         icon_folder_path = os.path.join(os.path.dirname(__file__), "images")
 
-        self.setWindowTitle('Materials Manager v.1.0')
+        self.setWindowTitle('Materials Manager')
         self.setGeometry(50, 50, 1400, 750)
 
         # Create an icon for the window.
