@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Setup - _internal folder directory issues.-- FIXED!" />
+    <list default="true" id="e8f71255-f392-45c7-9744-3b6cc3a5406a" name="Changes" comment="Done!!!!">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,17 +71,17 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Consar-Kilpatrick/PycharmProjects/materials_manager/images&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Consar-Kilpatrick/PycharmProjects/materials_manager/Materials_Manager_setup&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;settings.codegpt.services.ollama&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\materials_manager\Materials_Manager_setup" />
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\materials_manager\images" />
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\materials_manager" />
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\materials_manager\ico_file" />
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\pricelist\images" />
-      <recent name="$PROJECT_DIR$/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Consar-Kilpatrick\PycharmProjects\materials_manager\Setup_Tutorials_and_License" />
@@ -222,14 +224,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730363742290</updated>
-    </task>
-    <task id="LOCAL-00316" summary="authorized users only can post to API.">
-      <option name="closed" value="true" />
-      <created>1738321798755</created>
-      <option name="number" value="00316" />
-      <option name="presentableId" value="LOCAL-00316" />
-      <option name="project" value="LOCAL" />
-      <updated>1738321798755</updated>
     </task>
     <task id="LOCAL-00317" summary="API authorized post integration done.">
       <option name="closed" value="true" />
@@ -615,7 +609,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738676882407</updated>
     </task>
-    <option name="localTasksCounter" value="365" />
+    <task id="LOCAL-00365" summary="Done!!!!">
+      <option name="closed" value="true" />
+      <created>1738677239395</created>
+      <option name="number" value="00365" />
+      <option name="presentableId" value="LOCAL-00365" />
+      <option name="project" value="LOCAL" />
+      <updated>1738677239395</updated>
+    </task>
+    <option name="localTasksCounter" value="366" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -630,7 +632,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Materials Manager v1.1 Deployed" />
     <MESSAGE value="v2-API Update" />
     <MESSAGE value="v2-API Update - localhost ready." />
     <MESSAGE value="v2-API Update - API ready." />
@@ -655,6 +656,7 @@
     <MESSAGE value="DONE." />
     <MESSAGE value="Setup - _internal folder directory issues." />
     <MESSAGE value="Setup - _internal folder directory issues.-- FIXED!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup - _internal folder directory issues.-- FIXED!" />
+    <MESSAGE value="Done!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done!!!!" />
   </component>
 </project>
